@@ -14,14 +14,15 @@ public class AdditionModel {
 
   public AdditionModel() {
     sum.bind(x.add(y));
+   
   }
 
   public final IntegerProperty xProperty() {
-    return this.x;
+    return x;
   }
 
   public final int getX() {
-    return this.xProperty().get();
+    return x.get();
   }
 
   public final void setX(final int x) {
