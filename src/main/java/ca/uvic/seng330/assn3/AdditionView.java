@@ -45,10 +45,10 @@ public class AdditionView {
 
   private void observeModelAndUpdateControls() {
     model.xProperty().addListener((obs, oldX, newX) ->
-        updateIfNeeded(newX, xField));
+    updateIfNeeded(newX, xField));
 
     model.yProperty().addListener((obs, oldY, newY) ->
-        updateIfNeeded(newY, yField));
+    updateIfNeeded(newY, yField));
 
     sumLabel.textProperty().bind(model.sumProperty().asString());
   }

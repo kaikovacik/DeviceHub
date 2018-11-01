@@ -14,7 +14,6 @@ public class AdditionModel {
 
   public AdditionModel() {
     sum.bind(x.add(y));
-   
   }
 
   public final IntegerProperty xProperty() {
@@ -26,7 +25,7 @@ public class AdditionModel {
   }
 
   public final void setX(final int x) {
-    this.xProperty().set(x);
+    this.x.set(x);
   }
 
   public final IntegerProperty yProperty() {
@@ -44,6 +43,7 @@ public class AdditionModel {
   public final javafx.beans.property.ReadOnlyIntegerProperty sumProperty() {
     return this.sum.getReadOnlyProperty();
   }
+  
 
   public final int getSum() {
     return this.sumProperty().get();
