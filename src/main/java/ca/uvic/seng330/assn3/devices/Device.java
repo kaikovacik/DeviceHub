@@ -3,16 +3,21 @@ package ca.uvic.seng330.assn3.devices;
 import ca.uvic.seng330.assn3.*;
 import java.util.UUID;
 
-/* Device was initally a superclass
- * That implemented these three
- * methods for its subclasses.
- * Chanege was made to adhere to 
- * the tests. */
-public interface Device {
+public abstract class Device {
 
-  public void setStatus(Status status);
+  protected Status aStatus;
+  protected UUID aID;
+  protected Hub aOwner;
+  
+  public void setStatus(Status pStatus) {
+    aStatus = pStatus;
+  }
+  
+  public Status getStatus() {
+    return aStatus;
+  }
 
-  public UUID getIdentifier();
-
-  public Status getStatus();
+  public UUID getIdentifier() {
+    return aID;
+  }
 }

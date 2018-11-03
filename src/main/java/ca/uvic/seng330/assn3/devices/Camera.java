@@ -3,7 +3,7 @@ package ca.uvic.seng330.assn3.devices;
 import ca.uvic.seng330.assn3.*;
 import java.util.UUID;
 
-public class Camera implements Device {
+public class Camera extends Device {
 
   private Status status;
   private UUID id;
