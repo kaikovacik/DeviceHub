@@ -1,6 +1,7 @@
 package ca.uvic.seng330.assn3;
 
 import org.junit.Test;
+import ca.uvic.seng330.assn3.*;
 
 public class BasicTests {
   
