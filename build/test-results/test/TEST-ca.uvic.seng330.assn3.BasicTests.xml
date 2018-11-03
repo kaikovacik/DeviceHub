@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ca.uvic.seng330.assn3.BasicTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2018-11-03T23:43:57" hostname="Seth-Laptop" time="0.048">
+  <properties/>
+  <testcase name="testObjectsExist" classname="ca.uvic.seng330.assn3.BasicTests" time="0.048"/>
+  <system-out><![CDATA[Test Objects Exist
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

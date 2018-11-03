@@ -23,10 +23,15 @@ public class BasicTests {
     Lightbulb lightbulb1 = new Lightbulb(hubC);
     SmartPlug smartplug1 = new SmartPlug(hubC);
 
-    hubC.register(camera1);
-    hubC.register(thermostat1);
-    hubC.register(lightbulb1);
-    hubC.register(smartplug1);
+    try {
+      hubC.register(camera1);
+      hubC.register(thermostat1);
+      hubC.register(lightbulb1);
+      hubC.register(smartplug1);
+    } catch (HubRegistrationException e) {
+      // TODO Auto-generated catch block
+      System.out.println(e.getMessage());
+    }
 
   }
   

@@ -69,10 +69,9 @@ public class HubController implements Mediator {
   }
 
   public void unregister(DeviceModel device) throws HubRegistrationException {
-    String id = device.getIdentifier().toString();
-
-    if (registry.containsKey(id)) {
-      registry.remove(id, device);
+ 
+    if (registry.containsKey(device.getIdentifier())) {
+      registry.remove(device.getIdentifier(), device);
     } else {
       throw new HubRegistrationException("Specified device is not in the network");
     }
@@ -81,8 +80,10 @@ public class HubController implements Mediator {
   public void addClient(Client client) {
     clients.add(client);
   }
-
+  
+  // TODO: We should make this return a deep copy.
   public HashMap<UUID, DeviceModel> getDevices() {
     return registry;
+    
   }
 }
