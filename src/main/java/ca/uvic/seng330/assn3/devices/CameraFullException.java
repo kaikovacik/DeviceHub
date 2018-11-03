@@ -1,4 +1,4 @@
-package ca.uvic.seng330.assn2.part1.devices;
+package ca.uvic.seng330.assn3.devices;
 
 public class CameraFullException extends Exception {
   

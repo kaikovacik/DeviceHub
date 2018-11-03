@@ -1,4 +1,4 @@
-package ca.uvic.seng330.assn3.template;
+package ca.uvic.seng330.assn3.template2;
 
 import javafx.application.Application;
 import javafx.scene.Parent;
