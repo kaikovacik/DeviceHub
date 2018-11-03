@@ -11,7 +11,7 @@ public class ClickApplication extends Application {
   // application for acceptance tests.
   @Override public void start(Stage stage) {
     Parent sceneRoot = new ClickPane();
-    Scene scene = new Scene(sceneRoot, 100, 100);
+    Scene scene = new Scene(sceneRoot, 100, 500);
     stage.setScene(scene);
     stage.show();
   }
