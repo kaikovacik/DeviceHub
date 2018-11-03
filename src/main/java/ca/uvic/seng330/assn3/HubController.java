@@ -10,23 +10,23 @@ import java.util.UUID;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-public class Hub implements Mediator {
+public class HubController implements Mediator {
 
-  private HashMap<UUID, Device> registry;
+  private HashMap<UUID, DeviceModel> registry;
   private LinkedList<Client> clients;
   private final Logger log;
 
-  public Hub() {
+  public HubController() {
     this.registry = new HashMap<>();
     this.clients = new LinkedList<>();
-    this.log = LoggerFactory.getLogger(Hub.class);
+    this.log = LoggerFactory.getLogger(HubController.class);
   }
 
   public void log(String message) {
     log.info(message);
   }
 
-  public void alert(Device device, String message) {
+  public void alert(DeviceModel device, String message) {
     JSONObject json = new JSONMessaging(device , message).invoke();
 
     for (Client client : clients) {
@@ -34,7 +34,7 @@ public class Hub implements Mediator {
     }
   }
 
-  public void register(Device device) throws HubRegistrationException {
+  public void register(DeviceModel device) throws HubRegistrationException {
     try {
       registry.put(device.getIdentifier(), device);
     } catch (Exception e) {
@@ -47,8 +47,8 @@ public class Hub implements Mediator {
    * and alerting the clients that each device is now operational.
    */
   public void startup() {
-    for (Device device : registry.values()) {
-      device.setStatus(Status.NORMAL); // use .turnOn()
+    for (DeviceModel device : registry.values()) {
+      device.turnOn();
       alert(device, (device.getClass().toString() + " (" + device.getIdentifier().toString() + ") is now operational"));
     }
   }
@@ -58,8 +58,8 @@ public class Hub implements Mediator {
    * and alerting the clients that each device is no longer operational. 
    */
   public void shutdown() {
-    for (Device device : registry.values()) {
-      device.setStatus(Status.DISABLED); // use .shutDown()
+    for (DeviceModel device : registry.values()) {
+      device.turnOff();
       alert(device, (device.getClass().toString() + " (" + device.getIdentifier().toString() + ") is no longer operational"));
     }
   }
@@ -68,7 +68,7 @@ public class Hub implements Mediator {
     return registry.size();
   }
 
-  public void unregister(Device device) throws HubRegistrationException {
+  public void unregister(DeviceModel device) throws HubRegistrationException {
     String id = device.getIdentifier().toString();
 
     if (registry.containsKey(id)) {
@@ -82,7 +82,7 @@ public class Hub implements Mediator {
     clients.add(client);
   }
 
-  public HashMap<UUID, Device> getDevices() {
+  public HashMap<UUID, DeviceModel> getDevices() {
     return registry;
   }
 }

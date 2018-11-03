@@ -3,7 +3,7 @@ package ca.uvic.seng330.assn3.devices;
 import ca.uvic.seng330.assn3.*;
 import java.util.UUID;
 
-public class Lightbulb extends Device{
+public class Lightbulb extends DeviceModel{
 
   private Mediator network;
   private boolean isOn;
@@ -33,5 +33,12 @@ public class Lightbulb extends Device{
 
   public boolean getCondition() {
     return isOn;
+  }
+  
+  public void turnOff() {
+    if (isOn) {
+      toggle();
+    }
+    super.turnOff();
   }
 }

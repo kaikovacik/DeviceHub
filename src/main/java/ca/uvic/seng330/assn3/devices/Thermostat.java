@@ -4,7 +4,7 @@ import ca.uvic.seng330.assn3.*;
 import ca.uvic.seng330.assn3.devices.Temperature.TemperatureOutofBoundsException;
 import java.util.UUID;
 
-public class Thermostat extends Device {
+public class Thermostat extends DeviceModel {
 
   private Mediator network;
   private Temperature temp;

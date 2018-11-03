@@ -7,11 +7,11 @@ import java.util.UUID;
 
 public class JSONMessaging {
 
-  private Device device;
+  private DeviceModel device;
   private String message;
   private Date date;
 
-  public JSONMessaging(Device device, String message) {
+  public JSONMessaging(DeviceModel device, String message) {
     this.device = device;
     this.message = message;
     this.date = new Date();

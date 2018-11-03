@@ -3,11 +3,11 @@ package ca.uvic.seng330.assn3.devices;
 import ca.uvic.seng330.assn3.*;
 import java.util.UUID;
 
-public abstract class Device {
+public abstract class DeviceModel {
 
   protected Status aStatus;
   protected UUID aID;
-  protected Hub aOwner;
+  protected HubController aOwner;
   
   public void setStatus(Status pStatus) {
     aStatus = pStatus;
@@ -19,5 +19,14 @@ public abstract class Device {
 
   public UUID getIdentifier() {
     return aID;
+  }
+  
+  
+  public void turnOn() {
+    aStatus = Status.NORMAL;
+  }
+  
+  public void turnOff() {
+    aStatus = Status.OFF;
   }
 }

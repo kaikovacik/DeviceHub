@@ -6,9 +6,9 @@ public interface Mediator {
 
   public void log(String message);
 
-  public void alert(Device device, String message);
+  public void alert(DeviceModel device, String message);
 
-  public void register(Device device) throws HubRegistrationException;
+  public void register(DeviceModel device) throws HubRegistrationException;
 
   public void startup();
 
@@ -16,7 +16,7 @@ public interface Mediator {
 
   public int numOfDevices();
 
-  public void unregister(Device device) throws HubRegistrationException;
+  public void unregister(DeviceModel device) throws HubRegistrationException;
 
   public void addClient(Client client);
 }
