@@ -2,7 +2,16 @@ package ca.uvic.seng330.assn3;
 
 import org.json.JSONObject;
 
-public interface Client {
+public class Client {
 
-  public void notify(JSONObject pMsg);
+  private Mediator network;
+
+  public Client(Mediator network) {
+    this.network = network;
+    this.network.addClient(this);
+  }
+
+  public void notify(JSONObject pMsg) {
+    System.out.println(pMsg);
+  }
 }

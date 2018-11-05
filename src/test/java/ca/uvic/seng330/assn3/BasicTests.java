@@ -3,15 +3,16 @@ package ca.uvic.seng330.assn3;
 import org.junit.Test;
 import ca.uvic.seng330.assn3.*;
 import ca.uvic.seng330.assn3.devices.*;
+import org.slf4j.impl.StaticLoggerBinder;
 
 public class BasicTests {
-  
+
   @Test
   public void testShitWorks() {
     System.out.println("hi");
     //return true;
   }
-  
+
   @Test
   public void testObjectsExist() {
 
@@ -28,11 +29,12 @@ public class BasicTests {
       hubC.register(thermostat1);
       hubC.register(lightbulb1);
       hubC.register(smartplug1);
+      System.out.println("ok");
     } catch (HubRegistrationException e) {
       // TODO Auto-generated catch block
       System.out.println(e.getMessage());
     }
 
   }
-  
+
 }

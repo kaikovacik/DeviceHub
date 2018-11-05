@@ -37,6 +37,7 @@ public class HubController implements Mediator {
   public void register(DeviceModel device) throws HubRegistrationException {
     try {
       registry.put(device.getIdentifier(), device);
+      alert(device, ("Device (" + device.getIdentifier().toString() + ") added to network"));
     } catch (Exception e) {
       throw new HubRegistrationException((device == null)? "Invalid device" : "Unable to add this device");
     };
