@@ -2,18 +2,17 @@ package ca.uvic.seng330.assn3;
 
 import ca.uvic.seng330.assn3.devices.*;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.UUID;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.UUID;
-import java.util.HashMap;
-import java.util.LinkedList;
-
 public class HubController implements Mediator {
 
   private HashMap<UUID, DeviceModel> registry;
-  private LinkedList<Client> clients;
+  public LinkedList<Client> clients;
   private final Logger log;
 
   public HubController() {
@@ -27,20 +26,21 @@ public class HubController implements Mediator {
   }
 
   public void alert(DeviceModel device, String message) {
-    JSONObject json = new JSONMessaging(device , message).invoke();
+    JSONObject json = new JSONMessaging(device, message).invoke();
 
     for (Client client : clients) {
-        client.notify(json);
+      client.notify(json);
     }
   }
 
   public void register(DeviceModel device) throws HubRegistrationException {
     try {
       registry.put(device.getIdentifier(), device);
-      alert(device, ("Device (" + device.getIdentifier().toString() + ") added to network"));
+      alert(device, (device.getClass().getSimpleName() + " (" + device.getIdentifier().toString() + ") added to network"));
     } catch (Exception e) {
-      throw new HubRegistrationException((device == null)? "Invalid device" : "Unable to add this device");
-    };
+      throw new HubRegistrationException((device == null) ? "Invalid device" : "Unable to add this device");
+    }
+    ;
   }
 
   /*
@@ -70,7 +70,7 @@ public class HubController implements Mediator {
   }
 
   public void unregister(DeviceModel device) throws HubRegistrationException {
- 
+
     if (registry.containsKey(device.getIdentifier())) {
       registry.remove(device.getIdentifier(), device);
     } else {
@@ -81,10 +81,10 @@ public class HubController implements Mediator {
   public void addClient(Client client) {
     clients.add(client);
   }
-  
+
   // TODO: We should make this return a deep copy.
   public HashMap<UUID, DeviceModel> getDevices() {
     return registry;
-    
+
   }
 }

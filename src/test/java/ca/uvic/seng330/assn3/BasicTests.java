@@ -19,11 +19,16 @@ public class BasicTests {
     System.out.println("Test Objects Exist");
 
     HubController hubC = new HubController();
+    Client client = new Client(hubC);
+
     Camera camera1 = new Camera(hubC);
+    System.out.println(hubC.clients.toString());
+    
     Thermostat thermostat1 = new Thermostat(hubC);
     Lightbulb lightbulb1 = new Lightbulb(hubC);
     SmartPlug smartplug1 = new SmartPlug(hubC);
-
+    
+    /*
     try {
       hubC.register(camera1);
       hubC.register(thermostat1);
@@ -34,6 +39,7 @@ public class BasicTests {
       // TODO Auto-generated catch block
       System.out.println(e.getMessage());
     }
+     */
 
   }
 

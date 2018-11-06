@@ -17,7 +17,6 @@ public class Camera extends DeviceModel {
     this.network = network;
     try {
       this.network.register(this);
-      network.alert(this, ("Camera (" + this.aID.toString() + ") added to network"));
     } catch (HubRegistrationException e) {
       return;
     }

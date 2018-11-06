@@ -16,7 +16,6 @@ public class Thermostat extends DeviceModel {
     this.network = network;
     try {
       this.network.register(this);
-      network.alert(this, ("Thermostat (" + this.aID.toString() + ") added to network"));
     } catch (HubRegistrationException e) {
       return;
     }
@@ -29,7 +28,6 @@ public class Thermostat extends DeviceModel {
     this.network = network;
     try {
       this.network.register(this);
-      network.alert(this, ("Thermostat (" + this.aID.toString() + ") added to network"));
     } catch (HubRegistrationException e) {
       return;
     }

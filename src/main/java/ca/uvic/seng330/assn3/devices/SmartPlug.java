@@ -15,7 +15,6 @@ public class SmartPlug extends DeviceModel {
     this.network = network;
     try {
       this.network.register(this);
-      network.alert(this, ("Smart Plug (" + this.aID.toString() + ") added to network"));
     } catch (HubRegistrationException e) {
       return;
     }
@@ -34,7 +33,7 @@ public class SmartPlug extends DeviceModel {
   public boolean getCondition() {
     return isOn;
   }
-  
+
   public void turnOff() {
     if (isOn) {
       toggle();

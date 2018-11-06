@@ -15,7 +15,6 @@ public class Lightbulb extends DeviceModel{
     this.network = network;
     try {
       this.network.register(this);
-      network.alert(this, ("Lightbulb (" + this.aID.toString() + ") added to network"));
     } catch (HubRegistrationException e) {
       return;
     }

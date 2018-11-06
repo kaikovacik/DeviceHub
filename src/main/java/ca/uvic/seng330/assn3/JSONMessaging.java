@@ -22,7 +22,7 @@ public class JSONMessaging {
     JSONObject json = new JSONObject();
 
     json.put("msg_id", UUID.randomUUID());
-    json.put("node_id", device.getIdentifier());
+    json.put("device_id", device.getIdentifier());
     json.put("status", device.getStatus());
     json.put("payload", message);
     json.put("created_at", date.toString());
