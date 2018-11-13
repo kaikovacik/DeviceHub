@@ -1,5 +1,8 @@
 package ca.uvic.seng330.assn3.sethMVCtesting;
 
+import ca.uvic.seng330.assn3.sethMVCtestingDevices.CameraController;
+import ca.uvic.seng330.assn3.sethMVCtestingDevices.CameraModel;
+import ca.uvic.seng330.assn3.sethMVCtestingDevices.CameraView;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
@@ -11,14 +14,24 @@ public class MVCExample extends Application {
   @Override
   public void start(Stage primaryStage) {
     
-    CameraModel cameraModel1 = new CameraModel();
-    CameraController cameraController1 = new CameraController(cameraModel1);
-    View cameraView1 = new View(cameraController1, cameraModel1);
+    Organizer organizer = new Organizer();
     
-    CameraModel cameraModel2 = new CameraModel();
+    CameraModel cameraModel1 = new CameraModel(organizer);
+    CameraController cameraController1 = new CameraController(cameraModel1);
+    CameraView cameraView1 = new CameraView(cameraController1, cameraModel1);
+    
+    CameraModel cameraModel2 = new CameraModel(organizer);
     CameraController cameraController2 = new CameraController(cameraModel2);
-    View cameraView2 = new View(cameraController2, cameraModel2);
-
+    CameraView cameraView2 = new CameraView(cameraController2, cameraModel2);
+        
+    try {
+      organizer.register(cameraModel1);
+    } catch (HubRegistrationException e) {
+      System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
+      e.printStackTrace();
+    }
+    
+    
     VBox vBox = new VBox(cameraView1.asParent(),cameraView2.asParent());
     //blue border
     vBox.setStyle("-fx-padding: 10; -fx-border-style: solid inside;" + 

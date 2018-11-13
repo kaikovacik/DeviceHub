@@ -1,11 +1,11 @@
-package ca.uvic.seng330.assn3.sethMVCtesting;
+package ca.uvic.seng330.assn3.sethMVCtestingDevices;
+
+import java.util.UUID;
 
 import ca.uvic.seng330.assn3.Status;
 import ca.uvic.seng330.assn3.devices.CameraFullException;
+import ca.uvic.seng330.assn3.sethMVCtesting.Organizer;
 import javafx.beans.property.BooleanProperty;
-/*
- * Code sample from https://stackoverflow.com/questions/36868391/using-javafx-controller-without-fxml/36873768
- */
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ReadOnlyIntegerWrapper;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -15,11 +15,14 @@ public class CameraModel extends DeviceModel{
 
   private BooleanProperty isThisRecording = new SimpleBooleanProperty();
   private int diskSizeRemaining;
+  private Organizer organizer;
 
-  public CameraModel() {
-    diskSizeRemaining  = 3;
-    isThisRecording.set(false);
-    aStatus = Status.NORMAL;
+  public CameraModel(Organizer pOrganizer) {
+    this.aID = UUID.randomUUID();
+    this.diskSizeRemaining = 2;
+    this.isThisRecording.set(false);
+    this.aStatus = Status.NORMAL;
+    this.organizer = pOrganizer; 
   }
 
   public int getDiskSize() {

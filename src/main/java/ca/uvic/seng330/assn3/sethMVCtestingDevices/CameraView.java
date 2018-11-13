@@ -1,4 +1,4 @@
-package ca.uvic.seng330.assn3.sethMVCtesting;
+package ca.uvic.seng330.assn3.sethMVCtestingDevices;
 
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
@@ -17,14 +17,14 @@ import javafx.scene.layout.Priority;
 /*
  * Code sample from https://stackoverflow.com/questions/36868391/using-javafx-controller-without-fxml/36873768
  */
-public class View {
+public class CameraView {
 
   private GridPane view ;
   private CameraController cameraController ;
   private Label recordingLabel;
   private Label statusLabel;
 
-  public View(CameraController controller, CameraModel model) {
+  public CameraView(CameraController controller, CameraModel model) {
     
     createAndConfigurePane();
     this.cameraController = controller ;
