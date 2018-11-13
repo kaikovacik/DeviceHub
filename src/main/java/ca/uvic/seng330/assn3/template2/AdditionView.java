@@ -44,8 +44,7 @@ public class AdditionView {
   }
 
   private void observeModelAndUpdateControls() {
-    model.xProperty().addListener((obs, oldX, newX) ->
-    updateIfNeeded(newX, xField));
+    model.xProperty().addListener((obs, oldX, newX) -> updateIfNeeded(newX, xField));
 
     model.yProperty().addListener((obs, oldY, newY) ->
     updateIfNeeded(newY, yField));
