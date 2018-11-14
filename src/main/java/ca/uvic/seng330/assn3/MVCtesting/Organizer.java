@@ -44,7 +44,7 @@ public class Organizer{
   public void register(DeviceModel device) throws HubRegistrationException {
     try {
       registry.put(device.getIdentifier(), device);
-      alert(device, ("Camera " + device.getIdentifier().toString() + ") added"));
+      alert(device, ("Camera (" + device.getIdentifier().toString() + ") added"));
     } catch (Exception e) {
       throw new HubRegistrationException((device == null) ? "Invalid device" : "Unable to add this device");
     }

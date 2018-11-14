@@ -28,7 +28,7 @@ public class CameraView {
   private Label memoryLabel;
   private Label currentMemoryLabel;
   
-  private Button toggleB;
+  private Button onOffB;
   private Button recordB;
   private Button eraseB;
 
@@ -40,19 +40,19 @@ public class CameraView {
     statusLabel = new Label();
     statusLabel.textProperty().bind(controller.aStatus);
     
-    toggleB = new Button("Start");
-    toggleB.setLayoutX(50);
-    toggleB.setLayoutY(50);
-    toggleB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+    onOffB = new Button("Start");
+    onOffB.setLayoutX(50);
+    onOffB.setLayoutY(50);
+    onOffB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       
       public void handle(MouseEvent event) {
         if ((controller.aStatus.getValue()).equals("OFF")) {
           controller.turnOn();
-          toggleB.setText("Turn OFF");
+          onOffB.setText("Turn OFF");
           showData();
-        } else if ((controller.aStatus.getValue()).equals("NORMAL") || (controller.aStatus.getValue()).equals("ERROR")) {
+        } else {
           controller.turnOff();
-          toggleB.setText("Start");
+          onOffB.setText("Start");
           hideData();
         }
       } 
@@ -86,7 +86,7 @@ public class CameraView {
     
     // Construct UI
     view.addRow(0, new Label("Camera Status:"), statusLabel);
-    view.addRow(1, toggleB);
+    view.addRow(1, onOffB);
     view.addRow(2, recordB, recordingLabel); 
     view.addRow(3, eraseB, currentMemoryLabel, memoryLabel);
     

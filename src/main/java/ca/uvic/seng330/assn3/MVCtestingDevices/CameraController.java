@@ -19,7 +19,7 @@ public class CameraController {
     this.organizer = pOrganizer;
     aStatus.set(model.getStatus().toString());
 
-    try {
+    try { // registration is here because CamController needs to know about organizer to alert it anyways.
       organizer.register(model);
     } catch (HubRegistrationException e) {
       System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
@@ -51,7 +51,7 @@ public class CameraController {
     }
   }
   
-  //This and method 'isModelRecordingProperty' is some bad code duplication
+  //This is some bad code duplication
   public final BooleanProperty isModelRecordingProperty() {
     return model.isThisRecordingProperty();
   }
@@ -66,6 +66,7 @@ public class CameraController {
   }
   
   public final void turnOff() {
+    stopRecording();
     model.turnOff();
     aStatus.set("OFF");
   }
