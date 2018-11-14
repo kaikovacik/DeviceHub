@@ -176,9 +176,9 @@ public class ThermostatView {
           return;
         }
         try {
-          model.setSetting(Integer.parseInt(temperatureField.getText()));
-          fahrenheitLabel.setText(temperatureField.getText() + "F");
+          model.setSetting((Integer.parseInt(temperatureField.getText()) - 32) * 5 / 9);
           celsiusLabel.setText((Integer.parseInt(temperatureField.getText()) - 32) * 5 / 9 + "C");
+          fahrenheitLabel.setText(Integer.parseInt(temperatureField.getText()) + "F");
           temperatureField.setText("");
         } catch (ThermostatModel.TemperatureOutofBoundsException e) {
           System.err.println("ALERT"); //change to an actual alert
