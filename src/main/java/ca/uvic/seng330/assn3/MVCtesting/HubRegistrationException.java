@@ -1,4 +1,4 @@
-package ca.uvic.seng330.assn3.sethMVCtesting;
+package ca.uvic.seng330.assn3.MVCtesting;
 
 import ca.uvic.seng330.assn3.devices.*;
 

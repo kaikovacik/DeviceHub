@@ -1,4 +1,4 @@
-package ca.uvic.seng330.assn3.sethMVCtestingDevices;
+package ca.uvic.seng330.assn3.MVCtestingDevices;
 
 import ca.uvic.seng330.assn3.Status;
 import javafx.beans.property.BooleanProperty;

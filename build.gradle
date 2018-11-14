@@ -12,7 +12,7 @@ repositories {
     mavenCentral()
 }
 
-mainClassName = "ca.uvic.seng330.assn3.sethMVCtesting.CameraDriver"
+mainClassName = "ca.uvic.seng330.assn3.MVCtesting.ThermostatDriver"
 
 dependencies {
 	compile 'org.json:json:20180813','org.slf4j:slf4j-simple:1.7.25'

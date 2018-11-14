@@ -1,7 +1,7 @@
-package ca.uvic.seng330.assn3.sethMVCtesting;
+package ca.uvic.seng330.assn3.MVCtesting;
 
 import org.json.JSONObject;
-import ca.uvic.seng330.assn3.sethMVCtestingDevices.DeviceModel;
+import ca.uvic.seng330.assn3.MVCtestingDevices.DeviceModel;
 import java.util.Date;
 import java.util.UUID;
 

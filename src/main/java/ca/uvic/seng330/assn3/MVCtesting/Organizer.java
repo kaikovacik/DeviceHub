@@ -1,4 +1,4 @@
-package ca.uvic.seng330.assn3.sethMVCtesting;
+package ca.uvic.seng330.assn3.MVCtesting;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -7,7 +7,7 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ca.uvic.seng330.assn3.sethMVCtestingDevices.DeviceModel;
+import ca.uvic.seng330.assn3.MVCtestingDevices.DeviceModel;
 
 public class Organizer{
 

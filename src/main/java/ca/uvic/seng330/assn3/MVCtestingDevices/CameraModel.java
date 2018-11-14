@@ -1,10 +1,9 @@
-package ca.uvic.seng330.assn3.sethMVCtestingDevices;
+package ca.uvic.seng330.assn3.MVCtestingDevices;
 
 import java.util.UUID;
-
 import ca.uvic.seng330.assn3.Status;
 import ca.uvic.seng330.assn3.devices.CameraFullException;
-import ca.uvic.seng330.assn3.sethMVCtesting.Organizer;
+import ca.uvic.seng330.assn3.MVCtesting.Organizer;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.ReadOnlyIntegerWrapper;

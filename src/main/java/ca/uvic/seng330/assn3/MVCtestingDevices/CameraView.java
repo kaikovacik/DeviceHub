@@ -1,4 +1,4 @@
-package ca.uvic.seng330.assn3.sethMVCtestingDevices;
+package ca.uvic.seng330.assn3.MVCtestingDevices;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.EventHandler;
@@ -37,6 +37,9 @@ public class CameraView {
     createAndConfigurePane();
     this.controller = controller ;
     
+    statusLabel = new Label();
+    statusLabel.textProperty().bind(controller.aStatus);
+    
     toggleB = new Button("Start");
     toggleB.setLayoutX(50);
     toggleB.setLayoutY(50);
@@ -55,9 +58,6 @@ public class CameraView {
     })); 
       
     // The following is only set as visible when camera is on
-    statusLabel = new Label();
-    statusLabel.textProperty().bind(controller.aStatus);
-    
     recordingLabel = new Label("Camera is not recording");
     
     recordB = new Button("Toggle Recording"); 
@@ -84,10 +84,10 @@ public class CameraView {
     }));    
     
     // Construct UI
-    view.addRow(0, toggleB);
-    view.addRow(1, recordB, recordingLabel); 
-    view.addRow(2, eraseB, currentMemoryLabel, memoryLabel);
-    view.addRow(3, new Label("Camera Status:"), statusLabel);
+    view.addRow(0, new Label("Camera Status:"), statusLabel);
+    view.addRow(1, toggleB);
+    view.addRow(2, recordB, recordingLabel); 
+    view.addRow(3, eraseB, currentMemoryLabel, memoryLabel);
     
     hideData();
   }

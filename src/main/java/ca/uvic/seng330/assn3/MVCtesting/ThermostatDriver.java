@@ -1,15 +1,17 @@
-package ca.uvic.seng330.assn3.sethMVCtesting;
+package ca.uvic.seng330.assn3.MVCtesting;
 
-import ca.uvic.seng330.assn3.sethMVCtestingDevices.CameraController;
-import ca.uvic.seng330.assn3.sethMVCtestingDevices.CameraModel;
-import ca.uvic.seng330.assn3.sethMVCtestingDevices.CameraView;
+import ca.uvic.seng330.assn3.MVCtestingDevices.CameraController;
+import ca.uvic.seng330.assn3.MVCtestingDevices.CameraModel;
+import ca.uvic.seng330.assn3.MVCtestingDevices.CameraView;
+import ca.uvic.seng330.assn3.MVCtestingDevices.ThermostatModel;
+import ca.uvic.seng330.assn3.MVCtestingDevices.ThermostatView;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class CameraDriver extends Application {
+public class ThermostatDriver extends Application {
 
   @Override
   public void start(Stage primaryStage) {
@@ -25,7 +27,7 @@ public class CameraDriver extends Application {
     ThermostatView thermostatView2 = new ThermostatView(thermostatModel2); 
 
     try {
-      organizer.register(cameraModel1);
+      organizer.register(thermostatModel1);
     } catch (HubRegistrationException e) {
       System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
       e.printStackTrace();

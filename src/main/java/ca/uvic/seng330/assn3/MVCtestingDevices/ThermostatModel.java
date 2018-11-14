@@ -1,15 +1,3 @@
-// package ca.uvic.seng330.assn3.sethMVCtestingDevices;
-
-// import java.util.UUID;
-
-// import ca.uvic.seng330.assn3.Status;
-// import ca.uvic.seng330.assn3.devices.CameraFullException;
-// import ca.uvic.seng330.assn3.sethMVCtesting.Organizer;
-// import javafx.beans.property.BooleanProperty;
-// import javafx.beans.property.IntegerProperty;
-// import javafx.beans.property.ReadOnlyIntegerWrapper;
-// import javafx.beans.property.SimpleBooleanProperty;
-// import javafx.beans.property.SimpleIntegerProperty;
 
 // public class CameraModel extends DeviceModel {
 
@@ -69,119 +57,72 @@
 
 
 
-package ca.uvic.seng330.assn3.devices;
+package ca.uvic.seng330.assn3.MVCtestingDevices;
 
-import ca.uvic.seng330.assn3.*;
-import ca.uvic.seng330.assn3.devices.Temperature.TemperatureOutofBoundsException;
 import java.util.UUID;
 
-public class Thermostat extends DeviceModel {
+import ca.uvic.seng330.assn3.Status;
+import ca.uvic.seng330.assn3.devices.CameraFullException;
+import ca.uvic.seng330.assn3.MVCtesting.Organizer;
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ReadOnlyIntegerWrapper;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
-  private Mediator network;
-  private Temperature temp;
-
-  public Thermostat(Temperature temp, Mediator network) {
-    this.aID = UUID.randomUUID();
-    this.aStatus = Status.NORMAL;
-    this.temp = temp;
-    this.network = network;
-    try {
-      this.network.register(this);
-    } catch (HubRegistrationException e) {
-      return;
-    }
-  }
-
-  public Thermostat(Mediator network) {
-    this.aID = UUID.randomUUID();
-    this.aStatus = Status.NORMAL;
-    this.temp = new Temperature(0, Temperature.Unit.CELSIUS);
-    this.network = network;
-    try {
-      this.network.register(this);
-    } catch (HubRegistrationException e) {
-      return;
-    }
-  }
-
-  public Thermostat(Temperature temp) {
-    this.aID = UUID.randomUUID();
-    this.aStatus = Status.NORMAL;
-    this.temp = temp;
-  }
-
-  public Thermostat() {
-    this.aID = UUID.randomUUID();
-    this.aStatus = Status.NORMAL;
-    this.temp = new Temperature(0, Temperature.Unit.CELSIUS);
-  }
-
-  // Valid temperatures are [0 - 1000] *C
-  public void setTemp(Temperature temp) throws TemperatureOutofBoundsException {
-    if (temp.getCelsius() > 1000) {
-      throw temp.new TemperatureOutofBoundsException("Temperature is too high");
-    } else if (temp.getCelsius() < 0) {
-      throw temp.new TemperatureOutofBoundsException("Temperature is too low");
-    } else {
-      this.temp = temp;
-    }
-  }
-
-  public Temperature getTemp() {
-    return temp;
-  }
-}
-
-
-/** Temperature class. */
-public class Temperature {
-
+public class ThermostatModel extends DeviceModel {
+  
   public class TemperatureOutofBoundsException extends Exception {
 
     public TemperatureOutofBoundsException(String message) {
       super(message);
     }
   }
-  public enum Unit {
-    CELSIUS,
-    FAHRENHEIT,
-    KELVIN
-  }
-  private double celsius;
-  private double fahrenheit;
-  private double kelvin;
 
-  public Temperature(double temp, Unit unit) {
-    switch (unit) {
-      case CELSIUS:
-        this.celsius = temp;
-        this.fahrenheit = temp * 9 / 5 + 32;
-        this.kelvin = temp + 273.15;
-        break;
-      case FAHRENHEIT:
-        this.celsius = (temp - 32) * 5 / 9;
-        this.fahrenheit = temp;
-        this.kelvin = (temp - 32) * 5 / 9 + 273.15;
-        break;
-      case KELVIN:
-        this.celsius = temp - 273.15;
-        this.fahrenheit = (temp - 273.15) * 9 / 5 + 32;
-        this.kelvin = temp;
-        break;
-      default:
-        return;
+  private IntegerProperty setting;
+  // Consider making the following default in DeviceModel
+  private StringProperty statusObsStr;
+  private int savedSetting;
+
+  public ThermostatModel() {
+    this.aID = UUID.randomUUID();
+    this.aStatus = Status.OFF;
+    this.statusObsStr = new SimpleStringProperty(aStatus.toString());
+    this.setting = new SimpleIntegerProperty(0);
+    this.savedSetting = 0;
+  }
+
+  // Valid temperatures are [0 - 50] (Celsius)
+  public void setSetting(int setting) throws TemperatureOutofBoundsException {
+    if (setting > 50) {
+      throw new TemperatureOutofBoundsException("Temperature is too high");
+    } else if (setting < 0) {
+      throw new TemperatureOutofBoundsException("Temperature is too low");
+    } else {
+      this.setting.set(setting);
+      this.savedSetting = setting;
     }
   }
-
-  public double getCelsius() {
-    return celsius;
+  
+  public StringProperty getStatusAsString() {
+    return statusObsStr;
   }
-
-  public double getFahrenheit() {
-    return fahrenheit;
+  
+  public IntegerProperty getSetting() {
+    return setting;
   }
-
-  public double getKelvin() {
-    return kelvin;
+  
+  public void turnOn() {
+    super.turnOn();
+    setting.set(savedSetting);
+    statusObsStr.set(aStatus.toString());
+  }
+  
+  public void turnOff() {
+    super.turnOff();
+    setting.set(0);
+    statusObsStr.set(aStatus.toString());
   }
 }

@@ -1,4 +1,4 @@
-package ca.uvic.seng330.assn3.sethMVCtesting;
+package ca.uvic.seng330.assn3.MVCtesting;
 
 import javafx.application.Application;
 import javafx.scene.Parent;
