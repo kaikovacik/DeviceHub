@@ -1,5 +1,7 @@
 package ca.uvic.seng330.assn3.MVCtestingDevices;
 
+import java.util.UUID;
+
 import ca.uvic.seng330.assn3.Status;
 import ca.uvic.seng330.assn3.MVCtesting.HubRegistrationException;
 import ca.uvic.seng330.assn3.MVCtesting.Organizer;
@@ -12,7 +14,6 @@ public class CameraController {
   public final SimpleStringProperty aStatus = new SimpleStringProperty();
   private final CameraModel model ;
   private Organizer organizer;
-
 
   public CameraController(CameraModel model, Organizer pOrganizer) {
     this.model = model;
@@ -51,18 +52,18 @@ public class CameraController {
     }
   }
   
-  //This is some bad code duplication
+  //Next two methods are bad code duplication
   public final BooleanProperty isModelRecordingProperty() {
     return model.isThisRecordingProperty();
   }
   
-  // So is this
   public final IntegerProperty diskSpaceLeft() {
     return model.getDiskSize();
   }
   
-  public final int diskSpace() {
-    return model.getMaxMem();
+  public final void setIsObject(boolean b) {
+    model.setIsObject(b);
+    if (b) organizer.alert(model, ("Camera (" + model.getIdentifier().toString() + ") detected an object!"));
   }
   
   public final void turnOff() {
@@ -78,7 +79,6 @@ public class CameraController {
   
   public void resetMemory() {
     stopRecording();
-    model.setDiskSize();
+    model.resetDiskSize();
   }
-
 }

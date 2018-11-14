@@ -13,9 +13,8 @@ import javafx.beans.property.SimpleIntegerProperty;
 public class CameraModel extends DeviceModel{
 
   private BooleanProperty isThisRecording = new SimpleBooleanProperty();
-  private BooleanProperty isPerson = new SimpleBooleanProperty();
   private SimpleIntegerProperty diskSizeRemaining = new SimpleIntegerProperty();
-
+  private boolean isObject;
   private static final int maxMem = 3;
 
   public CameraModel() {
@@ -23,7 +22,7 @@ public class CameraModel extends DeviceModel{
     this.diskSizeRemaining.set(maxMem);
     this.isThisRecording.set(false);
     this.aStatus = Status.OFF;
-    this.isPerson.set(false);
+    this.isObject = false;
   }
 
   public IntegerProperty getDiskSize() {
@@ -33,8 +32,12 @@ public class CameraModel extends DeviceModel{
   public int getMaxMem() {
     return maxMem;
   }
+  
+  public void setIsObject(boolean b) {
+    isObject = b;
+  }
 
-  protected void setDiskSize() {
+  protected void resetDiskSize() {
     diskSizeRemaining.set(maxMem);
   }
 

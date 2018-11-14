@@ -37,13 +37,14 @@ public class CameraDriver extends Application {
         "-fx-border-radius: 5; -fx-border-color: blue;"
     );
     System.out.println(organizer.numOfDevices());
-    Scene scene1 = new Scene(vBox, 400, organizer.numOfDevices()*150+75);
+    Scene scene1 = new Scene(vBox, 500, organizer.numOfDevices()*150+75);
     
     // you can only have one scene/pane in a stage at a time, 
     // but a pane can contain multiple panes (Vbox)
     primaryStage.setScene(scene1);
     primaryStage.setTitle("Cameras");
     primaryStage.show();
+    cameraController2.setIsObject(true);
   }
 
   public static void main(String[] args) {

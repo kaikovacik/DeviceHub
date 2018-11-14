@@ -48,11 +48,13 @@ public class CameraView {
       public void handle(MouseEvent event) {
         if ((controller.aStatus.getValue()).equals("OFF")) {
           controller.turnOn();
+          recordingLabel.setText((controller.isModelRecordingProperty().getValue())? "Camera is recording" : "Camera is not recording");
           onOffB.setText("Turn OFF");
           showData();
         } else {
           controller.turnOff();
           onOffB.setText("Start");
+          //recordingLabel.setText((controller.isModelRecordingProperty().getValue())? "Camera is recording" : "Camera is not recording");
           hideData();
         }
       } 
@@ -70,7 +72,7 @@ public class CameraView {
         recordingLabel.setText((controller.isModelRecordingProperty().getValue())? "Camera is recording" : "Camera is not recording");
       } 
     })); 
-    
+
     memoryLabel = new Label();
     memoryLabel.textProperty().bind(controller.diskSpaceLeft().asString());
     currentMemoryLabel = new Label("Memory: ");
