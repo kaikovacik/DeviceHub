@@ -1,5 +1,6 @@
 package ca.uvic.seng330.assn3.sethMVCtestingDevices;
 
+import javafx.beans.property.SimpleStringProperty;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
@@ -20,36 +21,91 @@ import javafx.scene.layout.Priority;
 public class CameraView {
 
   private GridPane view ;
-  private CameraController cameraController ;
+  private CameraController controller ;
+  
   private Label recordingLabel;
   private Label statusLabel;
+  private Label memoryLabel;
+  private Label currentMemoryLabel;
+  
+  private Button toggleB;
+  private Button recordB;
+  private Button eraseB;
 
-  public CameraView(CameraController controller, CameraModel model) {
+  public CameraView(CameraController controller) {
     
     createAndConfigurePane();
-    this.cameraController = controller ;
+    this.controller = controller ;
     
-    //Creating Toggle
-    Button toggleB = new Button("Toggle Recording"); 
-    toggleB.setLayoutX(50); 
-    toggleB.setLayoutY(50); 
-    
+    toggleB = new Button("Start");
+    toggleB.setLayoutX(50);
+    toggleB.setLayoutY(50);
     toggleB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
-      public void handle(MouseEvent event) { 
-        cameraController.record();
+      public void handle(MouseEvent event) {
+        if ((controller.aStatus.getValue()).equals("OFF")) {
+          controller.turnOn();
+          toggleB.setText("Turn OFF");
+          showData();
+        } else if ((controller.aStatus.getValue()).equals("NORMAL") || (controller.aStatus.getValue()).equals("ERROR")) {
+          controller.turnOff();
+          toggleB.setText("Start");
+          hideData();
+        }
       } 
-   })); 
-    
-    recordingLabel = new Label();
-    recordingLabel.textProperty().bind(cameraController.isModelRecordingProperty().asString());
-    
+    })); 
+      
+    // The following is only set as visible when camera is on
     statusLabel = new Label();
-    statusLabel.textProperty().bind(cameraController.aStatus);
+    statusLabel.textProperty().bind(controller.aStatus);
     
-    view.addRow(0,new Label("Camera Recording:"), recordingLabel);
-    view.addRow(0,new Label(), toggleB);
-    view.addRow(1, new Label("Camera Status:"), statusLabel);
-
+    recordingLabel = new Label("Camera is not recording");
+    
+    recordB = new Button("Toggle Recording"); 
+    recordB.setLayoutX(50); 
+    recordB.setLayoutY(50);  
+    recordB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+      public void handle(MouseEvent event) { 
+        controller.record();
+        recordingLabel.setText((controller.isModelRecordingProperty().getValue())? "Camera is recording" : "Camera is not recording");
+      } 
+    })); 
+    
+    memoryLabel = new Label();
+    memoryLabel.textProperty().bind(controller.diskSpaceLeft().asString());
+    currentMemoryLabel = new Label("Memory: ");
+    
+    eraseB = new Button("Erase Memory");
+    eraseB.setLayoutX(50); 
+    eraseB.setLayoutY(50); 
+    eraseB.setOnMouseClicked((new EventHandler<MouseEvent>() {
+      public void handle(MouseEvent event) {
+        controller.resetMemory();
+      }
+    }));    
+    
+    // Construct UI
+    view.addRow(0, toggleB);
+    view.addRow(1, recordB, recordingLabel); 
+    view.addRow(2, eraseB, currentMemoryLabel, memoryLabel);
+    view.addRow(3, new Label("Camera Status:"), statusLabel);
+    
+    hideData();
+  }
+  
+  private void showData() {
+    recordingLabel.setVisible(true);
+    recordB.setVisible(true);
+    memoryLabel.setVisible(true);
+    currentMemoryLabel.setVisible(true);
+    eraseB.setVisible(true);
+  }
+  
+  private void hideData() {
+    recordingLabel.setVisible(false);
+    recordB.setVisible(false);
+    memoryLabel.setVisible(false);
+    currentMemoryLabel.setVisible(false);
+    eraseB.setVisible(false);
   }
 
   private void createAndConfigurePane() {
@@ -69,12 +125,18 @@ public class CameraView {
     view.setVgap(10);
     view.borderProperty();
     // black border
-    view.setStyle("-fx-border-color: black; -fx-border-radius: 5;");
+    view.setStyle(
+        " -fx-padding: 10; " +
+        " -fx-border-color: black; " +
+        " -fx-border-radius: 5; " +
+        " -fx-box-shadow: 10px; " +
+        " -fx-background-color: lightgrey; " +
+        " -fx-background-radius: 5; "
+        );
   }
   
   public Parent asParent() {
     return view ;
   }
-  
   
 }
