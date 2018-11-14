@@ -25,7 +25,6 @@ public class CameraController {
     }else {
       model.setStatus(Status.ERROR);
       aStatus.set(model.getStatus().toString());
-    }
   }
   
   //This and method 'isModelRecordingProperty' is some bad code duplication

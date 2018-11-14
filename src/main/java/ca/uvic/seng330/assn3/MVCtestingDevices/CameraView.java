@@ -21,7 +21,7 @@ import javafx.scene.layout.Priority;
 public class CameraView {
 
   private GridPane view ;
-  private CameraController controller ;
+  private CameraController cameraController ;
   
   private Label recordingLabel;
   private Label statusLabel;
@@ -35,7 +35,7 @@ public class CameraView {
   public CameraView(CameraController controller) {
     
     createAndConfigurePane();
-    this.controller = controller ;
+    this.cameraController = controller ;
     
     statusLabel = new Label();
     statusLabel.textProperty().bind(controller.aStatus);
@@ -44,6 +44,7 @@ public class CameraView {
     toggleB.setLayoutX(50);
     toggleB.setLayoutY(50);
     toggleB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+      
       public void handle(MouseEvent event) {
         if ((controller.aStatus.getValue()).equals("OFF")) {
           controller.turnOn();

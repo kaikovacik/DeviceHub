@@ -8,12 +8,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import ca.uvic.seng330.assn3.MVCtestingDevices.DeviceModel;
+import javafx.beans.property.SimpleStringProperty;
 
 public class Organizer{
 
   private HashMap<UUID, DeviceModel> registry;
   //public LinkedList<Client> clients;
   private final Logger log;
+  private SimpleStringProperty lastAllert = new SimpleStringProperty();
 
   public Organizer() {
     this.registry = new HashMap<>();
@@ -26,18 +28,23 @@ public class Organizer{
   }
 
   //add list to allert
-  public void alert(DeviceModel device, String message) {
-    JSONObject json = new JSONMessaging(device, message).invoke();
-
+  public void alert(DeviceModel deviceModel, String message) {
+    JSONMessaging json = new JSONMessaging(deviceModel, message);
+    System.out.println(json.invoke());
+    lastAllert.set(message);
 //    for (Client client : clients) {
 //      client.notify(json);
 //    }
   }
 
+  public SimpleStringProperty getLastAllert() {
+    return lastAllert;
+  }
+  
   public void register(DeviceModel device) throws HubRegistrationException {
     try {
       registry.put(device.getIdentifier(), device);
-      alert(device, (device.getClass().getSimpleName() + " (" + device.getIdentifier().toString() + ") added to network"));
+      alert(device, ("Camera " + device.getIdentifier().toString() + ") added"));
     } catch (Exception e) {
       throw new HubRegistrationException((device == null) ? "Invalid device" : "Unable to add this device");
     }

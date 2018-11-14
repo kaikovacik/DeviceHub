@@ -1,4 +1,4 @@
-package ca.uvic.seng330.assn3.sethMVCtesting;
+package ca.uvic.seng330.assn3.MVCtesting;
 
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
@@ -17,47 +17,22 @@ import javafx.scene.layout.Priority;
 /*
  * Code sample from https://stackoverflow.com/questions/36868391/using-javafx-controller-without-fxml/36873768
  */
-public class CameraView {
+public class AllertView {
 
   private GridPane view ;
-  private CameraController cameraController;
-  
-  private Label recordingLabel;
+  //private CameraController cameraController ;
   private Label statusLabel;
-  //
-  //
-  
-  
-  
-  
+  private Organizer organizer;
 
-  public CameraView(CameraController controller, CameraModel model) {
-    
+  public AllertView(Organizer pOrganizer) {
+    this.organizer = pOrganizer;
     createAndConfigurePane();
-    this.cameraController = controller ;
-    
-    
-    
-    //Creating Toggle
-    Button toggleB = new Button("Toggle Recording"); 
-    toggleB.setLayoutX(50); 
-    toggleB.setLayoutY(50); 
-    toggleB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
-      
-      public void handle(MouseEvent event) { 
-        cameraController.record();
-      } 
-   })); 
-    
-    recordingLabel = new Label();
-    recordingLabel.textProperty().bind(cameraController.isModelRecordingProperty().asString());
-    
+ 
+    //recordingLabel.textProperty().bind(cameraController.isModelRecordingProperty().asString());
     statusLabel = new Label();
-    statusLabel.textProperty().bind(cameraController.aStatus);
+    statusLabel.textProperty().bind(organizer.getLastAllert());
     
-    view.addRow(0,new Label("Camera Recording:"), recordingLabel);
-    view.addRow(0,new Label(), toggleB);
-    view.addRow(1, new Label("Camera Status:"), statusLabel);
+    view.addRow(1, new Label("Allerts: "), statusLabel);
 
   }
 

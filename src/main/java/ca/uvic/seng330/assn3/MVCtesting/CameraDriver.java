@@ -15,24 +15,19 @@ public class CameraDriver extends Application {
   public void start(Stage primaryStage) {
     
     Organizer organizer = new Organizer();
+    AllertView allertView = new AllertView(organizer);
     
     CameraModel cameraModel1 = new CameraModel();
-    CameraController cameraController1 = new CameraController(cameraModel1);
+    CameraController cameraController1 = new CameraController(cameraModel1, organizer);
     CameraView cameraView1 = new CameraView(cameraController1);
     
     CameraModel cameraModel2 = new CameraModel();
-    CameraController cameraController2 = new CameraController(cameraModel2);
+    CameraController cameraController2 = new CameraController(cameraModel2, organizer);
     CameraView cameraView2 = new CameraView(cameraController2);
-        
-    try {
-      organizer.register(cameraModel1);
-    } catch (HubRegistrationException e) {
-      System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
-      e.printStackTrace();
-    }
-    
-    
+     
     VBox vBox = new VBox(cameraView1.asParent(),cameraView2.asParent());
+    vBox.getChildren().add(allertView.asParent());  
+    
     //blue border
     vBox.setStyle(
         "-fx-padding: 10;" +
@@ -40,7 +35,7 @@ public class CameraDriver extends Application {
         "-fx-border-width: 2;  -fx-border-insets: 5;" + 
         "-fx-border-radius: 5; -fx-border-color: blue;"
     );
-    Scene scene1 = new Scene(vBox, 400, 400);
+    Scene scene1 = new Scene(vBox, 400, organizer.numOfDevices()*300+100);
     
     // you can only have one scene/pane in a stage at a time, 
     // but a pane can contain multiple panes (Vbox)

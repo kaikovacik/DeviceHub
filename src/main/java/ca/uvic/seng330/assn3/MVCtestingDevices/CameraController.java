@@ -1,6 +1,8 @@
 package ca.uvic.seng330.assn3.MVCtestingDevices;
 
 import ca.uvic.seng330.assn3.Status;
+import ca.uvic.seng330.assn3.MVCtesting.HubRegistrationException;
+import ca.uvic.seng330.assn3.MVCtesting.Organizer;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
@@ -9,11 +11,20 @@ import javafx.beans.property.SimpleStringProperty;
 public class CameraController {
   public final SimpleStringProperty aStatus = new SimpleStringProperty();
   private final CameraModel model ;
-  
+  private Organizer organizer;
 
-  public CameraController(CameraModel model) {
+
+  public CameraController(CameraModel model, Organizer pOrganizer) {
     this.model = model;
+    this.organizer = pOrganizer;
     aStatus.set(model.getStatus().toString());
+
+    try {
+      organizer.register(model);
+    } catch (HubRegistrationException e) {
+      System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
+      e.printStackTrace();
+    }
   }
 
   public  final void record() {
@@ -26,6 +37,8 @@ public class CameraController {
     }else {
       model.setStatus(Status.ERROR);
       aStatus.set(model.getStatus().toString());
+      organizer.alert(model, "Camera is full!");
+     
     }
   }
   
