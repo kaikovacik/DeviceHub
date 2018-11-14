@@ -1,5 +1,6 @@
 package ca.uvic.seng330.assn3.MVCtestingDevices;
 
+import ca.uvic.seng330.assn3.MVCtesting.ThermostatDriver;
 import ca.uvic.seng330.assn3.devices.Temperature.TemperatureOutofBoundsException;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
@@ -82,17 +83,28 @@ public class ThermostatView {
   
   private Label statusLabel;
   private Label settingLabel;
-  private Label temperatureLabel;
+  private Label celsiusLabel;
+  private Label fahrenheitLabel;
   
   private TextField temperatureField;
   
   private Button toggleB;
   private Button celsiusB;
   private Button fahrenheitB;
+  private Button removeB;
+  
+  private ThermostatModel model;
+  private ThermostatDriver driver;
+  private ThermostatView thisone;
+  
+  public int index; // ****
 
   
   
-  public ThermostatView(ThermostatModel model) {
+  public ThermostatView(ThermostatModel model, ThermostatDriver driver) {
+    
+    this.model = model;
+    this.driver = driver;
     
     createAndConfigurePane();
     
@@ -115,10 +127,19 @@ public class ThermostatView {
         }
       } 
     })); 
+    
+    ThermostatView thisone = this;
+    removeB = new Button("Remove");
+    removeB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+      public void handle(MouseEvent event) {
+        driver.removeThermostat(thisone);
+      } 
+    })); 
       
     // The following is only set as visible when camera is on
     settingLabel = new Label("Set Thermostat:");
-    temperatureLabel = new Label("0C");
+    celsiusLabel = new Label("0C");
+    fahrenheitLabel = new Label("32F");
     
     temperatureField = new TextField();
     configTextFieldForInts(temperatureField);
@@ -136,7 +157,8 @@ public class ThermostatView {
         }
         try {
           model.setSetting(Integer.parseInt(temperatureField.getText()));
-          temperatureLabel.setText(temperatureField.getText() + "C");
+          celsiusLabel.setText(temperatureField.getText() + "C");
+          fahrenheitLabel.setText((Integer.parseInt(temperatureField.getText()) * 9 / 5 + 32) + "F");
           temperatureField.setText("");
         } catch (ThermostatModel.TemperatureOutofBoundsException e) {
           System.err.println("ALERT"); //change to an actual alert
@@ -155,7 +177,8 @@ public class ThermostatView {
         }
         try {
           model.setSetting(Integer.parseInt(temperatureField.getText()));
-          temperatureLabel.setText((Integer.parseInt(temperatureField.getText()) * 9 / 5 + 32) + "F");
+          fahrenheitLabel.setText(temperatureField.getText() + "F");
+          celsiusLabel.setText((Integer.parseInt(temperatureField.getText()) - 32) * 5 / 9 + "C");
           temperatureField.setText("");
         } catch (ThermostatModel.TemperatureOutofBoundsException e) {
           System.err.println("ALERT"); //change to an actual alert
@@ -165,8 +188,9 @@ public class ThermostatView {
     
     // Construct UI
     view.addRow(0, new Label("Thermostat Status:"), statusLabel);
-    view.addRow(1, toggleB);
-    view.addRow(2, settingLabel, temperatureField, temperatureLabel, celsiusB, fahrenheitB);
+    view.addRow(1, toggleB, removeB);
+    view.addRow(2, settingLabel, temperatureField, celsiusB, fahrenheitB);
+    view.addRow(3, celsiusLabel, fahrenheitLabel);
     
     hideData();
   }
@@ -174,7 +198,8 @@ public class ThermostatView {
   private void showData() {
     settingLabel.setVisible(true);
     temperatureField.setVisible(true);
-    temperatureLabel.setVisible(true);
+    celsiusLabel.setVisible(true);
+    fahrenheitLabel.setVisible(true);
     celsiusB.setVisible(true);
     fahrenheitB.setVisible(true);
   }
@@ -182,7 +207,8 @@ public class ThermostatView {
   private void hideData() {
     settingLabel.setVisible(false);
     temperatureField.setVisible(false);
-    temperatureLabel.setVisible(false);
+    celsiusLabel.setVisible(false);
+    fahrenheitLabel.setVisible(false);
     celsiusB.setVisible(false);
     fahrenheitB.setVisible(false);
   }

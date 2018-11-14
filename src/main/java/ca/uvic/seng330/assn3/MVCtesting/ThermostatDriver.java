@@ -6,34 +6,49 @@ import ca.uvic.seng330.assn3.MVCtestingDevices.CameraView;
 import ca.uvic.seng330.assn3.MVCtestingDevices.ThermostatModel;
 import ca.uvic.seng330.assn3.MVCtestingDevices.ThermostatView;
 import javafx.application.Application;
+import javafx.event.EventHandler;
+import javafx.geometry.HPos;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class ThermostatDriver extends Application {
+  private Organizer organizer;
+  private VBox vBox;
+  
+  private GridPane controls;
+  
+  private Button addThermostatB;
+  
+  private int numOfThermostats;
 
   @Override
   public void start(Stage primaryStage) {
 
-    Organizer organizer = new Organizer();
+    organizer = new Organizer();
+    numOfThermostats = 0;
+    
+    createAndConfigureControls();
+    
+    vBox = new VBox(controls);
+    
+    addThermostatB = new Button("+");
+    addThermostatB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+      public void handle(MouseEvent event) {
+         addThermostat();
+      } 
+    })); 
+    
+    controls.addRow(0, new Label("Add Thermostat:"), addThermostatB);
 
-    ThermostatModel thermostatModel1 = new ThermostatModel();
-    // ThermostatController thermostatController1 = new CameraController(cameraModel1);
-    ThermostatView thermostatView1 = new ThermostatView(thermostatModel1);
-
-    ThermostatModel thermostatModel2 = new ThermostatModel();
-    // CameraController cameraController2 = new CameraController(cameraModel2);
-    ThermostatView thermostatView2 = new ThermostatView(thermostatModel2); 
-
-    try {
-      organizer.register(thermostatModel1);
-    } catch (HubRegistrationException e) {
-      System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
-      e.printStackTrace();
-    }
-
-    VBox vBox = new VBox(thermostatView1.asParent(), thermostatView2.asParent());
     // blue border
     vBox.setStyle("-fx-padding: 10;" + " -fx-border-style: solid inside;"
         + "-fx-border-width: 2;  -fx-border-insets: 5;" + "-fx-border-radius: 5; -fx-border-color: blue;");
@@ -44,6 +59,56 @@ public class ThermostatDriver extends Application {
     primaryStage.setScene(scene1);
     primaryStage.setTitle("Thermostats");
     primaryStage.show();
+  }
+  
+  public void addThermostat() {
+    ThermostatModel thermostatModel = new ThermostatModel();
+    // ThermostatController thermostatController1 = new CameraController(cameraModel1);
+    ThermostatView thermostatView = new ThermostatView(thermostatModel, this);
+
+    try {
+      organizer.register(thermostatModel);
+    } catch (HubRegistrationException e) {
+      System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
+      e.printStackTrace();
+    }
+
+    vBox.getChildren().add(thermostatView.asParent());
+    numOfThermostats++;
+    System.out.println(numOfThermostats);
+  }
+  
+  public void removeThermostat(ThermostatView view) {
+    vBox.getChildren().remove(view);
+    
+    numOfThermostats--;
+  }
+  
+  private void createAndConfigureControls() {
+    controls = new GridPane();
+
+    ColumnConstraints leftCol = new ColumnConstraints();
+    leftCol.setHalignment(HPos.RIGHT);
+    leftCol.setHgrow(Priority.NEVER);
+
+    ColumnConstraints rightCol = new ColumnConstraints();
+    rightCol.setHgrow(Priority.SOMETIMES);
+
+    controls.getColumnConstraints().addAll(leftCol, rightCol);
+
+    controls.setAlignment(Pos.CENTER);
+    controls.setHgap(5);
+    controls.setVgap(10);
+    controls.borderProperty();
+    // black border
+    controls.setStyle(
+        " -fx-padding: 10; " +
+        " -fx-border-color: black; " +
+        " -fx-border-radius: 5; " +
+        " -fx-box-shadow: 10px; " +
+        " -fx-background-color: lightgrey; " +
+        " -fx-background-radius: 5; "
+        );
   }
 
   public static void main(String[] args) {
