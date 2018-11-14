@@ -52,11 +52,6 @@
 
 
 
-
-
-
-
-
 package ca.uvic.seng330.assn3.MVCtestingDevices;
 
 import java.util.UUID;
