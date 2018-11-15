@@ -1,5 +1,6 @@
 package ca.uvic.seng330.assn3.MVCtestingDevices;
 
+import ca.uvic.seng330.assn3.MVCtesting.Organizer;
 import ca.uvic.seng330.assn3.MVCtesting.ThermostatDriver;
 import ca.uvic.seng330.assn3.devices.Temperature.TemperatureOutofBoundsException;
 import javafx.event.EventHandler;
@@ -91,19 +92,14 @@ public class ThermostatView {
   private Button toggleB;
   private Button celsiusB;
   private Button fahrenheitB;
-  private Button removeB;
-  
   private ThermostatModel model;
-  private ThermostatDriver driver;
   private ThermostatView thisone;
-  
-
-  
-  
-  public ThermostatView(ThermostatModel model, ThermostatDriver driver) {
+ 
+  public ThermostatView(ThermostatModel model, Organizer organizer) {
     
     this.model = model;
-    this.driver = driver;
+    organizer.addView(this);
+    //this.driver = driver;
     
     createAndConfigurePane();
     
@@ -124,14 +120,6 @@ public class ThermostatView {
           toggleB.setText("Start");
           hideData();
         }
-      } 
-    })); 
-    
-    ThermostatView thisone = this;
-    removeB = new Button("Remove");
-    removeB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
-      public void handle(MouseEvent event) {
-        driver.removeThermostat(thisone);
       } 
     })); 
       
@@ -187,7 +175,7 @@ public class ThermostatView {
     
     // Construct UI
     view.addRow(0, new Label("Thermostat Status:"), statusLabel);
-    view.addRow(1, toggleB, removeB);
+    view.addRow(1, toggleB);
     view.addRow(2, settingLabel, temperatureField, celsiusB, fahrenheitB);
     view.addRow(3, celsiusLabel, fahrenheitLabel);
     

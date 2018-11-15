@@ -45,9 +45,7 @@ public class Organizer{
     JSONMessaging json = new JSONMessaging(deviceModel, message);
     System.out.println(json.invoke());
     lastAllert.set(message);
-//    for (Client client : clients) {
-//      client.notify(json);
-//    }
+
     Object obj = deviceModel;
     if (obj instanceof CameraController) {
       for (Object model : modelRegistry.values()) {
@@ -63,7 +61,6 @@ public class Organizer{
   public void register(DeviceModel device) throws HubRegistrationException {
     try {
       modelRegistry.put(device.getIdentifier(), device);
-      alert(device, ("Camera (" + device.getIdentifier().toString() + ") added"));
     } catch (Exception e) {
       throw new HubRegistrationException((device == null) ? "Invalid device" : "Unable to add this device");
     }

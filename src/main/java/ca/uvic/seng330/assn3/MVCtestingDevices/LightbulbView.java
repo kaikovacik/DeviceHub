@@ -1,6 +1,7 @@
 package ca.uvic.seng330.assn3.MVCtestingDevices;
 
 import ca.uvic.seng330.assn3.MVCtesting.LightbulbDriver;
+import ca.uvic.seng330.assn3.MVCtesting.Organizer;
 import ca.uvic.seng330.assn3.MVCtesting.ThermostatDriver;
 import ca.uvic.seng330.assn3.devices.Temperature.TemperatureOutofBoundsException;
 import javafx.event.EventHandler;
@@ -20,23 +21,17 @@ import javafx.scene.layout.Priority;
 public class LightbulbView {
  
   private GridPane view ;
-  
   private Label statusLabel;
-  
-  private Button removeB;
   private Button toggleB;
-  
   private LightbulbModel model;
-  private LightbulbDriver driver;
-  
   public int index; // ****
 
   
   
-  public LightbulbView(LightbulbModel model, LightbulbDriver driver) {
+  public LightbulbView(LightbulbModel model, Organizer organizer) {
     
     this.model = model;
-    this.driver = driver;
+    organizer.addView(this);
     
     createAndConfigurePane();
     
@@ -63,17 +58,9 @@ public class LightbulbView {
       } 
     })); 
     
-    LightbulbView thisone = this;
-    removeB = new Button("Remove");
-    removeB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
-      public void handle(MouseEvent event) {
-        driver.removeLightbulb(thisone);
-      } 
-    })); 
-    
     // Construct UI
-    view.addRow(0, new Label("Thermostat Status:"), statusLabel);
-    view.addRow(1, toggleB, removeB);
+    view.addRow(0, new Label("Lightbulb Status:"), statusLabel);
+    view.addRow(1, toggleB);
   }
 
   private void createAndConfigurePane() {

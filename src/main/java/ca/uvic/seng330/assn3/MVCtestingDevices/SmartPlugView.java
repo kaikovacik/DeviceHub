@@ -1,6 +1,7 @@
 package ca.uvic.seng330.assn3.MVCtestingDevices;
 
 import ca.uvic.seng330.assn3.MVCtesting.LightbulbDriver;
+import ca.uvic.seng330.assn3.MVCtesting.Organizer;
 import ca.uvic.seng330.assn3.MVCtesting.SmartPlugDriver;
 import ca.uvic.seng330.assn3.MVCtesting.ThermostatDriver;
 import ca.uvic.seng330.assn3.devices.Temperature.TemperatureOutofBoundsException;
@@ -21,23 +22,18 @@ import javafx.scene.layout.Priority;
 public class SmartPlugView {
  
   private GridPane view ;
-  
   private Label statusLabel;
-  
-  private Button removeB;
   private Button toggleB;
-  
   private SmartPlugModel model;
-  private SmartPlugDriver driver;
-  
   public int index; // ****
 
   
   
-  public SmartPlugView(SmartPlugModel model, SmartPlugDriver driver) {
+  public SmartPlugView(SmartPlugModel model, Organizer organizer) {
     
     this.model = model;
-    this.driver = driver;
+    organizer.addView(this);
+    //this.driver = driver;
     
     createAndConfigurePane();
     
@@ -64,17 +60,9 @@ public class SmartPlugView {
       } 
     })); 
     
-    SmartPlugView thisone = this;
-    removeB = new Button("Remove");
-    removeB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
-      public void handle(MouseEvent event) {
-        driver.removeSmartPlug(thisone);
-      } 
-    })); 
-    
     // Construct UI
     view.addRow(0, new Label("SmartPlug Status:"), statusLabel);
-    view.addRow(1, toggleB, removeB);
+    view.addRow(1, toggleB);
   }
 
   private void createAndConfigurePane() {

@@ -60,9 +60,9 @@ public class LightbulbDriver extends Application {
   }
   
   public void addLightbulb() {
-    LightbulbModel lightbulbModel = new LightbulbModel();
+    LightbulbModel lightbulbModel = new LightbulbModel(organizer);
     // ThermostatController thermostatController1 = new CameraController(cameraModel1);
-    LightbulbView lightbulbView = new LightbulbView(lightbulbModel, this);
+    LightbulbView lightbulbView = new LightbulbView(lightbulbModel, organizer);
 
     try {
       organizer.register(lightbulbModel);

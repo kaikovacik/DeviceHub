@@ -62,9 +62,9 @@ public class SmartPlugDriver extends Application {
   }
   
   public void addSmartPlug() {
-    SmartPlugModel SmartPlugModel = new SmartPlugModel();
+    SmartPlugModel SmartPlugModel = new SmartPlugModel(organizer);
     // ThermostatController thermostatController1 = new CameraController(cameraModel1);
-    SmartPlugView SmartPlugView = new SmartPlugView(SmartPlugModel, this);
+    SmartPlugView SmartPlugView = new SmartPlugView(SmartPlugModel, organizer);
 
     try {
       organizer.register(SmartPlugModel);

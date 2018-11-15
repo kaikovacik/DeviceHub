@@ -22,6 +22,7 @@ public class CameraController {
 
     try { // registration is here because CamController needs to know about organizer to alert it anyways.
       organizer.register(model);
+      organizer.alert(model, ("Camera (" + model.getIdentifier().toString() + ") added"));
     } catch (HubRegistrationException e) {
       System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
       e.printStackTrace();

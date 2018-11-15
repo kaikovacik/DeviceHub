@@ -57,9 +57,9 @@ public class ThermostatDriver extends Application {
   }
   
   public void addThermostat() {
-    ThermostatModel thermostatModel = new ThermostatModel();
+    ThermostatModel thermostatModel = new ThermostatModel(organizer);
     // ThermostatController thermostatController1 = new CameraController(cameraModel1);
-    ThermostatView thermostatView = new ThermostatView(thermostatModel, this);
+    ThermostatView thermostatView = new ThermostatView(thermostatModel, organizer);
 
     try {
       organizer.register(thermostatModel);

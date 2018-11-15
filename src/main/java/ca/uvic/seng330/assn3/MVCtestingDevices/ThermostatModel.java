@@ -58,6 +58,7 @@ import java.util.UUID;
 
 import ca.uvic.seng330.assn3.Status;
 import ca.uvic.seng330.assn3.devices.CameraFullException;
+import ca.uvic.seng330.assn3.MVCtesting.HubRegistrationException;
 import ca.uvic.seng330.assn3.MVCtesting.Organizer;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
@@ -81,12 +82,20 @@ public class ThermostatModel extends DeviceModel {
   private StringProperty statusObsStr;
   private int savedSetting;
 
-  public ThermostatModel() {
+  public ThermostatModel(Organizer organizer) {
     this.aID = UUID.randomUUID();
     this.aStatus = Status.OFF;
     this.statusObsStr = new SimpleStringProperty(aStatus.toString());
     this.setting = new SimpleIntegerProperty(0);
     this.savedSetting = 0;
+    
+    try { 
+      organizer.register(this);
+      organizer.alert(this, ("Thermostat (" + this.getIdentifier().toString() + ") added"));
+    } catch (HubRegistrationException e) {
+      System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
+      e.printStackTrace();
+    }
   }
 
   // Valid temperatures are [0 - 50] (Celsius)
