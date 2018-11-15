@@ -77,7 +77,7 @@ public class ThermostatDriver extends Application {
   }
   
   public void removeThermostat(ThermostatView view) {
-    vBox.getChildren().remove(view);
+    vBox.getChildren().remove(view.asParent());
     
     numOfThermostats--;
   }
