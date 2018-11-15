@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ca.uvic.seng330.assn3.ClickApplicationTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2018-11-01T20:00:10" hostname="Seth-Laptop" time="1.908">
-  <properties/>
-  <testcase name="should_click_on_button" classname="ca.uvic.seng330.assn3.ClickApplicationTest" time="1.628"/>
-  <testcase name="should_contain_button" classname="ca.uvic.seng330.assn3.ClickApplicationTest" time="0.279"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
