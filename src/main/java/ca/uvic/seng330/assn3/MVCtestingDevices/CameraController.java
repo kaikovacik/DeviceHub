@@ -81,5 +81,8 @@ public class CameraController {
   public void resetMemory() {
     stopRecording();
     model.resetDiskSize();
+    model.setStatus(Status.NORMAL);
+    aStatus.set("NORMAL");
+    System.out.println(model.getStatus());
   }
 }
