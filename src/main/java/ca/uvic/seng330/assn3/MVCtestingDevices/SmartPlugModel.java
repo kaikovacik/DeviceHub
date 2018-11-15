@@ -67,12 +67,12 @@ import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class LightbulbModel extends DeviceModel {
+public class SmartPlugModel extends DeviceModel {
 
   // Consider making the following default in DeviceModel
   private StringProperty statusObsStr;
 
-  public LightbulbModel() {
+  public SmartPlugModel() {
     this.aID = UUID.randomUUID();
     this.aStatus = Status.OFF;
     this.statusObsStr = new SimpleStringProperty(aStatus.toString());

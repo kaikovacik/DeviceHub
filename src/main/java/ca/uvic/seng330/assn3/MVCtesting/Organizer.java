@@ -40,7 +40,7 @@ public class Organizer{
     log.info(message);
   }
 
-  //add list to allert
+  //add list to alert
   public void alert(DeviceModel deviceModel, String message) {
     JSONMessaging json = new JSONMessaging(deviceModel, message);
     System.out.println(json.invoke());
