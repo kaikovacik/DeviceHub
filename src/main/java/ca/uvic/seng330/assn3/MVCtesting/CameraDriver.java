@@ -20,11 +20,11 @@ public class CameraDriver extends Application {
     // Cam Controller needs to be aware of organizer so it can send it alerts when the cam is full.
     CameraModel cameraModel1 = new CameraModel();
     CameraController cameraController1 = new CameraController(cameraModel1, organizer);
-    CameraView cameraView1 = new CameraView(cameraController1);
+    CameraView cameraView1 = new CameraView(cameraController1, organizer);
     
     CameraModel cameraModel2 = new CameraModel();
     CameraController cameraController2 = new CameraController(cameraModel2, organizer);
-    CameraView cameraView2 = new CameraView(cameraController2);
+    CameraView cameraView2 = new CameraView(cameraController2, organizer);
      
     VBox vBox = new VBox(cameraView1.asParent(),cameraView2.asParent());
     vBox.getChildren().add(allertView.asParent());  

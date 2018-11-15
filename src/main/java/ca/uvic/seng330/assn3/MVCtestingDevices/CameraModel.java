@@ -29,9 +29,9 @@ public class CameraModel extends DeviceModel{
     return diskSizeRemaining;
   }
 
-  public int getMaxMem() {
-    return maxMem;
-  }
+ // public int getMaxMem() {
+  //  return maxMem;
+  //}
   
   public void setIsObject(boolean b) {
     isObject = b;
