@@ -3,8 +3,11 @@ package ca.uvic.seng330.assn3.MVCtesting;
 import ca.uvic.seng330.assn3.MVCtestingDevices.CameraController;
 import ca.uvic.seng330.assn3.MVCtestingDevices.CameraModel;
 import ca.uvic.seng330.assn3.MVCtestingDevices.CameraView;
+import ca.uvic.seng330.assn3.MVCtestingDevices.LightbulbModel;
+import ca.uvic.seng330.assn3.MVCtestingDevices.LightbulbView;
 import ca.uvic.seng330.assn3.MVCtestingDevices.ThermostatModel;
 import ca.uvic.seng330.assn3.MVCtestingDevices.ThermostatView;
+import ca.uvic.seng330.assn3.devices.Lightbulb;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
@@ -20,11 +23,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class ThermostatDriver extends Application {
+public class LightbulbDriver extends Application {
   private Organizer organizer;
   private VBox vBox;
   private GridPane controls;
-  private Button addThermostatB;
+  private Button addLightbulbB;
 
   @Override
   public void start(Stage primaryStage) {
@@ -35,14 +38,14 @@ public class ThermostatDriver extends Application {
     
     vBox = new VBox(controls);
     
-    addThermostatB = new Button("+");
-    addThermostatB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+    addLightbulbB = new Button("+");
+    addLightbulbB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
-         addThermostat();
+         addLightbulb();
       } 
     })); 
     
-    controls.addRow(0, new Label("Add Thermostat:"), addThermostatB);
+    controls.addRow(0, new Label("Add Lightbulb:"), addLightbulbB);
 
     // blue border
     vBox.setStyle("-fx-padding: 10;" + " -fx-border-style: solid inside;"
@@ -52,26 +55,26 @@ public class ThermostatDriver extends Application {
     // you can only have one scene/pane in a stage at a time,
     // but a pane can contain multiple panes (Vbox)
     primaryStage.setScene(scene1);
-    primaryStage.setTitle("Thermostats");
+    primaryStage.setTitle("Lightbulbs");
     primaryStage.show();
   }
   
-  public void addThermostat() {
-    ThermostatModel thermostatModel = new ThermostatModel();
+  public void addLightbulb() {
+    LightbulbModel lightbulbModel = new LightbulbModel();
     // ThermostatController thermostatController1 = new CameraController(cameraModel1);
-    ThermostatView thermostatView = new ThermostatView(thermostatModel, this);
+    LightbulbView lightbulbView = new LightbulbView(lightbulbModel, this);
 
     try {
-      organizer.register(thermostatModel);
+      organizer.register(lightbulbModel);
     } catch (HubRegistrationException e) {
       System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
       e.printStackTrace();
     }
 
-    vBox.getChildren().add(thermostatView.asParent());
+    vBox.getChildren().add(lightbulbView.asParent());
   }
   
-  public void removeThermostat(ThermostatView view) {
+  public void removeLightbulb(LightbulbView view) {
     vBox.getChildren().remove(view.asParent());
   }
   

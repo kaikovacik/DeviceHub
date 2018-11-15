@@ -7,7 +7,9 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import ca.uvic.seng330.assn3.MVCtestingDevices.CameraController;
 import ca.uvic.seng330.assn3.MVCtestingDevices.DeviceModel;
+import ca.uvic.seng330.assn3.devices.Lightbulb;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Organizer{
@@ -46,6 +48,12 @@ public class Organizer{
 //    for (Client client : clients) {
 //      client.notify(json);
 //    }
+    Object obj = deviceModel;
+    if (obj instanceof CameraController) {
+      for (Object model : modelRegistry.values()) {
+        if (model instanceof Lightbulb) ((Lightbulb) model).toggle();
+      }
+    }  
   }
 
   public SimpleStringProperty getLastAllert() {

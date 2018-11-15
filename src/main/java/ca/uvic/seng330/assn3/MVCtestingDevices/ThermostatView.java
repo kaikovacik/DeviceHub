@@ -97,7 +97,6 @@ public class ThermostatView {
   private ThermostatDriver driver;
   private ThermostatView thisone;
   
-  public int index; // ****
 
   
   
@@ -136,7 +135,7 @@ public class ThermostatView {
       } 
     })); 
       
-    // The following is only set as visible when camera is on
+    // The following is only set as visible when thermostat is on
     settingLabel = new Label("Set Thermostat:");
     celsiusLabel = new Label("0C");
     fahrenheitLabel = new Label("32F");
