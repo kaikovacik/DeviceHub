@@ -35,7 +35,8 @@ public class Client extends Application {
   @Override
   public void start(Stage primaryStage) {
     Organizer organizer = new Organizer();
-    AllertView allertView = new AllertView(organizer);    
+    AllertView allertView = new AllertView(organizer);
+    ConfigureView configureView = new ConfigureView(organizer);
 
     primaryStage.setTitle("Home Automation System");
     Group root = new Group();
@@ -60,12 +61,12 @@ public class Client extends Application {
     cameraTab.setContent(cameraVbox);
     tabPane.getTabs().add(cameraTab);
 
-    // Dev Config
+    // Configure Tab
     Tab configTab = new Tab();
     configTab.setText("Device Configuration");
     //Add something in Tab
     //Button tabA_button = new Button("Button@Tab A");
-    //configTab.setContent(Cam_button);
+    configTab.setContent(configureView.asParent());
     tabPane.getTabs().add(configTab);
 
 
