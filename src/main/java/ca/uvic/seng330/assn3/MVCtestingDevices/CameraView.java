@@ -1,5 +1,6 @@
 package ca.uvic.seng330.assn3.MVCtestingDevices;
 
+import ca.uvic.seng330.assn3.MVCtesting.Organizer;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
@@ -21,7 +22,8 @@ import javafx.scene.layout.Priority;
 public class CameraView {
 
   private GridPane view ;
-  private CameraController cameraController ;
+  private CameraController cameraController;
+  //private Organizer organizer;
   
   private Label recordingLabel;
   private Label statusLabel;
@@ -32,10 +34,11 @@ public class CameraView {
   private Button recordB;
   private Button eraseB;
 
-  public CameraView(CameraController controller) {
+  public CameraView(CameraController controller, Organizer organizer) {
     
     createAndConfigurePane();
     this.cameraController = controller ;
+    organizer.addView(this);
     
     statusLabel = new Label();
     statusLabel.textProperty().bind(controller.aStatus);
@@ -48,11 +51,13 @@ public class CameraView {
       public void handle(MouseEvent event) {
         if ((controller.aStatus.getValue()).equals("OFF")) {
           controller.turnOn();
+          recordingLabel.setText((controller.isModelRecordingProperty().getValue())? "Camera is recording" : "Camera is not recording");
           onOffB.setText("Turn OFF");
           showData();
         } else {
           controller.turnOff();
           onOffB.setText("Start");
+          //recordingLabel.setText((controller.isModelRecordingProperty().getValue())? "Camera is recording" : "Camera is not recording");
           hideData();
         }
       } 
@@ -70,7 +75,7 @@ public class CameraView {
         recordingLabel.setText((controller.isModelRecordingProperty().getValue())? "Camera is recording" : "Camera is not recording");
       } 
     })); 
-    
+
     memoryLabel = new Label();
     memoryLabel.textProperty().bind(controller.diskSpaceLeft().asString());
     currentMemoryLabel = new Label("Memory: ");

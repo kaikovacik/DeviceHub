@@ -23,9 +23,7 @@ import javafx.stage.Stage;
 public class ThermostatDriver extends Application {
   private Organizer organizer;
   private VBox vBox;
-  
   private GridPane controls;
-  
   private Button addThermostatB;
   
   private int numOfThermostats;

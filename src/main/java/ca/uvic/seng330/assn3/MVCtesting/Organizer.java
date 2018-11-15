@@ -12,17 +12,28 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class Organizer{
 
-  private HashMap<UUID, DeviceModel> registry;
+  private HashMap<UUID, DeviceModel> modelRegistry;
+  private LinkedList<Object> viewList;
   //public LinkedList<Client> clients;
   private final Logger log;
   private SimpleStringProperty lastAllert = new SimpleStringProperty();
 
   public Organizer() {
-    this.registry = new HashMap<>();
+    this.modelRegistry = new HashMap<>();
+    this.viewList = new LinkedList<>();
     //this.clients = new LinkedList<>();
     this.log = LoggerFactory.getLogger(Organizer.class);
   }
 
+  public void addView(Object view) {
+    viewList.add(view);
+  }
+  
+  // should be deep copy
+  public LinkedList getViews() {
+    return viewList;
+  }
+  
   public void log(String message) {
     log.info(message);
   }
@@ -43,7 +54,7 @@ public class Organizer{
   
   public void register(DeviceModel device) throws HubRegistrationException {
     try {
-      registry.put(device.getIdentifier(), device);
+      modelRegistry.put(device.getIdentifier(), device);
       alert(device, ("Camera (" + device.getIdentifier().toString() + ") added"));
     } catch (Exception e) {
       throw new HubRegistrationException((device == null) ? "Invalid device" : "Unable to add this device");
@@ -56,7 +67,7 @@ public class Organizer{
    * and alerting the clients that each device is now operational.
    */
   public void startup() {
-    for (DeviceModel device : registry.values()) {
+    for (DeviceModel device : modelRegistry.values()) {
       device.turnOn();
       alert(device, (device.getClass().toString() + " (" + device.getIdentifier().toString() + ") is now operational"));
     }
@@ -67,20 +78,20 @@ public class Organizer{
    * and alerting the clients that each device is no longer operational. 
    */
   public void shutdown() {
-    for (DeviceModel device : registry.values()) {
+    for (DeviceModel device : modelRegistry.values()) {
       device.turnOff();
       alert(device, (device.getClass().toString() + " (" + device.getIdentifier().toString() + ") is no longer operational"));
     }
   }
 
   public int numOfDevices() {
-    return registry.size();
+    return modelRegistry.size();
   }
 
   public void unregister(DeviceModel device) throws HubRegistrationException {
 
-    if (registry.containsKey(device.getIdentifier())) {
-      registry.remove(device.getIdentifier(), device);
+    if (modelRegistry.containsKey(device.getIdentifier())) {
+      modelRegistry.remove(device.getIdentifier(), device);
     } else {
       throw new HubRegistrationException("Specified device is not in the network");
     }
@@ -92,7 +103,7 @@ public class Organizer{
 
   // TODO: We should make this return a deep copy.
   public HashMap<UUID, DeviceModel> getDevices() {
-    return registry;
+    return modelRegistry;
 
   }
 }

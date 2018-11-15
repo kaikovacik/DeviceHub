@@ -20,11 +20,11 @@ public class CameraDriver extends Application {
     // Cam Controller needs to be aware of organizer so it can send it alerts when the cam is full.
     CameraModel cameraModel1 = new CameraModel();
     CameraController cameraController1 = new CameraController(cameraModel1, organizer);
-    CameraView cameraView1 = new CameraView(cameraController1);
+    CameraView cameraView1 = new CameraView(cameraController1, organizer);
     
     CameraModel cameraModel2 = new CameraModel();
     CameraController cameraController2 = new CameraController(cameraModel2, organizer);
-    CameraView cameraView2 = new CameraView(cameraController2);
+    CameraView cameraView2 = new CameraView(cameraController2, organizer);
      
     VBox vBox = new VBox(cameraView1.asParent(),cameraView2.asParent());
     vBox.getChildren().add(allertView.asParent());  
@@ -37,13 +37,14 @@ public class CameraDriver extends Application {
         "-fx-border-radius: 5; -fx-border-color: blue;"
     );
     System.out.println(organizer.numOfDevices());
-    Scene scene1 = new Scene(vBox, 400, organizer.numOfDevices()*150+75);
+    Scene scene1 = new Scene(vBox, 500, organizer.numOfDevices()*150+75);
     
     // you can only have one scene/pane in a stage at a time, 
     // but a pane can contain multiple panes (Vbox)
     primaryStage.setScene(scene1);
     primaryStage.setTitle("Cameras");
     primaryStage.show();
+    cameraController2.setIsObject(true);
   }
 
   public static void main(String[] args) {
