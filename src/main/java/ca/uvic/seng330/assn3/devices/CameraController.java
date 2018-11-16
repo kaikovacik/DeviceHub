@@ -30,6 +30,9 @@ public class CameraController {
   }
 
   public  final void record() {
+    if(model.getStatus().equals(Status.OFF)) {
+      model.turnOn();
+    }
     if( model.getIsRecording() ) {
       model.setIsRecording(false);
       model.decrementDiskSize();
@@ -83,6 +86,6 @@ public class CameraController {
     model.resetDiskSize();
     model.setStatus(Status.NORMAL);
     aStatus.set("NORMAL");
-    System.out.println(model.getStatus());
+    //System.out.println(model.getStatus());
   }
 }
