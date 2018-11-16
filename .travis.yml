@@ -10,4 +10,4 @@ before_install:
 - rm $TRAVIS_BUILD_DIR/src/test/java/ca/uvic/seng330/assn3/Template/DesktopPaneTest.java
 
 script:
-- gradle test
+- gradle test -i

@@ -22,7 +22,9 @@ public class NonUIAcceptanceTests {
   @Test
   public void testD_Thermostat() {
     ThermostatModel model = new ThermostatModel(organizer);
+    //ThermostatView thermostatView = new ThermostatView(thermostatModel, organizer);
     int temp = 5;
+    
     assertTrue("failure message",organizer.numOfDevices() == 1);
     assertTrue("failure message",model.getStatus().equals(Status.OFF));
     
@@ -35,7 +37,7 @@ public class NonUIAcceptanceTests {
     
     assertTrue("failure message",model.getStatus().equals(Status.NORMAL));
     assertTrue("failure message",model.getSetting().intValue() == temp);
-    
+    //model.
     //assertTrue("failure message",model.getStatus().equals(Status.OFF));
   }
   
