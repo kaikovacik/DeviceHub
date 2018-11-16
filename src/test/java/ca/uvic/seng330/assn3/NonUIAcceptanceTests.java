@@ -20,9 +20,19 @@ public class NonUIAcceptanceTests {
   }
 
   @Test
+  public void ez_Test() {
+    
+  }
+  
+  @Test
+  public void hard_Test() {
+    
+  }
+  
+  @Test
   public void testD_Thermostat() {
     ThermostatModel model = new ThermostatModel(organizer);
-    //ThermostatView thermostatView = new ThermostatView(thermostatModel, organizer);
+    //ThermostatView view = new ThermostatView(model, organizer);
     int temp = 5;
     
     assertTrue("failure message",organizer.numOfDevices() == 1);
@@ -37,8 +47,10 @@ public class NonUIAcceptanceTests {
     
     assertTrue("failure message",model.getStatus().equals(Status.NORMAL));
     assertTrue("failure message",model.getSetting().intValue() == temp);
-    //model.
-    //assertTrue("failure message",model.getStatus().equals(Status.OFF));
+    model.turnOff();
+    assertTrue("failure message",model.getStatus().equals(Status.OFF));
+    model.turnOn();
+    assertTrue("failure message",model.getStatus().equals(Status.NORMAL));
   }
   
   @Test
@@ -51,6 +63,11 @@ public class NonUIAcceptanceTests {
     assertTrue("failure message",model.getStatus().equals(Status.NORMAL));
     model.toggle();
     assertTrue("failure message",model.getStatus().equals(Status.OFF));
+    
+    model.turnOn();
+    assertTrue("failure message",model.getStatus().equals(Status.NORMAL));
+    model.turnOff();
+    assertTrue("failure message",model.getStatus().equals(Status.OFF));
   }
   
   @Test
@@ -62,6 +79,11 @@ public class NonUIAcceptanceTests {
     model.toggle();
     assertTrue("failure message",model.getStatus().equals(Status.NORMAL));
     model.toggle();
+    assertTrue("failure message",model.getStatus().equals(Status.OFF));
+    
+    model.turnOn();
+    assertTrue("failure message",model.getStatus().equals(Status.NORMAL));
+    model.turnOff();
     assertTrue("failure message",model.getStatus().equals(Status.OFF));
   }
 }
