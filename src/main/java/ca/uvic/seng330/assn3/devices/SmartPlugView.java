@@ -25,8 +25,6 @@ public class SmartPlugView {
   private Button toggleB;
   private SmartPlugModel model;
   public int index; // ****
-
-  
   
   public SmartPlugView(SmartPlugModel model, Organizer organizer) {
     
