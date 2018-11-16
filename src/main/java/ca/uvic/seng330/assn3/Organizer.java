@@ -62,7 +62,9 @@ public class Organizer{
     try {
       modelRegistry.put(device.getIdentifier(), device);
     } catch (Exception e) {
+      System.out.println("reg ex");
       throw new HubRegistrationException((device == null) ? "Invalid device" : "Unable to add this device");
+      
     }
     ;
   }
