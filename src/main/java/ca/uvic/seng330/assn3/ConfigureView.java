@@ -72,6 +72,7 @@ public class ConfigureView {
     }));
     removeThermostatB.setVisible(false);
     addThermostatB = new Button("Add");
+    addThermostatB.setId("addThermostatB");
     addThermostatB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         addThermostat();
