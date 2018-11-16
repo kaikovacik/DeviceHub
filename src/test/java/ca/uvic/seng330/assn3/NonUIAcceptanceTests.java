@@ -5,7 +5,7 @@ import ca.uvic.seng330.assn3.*;
 import ca.uvic.seng330.assn3.devices.*;
 import org.slf4j.impl.StaticLoggerBinder;
 
-public class BasicTests {
+public class NonUIAcceptanceTests {
 
   //@Before
   
