@@ -1,13 +1,6 @@
-package ca.uvic.seng330.assn3.MVCtesting;
+package ca.uvic.seng330.assn3;
 
-import ca.uvic.seng330.assn3.MVCtestingDevices.CameraController;
-import ca.uvic.seng330.assn3.MVCtestingDevices.CameraModel;
-import ca.uvic.seng330.assn3.MVCtestingDevices.CameraView;
-import ca.uvic.seng330.assn3.MVCtestingDevices.LightbulbModel;
-import ca.uvic.seng330.assn3.MVCtestingDevices.LightbulbView;
-import ca.uvic.seng330.assn3.MVCtestingDevices.ThermostatModel;
-import ca.uvic.seng330.assn3.MVCtestingDevices.ThermostatView;
-import ca.uvic.seng330.assn3.devices.Lightbulb;
+import ca.uvic.seng330.assn3.devices.*;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
@@ -23,11 +16,11 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class LightbulbDriver extends Application {
+public class SmartPlugDriver extends Application {
   private Organizer organizer;
   private VBox vBox;
   private GridPane controls;
-  private Button addLightbulbB;
+  private Button addSmartPlugB;
 
   @Override
   public void start(Stage primaryStage) {
@@ -38,14 +31,14 @@ public class LightbulbDriver extends Application {
     
     vBox = new VBox(controls);
     
-    addLightbulbB = new Button("+");
-    addLightbulbB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+    addSmartPlugB = new Button("+");
+    addSmartPlugB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
-         addLightbulb();
+         addSmartPlug();
       } 
     })); 
     
-    controls.addRow(0, new Label("Add Lightbulb:"), addLightbulbB);
+    controls.addRow(0, new Label("Add SmartPlug:"), addSmartPlugB);
 
     // blue border
     vBox.setStyle("-fx-padding: 10;" + " -fx-border-style: solid inside;"
@@ -55,26 +48,26 @@ public class LightbulbDriver extends Application {
     // you can only have one scene/pane in a stage at a time,
     // but a pane can contain multiple panes (Vbox)
     primaryStage.setScene(scene1);
-    primaryStage.setTitle("Lightbulbs");
+    primaryStage.setTitle("SmartPlugs");
     primaryStage.show();
   }
   
-  public void addLightbulb() {
-    LightbulbModel lightbulbModel = new LightbulbModel(organizer);
+  public void addSmartPlug() {
+    SmartPlugModel SmartPlugModel = new SmartPlugModel(organizer);
     // ThermostatController thermostatController1 = new CameraController(cameraModel1);
-    LightbulbView lightbulbView = new LightbulbView(lightbulbModel, organizer);
+    SmartPlugView SmartPlugView = new SmartPlugView(SmartPlugModel, organizer);
 
     try {
-      organizer.register(lightbulbModel);
+      organizer.register(SmartPlugModel);
     } catch (HubRegistrationException e) {
       System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
       e.printStackTrace();
     }
 
-    vBox.getChildren().add(lightbulbView.asParent());
+    vBox.getChildren().add(SmartPlugView.asParent());
   }
   
-  public void removeLightbulb(LightbulbView view) {
+  public void removeSmartPlug(SmartPlugView view) {
     vBox.getChildren().remove(view.asParent());
   }
   

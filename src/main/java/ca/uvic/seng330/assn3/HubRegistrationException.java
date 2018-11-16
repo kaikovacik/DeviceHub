@@ -1,6 +1,6 @@
 package ca.uvic.seng330.assn3;
 
-import ca.uvic.seng330.assn3.devices.*;
+
 
 public class HubRegistrationException extends Exception {
   

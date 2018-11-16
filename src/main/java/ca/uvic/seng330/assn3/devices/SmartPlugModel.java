@@ -52,34 +52,28 @@
 
 
 
-package ca.uvic.seng330.assn3.MVCtestingDevices;
+package ca.uvic.seng330.assn3.devices;
 
 import java.util.UUID;
 
+import ca.uvic.seng330.assn3.HubRegistrationException;
+import ca.uvic.seng330.assn3.Organizer;
 import ca.uvic.seng330.assn3.Status;
-import ca.uvic.seng330.assn3.devices.CameraFullException;
-import ca.uvic.seng330.assn3.MVCtesting.HubRegistrationException;
-import ca.uvic.seng330.assn3.MVCtesting.Organizer;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.ReadOnlyIntegerWrapper;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class LightbulbModel extends DeviceModel {
+public class SmartPlugModel extends DeviceModel {
 
   // Consider making the following default in DeviceModel
   private StringProperty statusObsStr;
 
-  public LightbulbModel(Organizer organizer) {
+  public SmartPlugModel(Organizer organizer) {
     this.aID = UUID.randomUUID();
     this.aStatus = Status.OFF;
     this.statusObsStr = new SimpleStringProperty(aStatus.toString());
     try { 
       organizer.register(this);
-      organizer.alert(this, ("Lightbulb (" + this.getIdentifier().toString() + ") added"));
+      organizer.alert(this, ("SmartPlug (" + this.getIdentifier().toString() + ") added"));
     } catch (HubRegistrationException e) {
       System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
       e.printStackTrace();

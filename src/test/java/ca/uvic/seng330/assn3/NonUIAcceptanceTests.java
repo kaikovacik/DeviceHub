@@ -1,13 +1,17 @@
 package ca.uvic.seng330.assn3;
 
+import org.junit.Before;
 import org.junit.Test;
 import ca.uvic.seng330.assn3.*;
-import ca.uvic.seng330.assn3.devices.*;
+
 import org.slf4j.impl.StaticLoggerBinder;
 
 public class NonUIAcceptanceTests {
 
-  //@Before
+  @Before
+  public void initializeSystem() {
+    
+  }
   
   
   @Test
@@ -20,7 +24,7 @@ public class NonUIAcceptanceTests {
   public void testObjectsExist() {
 
     System.out.println("Test Objects Exist");
-
+/*
     HubController hubC = new HubController();
     Client client = new Client(hubC);
 
@@ -30,7 +34,7 @@ public class NonUIAcceptanceTests {
     Thermostat thermostat1 = new Thermostat(hubC);
     Lightbulb lightbulb1 = new Lightbulb(hubC);
     SmartPlug smartplug1 = new SmartPlug(hubC);
-    
+    */
     /*
     try {
       hubC.register(camera1);

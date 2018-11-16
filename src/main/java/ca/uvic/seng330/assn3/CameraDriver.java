@@ -1,8 +1,8 @@
-package ca.uvic.seng330.assn3.MVCtesting;
+package ca.uvic.seng330.assn3;
 
-import ca.uvic.seng330.assn3.MVCtestingDevices.CameraController;
-import ca.uvic.seng330.assn3.MVCtestingDevices.CameraModel;
-import ca.uvic.seng330.assn3.MVCtestingDevices.CameraView;
+import ca.uvic.seng330.assn3.devices.CameraController;
+import ca.uvic.seng330.assn3.devices.CameraModel;
+import ca.uvic.seng330.assn3.devices.CameraView;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;

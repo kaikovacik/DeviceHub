@@ -1,9 +1,9 @@
-package ca.uvic.seng330.assn3.MVCtestingDevices;
+package ca.uvic.seng330.assn3.devices;
 
-import ca.uvic.seng330.assn3.MVCtesting.LightbulbDriver;
-import ca.uvic.seng330.assn3.MVCtesting.Organizer;
-import ca.uvic.seng330.assn3.MVCtesting.ThermostatDriver;
-import ca.uvic.seng330.assn3.devices.Temperature.TemperatureOutofBoundsException;
+import ca.uvic.seng330.assn3.LightbulbDriver;
+import ca.uvic.seng330.assn3.Organizer;
+import ca.uvic.seng330.assn3.SmartPlugDriver;
+import ca.uvic.seng330.assn3.ThermostatDriver;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
@@ -18,29 +18,30 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 
-public class LightbulbView {
+public class SmartPlugView {
  
   private GridPane view ;
   private Label statusLabel;
   private Button toggleB;
-  private LightbulbModel model;
+  private SmartPlugModel model;
   public int index; // ****
 
   
   
-  public LightbulbView(LightbulbModel model, Organizer organizer) {
+  public SmartPlugView(SmartPlugModel model, Organizer organizer) {
     
     this.model = model;
     organizer.addView(this);
+    //this.driver = driver;
     
     createAndConfigurePane();
     
-    statusLabel = new Label("OFF");
+    statusLabel = new Label("Turned Off");
 //    statusLabel.textProperty().bind(model.getStatusAsString());
     
     model.getStatusAsString().addListener((obs, prev, curr) -> {
-      if (curr.equals("NORMAL")) statusLabel.textProperty().set("ON");
-      else if (curr.equals("OFF")) statusLabel.textProperty().set("OFF");
+      if (curr.equals("NORMAL")) statusLabel.textProperty().set("Turned On");
+      else if (curr.equals("OFF")) statusLabel.textProperty().set("Turned Off");
     });
     
     toggleB = new Button("Turn ON");
@@ -59,7 +60,7 @@ public class LightbulbView {
     })); 
     
     // Construct UI
-    view.addRow(0, new Label("Lightbulb Status:"), statusLabel);
+    view.addRow(0, new Label("SmartPlug Status:"), statusLabel);
     view.addRow(1, toggleB);
   }
 

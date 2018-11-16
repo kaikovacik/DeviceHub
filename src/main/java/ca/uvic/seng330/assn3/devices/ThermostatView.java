@@ -1,8 +1,6 @@
-package ca.uvic.seng330.assn3.MVCtestingDevices;
+package ca.uvic.seng330.assn3.devices;
 
-import ca.uvic.seng330.assn3.MVCtesting.Organizer;
-import ca.uvic.seng330.assn3.MVCtesting.ThermostatDriver;
-import ca.uvic.seng330.assn3.devices.Temperature.TemperatureOutofBoundsException;
+import ca.uvic.seng330.assn3.Organizer;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;

@@ -1,7 +1,9 @@
 package ca.uvic.seng330.assn3;
 
-import ca.uvic.seng330.assn3.devices.*;
 import org.json.JSONObject;
+
+import ca.uvic.seng330.assn3.devices.DeviceModel;
+
 import java.util.Date;
 import java.util.UUID;
 

@@ -1,14 +1,14 @@
-package ca.uvic.seng330.assn3.MVCtesting;
+package ca.uvic.seng330.assn3;
 
-import ca.uvic.seng330.assn3.MVCtestingDevices.CameraController;
-import ca.uvic.seng330.assn3.MVCtestingDevices.CameraModel;
-import ca.uvic.seng330.assn3.MVCtestingDevices.CameraView;
-import ca.uvic.seng330.assn3.MVCtestingDevices.LightbulbModel;
-import ca.uvic.seng330.assn3.MVCtestingDevices.LightbulbView;
-import ca.uvic.seng330.assn3.MVCtestingDevices.SmartPlugModel;
-import ca.uvic.seng330.assn3.MVCtestingDevices.SmartPlugView;
-import ca.uvic.seng330.assn3.MVCtestingDevices.ThermostatModel;
-import ca.uvic.seng330.assn3.MVCtestingDevices.ThermostatView;
+import ca.uvic.seng330.assn3.devices.CameraController;
+import ca.uvic.seng330.assn3.devices.CameraModel;
+import ca.uvic.seng330.assn3.devices.CameraView;
+import ca.uvic.seng330.assn3.devices.LightbulbModel;
+import ca.uvic.seng330.assn3.devices.LightbulbView;
+import ca.uvic.seng330.assn3.devices.SmartPlugModel;
+import ca.uvic.seng330.assn3.devices.SmartPlugView;
+import ca.uvic.seng330.assn3.devices.ThermostatModel;
+import ca.uvic.seng330.assn3.devices.ThermostatView;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;

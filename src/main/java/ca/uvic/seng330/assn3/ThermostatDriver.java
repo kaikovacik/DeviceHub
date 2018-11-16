@@ -1,10 +1,6 @@
-package ca.uvic.seng330.assn3.MVCtesting;
+package ca.uvic.seng330.assn3;
 
-import ca.uvic.seng330.assn3.MVCtestingDevices.CameraController;
-import ca.uvic.seng330.assn3.MVCtestingDevices.CameraModel;
-import ca.uvic.seng330.assn3.MVCtestingDevices.CameraView;
-import ca.uvic.seng330.assn3.MVCtestingDevices.ThermostatModel;
-import ca.uvic.seng330.assn3.MVCtestingDevices.ThermostatView;
+import ca.uvic.seng330.assn3.devices.*;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
