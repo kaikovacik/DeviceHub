@@ -7,6 +7,9 @@ import org.slf4j.impl.StaticLoggerBinder;
 
 public class BasicTests {
 
+  //@Before
+  
+  
   @Test
   public void testShitWorks() {
     System.out.println("hi");

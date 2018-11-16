@@ -36,7 +36,7 @@ public class DesktopPaneTest extends ApplicationTest {
 
   @Test public void should_contain_field() {
     //given:
-    clickOn("#yField").write("33");
+    clickOn("removeCameraB").write("33");
     // expect:
     verifyThat("#yField" , TextInputControlMatchers.hasText("33"));
   }

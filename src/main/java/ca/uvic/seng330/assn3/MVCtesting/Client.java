@@ -172,6 +172,7 @@ public class Client extends Application {
       } 
     }
   }
+  
   private void refreshSmartPlugTab(Organizer organizer, VBox vbox) {
     vbox.getChildren().clear();
     for ( Object d : organizer.getViews()) {

@@ -124,9 +124,12 @@ public class ConfigureView {
     CameraView cameraView1 = new CameraView(cameraController1, organizer);
   }
 
-  public void removeCamera() {
+  public void removeCamera(String name) {
     //organizer.getViews().pop();
-    //organizer.unregister(device);
+    
+    //organizer.unregister(name);
+    //organizer.getViews().remove(name);
+    
   }
   
   public void addThermostat() {
