@@ -1,15 +1,14 @@
 package ca.uvic.seng330.assn3.Template;
 
+import static org.testfx.api.FxAssert.verifyThat;
+import static org.testfx.matcher.control.LabeledMatchers.hasText;
+
+import ca.uvic.seng330.assn3.template2.ClickApplication;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.junit.Test;
 import org.testfx.framework.junit.ApplicationTest;
-
-import ca.uvic.seng330.assn3.template2.ClickApplication;
-
-import static org.testfx.api.FxAssert.verifyThat;
-import static org.testfx.matcher.control.LabeledMatchers.hasText;
 
 public class ClickApplicationTest extends ApplicationTest {
   @Override public void start(Stage stage) {
