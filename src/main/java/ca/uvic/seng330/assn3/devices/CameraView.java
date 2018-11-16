@@ -44,6 +44,7 @@ public class CameraView {
     statusLabel.textProperty().bind(controller.aStatus);
     
     onOffB = new Button("Start");
+    onOffB.setId("CameraOnOffB");
     onOffB.setLayoutX(50);
     onOffB.setLayoutY(50);
     onOffB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
