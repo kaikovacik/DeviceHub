@@ -42,7 +42,53 @@ public class NonUIAcceptanceTests {
       fail();
     }
     assertEquals(organizer.numOfDevices(), 6);
-    System.out.println(organizer.numOfDevices());
+    
+    try {
+      organizer.unregister(cModel);
+    } catch (HubRegistrationException e) {
+      e.printStackTrace();
+      fail();
+    }
+    assertEquals(organizer.numOfDevices(), 5);
+    
+    try {
+      organizer.unregister(lModel);
+      // unregister nonexistant device
+      organizer.unregister(cModel);
+      fail();
+    } catch (HubRegistrationException e) {
+      // TODO Auto-generated catch block
+    }
+    assertEquals(organizer.numOfDevices(), 4);
+    
+    // test status off initially
+    for( DeviceModel d : organizer.getDevices().values()) {
+      if(d.getStatus().equals(Status.OFF)) {
+        
+      }else {
+        fail();
+      }
+    }
+    
+    // test startup
+    organizer.startup();
+    for( DeviceModel d : organizer.getDevices().values()) {
+      if(d.getStatus().equals(Status.NORMAL)) {
+        
+      }else {
+        fail();
+      }
+    }
+    
+    // test shutdown
+    organizer.shutdown();
+    for( DeviceModel d : organizer.getDevices().values()) {
+      if(d.getStatus().equals(Status.OFF)) {
+        
+      }else {
+        fail();
+      }
+    }
 
   }
 
