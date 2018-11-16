@@ -17,6 +17,7 @@ public class ClickApplicationTest extends ApplicationTest {
     Scene scene = new Scene(sceneRoot, 100, 100);
     stage.setScene(scene);
     stage.show();
+    System.out.println("l");
   }
 
   @Test public void should_contain_button() {

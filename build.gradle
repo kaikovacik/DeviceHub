@@ -18,7 +18,14 @@ repositories {
     mavenCentral()
 }
 
-mainClassName = "ca.uvic.seng330.assn3.MVCtesting.Client"
+mainClassName = "ca.uvic.seng330.assn3.Client"
+
+test {
+  filter {
+    includeTestsMatching "ca.uvic.seng330.assn3.UIAcceptanceTests"
+    // includeTestsMatching ""
+   }
+}
 
 spotless {
   java {

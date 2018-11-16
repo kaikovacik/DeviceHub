@@ -15,6 +15,7 @@ import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.scene.Group;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -44,18 +45,24 @@ public class Client extends Application {
 
   @Override
   public void start(Stage primaryStage) {
+    Scene scene = createScene();
+    primaryStage.setScene(scene);
+    primaryStage.show();
+  }
+
+  // scene object for unit tests
+  public static Scene createScene() { 
     Organizer organizer = new Organizer();
     AllertView allertView = new AllertView(organizer);
     ConfigureView configureView = new ConfigureView(organizer);
 
-    primaryStage.setTitle("Home Automation System");
     Group root = new Group();
     Scene scene = new Scene(root, 500, 400);
 
     BorderPane mainPane = new BorderPane();
     TabPane tabPane = new TabPane();
     tabPane.setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
-    
+
     // puts Cameras + other Dev in system
     PopulateSystem(organizer);
 
@@ -64,7 +71,7 @@ public class Client extends Application {
     configTab.setText("Device Configuration");
     configTab.setContent(configureView.asParent());
     tabPane.getTabs().add(configTab);
-    
+
     // Cameras Tab
     Tab cameraTab = new Tab();
     cameraTab.setText("Cameras");
@@ -79,7 +86,7 @@ public class Client extends Application {
     });
     cameraTab.setContent(cameraVbox);
     tabPane.getTabs().add(cameraTab);
-    
+
     // Thermostat Tab
     Tab thermostatTab = new Tab();
     thermostatTab.setText("Thermostats");
@@ -109,7 +116,7 @@ public class Client extends Application {
     });
     lightbulbTab.setContent(lightbulbVbox);
     tabPane.getTabs().add(lightbulbTab);
-    
+
     // SmartPlug Tab
     Tab smartPlugTab = new Tab();
     smartPlugTab.setText("Smart Plugs");
@@ -124,18 +131,19 @@ public class Client extends Application {
     });
     smartPlugTab.setContent(smartPlugVbox);
     tabPane.getTabs().add(smartPlugTab);
-    
+
     mainPane.setCenter(tabPane);
     mainPane.setBottom(allertView.asParent());
     mainPane.prefHeightProperty().bind(scene.heightProperty());
     mainPane.prefWidthProperty().bind(scene.widthProperty());
 
     root.getChildren().add(mainPane);
-    primaryStage.setScene(scene);
-    primaryStage.show();
+    
+    return scene;
   }
 
-  private void PopulateSystem(Organizer organizer) {
+
+  private static void PopulateSystem(Organizer organizer) {
     CameraModel cameraModel1 = new CameraModel();
     CameraController cameraController1 = new CameraController(cameraModel1, organizer);
     CameraView cameraView1 = new CameraView(cameraController1, organizer);
@@ -144,8 +152,8 @@ public class Client extends Application {
     CameraController cameraController2 = new CameraController(cameraModel2, organizer);
     CameraView cameraView2 = new CameraView(cameraController2, organizer);
   }
-  
-  private void refreshCameraTab(Organizer organizer, VBox vbox) {
+
+  private static void refreshCameraTab(Organizer organizer, VBox vbox) {
     vbox.getChildren().clear();
     for ( Object d : organizer.getViews()) {
       if( d instanceof CameraView) {
@@ -153,9 +161,8 @@ public class Client extends Application {
       } 
     }
   }
-  
-  private void refreshThermostatTab(Organizer organizer, VBox vbox) {
 
+  private static void refreshThermostatTab(Organizer organizer, VBox vbox) {
     vbox.getChildren().clear();
     for ( Object d : organizer.getViews()) {
       if( d instanceof ThermostatView) {
@@ -163,8 +170,8 @@ public class Client extends Application {
       } 
     }
   }
-  
-  private void refreshLightbulbTab(Organizer organizer, VBox vbox) {
+
+  private static void refreshLightbulbTab(Organizer organizer, VBox vbox) {
     vbox.getChildren().clear();
     for ( Object d : organizer.getViews()) {
       if( d instanceof LightbulbView) {
@@ -172,8 +179,8 @@ public class Client extends Application {
       } 
     }
   }
-  
-  private void refreshSmartPlugTab(Organizer organizer, VBox vbox) {
+
+  private static void refreshSmartPlugTab(Organizer organizer, VBox vbox) {
     vbox.getChildren().clear();
     for ( Object d : organizer.getViews()) {
       if( d instanceof SmartPlugView) {
