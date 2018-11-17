@@ -9,7 +9,7 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class CameraController {
   public final SimpleStringProperty aStatus = new SimpleStringProperty();
-  private final CameraModel model ;
+  private final CameraModel model;
   private Organizer organizer;
 
   public CameraController(CameraModel model, Organizer pOrganizer) {
@@ -17,7 +17,8 @@ public class CameraController {
     this.organizer = pOrganizer;
     aStatus.set(model.getStatus().toString());
 
-    try { // registration is here because CamController needs to know about organizer to alert it anyways.
+    // registration is here because CamController needs to know about organizer to alert it anyways.
+    try {
       organizer.register(model);
       organizer.alert(model, ("Camera (" + model.getIdentifier().toString() + ") added"));
     } catch (HubRegistrationException e) {
@@ -27,16 +28,16 @@ public class CameraController {
   }
 
   public final void record() {
-    if(model.getStatus().equals(Status.OFF)) {
+    if (model.getStatus().equals(Status.OFF)) {
       model.turnOn();
     }
-    if( model.getIsRecording() ) {
+    if (model.getIsRecording()) {
       model.setIsRecording(false);
       model.decrementDiskSize();
 
-    }else if(model.getDiskSize().intValue() > 0 ){
+    } else if (model.getDiskSize().intValue() > 0) {
       model.setIsRecording(true);
-    }else {
+    } else {
       model.setStatus(Status.ERROR);
       aStatus.set(model.getStatus().toString());
       organizer.alert(model, "Camera is full!");
@@ -47,7 +48,7 @@ public class CameraController {
   // Where Record() toggles between recording,
   // stopRecording, as it suggests, ONLY stops.
   public final void stopRecording() {
-    if( model.getIsRecording() ) {
+    if (model.getIsRecording()) {
       model.setIsRecording(false);
       model.decrementDiskSize();
     }
@@ -62,6 +63,7 @@ public class CameraController {
     return model.getDiskSize();
   }
   
+  // A listener still needs to be added to the isObject boolean. The listener will throw the alert
   public final void setIsObject(boolean b) {
     model.setIsObject(b);
     if (b) organizer.alert(model, ("Camera (" + model.getIdentifier().toString() + ") detected an object!"));

@@ -21,34 +21,34 @@ import javafx.scene.layout.Priority;
  */
 public class CameraView {
 
-  private GridPane view ;
-  private CameraController cameraController;
+  private GridPane view;
+  private CameraController controller;
   //private Organizer organizer;
-  
+
   private Label recordingLabel;
   private Label statusLabel;
   private Label memoryLabel;
   private Label currentMemoryLabel;
-  
+
   private Button onOffB;
   private Button recordB;
   private Button eraseB;
 
   public CameraView(CameraController controller, Organizer organizer) {
-    
+
     createAndConfigurePane();
-    this.cameraController = controller ;
+    this.controller = controller;
     organizer.addView(this);
-    
+
     statusLabel = new Label();
     statusLabel.textProperty().bind(controller.aStatus);
-    
+
     onOffB = new Button("Start");
     onOffB.setId("CameraOnOffB");
     onOffB.setLayoutX(50);
     onOffB.setLayoutY(50);
     onOffB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
-      
+
       public void handle(MouseEvent event) {
         if ((controller.aStatus.getValue()).equals("OFF")) {
           controller.turnOn();
@@ -58,15 +58,14 @@ public class CameraView {
         } else {
           controller.turnOff();
           onOffB.setText("Start");
-          //recordingLabel.setText((controller.isModelRecordingProperty().getValue())? "Camera is recording" : "Camera is not recording");
           hideData();
         }
       } 
     })); 
-      
+
     // The following is only set as visible when camera is on
     recordingLabel = new Label("Camera is not recording");
-    
+
     recordB = new Button("Toggle Recording"); 
     recordB.setLayoutX(50); 
     recordB.setLayoutY(50);  
@@ -80,7 +79,7 @@ public class CameraView {
     memoryLabel = new Label();
     memoryLabel.textProperty().bind(controller.diskSpaceLeft().asString());
     currentMemoryLabel = new Label("Memory: ");
-    
+
     eraseB = new Button("Erase Memory");
     eraseB.setLayoutX(50); 
     eraseB.setLayoutY(50); 
@@ -89,16 +88,16 @@ public class CameraView {
         controller.resetMemory();
       }
     }));    
-    
+
     // Construct UI
     view.addRow(0, new Label("Camera Status:"), statusLabel);
     view.addRow(1, onOffB);
     view.addRow(2, recordB, recordingLabel); 
     view.addRow(3, eraseB, currentMemoryLabel, memoryLabel);
-    
+
     hideData();
   }
-  
+
   private void showData() {
     recordingLabel.setVisible(true);
     recordB.setVisible(true);
@@ -106,7 +105,7 @@ public class CameraView {
     currentMemoryLabel.setVisible(true);
     eraseB.setVisible(true);
   }
-  
+
   private void hideData() {
     recordingLabel.setVisible(false);
     recordB.setVisible(false);
@@ -134,16 +133,16 @@ public class CameraView {
     // black border
     view.setStyle(
         " -fx-padding: 10; " +
-        " -fx-border-color: black; " +
-        " -fx-border-radius: 5; " +
-        " -fx-box-shadow: 10px; " +
-        " -fx-background-color: lightgrey; " +
-        " -fx-background-radius: 5; "
-        );
+            " -fx-border-color: black; " +
+            " -fx-border-radius: 5; " +
+            " -fx-box-shadow: 10px; " +
+            " -fx-background-color: lightgrey; " +
+            " -fx-background-radius: 5; "
+    );
   }
-  
+
   public Parent asParent() {
-    return view ;
+    return view;
   }
-  
+
 }

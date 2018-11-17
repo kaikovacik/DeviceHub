@@ -9,7 +9,7 @@ public abstract class DeviceModel {
 
   protected Status aStatus;
   protected UUID aID;
-  protected Organizer aOwner;
+  //protected Organizer aOwner;
   
   public void setStatus(Status pStatus) {
     aStatus = pStatus;
