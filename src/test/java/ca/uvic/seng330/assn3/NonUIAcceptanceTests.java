@@ -15,11 +15,17 @@ import org.slf4j.impl.StaticLoggerBinder;
 public class NonUIAcceptanceTests {
 
   private Organizer organizer;
+  
   @Before
   public void initializeSystem() {
     organizer = new Organizer();
   }
 
+  @Test
+  public void testA_Users() {
+    // Place holder, to be added
+  }
+  
   @Test
   public void testB_Hub() {
     CameraModel cModel = new CameraModel();
