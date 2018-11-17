@@ -142,7 +142,8 @@ public class NonUIAcceptanceTests {
     model.turnOff();
     assertTrue("failure message",model.getStatus().equals(Status.OFF));
     model.turnOn();
-    assertTrue("failure message",model.getStatus().equals(Status.NORMAL)); 
+    assertTrue("failure message",model.getStatus().equals(Status.NORMAL));
+    
   }
 
   @Test

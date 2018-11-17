@@ -15,7 +15,7 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-
+//This is not part of the main Application
 public class SmartPlugDriver extends Application {
   private Organizer organizer;
   private VBox vBox;

@@ -1,17 +1,12 @@
 package ca.uvic.seng330.assn3.devices;
 
-import ca.uvic.seng330.assn3.LightbulbDriver;
 import ca.uvic.seng330.assn3.Organizer;
-import ca.uvic.seng330.assn3.ThermostatDriver;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
-import javafx.scene.control.TextFormatter.Change;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;

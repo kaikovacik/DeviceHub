@@ -2,15 +2,13 @@ package ca.uvic.seng330.assn3.devices;
 
 import java.util.UUID;
 
-import ca.uvic.seng330.assn3.Organizer;
 import ca.uvic.seng330.assn3.Status;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.ReadOnlyIntegerWrapper;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
-public class CameraModel extends DeviceModel{
+public class CameraModel extends DeviceModel {
 
   private BooleanProperty isThisRecording = new SimpleBooleanProperty();
   private SimpleIntegerProperty diskSizeRemaining = new SimpleIntegerProperty();
@@ -28,10 +26,6 @@ public class CameraModel extends DeviceModel{
   public IntegerProperty getDiskSize() {
     return diskSizeRemaining;
   }
-
- // public int getMaxMem() {
-  //  return maxMem;
-  //}
   
   public void setIsObject(boolean b) {
     isObject = b;

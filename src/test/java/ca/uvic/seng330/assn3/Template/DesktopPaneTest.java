@@ -1,15 +1,14 @@
 package ca.uvic.seng330.assn3.Template;
 
+import ca.uvic.seng330.assn3.template2.AdditionController;
+import ca.uvic.seng330.assn3.template2.AdditionModel;
+import ca.uvic.seng330.assn3.template2.AdditionView;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.junit.Test;
 import org.testfx.framework.junit.ApplicationTest;
 import org.testfx.matcher.control.LabeledMatchers;
 import org.testfx.matcher.control.TextInputControlMatchers;
-
-import ca.uvic.seng330.assn3.template2.AdditionController;
-import ca.uvic.seng330.assn3.template2.AdditionModel;
-import ca.uvic.seng330.assn3.template2.AdditionView;
 
 import static org.testfx.api.FxAssert.verifyThat;
 
@@ -38,6 +37,6 @@ public class DesktopPaneTest extends ApplicationTest {
     //given:
     clickOn("removeCameraB").write("33");
     // expect:
-    verifyThat("#yField" , TextInputControlMatchers.hasText("33"));
+    verifyThat("#yField", TextInputControlMatchers.hasText("33"));
   }
 }

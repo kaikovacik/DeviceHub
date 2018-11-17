@@ -6,11 +6,10 @@ import ca.uvic.seng330.assn3.devices.CameraView;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class CameraDriver extends Application {
-
+// This is not part of the main Application
   @Override
   public void start(Stage primaryStage) {
     
