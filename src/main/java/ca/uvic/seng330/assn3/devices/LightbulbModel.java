@@ -49,9 +49,6 @@
 //   }
 // }
 
-
-
-
 package ca.uvic.seng330.assn3.devices;
 
 import java.util.UUID;

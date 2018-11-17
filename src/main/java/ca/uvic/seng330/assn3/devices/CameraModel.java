@@ -8,7 +8,7 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 
-public class CameraModel extends DeviceModel{
+public class CameraModel extends DeviceModel {
 
   private BooleanProperty isThisRecording = new SimpleBooleanProperty();
   private SimpleIntegerProperty diskSizeRemaining = new SimpleIntegerProperty();

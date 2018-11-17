@@ -9,7 +9,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class CameraDriver extends Application {
-
+// This is not part of the main Application
   @Override
   public void start(Stage primaryStage) {
     
