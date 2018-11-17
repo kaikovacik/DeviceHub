@@ -47,6 +47,7 @@ public class Client extends Application {
   public void start(Stage primaryStage) {
     Scene scene = createScene();
     primaryStage.setScene(scene);
+    primaryStage.setAlwaysOnTop(true);
     primaryStage.show();
   }
 
@@ -74,6 +75,7 @@ public class Client extends Application {
 
     // Cameras Tab
     Tab cameraTab = new Tab();
+    cameraTab.setId("cameraTab");
     cameraTab.setText("Cameras");
     VBox cameraVbox = new VBox();
     refreshCameraTab(organizer, cameraVbox);
@@ -89,6 +91,7 @@ public class Client extends Application {
 
     // Thermostat Tab
     Tab thermostatTab = new Tab();
+    thermostatTab.setId("thermostatTab");
     thermostatTab.setText("Thermostats");
     VBox thermostatVbox = new VBox();
     refreshThermostatTab(organizer, thermostatVbox);

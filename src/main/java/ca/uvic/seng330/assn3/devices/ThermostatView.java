@@ -102,9 +102,11 @@ public class ThermostatView {
     createAndConfigurePane();
     
     statusLabel = new Label();
+    statusLabel.setId("thermostatStatusLabel");
     statusLabel.textProperty().bind(model.getStatusAsString());
     
     toggleB = new Button("Start");
+    toggleB.setId("thermostatOnOffB");
     toggleB.setLayoutX(50);
     toggleB.setLayoutY(50);
     toggleB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
@@ -124,34 +126,40 @@ public class ThermostatView {
     // The following is only set as visible when thermostat is on
     settingLabel = new Label("Set Thermostat:");
     celsiusLabel = new Label("0C");
+    celsiusLabel.setId("thermostatCelsiusLabel");
     fahrenheitLabel = new Label("32F");
+    fahrenheitLabel.setId("thermostatFahrenheitLabel");
     
     temperatureField = new TextField();
     configTextFieldForInts(temperatureField);
+    temperatureField.setId("thermostatTemperatureField");
     temperatureField.setMaxWidth(40);
     temperatureField.setText("");
     
     celsiusB = new Button("Celsius");
+    celsiusB.setId("thermostatCelsiusB");
     celsiusB.setLayoutX(50);
     celsiusB.setLayoutY(50);
     celsiusB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         if (temperatureField.getText().length() == 0) {
-          System.err.println("ALERT"); //change to an actual alert
+          System.err.println("Warning: invalid entry"); //change to an actual alert
           return;
         }
         try {
-          model.setSetting(Integer.parseInt(temperatureField.getText()));
-          celsiusLabel.setText(temperatureField.getText() + "C");
-          fahrenheitLabel.setText((Integer.parseInt(temperatureField.getText()) * 9 / 5 + 32) + "F");
+          int data = Integer.parseInt(temperatureField.getText());
+          model.setSetting(data);
+          celsiusLabel.setText(data + "C");
+          fahrenheitLabel.setText((data * 9 / 5 + 32) + "F");
           temperatureField.setText("");
         } catch (ThermostatModel.TemperatureOutofBoundsException e) {
-          System.err.println("ALERT"); //change to an actual alert
+          System.err.println((Integer.parseInt(temperatureField.getText()) > 50)? "Warning: entry too large" : "Warning: entry too small"); //change to an actual alert
         }   
       } 
     })); 
     
     fahrenheitB = new Button("Fahrenheit");
+    fahrenheitB.setId("thermostatFahrenheitB");
     fahrenheitB.setLayoutX(50);
     fahrenheitB.setLayoutY(50);
     fahrenheitB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
