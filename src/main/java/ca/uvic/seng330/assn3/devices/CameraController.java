@@ -26,7 +26,7 @@ public class CameraController {
     }
   }
 
-  public  final void record() {
+  public final void record() {
     if(model.getStatus().equals(Status.OFF)) {
       model.turnOn();
     }

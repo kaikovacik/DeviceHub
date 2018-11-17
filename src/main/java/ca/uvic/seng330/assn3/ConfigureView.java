@@ -53,6 +53,7 @@ public class ConfigureView {
     }));
     removeCameraB.setVisible(false);
     addCameraB = new Button("Add");
+    addCameraB.setId("addCameraB");
     addCameraB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         addCamera();
@@ -86,6 +87,7 @@ public class ConfigureView {
     }));
     removeLightbulbB.setVisible(false);
     addLightbulbB = new Button("Add");
+    addLightbulbB.setId("addLightbulbB");
     addLightbulbB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         addLightbulb();
@@ -102,6 +104,7 @@ public class ConfigureView {
     }));
     removeSmartPlugB.setVisible(false);
     addSmartPlugB = new Button("Add");
+    addSmartPlugB.setId("addSmartPlugB");
     addSmartPlugB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         addSmartPlug();
@@ -168,6 +171,5 @@ public class ConfigureView {
   public Parent asParent() {
     return view ;
   }
-
 
 }
