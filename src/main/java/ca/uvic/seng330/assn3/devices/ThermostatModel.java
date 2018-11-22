@@ -27,8 +27,8 @@ public class ThermostatModel extends DeviceModel {
   private StringProperty statusObsStr;
   private int savedSetting;
 
-  public ThermostatModel(int id, Organizer organizer) {
-    super(id);
+  public ThermostatModel(Organizer organizer) {
+    super(organizer.deviceCount);
     this.aID = UUID.randomUUID();
     this.aStatus = Status.OFF;
     this.statusObsStr = new SimpleStringProperty(aStatus.toString());

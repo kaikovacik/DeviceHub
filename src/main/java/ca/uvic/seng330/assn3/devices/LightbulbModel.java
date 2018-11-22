@@ -64,8 +64,8 @@ public class LightbulbModel extends DeviceModel {
   // Consider making the following default in DeviceModel
   private StringProperty statusObsStr;
 
-  public LightbulbModel(int id, Organizer organizer) {
-    super(id);
+  public LightbulbModel(Organizer organizer) {
+    super(organizer.deviceCount);
     this.aID = UUID.randomUUID();
     this.aStatus = Status.OFF;
     this.statusObsStr = new SimpleStringProperty(aStatus.toString());

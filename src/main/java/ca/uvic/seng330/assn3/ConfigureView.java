@@ -30,9 +30,6 @@ public class ConfigureView {
   private Button addLightbulbB;
   private Button addSmartPlugB;
   private Button removeB;
-//  private Button removeThermostatB;
-//  private Button removeLightbulbB;
-//  private Button removeSmartPlugB;
   
   private GridPane view;
   private Label statusLabel;
@@ -43,8 +40,6 @@ public class ConfigureView {
   public ConfigureView(Organizer pOrganizer) {
     this.organizer = pOrganizer;
     createAndConfigurePane();
-
-    //vBox = new VBox(view);
     
     // Camera Buttons
     removeField = new TextField();
@@ -71,14 +66,6 @@ public class ConfigureView {
       } 
     }));
     
-    // Thermostat Buttons
-//    removeThermostatB = new Button("Remove");
-//    removeThermostatB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
-//      public void handle(MouseEvent event) {
-//        //removeCamera();
-//      } 
-//    }));
-//    removeThermostatB.setVisible(false);
     addThermostatB = new Button("Add");
     addThermostatB.setId("addThermostatB");
     addThermostatB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
@@ -88,14 +75,6 @@ public class ConfigureView {
       } 
     })); 
     
-    // Lightbulb Buttons
-//    removeLightbulbB = new Button("Remove");
-//    removeLightbulbB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
-//      public void handle(MouseEvent event) {
-//        //removeCamera();
-//      } 
-//    }));
-//    removeLightbulbB.setVisible(false);
     addLightbulbB = new Button("Add");
     addLightbulbB.setId("addLightbulbB");
     addLightbulbB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
@@ -148,19 +127,19 @@ public class ConfigureView {
   }
   
   public void addThermostat() {
-    ThermostatModel thermostatModel = new ThermostatModel(organizer.deviceCount, organizer);
+    ThermostatModel thermostatModel = new ThermostatModel( organizer);
     ThermostatView thermostatView = new ThermostatView(thermostatModel, organizer);
     organizer.deviceCount++;
   }
   
   public void addLightbulb() {
-    LightbulbModel lightbulbModel = new LightbulbModel(organizer.deviceCount, organizer);
+    LightbulbModel lightbulbModel = new LightbulbModel( organizer);
     LightbulbView lightbulbView = new LightbulbView(lightbulbModel, organizer);
     organizer.deviceCount++;
   }
   
   public void addSmartPlug() {
-    SmartPlugModel smartPlugModel = new SmartPlugModel(organizer.deviceCount, organizer);
+    SmartPlugModel smartPlugModel = new SmartPlugModel( organizer);
     SmartPlugView smartPlugView = new SmartPlugView(smartPlugModel, organizer);
     organizer.deviceCount++;
   }
