@@ -23,6 +23,7 @@ public class CameraView {
 
   private GridPane view;
   private CameraController controller;
+  private CameraModel model;
   //private Organizer organizer;
 
   private Label recordingLabel;
@@ -37,6 +38,7 @@ public class CameraView {
   public CameraView(CameraController controller, Organizer organizer) {
     
     createAndConfigurePane();
+    this.model = model;
     this.controller = controller;
     organizer.addView(this);
     try {

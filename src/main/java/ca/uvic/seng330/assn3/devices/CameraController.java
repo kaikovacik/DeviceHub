@@ -19,14 +19,6 @@ public class CameraController {
     this.organizer = pOrganizer;
     aStatus.set(model.getStatus().toString());
 
-    // registration is here because CamController needs to know about organizer to alert it anyways.
-//    try {
-//      organizer.register(id, model);
-//      organizer.alert(model, ("Camera (" + model.getIdentifier().toString() + ") added"));
-//    } catch (HubRegistrationException e) {
-//      System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
-//      e.printStackTrace();
-//    }
   }
 
   public final void record() {
