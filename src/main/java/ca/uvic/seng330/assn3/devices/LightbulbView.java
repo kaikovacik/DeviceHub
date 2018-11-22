@@ -20,18 +20,16 @@ public class LightbulbView {
   private LightbulbModel model;
   public int index; // ****
 
-  public int id;
   
   public LightbulbView(LightbulbModel model, Organizer organizer) {
     
-    this.id = id;
     this.model = model;
     organizer.addView(this);
-    try {
-      organizer.register(model);
-    } catch (Exception e) {
-      System.err.println("incorrect registration");
-    }
+//    try {
+//      organizer.register(model);
+//    } catch (Exception e) {
+//      System.err.println("incorrect registration");
+//    }
     
     createAndConfigurePane();
     

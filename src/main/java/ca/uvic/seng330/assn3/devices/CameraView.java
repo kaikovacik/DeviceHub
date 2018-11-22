@@ -42,7 +42,7 @@ public class CameraView {
     try {
       organizer.register(controller.getModel());
     } catch (Exception e) {
-      System.err.println("incorrect registration");
+      System.err.println("Registration error");
     }
 
     statusLabel = new Label();

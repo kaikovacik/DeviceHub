@@ -91,20 +91,17 @@ public class ThermostatView {
   private Button celsiusB;
   private Button fahrenheitB;
   private ThermostatModel model;
-  private ThermostatView thisone;
   
-  public int id;
  
   public ThermostatView(ThermostatModel model, Organizer organizer) {
     
-    this.id = id;
     this.model = model;
     organizer.addView(this);
-    try {
-      organizer.register(model);
-    } catch (Exception e) {
-      System.err.println("incorrect registration");
-    }
+//    try {
+//      organizer.register(model);
+//    } catch (Exception e) {
+//      System.err.println("incorrect registration");
+//    }
     //this.driver = driver;
     
     createAndConfigurePane();

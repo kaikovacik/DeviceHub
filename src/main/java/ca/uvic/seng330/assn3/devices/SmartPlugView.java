@@ -1,9 +1,6 @@
 package ca.uvic.seng330.assn3.devices;
 
-import ca.uvic.seng330.assn3.LightbulbDriver;
 import ca.uvic.seng330.assn3.Organizer;
-import ca.uvic.seng330.assn3.SmartPlugDriver;
-import ca.uvic.seng330.assn3.ThermostatDriver;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
@@ -33,11 +30,11 @@ public class SmartPlugView {
     this.id = id;
     this.model = model;
     organizer.addView(this);
-    try {
-      organizer.register(model);
-    } catch (Exception e) {
-      System.err.println("incorrect registration");
-    }
+//    try {
+//      organizer.register(model);
+//    } catch (Exception e) {
+//      System.err.println("incorrect registration");
+//    }
     //this.driver = driver;
     
     createAndConfigurePane();

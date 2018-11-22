@@ -48,12 +48,15 @@ public class ConfigureView {
     
     // Camera Buttons
     removeField = new TextField();
+    removeField.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+      public void handle(MouseEvent event) {
+        removeField.setText("");
+    }}));
     removeB = new Button("Remove");
     removeB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         try {
           remove(removeField.getText());
-          removeField.setText("");
         } catch (Exception e) {
           removeField.setText("Invalid device!");
         }
@@ -128,32 +131,38 @@ public class ConfigureView {
   }
 
   public void addCamera() {
-    CameraModel cameraModel1 = new CameraModel();
+    CameraModel cameraModel1 = new CameraModel(organizer.deviceCount);
     CameraController cameraController1 = new CameraController(cameraModel1, organizer);
     CameraView cameraView1 = new CameraView(cameraController1, organizer);
+    organizer.deviceCount++;
   }
 
   public void remove(String id) throws Exception {
     try {
       organizer.unregister(id);
+      removeField.setText("");
+      System.out.println("exe");
     } catch (Exception e) {
-      throw e;
+      removeField.setText("Invalid device!");
     }
   }
   
   public void addThermostat() {
-    ThermostatModel thermostatModel = new ThermostatModel(organizer);
+    ThermostatModel thermostatModel = new ThermostatModel(organizer.deviceCount, organizer);
     ThermostatView thermostatView = new ThermostatView(thermostatModel, organizer);
+    organizer.deviceCount++;
   }
   
   public void addLightbulb() {
-    LightbulbModel lightbulbModel = new LightbulbModel(organizer);
+    LightbulbModel lightbulbModel = new LightbulbModel(organizer.deviceCount, organizer);
     LightbulbView lightbulbView = new LightbulbView(lightbulbModel, organizer);
+    organizer.deviceCount++;
   }
   
   public void addSmartPlug() {
-    SmartPlugModel smartPlugModel = new SmartPlugModel(organizer);
+    SmartPlugModel smartPlugModel = new SmartPlugModel(organizer.deviceCount, organizer);
     SmartPlugView smartPlugView = new SmartPlugView(smartPlugModel, organizer);
+    organizer.deviceCount++;
   }
 
   private void createAndConfigurePane() {

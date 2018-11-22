@@ -32,7 +32,6 @@ public class Organizer{
 
   public void addView(Object view) {
     viewList.put(deviceCount, view);
-    deviceCount++;
   }
 
   // should be deep copy
@@ -113,12 +112,11 @@ public class Organizer{
 
 //    UUID uuid = UUID.fromString(id);
     int id = Integer.parseInt(entry);
-    System.out.println(id);
-    try {
+    System.out.println(modelRegistry.keySet());
+    if (deviceCount > 0 && modelRegistry.containsKey(id)) {
       modelRegistry.remove(id);
       viewList.remove(id);
-      deviceCount--;
-    } catch (Exception e) {
+    } else {
       throw new HubRegistrationException("Specified device is not in the network");
     }
   }

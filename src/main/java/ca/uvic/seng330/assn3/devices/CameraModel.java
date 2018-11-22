@@ -15,7 +15,8 @@ public class CameraModel extends DeviceModel {
   private boolean isObject;
   private static final int maxMem = 3;
   
-  public CameraModel() {
+  public CameraModel(int id) {
+    super(id);
     this.aID = UUID.randomUUID();
     this.diskSizeRemaining.set(maxMem);
     this.isThisRecording.set(false);
