@@ -16,7 +16,7 @@ public abstract class DeviceModel {
   
   public DeviceModel(int id) {
     this.id = new SimpleIntegerProperty();
-    this.id.set(id);
+    this.id.set(id+1);
   }
   
   public void setStatus(Status pStatus) {
