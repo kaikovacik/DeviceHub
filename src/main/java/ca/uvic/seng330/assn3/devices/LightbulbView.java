@@ -21,11 +21,15 @@ public class LightbulbView {
   public int index; // ****
 
   
-  
   public LightbulbView(LightbulbModel model, Organizer organizer) {
     
     this.model = model;
     organizer.addView(this);
+//    try {
+//      organizer.register(model);
+//    } catch (Exception e) {
+//      System.err.println("incorrect registration");
+//    }
     
     createAndConfigurePane();
     
@@ -53,8 +57,8 @@ public class LightbulbView {
     })); 
     
     // Construct UI
-    view.addRow(0, new Label("Lightbulb Status:"), statusLabel);
-    view.addRow(1, toggleB);
+    view.addRow(1, new Label("Lightbulb Status:"), statusLabel, new Label("Device ID:"), new Label(""+(organizer.deviceCount-1)));
+    view.addRow(2, toggleB);
   }
 
   private void createAndConfigurePane() {

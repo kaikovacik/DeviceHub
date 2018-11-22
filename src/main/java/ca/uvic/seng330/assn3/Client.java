@@ -145,15 +145,16 @@ public class Client extends Application {
     return scene;
   }
 
-
   private static void PopulateSystem(Organizer organizer) {
-    CameraModel cameraModel1 = new CameraModel();
+    CameraModel cameraModel1 = new CameraModel(organizer.deviceCount);
     CameraController cameraController1 = new CameraController(cameraModel1, organizer);
     CameraView cameraView1 = new CameraView(cameraController1, organizer);
+    organizer.deviceCount++;
 
-    CameraModel cameraModel2 = new CameraModel();
+    CameraModel cameraModel2 = new CameraModel(organizer.deviceCount);
     CameraController cameraController2 = new CameraController(cameraModel2, organizer);
     CameraView cameraView2 = new CameraView(cameraController2, organizer);
+    organizer.deviceCount++;
   }
 
   private static void refreshCameraTab(Organizer organizer, VBox vbox) {
