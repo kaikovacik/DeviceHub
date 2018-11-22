@@ -23,11 +23,7 @@ public class SmartPlugView {
   private SmartPlugModel model;
   public int index; // ****
   
-  public int id;
-  
   public SmartPlugView(SmartPlugModel model, Organizer organizer) {
-    
-    this.id = id;
     this.model = model;
     organizer.addView(this);
 //    try {
@@ -63,7 +59,7 @@ public class SmartPlugView {
     })); 
     
     // Construct UI
-    view.addRow(0, new Label("SmartPlug Status:"), statusLabel, new Label("Device ID:"), new Label(""+(organizer.deviceCount-1)));
+    view.addRow(0, new Label("SmartPlug Status:"), statusLabel, new Label("Device ID:"), new Label(""+(organizer.deviceCount)));
     view.addRow(1, toggleB);
   }
 

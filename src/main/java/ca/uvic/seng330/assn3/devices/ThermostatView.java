@@ -185,7 +185,7 @@ public class ThermostatView {
     })); 
     
     // Construct UI
-    view.addRow(0, new Label("Thermostat Status:"), statusLabel, new Label("Device ID:"), new Label(""+ (organizer.deviceCount-1)));
+    view.addRow(0, new Label("Thermostat Status:"), statusLabel, new Label("Device ID:"), new Label(""+ (organizer.deviceCount)));
     view.addRow(1, toggleB);
     view.addRow(2, settingLabel, temperatureField, celsiusB, fahrenheitB);
     view.addRow(3, celsiusLabel, fahrenheitLabel);

@@ -11,12 +11,12 @@ public abstract class DeviceModel {
 
   protected Status aStatus;
   protected UUID aID;
-  protected IntegerProperty id;
+  public IntegerProperty id;
   //protected Organizer aOwner;
   
   public DeviceModel(int id) {
     this.id = new SimpleIntegerProperty();
-    this.id.set(id+1);
+    this.id.set(id);
   }
   
   public void setStatus(Status pStatus) {

@@ -17,6 +17,7 @@ public class CameraModel extends DeviceModel {
   
   public CameraModel(int id) {
     super(id);
+    System.out.println(id);
     this.aID = UUID.randomUUID();
     this.diskSizeRemaining.set(maxMem);
     this.isThisRecording.set(false);

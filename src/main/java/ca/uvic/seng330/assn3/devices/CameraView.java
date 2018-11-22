@@ -99,7 +99,7 @@ public class CameraView {
     }));    
 
     // Construct UI
-    view.addRow(0, new Label("Camera Status:"), statusLabel, new Label("Device ID:"), new Label(""+(organizer.deviceCount-1)));
+    view.addRow(0, new Label("Camera Status:"), statusLabel, new Label("Device ID:"), new Label(""+(organizer.deviceCount)));
     view.addRow(1, onOffB);
     view.addRow(2, recordB, recordingLabel); 
     view.addRow(3, eraseB, currentMemoryLabel, memoryLabel);

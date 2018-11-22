@@ -57,7 +57,7 @@ public class LightbulbView {
     })); 
     
     // Construct UI
-    view.addRow(1, new Label("Lightbulb Status:"), statusLabel, new Label("Device ID:"), new Label(""+(organizer.deviceCount-1)));
+    view.addRow(1, new Label("Lightbulb Status:"), statusLabel, new Label("Device ID:"), new Label(""+(organizer.deviceCount)));
     view.addRow(2, toggleB);
   }
 
