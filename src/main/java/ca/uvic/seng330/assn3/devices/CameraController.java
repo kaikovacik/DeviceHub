@@ -1,5 +1,7 @@
 package ca.uvic.seng330.assn3.devices;
 
+import java.util.UUID;
+
 import ca.uvic.seng330.assn3.HubRegistrationException;
 import ca.uvic.seng330.assn3.Organizer;
 import ca.uvic.seng330.assn3.Status;
@@ -18,13 +20,13 @@ public class CameraController {
     aStatus.set(model.getStatus().toString());
 
     // registration is here because CamController needs to know about organizer to alert it anyways.
-    try {
-      organizer.register(model);
-      organizer.alert(model, ("Camera (" + model.getIdentifier().toString() + ") added"));
-    } catch (HubRegistrationException e) {
-      System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
-      e.printStackTrace();
-    }
+//    try {
+//      organizer.register(id, model);
+//      organizer.alert(model, ("Camera (" + model.getIdentifier().toString() + ") added"));
+//    } catch (HubRegistrationException e) {
+//      System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
+//      e.printStackTrace();
+//    }
   }
 
   public final void record() {
@@ -86,5 +88,13 @@ public class CameraController {
     model.setStatus(Status.NORMAL);
     aStatus.set("NORMAL");
     //System.out.println(model.getStatus());
+  }
+  
+  public DeviceModel getModel() {
+    return model;
+  }
+  
+  public UUID getID() {
+    return model.getID();
   }
 }

@@ -145,7 +145,6 @@ public class Client extends Application {
     return scene;
   }
 
-
   private static void PopulateSystem(Organizer organizer) {
     CameraModel cameraModel1 = new CameraModel();
     CameraController cameraController1 = new CameraController(cameraModel1, organizer);

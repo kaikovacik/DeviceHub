@@ -57,12 +57,12 @@ public class SmartPlugDriver extends Application {
     // ThermostatController thermostatController1 = new CameraController(cameraModel1);
     SmartPlugView SmartPlugView = new SmartPlugView(SmartPlugModel, organizer);
 
-    try {
-      organizer.register(SmartPlugModel);
-    } catch (HubRegistrationException e) {
-      System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
-      e.printStackTrace();
-    }
+//    try {
+//      organizer.register(SmartPlugModel);
+//    } catch (HubRegistrationException e) {
+//      System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
+//      e.printStackTrace();
+//    }
 
     vBox.getChildren().add(SmartPlugView.asParent());
   }

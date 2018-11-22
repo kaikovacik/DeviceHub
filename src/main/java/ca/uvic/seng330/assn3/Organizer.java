@@ -1,5 +1,6 @@
 package ca.uvic.seng330.assn3;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.UUID;
@@ -13,28 +14,36 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class Organizer{
 
-  private HashMap<UUID, DeviceModel> modelRegistry;
-  private LinkedList<Object> viewList;
+  private HashMap<Integer, DeviceModel> modelRegistry;
+  private HashMap<Integer, Object> viewList;
   //public LinkedList<Client> clients;
   private final Logger log;
   private SimpleStringProperty lastAllert = new SimpleStringProperty();
+  
+  public int deviceCount;
 
   public Organizer() {
+    this.deviceCount = 1;
     this.modelRegistry = new HashMap<>();
-    this.viewList = new LinkedList<>();
+    this.viewList = new HashMap<>();
     //this.clients = new LinkedList<>();
     this.log = LoggerFactory.getLogger(Organizer.class);
   }
 
   public void addView(Object view) {
-    viewList.add(view);
+    viewList.put(deviceCount, view);
+    deviceCount++;
   }
-  
+
   // should be deep copy
-  public LinkedList getViews() {
-    return viewList;
-  }
+//  public LinkedList getViews() {
+//    return viewList;
+//  }
   
+  public Collection<Object> getViews() {
+    return viewList.values();
+  }
+
   public void log(String message) {
     log.info(message);
   }
@@ -57,16 +66,15 @@ public class Organizer{
   public SimpleStringProperty getLastAllert() {
     return lastAllert;
   }
-  
+
   public void register(DeviceModel device) throws HubRegistrationException {
     try {
-      modelRegistry.put(device.getIdentifier(), device);
+      modelRegistry.put(deviceCount, device);
     } catch (Exception e) {
       System.out.println("reg ex");
       throw new HubRegistrationException((device == null) ? "Invalid device" : "Unable to add this device");
-      
+
     }
-    ;
   }
 
   /*
@@ -95,22 +103,32 @@ public class Organizer{
     return modelRegistry.size();
   }
 
-  public void unregister(DeviceModel device) throws HubRegistrationException {
+  public void unregister(String entry) throws HubRegistrationException {
 
-    if (modelRegistry.containsKey(device.getIdentifier())) {
-      modelRegistry.remove(device.getIdentifier(), device);
-    } else {
+//        if (modelRegistry.containsKey(device.getIdentifier())) {
+//          modelRegistry.remove(device.getIdentifier(), device);
+//        } else {
+//      throw new HubRegistrationException("Specified device is not in the network");
+//        }
+
+//    UUID uuid = UUID.fromString(id);
+    int id = Integer.parseInt(entry);
+    System.out.println(id);
+    try {
+      modelRegistry.remove(id);
+      viewList.remove(id);
+      deviceCount--;
+    } catch (Exception e) {
       throw new HubRegistrationException("Specified device is not in the network");
     }
   }
 
-//  public void addClient(Client client) {
-//    clients.add(client);
-//  }
+  //  public void addClient(Client client) {
+  //    clients.add(client);
+  //  }
 
   // TODO: We should make this return a deep copy.
-  public HashMap<UUID, DeviceModel> getDevices() {
+  public HashMap<Integer, DeviceModel> getDevices() {
     return modelRegistry;
-
   }
 }

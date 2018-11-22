@@ -26,10 +26,18 @@ public class SmartPlugView {
   private SmartPlugModel model;
   public int index; // ****
   
+  public int id;
+  
   public SmartPlugView(SmartPlugModel model, Organizer organizer) {
     
+    this.id = id;
     this.model = model;
     organizer.addView(this);
+    try {
+      organizer.register(model);
+    } catch (Exception e) {
+      System.err.println("incorrect registration");
+    }
     //this.driver = driver;
     
     createAndConfigurePane();
@@ -58,7 +66,7 @@ public class SmartPlugView {
     })); 
     
     // Construct UI
-    view.addRow(0, new Label("SmartPlug Status:"), statusLabel);
+    view.addRow(0, new Label("SmartPlug Status:"), statusLabel, new Label("Device ID:"), new Label(""+(organizer.deviceCount-1)));
     view.addRow(1, toggleB);
   }
 

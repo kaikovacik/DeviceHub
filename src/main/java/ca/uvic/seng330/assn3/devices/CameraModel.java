@@ -14,7 +14,7 @@ public class CameraModel extends DeviceModel {
   private SimpleIntegerProperty diskSizeRemaining = new SimpleIntegerProperty();
   private boolean isObject;
   private static final int maxMem = 3;
-
+  
   public CameraModel() {
     this.aID = UUID.randomUUID();
     this.diskSizeRemaining.set(maxMem);
@@ -22,9 +22,14 @@ public class CameraModel extends DeviceModel {
     this.aStatus = Status.OFF;
     this.isObject = false;
   }
-
+  
   public IntegerProperty getDiskSize() {
     return diskSizeRemaining;
+  }
+  
+  public UUID getID() {
+    System.out.println(aID);
+    return aID;
   }
   
   public void setIsObject(boolean b) {

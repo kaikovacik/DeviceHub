@@ -35,10 +35,15 @@ public class CameraView {
   private Button eraseB;
 
   public CameraView(CameraController controller, Organizer organizer) {
-
+    
     createAndConfigurePane();
     this.controller = controller;
     organizer.addView(this);
+    try {
+      organizer.register(controller.getModel());
+    } catch (Exception e) {
+      System.err.println("incorrect registration");
+    }
 
     statusLabel = new Label();
     statusLabel.setId("cameraStatusLabel");
@@ -94,7 +99,7 @@ public class CameraView {
     }));    
 
     // Construct UI
-    view.addRow(0, new Label("Camera Status:"), statusLabel);
+    view.addRow(0, new Label("Camera Status:"), statusLabel, new Label("Device ID:"), new Label(""+(organizer.deviceCount-1)));
     view.addRow(1, onOffB);
     view.addRow(2, recordB, recordingLabel); 
     view.addRow(3, eraseB, currentMemoryLabel, memoryLabel);

@@ -92,11 +92,19 @@ public class ThermostatView {
   private Button fahrenheitB;
   private ThermostatModel model;
   private ThermostatView thisone;
+  
+  public int id;
  
   public ThermostatView(ThermostatModel model, Organizer organizer) {
     
+    this.id = id;
     this.model = model;
     organizer.addView(this);
+    try {
+      organizer.register(model);
+    } catch (Exception e) {
+      System.err.println("incorrect registration");
+    }
     //this.driver = driver;
     
     createAndConfigurePane();
@@ -180,7 +188,7 @@ public class ThermostatView {
     })); 
     
     // Construct UI
-    view.addRow(0, new Label("Thermostat Status:"), statusLabel);
+    view.addRow(0, new Label("Thermostat Status:"), statusLabel, new Label("Device ID:"), new Label(""+ (organizer.deviceCount-1)));
     view.addRow(1, toggleB);
     view.addRow(2, settingLabel, temperatureField, celsiusB, fahrenheitB);
     view.addRow(3, celsiusLabel, fahrenheitLabel);

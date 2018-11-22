@@ -57,12 +57,12 @@ public class ThermostatDriver extends Application {
     // ThermostatController thermostatController1 = new CameraController(cameraModel1);
     ThermostatView thermostatView = new ThermostatView(thermostatModel, organizer);
 
-    try {
-      organizer.register(thermostatModel);
-    } catch (HubRegistrationException e) {
-      System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
-      e.printStackTrace();
-    }
+//    try {
+//      organizer.register(thermostatModel);
+//    } catch (HubRegistrationException e) {
+//      System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
+//      e.printStackTrace();
+//    }
 
     vBox.getChildren().add(thermostatView.asParent());
   }

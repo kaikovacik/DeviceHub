@@ -16,6 +16,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
@@ -23,14 +24,15 @@ import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 
 public class ConfigureView {
+  private TextField removeField;
   private Button addCameraB;
   private Button addThermostatB;
   private Button addLightbulbB;
   private Button addSmartPlugB;
-  private Button removeCameraB;
-  private Button removeThermostatB;
-  private Button removeLightbulbB;
-  private Button removeSmartPlugB;
+  private Button removeB;
+//  private Button removeThermostatB;
+//  private Button removeLightbulbB;
+//  private Button removeSmartPlugB;
   
   private GridPane view;
   private Label statusLabel;
@@ -45,78 +47,84 @@ public class ConfigureView {
     //vBox = new VBox(view);
     
     // Camera Buttons
-    removeCameraB = new Button("Remove");
-    removeCameraB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+    removeField = new TextField();
+    removeB = new Button("Remove");
+    removeB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
-        //removeCamera();
+        try {
+          remove(removeField.getText());
+          removeField.setText("");
+        } catch (Exception e) {
+          removeField.setText("Invalid device!");
+        }
+        
       } 
     }));
-    removeCameraB.setVisible(false);
     addCameraB = new Button("Add");
     addCameraB.setId("addCameraB");
     addCameraB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         addCamera();
-        removeCameraB.setVisible(true);
       } 
     }));
     
     // Thermostat Buttons
-    removeThermostatB = new Button("Remove");
-    removeThermostatB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
-      public void handle(MouseEvent event) {
-        //removeCamera();
-      } 
-    }));
-    removeThermostatB.setVisible(false);
+//    removeThermostatB = new Button("Remove");
+//    removeThermostatB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+//      public void handle(MouseEvent event) {
+//        //removeCamera();
+//      } 
+//    }));
+//    removeThermostatB.setVisible(false);
     addThermostatB = new Button("Add");
     addThermostatB.setId("addThermostatB");
     addThermostatB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         addThermostat();
-        removeThermostatB.setVisible(true);
+//        removeThermostatB.setVisible(true);
       } 
     })); 
     
     // Lightbulb Buttons
-    removeLightbulbB = new Button("Remove");
-    removeLightbulbB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
-      public void handle(MouseEvent event) {
-        //removeCamera();
-      } 
-    }));
-    removeLightbulbB.setVisible(false);
+//    removeLightbulbB = new Button("Remove");
+//    removeLightbulbB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+//      public void handle(MouseEvent event) {
+//        //removeCamera();
+//      } 
+//    }));
+//    removeLightbulbB.setVisible(false);
     addLightbulbB = new Button("Add");
     addLightbulbB.setId("addLightbulbB");
     addLightbulbB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         addLightbulb();
-        removeLightbulbB.setVisible(true);
+//        removeLightbulbB.setVisible(true);
       } 
     })); 
     
     // SmartPlug Buttons
-    removeSmartPlugB = new Button("Remove");
-    removeSmartPlugB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
-      public void handle(MouseEvent event) {
-        //removeCamera();
-      } 
-    }));
-    removeSmartPlugB.setVisible(false);
+//    removeSmartPlugB = new Button("Remove");
+//    removeSmartPlugB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+//      public void handle(MouseEvent event) {
+//        //removeCamera();
+//      } 
+//    }));
+//    removeSmartPlugB.setVisible(false);
     addSmartPlugB = new Button("Add");
     addSmartPlugB.setId("addSmartPlugB");
     addSmartPlugB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         addSmartPlug();
-        removeSmartPlugB.setVisible(true);
+//        removeSmartPlugB.setVisible(true);
       } 
     }));
     
     view.setAlignment(Pos.TOP_LEFT);
-    view.addRow(0, new Label("Cameras: "), addCameraB, removeCameraB);
-    view.addRow(1, new Label("Thermostats: "), addThermostatB, removeThermostatB);
-    view.addRow(2, new Label("Lightbulbs: "), addLightbulbB, removeLightbulbB);
-    view.addRow(3, new Label("Smart Plugs: "), addSmartPlugB, removeSmartPlugB);
+    view.addRow(0, new Label("Remove device by Id:"), removeField, removeB);
+    view.addRow(1, new Label("Cameras:"), addCameraB);
+    view.addRow(2, new Label("Thermostats:"), addThermostatB);
+    view.addRow(3, new Label("Lightbulbs:"), addLightbulbB);
+    view.addRow(4, new Label("Smart Plugs:"), addSmartPlugB);
   }
 
   public void addCamera() {
@@ -125,12 +133,12 @@ public class ConfigureView {
     CameraView cameraView1 = new CameraView(cameraController1, organizer);
   }
 
-  public void removeCamera(String name) {
-    //organizer.getViews().pop();
-    
-    //organizer.unregister(name);
-    //organizer.getViews().remove(name);
-    
+  public void remove(String id) throws Exception {
+    try {
+      organizer.unregister(id);
+    } catch (Exception e) {
+      throw e;
+    }
   }
   
   public void addThermostat() {
@@ -139,13 +147,13 @@ public class ConfigureView {
   }
   
   public void addLightbulb() {
-    LightbulbModel LightbulbModel = new LightbulbModel(organizer);
-    LightbulbView LightbulbView = new LightbulbView(LightbulbModel, organizer);
+    LightbulbModel lightbulbModel = new LightbulbModel(organizer);
+    LightbulbView lightbulbView = new LightbulbView(lightbulbModel, organizer);
   }
   
   public void addSmartPlug() {
-    SmartPlugModel SmartPlugModel = new SmartPlugModel(organizer);
-    SmartPlugView SmartPlugView = new SmartPlugView(SmartPlugModel, organizer);
+    SmartPlugModel smartPlugModel = new SmartPlugModel(organizer);
+    SmartPlugView smartPlugView = new SmartPlugView(smartPlugModel, organizer);
   }
 
   private void createAndConfigurePane() {
