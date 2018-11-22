@@ -41,10 +41,11 @@ public class CameraView {
     organizer.addView(this);
 
     statusLabel = new Label();
+    statusLabel.setId("cameraStatusLabel");
     statusLabel.textProperty().bind(controller.aStatus);
 
     onOffB = new Button("Start");
-    onOffB.setId("CameraOnOffB");
+    onOffB.setId("cameraOnOffB");
     onOffB.setLayoutX(50);
     onOffB.setLayoutY(50);
     onOffB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
@@ -65,8 +66,9 @@ public class CameraView {
 
     // The following is only set as visible when camera is on
     recordingLabel = new Label("Camera is not recording");
-
+    recordingLabel.setId("cameraRecordingLabel");
     recordB = new Button("Toggle Recording"); 
+    recordB.setId("cameraRecordB");
     recordB.setLayoutX(50); 
     recordB.setLayoutY(50);  
     recordB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
@@ -77,10 +79,12 @@ public class CameraView {
     })); 
 
     memoryLabel = new Label();
+    memoryLabel.setId("cameraMemoryLabel");
     memoryLabel.textProperty().bind(controller.diskSpaceLeft().asString());
     currentMemoryLabel = new Label("Memory: ");
 
     eraseB = new Button("Erase Memory");
+    eraseB.setId("cameraEraseB");
     eraseB.setLayoutX(50); 
     eraseB.setLayoutY(50); 
     eraseB.setOnMouseClicked((new EventHandler<MouseEvent>() {
