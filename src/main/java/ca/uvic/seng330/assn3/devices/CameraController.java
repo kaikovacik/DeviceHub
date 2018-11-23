@@ -21,32 +21,9 @@ public class CameraController {
 
   }
 
-  public final void record() {
-    if (model.getStatus().equals(Status.OFF)) {
-      model.turnOn();
-    }
-    if (model.getIsRecording()) {
-      model.setIsRecording(false);
-      model.decrementDiskSize();
 
-    } else if (model.getDiskSize().intValue() > 0) {
-      model.setIsRecording(true);
-    } else {
-      model.setStatus(Status.ERROR);
-      aStatus.set(model.getStatus().toString());
-      organizer.alert(model, "Camera is full!");
-     
-    }
-  }
   
-  // Where Record() toggles between recording,
-  // stopRecording, as it suggests, ONLY stops.
-  public final void stopRecording() {
-    if (model.getIsRecording()) {
-      model.setIsRecording(false);
-      model.decrementDiskSize();
-    }
-  }
+
   
   //Next two methods are bad code duplication
   public final BooleanProperty isModelRecordingProperty() {
@@ -63,24 +40,9 @@ public class CameraController {
     if (b) organizer.alert(model, ("Camera (" + model.getIdentifier().toString() + ") detected an object!"));
   }
   
-  public final void turnOff() {
-    stopRecording();
-    model.turnOff();
-    aStatus.set("OFF");
-  }
+
   
-  public final void turnOn() {
-    model.turnOn();
-    aStatus.set("NORMAL");
-  }
-  
-  public void resetMemory() {
-    stopRecording();
-    model.resetDiskSize();
-    model.setStatus(Status.NORMAL);
-    aStatus.set("NORMAL");
-    //System.out.println(model.getStatus());
-  }
+ 
   
   public DeviceModel getModel() {
     return model;

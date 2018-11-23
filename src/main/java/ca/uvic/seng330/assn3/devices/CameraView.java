@@ -22,7 +22,6 @@ import javafx.scene.layout.Priority;
 public class CameraView {
 
   private GridPane view;
-  private CameraController controller;
   private CameraModel model;
   //private Organizer organizer;
 
@@ -35,21 +34,24 @@ public class CameraView {
   private Button recordB;
   private Button eraseB;
 
-  public CameraView(CameraController controller, Organizer organizer) {
+  public CameraView(CameraModel model, Organizer organizer) {
     
     createAndConfigurePane();
     this.model = model;
-    this.controller = controller;
+    
+    // move addView to organizer's register?
     organizer.addView(this);
     try {
-      organizer.register(controller.getModel());
+      organizer.register(model);
     } catch (Exception e) {
       System.err.println("Registration error");
     }
 
-    statusLabel = new Label();
+    statusLabel = new Label("OFF");
     statusLabel.setId("cameraStatusLabel");
-    statusLabel.textProperty().bind(controller.aStatus);
+    model.getStatusAsString().addListener((obs, prev, curr) -> {
+      statusLabel.textProperty().set(model.getStatus().toString());
+    });
 
     onOffB = new Button("Start");
     onOffB.setId("cameraOnOffB");
@@ -58,13 +60,13 @@ public class CameraView {
     onOffB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
 
       public void handle(MouseEvent event) {
-        if ((controller.aStatus.getValue()).equals("OFF")) {
-          controller.turnOn();
-          recordingLabel.setText((controller.isModelRecordingProperty().getValue())? "Camera is recording" : "Camera is not recording");
+        if ((model.getStatusAsString().getValue()).equals("OFF")) {
+          model.turnOn();
+          recordingLabel.setText((model.getIsRecording())? "Camera is recording" : "Camera is not recording");
           onOffB.setText("Turn OFF");
           showData();
         } else {
-          controller.turnOff();
+          model.turnOff();
           onOffB.setText("Start");
           hideData();
         }
@@ -80,14 +82,14 @@ public class CameraView {
     recordB.setLayoutY(50);  
     recordB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) { 
-        controller.record();
-        recordingLabel.setText((controller.isModelRecordingProperty().getValue())? "Camera is recording" : "Camera is not recording");
+        model.record();
+        recordingLabel.setText((model.isThisRecording().getValue())? "Camera is recording" : "Camera is not recording");
       } 
     })); 
 
     memoryLabel = new Label();
     memoryLabel.setId("cameraMemoryLabel");
-    memoryLabel.textProperty().bind(controller.diskSpaceLeft().asString());
+    memoryLabel.textProperty().bind(model.diskSizeRemaining().asString());
     currentMemoryLabel = new Label("Memory: ");
 
     eraseB = new Button("Erase Memory");
@@ -96,7 +98,7 @@ public class CameraView {
     eraseB.setLayoutY(50); 
     eraseB.setOnMouseClicked((new EventHandler<MouseEvent>() {
       public void handle(MouseEvent event) {
-        controller.resetMemory();
+        model.resetMemory();
       }
     }));    
 

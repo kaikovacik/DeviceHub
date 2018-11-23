@@ -2,30 +2,42 @@ package ca.uvic.seng330.assn3.devices;
 
 import java.util.UUID;
 
+import ca.uvic.seng330.assn3.Organizer;
 import ca.uvic.seng330.assn3.Status;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 
 public class CameraModel extends DeviceModel {
 
-  private BooleanProperty isThisRecording = new SimpleBooleanProperty();
-  private SimpleIntegerProperty diskSizeRemaining = new SimpleIntegerProperty();
+  private BooleanProperty isThisRecordingProperty = new SimpleBooleanProperty();
+  private SimpleIntegerProperty diskSizeRemainingProperty = new SimpleIntegerProperty();
   private boolean isObject;
   private static final int maxMem = 3;
+  //make default in deviceModel
+  private StringProperty statusObsStr;
+  private Organizer organizer;
   
-  public CameraModel(int id) {
-    super(id);
+  public CameraModel( Organizer pOrganizer ) {
+    super(pOrganizer.deviceCount);
+    this.organizer = pOrganizer;
     this.aID = UUID.randomUUID();
-    this.diskSizeRemaining.set(maxMem);
-    this.isThisRecording.set(false);
+    this.diskSizeRemainingProperty.set(maxMem);
+    this.isThisRecordingProperty.set(false);
     this.aStatus = Status.OFF;
     this.isObject = false;
+    this.statusObsStr = new SimpleStringProperty(aStatus.toString());
+  }
+  
+  public StringProperty getStatusAsString() {
+    return statusObsStr;
   }
   
   public IntegerProperty getDiskSize() {
-    return diskSizeRemaining;
+    return diskSizeRemainingProperty;
   }
   
   public UUID getID() {
@@ -37,25 +49,67 @@ public class CameraModel extends DeviceModel {
     isObject = b;
   }
 
-  protected void resetDiskSize() {
-    diskSizeRemaining.set(maxMem);
-  }
-
-  public void decrementDiskSize() {
-    diskSizeRemaining.set(diskSizeRemaining.intValue()-1);
-  }
-
-  // the recordingLabel is bound to this.
-  public final BooleanProperty isThisRecordingProperty() {
-    return isThisRecording;
+ public final SimpleIntegerProperty diskSizeRemaining() {
+   return diskSizeRemainingProperty;
+ }
+  
+   // the recordingLabel is bound to this.
+  public final BooleanProperty isThisRecording() {
+    return isThisRecordingProperty;
   }
 
   public final boolean getIsRecording() {
-    return isThisRecording.get();
+    return isThisRecordingProperty.get();
   }
 
   public final void setIsRecording(final boolean bool) {
-    this.isThisRecording.set(bool);
+    this.isThisRecordingProperty.set(bool);
+  }
+  
+  public final void record() {
+    if (aStatus.equals(Status.OFF)) {
+      turnOn();
+    }
+    if (getIsRecording()) {
+      setIsRecording(false);
+      diskSizeRemainingProperty.set(diskSizeRemainingProperty.intValue() -1);
+
+    } else if (getDiskSize().intValue() > 0) {
+      setIsRecording(true);
+    } else {
+      setStatus(Status.ERROR);
+      statusObsStr.set(aStatus.toString());
+      organizer.alert(this, "Camera is full!");
+     
+    }
+  }
+  
+  // Where Record() toggles between recording,
+  // stopRecording, as it suggests, ONLY stops.
+  public final void stopRecording() {
+    if (isThisRecordingProperty.get()) {
+      isThisRecordingProperty.set(false);
+      diskSizeRemainingProperty.set(diskSizeRemainingProperty.intValue() -1);
+    }
+  }
+  
+  public void resetMemory() {
+    stopRecording();
+    diskSizeRemainingProperty.set(maxMem);
+    aStatus.equals(Status.NORMAL);
+    statusObsStr.set(aStatus.toString());
   }
 
+  public final void turnOff() {
+    stopRecording();
+    super.turnOff();
+    statusObsStr.set(aStatus.toString());
+  }
+  
+  public void turnOn() {
+    super.turnOn();
+    statusObsStr.set(aStatus.toString());
+  }
+  
+  
 }
