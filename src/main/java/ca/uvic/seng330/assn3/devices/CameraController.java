@@ -20,10 +20,6 @@ public class CameraController {
     aStatus.set(model.getStatus().toString());
 
   }
-
-
-  
-
   
   //Next two methods are bad code duplication
   public final BooleanProperty isModelRecordingProperty() {
@@ -39,11 +35,7 @@ public class CameraController {
     model.setIsObject(b);
     if (b) organizer.alert(model, ("Camera (" + model.getIdentifier().toString() + ") detected an object!"));
   }
-  
-
-  
- 
-  
+   
   public DeviceModel getModel() {
     return model;
   }
