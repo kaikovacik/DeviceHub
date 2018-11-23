@@ -55,7 +55,7 @@ public class CameraModel extends DeviceModel {
     }
     if (getIsRecording()) {
       setIsRecording(false);
-      diskSizeRemainingProperty.set(diskSizeRemainingProperty.intValue() -1);
+      diskSizeRemainingProperty.set(diskSizeRemainingProperty.intValue()-1);
 
     } else if (getDiskSize().intValue() > 0) {
       setIsRecording(true);
@@ -79,7 +79,7 @@ public class CameraModel extends DeviceModel {
   public void resetMemory() {
     stopRecording();
     diskSizeRemainingProperty.set(maxMem);
-    aStatus.equals(Status.NORMAL);
+    setStatus(Status.NORMAL);
     statusObsStr.set(aStatus.toString());
   }
 
