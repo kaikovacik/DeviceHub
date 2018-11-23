@@ -28,8 +28,7 @@ public class NonUIAcceptanceTests {
   
   @Test
   public void testB_Hub() {
-    CameraModel cModel = new CameraModel();
-    CameraController cController = new CameraController(cModel, organizer);
+    CameraModel cModel = new CameraModel(organizer);
     ThermostatModel tModel = new ThermostatModel(organizer);
     LightbulbModel lModel = new LightbulbModel(organizer);
     SmartPlugModel sPModel1 = new SmartPlugModel(organizer);

@@ -1,6 +1,5 @@
 package ca.uvic.seng330.assn3;
 
-import ca.uvic.seng330.assn3.devices.CameraController;
 import ca.uvic.seng330.assn3.devices.CameraModel;
 import ca.uvic.seng330.assn3.devices.CameraView;
 import ca.uvic.seng330.assn3.devices.LightbulbModel;

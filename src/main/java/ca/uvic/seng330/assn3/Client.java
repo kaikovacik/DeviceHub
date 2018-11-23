@@ -2,7 +2,6 @@ package ca.uvic.seng330.assn3;
 
 import ca.uvic.seng330.assn3.AllertView;
 import ca.uvic.seng330.assn3.Organizer;
-import ca.uvic.seng330.assn3.devices.CameraController;
 import ca.uvic.seng330.assn3.devices.CameraModel;
 import ca.uvic.seng330.assn3.devices.CameraView;
 import ca.uvic.seng330.assn3.devices.DeviceModel;
@@ -147,12 +146,10 @@ public class Client extends Application {
 
   private static void PopulateSystem(Organizer organizer) {
     CameraModel cameraModel1 = new CameraModel(organizer);
-    //CameraController cameraController1 = new CameraController(cameraModel1, organizer);
     CameraView cameraView1 = new CameraView(cameraModel1, organizer);
     organizer.deviceCount++;
 
     CameraModel cameraModel2 = new CameraModel(organizer);
-    //CameraController cameraController2 = new CameraController(cameraModel2, organizer);
     CameraView cameraView2 = new CameraView(cameraModel2, organizer);
     organizer.deviceCount++;
   }

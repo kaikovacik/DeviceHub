@@ -8,7 +8,7 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import ca.uvic.seng330.assn3.devices.CameraController;
+import ca.uvic.seng330.assn3.devices.CameraModel;
 import ca.uvic.seng330.assn3.devices.DeviceModel;
 import javafx.beans.property.SimpleStringProperty;
 
@@ -53,8 +53,9 @@ public class Organizer{
     System.out.println(json.invoke());
     lastAllert.set(message);
 
+    //this is the camera allerting lightbulb of a person thing
     Object obj = deviceModel;
-    if (obj instanceof CameraController) {
+    if (obj instanceof CameraModel) {
       for (Object model : modelRegistry.values()) {
         //TODO fix this
         //if (model instanceof Lightbulb) ((Lightbulb) model).toggle();
