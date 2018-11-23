@@ -1,24 +1,17 @@
 package ca.uvic.seng330.assn3.devices;
 
 import ca.uvic.seng330.assn3.Organizer;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
-import javafx.scene.control.TextFormatter.Change;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 
-/*
- * Code sample from https://stackoverflow.com/questions/36868391/using-javafx-controller-without-fxml/36873768
- */
 public class CameraView extends DeviceView{
 
   private GridPane view;
@@ -33,20 +26,20 @@ public class CameraView extends DeviceView{
   private Button eraseB;
 
   public CameraView(Organizer organizer) {
+    
     super(organizer);
-    createAndConfigurePane();
-    this.model = new CameraModel(organizer);
-    super.setModel(model);
-    //move to register?
-    organizer.addView(this);
     try {
       organizer.register(this);
+      this.model = new CameraModel(organizer.deviceCount);
+      super.setModel(model);   
       organizer.alert(model, ("Camera (" + model.getIdentifier() + ") added"));
+      
     } catch (Exception e) {
       System.out.println("Reg Error: Error Line " + new Exception().getStackTrace()[0].getLineNumber());
       e.printStackTrace();
     }
-
+    
+    createAndConfigurePane();
     statusLabel = new Label("OFF");
     statusLabel.setId("cameraStatusLabel");
     model.getStatusAsString().addListener((obs, prev, curr) -> {

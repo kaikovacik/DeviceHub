@@ -9,6 +9,7 @@ public abstract class DeviceView {
   
   public DeviceView(Organizer organizer ) {
     this.organizer = organizer;
+    //organizer.deviceCount++;
   }
   
   public Organizer getOrganizer() {

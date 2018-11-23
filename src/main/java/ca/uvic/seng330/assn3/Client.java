@@ -2,34 +2,20 @@ package ca.uvic.seng330.assn3;
 
 import ca.uvic.seng330.assn3.AllertView;
 import ca.uvic.seng330.assn3.Organizer;
-import ca.uvic.seng330.assn3.devices.CameraModel;
 import ca.uvic.seng330.assn3.devices.CameraView;
-import ca.uvic.seng330.assn3.devices.DeviceModel;
 import ca.uvic.seng330.assn3.devices.LightbulbView;
 import ca.uvic.seng330.assn3.devices.SmartPlugView;
 import ca.uvic.seng330.assn3.devices.ThermostatView;
 import javafx.application.Application;
 import javafx.event.Event;
 import javafx.event.EventHandler;
-import javafx.geometry.HPos;
-import javafx.geometry.Pos;
 import javafx.scene.Group;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TabPane.TabClosingPolicy;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-
 import javafx.stage.Stage;
 
 /**
@@ -145,12 +131,9 @@ public class Client extends Application {
   }
 
   private static void PopulateSystem(Organizer organizer) {
-    CameraView cameraView1 = new CameraView(organizer);
-    organizer.deviceCount++;
+    new CameraView(organizer);
+    new CameraView(organizer);
 
-    
-    CameraView cameraView2 = new CameraView( organizer);
-    organizer.deviceCount++;
   }
 
   private static void refreshCameraTab(Organizer organizer, VBox vbox) {

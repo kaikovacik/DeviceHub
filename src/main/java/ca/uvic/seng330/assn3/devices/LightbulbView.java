@@ -23,13 +23,14 @@ public class LightbulbView extends DeviceView{
 
   
   public LightbulbView(Organizer organizer) {
+    
     super(organizer);
-    this.model = new LightbulbModel(organizer.deviceCount);
-    super.setModel(model);
-    organizer.addView(this);
     try { 
       organizer.register(this);
+      this.model = new LightbulbModel(organizer.deviceCount);
+      super.setModel(model);
       organizer.alert(model, ("Lightbulb (" + model.getIdentifier() + ") added"));
+   
     } catch (HubRegistrationException e) {
       System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
       e.printStackTrace();

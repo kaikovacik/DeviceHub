@@ -17,7 +17,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 
 public class ThermostatView extends DeviceView {
- 
+
   public enum Unit {
     CELSIUS,
     FAHRENHEIT,
@@ -33,23 +33,23 @@ public class ThermostatView extends DeviceView {
 
     public Temperature(double temp, Unit unit) {
       switch (unit) {
-        case CELSIUS:
-          this.celsius = temp;
-          this.fahrenheit = temp * 9 / 5 + 32;
-          this.kelvin = temp + 273.15;
-          break;
-        case FAHRENHEIT:
-          this.celsius = (temp - 32) * 5 / 9;
-          this.fahrenheit = temp;
-          this.kelvin = (temp - 32) * 5 / 9 + 273.15;
-          break;
-        case KELVIN:
-          this.celsius = temp - 273.15;
-          this.fahrenheit = (temp - 273.15) * 9 / 5 + 32;
-          this.kelvin = temp;
-          break;
-        default:
-          return;
+      case CELSIUS:
+        this.celsius = temp;
+        this.fahrenheit = temp * 9 / 5 + 32;
+        this.kelvin = temp + 273.15;
+        break;
+      case FAHRENHEIT:
+        this.celsius = (temp - 32) * 5 / 9;
+        this.fahrenheit = temp;
+        this.kelvin = (temp - 32) * 5 / 9 + 273.15;
+        break;
+      case KELVIN:
+        this.celsius = temp - 273.15;
+        this.fahrenheit = (temp - 273.15) * 9 / 5 + 32;
+        this.kelvin = temp;
+        break;
+      default:
+        return;
       }
     }
 
@@ -64,58 +64,56 @@ public class ThermostatView extends DeviceView {
     public double getKelvin() {
       return kelvin;
     }
-    
+
     public String toStringC() {
       return celsius + "K";
     }
-    
+
     public String toStringF() {
       return fahrenheit + "F";
     }
-    
+
     public String toStringK() {
       return kelvin + "K";
     }
   }
-  
+
 
   private GridPane view ;
-  
+
   private Label statusLabel;
   private Label settingLabel;
   private Label celsiusLabel;
   private Label fahrenheitLabel;
-  
+
   private TextField temperatureField;
-  
+
   private Button toggleB;
   private Button celsiusB;
   private Button fahrenheitB;
   private ThermostatModel model;
-  
- 
+
+
   public ThermostatView(Organizer organizer) {
-    
+
     super(organizer);
-    this.model = new ThermostatModel(organizer.deviceCount);
-    super.setModel(model);
-    organizer.addView(this);
-    
-    // Add to organizer
     try { 
       organizer.register(this);
+      this.model = new ThermostatModel(organizer.deviceCount);
+      super.setModel(model);
       organizer.alert(model, ("Thermostat (" + model.getIdentifier() + ") added"));
+   
     } catch (HubRegistrationException e) {
       System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
       e.printStackTrace();
     }
-    
+
     createAndConfigurePane();
-    
+
     statusLabel = new Label();
     statusLabel.setId("thermostatStatusLabel");
     statusLabel.textProperty().bind(model.getStatusAsString());
-    
+
     toggleB = new Button("Start");
     toggleB.setId("thermostatOnOffB");
     toggleB.setLayoutX(50);
@@ -133,20 +131,20 @@ public class ThermostatView extends DeviceView {
         }
       } 
     })); 
-      
+
     // The following is only set as visible when thermostat is on
     settingLabel = new Label("Set Thermostat:");
     celsiusLabel = new Label("0C");
     celsiusLabel.setId("thermostatCelsiusLabel");
     fahrenheitLabel = new Label("32F");
     fahrenheitLabel.setId("thermostatFahrenheitLabel");
-    
+
     temperatureField = new TextField();
     configTextFieldForInts(temperatureField);
     temperatureField.setId("thermostatTemperatureField");
     temperatureField.setMaxWidth(40);
     temperatureField.setText("");
-    
+
     celsiusB = new Button("Celsius");
     celsiusB.setId("thermostatCelsiusB");
     celsiusB.setLayoutX(50);
@@ -168,7 +166,7 @@ public class ThermostatView extends DeviceView {
         }   
       } 
     })); 
-    
+
     fahrenheitB = new Button("Fahrenheit");
     fahrenheitB.setId("thermostatFahrenheitB");
     fahrenheitB.setLayoutX(50);
@@ -189,16 +187,16 @@ public class ThermostatView extends DeviceView {
         }  
       } 
     })); 
-    
+
     // Construct UI
     view.addRow(0, new Label("Thermostat Status:"), statusLabel, new Label("Device ID:"), new Label(""+ (organizer.deviceCount)));
     view.addRow(1, toggleB);
     view.addRow(2, settingLabel, temperatureField, celsiusB, fahrenheitB);
     view.addRow(3, celsiusLabel, fahrenheitLabel);
-    
+
     hideData();
   }
-  
+
   private void showData() {
     settingLabel.setVisible(true);
     temperatureField.setVisible(true);
@@ -207,7 +205,7 @@ public class ThermostatView extends DeviceView {
     celsiusB.setVisible(true);
     fahrenheitB.setVisible(true);
   }
-  
+
   private void hideData() {
     settingLabel.setVisible(false);
     temperatureField.setVisible(false);
@@ -236,18 +234,18 @@ public class ThermostatView extends DeviceView {
     // black border
     view.setStyle(
         " -fx-padding: 10; " +
-        " -fx-border-color: black; " +
-        " -fx-border-radius: 5; " +
-        " -fx-box-shadow: 10px; " +
-        " -fx-background-color: lightgrey; " +
-        " -fx-background-radius: 5; "
+            " -fx-border-color: black; " +
+            " -fx-border-radius: 5; " +
+            " -fx-box-shadow: 10px; " +
+            " -fx-background-color: lightgrey; " +
+            " -fx-background-radius: 5; "
         );
   }
-  
+
   public Parent asParent() {
     return view ;
   }
-  
+
   private void configTextFieldForInts(TextField field) {
     field.setTextFormatter(new TextFormatter<Integer>((Change c) -> {
       if (c.getControlNewText().matches("-?\\d*")) {
@@ -256,5 +254,5 @@ public class ThermostatView extends DeviceView {
       return null ;
     }));
   }
-  
+
 }

@@ -5,12 +5,9 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.StringProperty;
 
-import java.util.UUID;
-
 public abstract class DeviceModel {
 
   protected Status aStatus;
-  protected UUID aID;
   public IntegerProperty id;
   protected StringProperty statusObsStr;
   

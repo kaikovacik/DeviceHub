@@ -1,12 +1,8 @@
 package ca.uvic.seng330.assn3;
 
-import ca.uvic.seng330.assn3.devices.CameraModel;
 import ca.uvic.seng330.assn3.devices.CameraView;
-import ca.uvic.seng330.assn3.devices.LightbulbModel;
 import ca.uvic.seng330.assn3.devices.LightbulbView;
-import ca.uvic.seng330.assn3.devices.SmartPlugModel;
 import ca.uvic.seng330.assn3.devices.SmartPlugView;
-import ca.uvic.seng330.assn3.devices.ThermostatModel;
 import ca.uvic.seng330.assn3.devices.ThermostatView;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
@@ -20,7 +16,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
 
 public class ConfigureView {
   private TextField removeField;
@@ -29,11 +24,8 @@ public class ConfigureView {
   private Button addLightbulbB;
   private Button addSmartPlugB;
   private Button removeB;
-  
   private GridPane view;
-  private Label statusLabel;
   private Organizer organizer;
-  private VBox vBox;
 
 
   public ConfigureView(Organizer pOrganizer) {
@@ -109,8 +101,7 @@ public class ConfigureView {
   }
 
   public void addCamera() {
-    CameraView cameraView1 = new CameraView(organizer);
-    organizer.deviceCount++;
+    new CameraView(organizer);
   }
 
   public void remove(String id) throws Exception {
@@ -124,20 +115,15 @@ public class ConfigureView {
   }
   
   public void addThermostat() {
-    ThermostatView thermostatView = new ThermostatView(organizer);
-    organizer.deviceCount++;
-    
-    // ThermostatView thermostatView = new ThermostatView(organizer);
+    new ThermostatView(organizer);
   }
   
   public void addLightbulb() {
-    LightbulbView lightbulbView = new LightbulbView(organizer);
-    organizer.deviceCount++;
+    new LightbulbView(organizer);
   }
   
   public void addSmartPlug() {
-    SmartPlugView smartPlugView = new SmartPlugView(organizer);
-    organizer.deviceCount++;
+    new SmartPlugView(organizer);
   }
 
   private void createAndConfigurePane() {
