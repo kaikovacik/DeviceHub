@@ -109,9 +109,7 @@ public class ConfigureView {
   }
 
   public void addCamera() {
-    CameraModel cameraModel1 = new CameraModel(organizer);
-    //CameraController cameraController1 = new CameraController(cameraModel1, organizer);
-    CameraView cameraView1 = new CameraView(cameraModel1, organizer);
+    CameraView cameraView1 = new CameraView(organizer);
     organizer.deviceCount++;
   }
 
@@ -119,7 +117,7 @@ public class ConfigureView {
     try {
       organizer.unregister(id);
       removeField.setText("");
-      System.out.println("exe");
+
     } catch (Exception e) {
       removeField.setText("Invalid device!");
     }

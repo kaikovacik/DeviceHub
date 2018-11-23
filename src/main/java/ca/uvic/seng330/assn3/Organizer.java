@@ -16,8 +16,7 @@ import javafx.beans.property.SimpleStringProperty;
 public class Organizer{
 
 //  private HashMap<Integer, DeviceModel> modelRegistry; ()()()()()
-  private HashMap<Integer, Object> viewList;
-  //public LinkedList<Client> clients;
+  private HashMap<Integer, DeviceView> viewList;
   private final Logger log;
   private SimpleStringProperty lastAllert = new SimpleStringProperty();
   
@@ -31,7 +30,7 @@ public class Organizer{
     this.log = LoggerFactory.getLogger(Organizer.class);
   }
 
-  public void addView(Object view) {
+  public void addView(DeviceView view) {
     viewList.put(deviceCount, view);
   }
 
@@ -40,7 +39,7 @@ public class Organizer{
 //    return viewList;
 //  }
   
-  public Collection<Object> getViews() {
+  public Collection<DeviceView> getViews() {
     return viewList.values();
   }
 
@@ -69,7 +68,8 @@ public class Organizer{
 
   public void register(DeviceView device) throws HubRegistrationException {
     try {
-//      modelRegistry.put(deviceCount, device);
+      //modelRegistry.put(deviceCount, device);
+      viewList.put(deviceCount, device);
     } catch (Exception e) {
       System.out.println("reg ex");
       throw new HubRegistrationException((device == null) ? "Invalid device" : "Unable to add this device");
@@ -104,25 +104,16 @@ public class Organizer{
 
   public void unregister(String entry) throws HubRegistrationException {
 
-//        if (modelRegistry.containsKey(device.getIdentifier())) {
-//          modelRegistry.remove(device.getIdentifier(), device);
-//        } else {
-//      throw new HubRegistrationException("Specified device is not in the network");
-//        }
-
-//    UUID uuid = UUID.fromString(id);
     int id = Integer.parseInt(entry);
-//    System.out.println(modelRegistry.keySet());
+
     if (deviceCount > 0 && viewList.containsKey(id)) {
+      alert(viewList.get(id), ("Device (" + id + ") removed"));
       viewList.remove(id);
     } else {
       throw new HubRegistrationException("Specified device is not in the network");
     }
   }
 
-  //  public void addClient(Client client) {
-  //    clients.add(client);
-  //  }
 
   // TODO: We should make this return a deep copy.
 //  public HashMap<Integer, DeviceModel> getDevices() {

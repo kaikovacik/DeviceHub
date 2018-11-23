@@ -19,7 +19,7 @@ import javafx.scene.layout.Priority;
 /*
  * Code sample from https://stackoverflow.com/questions/36868391/using-javafx-controller-without-fxml/36873768
  */
-public class CameraView {
+public class CameraView extends DeviceView{
 
   private GridPane view;
   private CameraModel model;
@@ -34,17 +34,19 @@ public class CameraView {
   private Button recordB;
   private Button eraseB;
 
-  public CameraView(CameraModel model, Organizer organizer) {
-    
+  public CameraView(Organizer organizer) {
+    super(organizer);
     createAndConfigurePane();
-    this.model = model;
-    
-    // move addView to organizer's register?
+    this.model = new CameraModel(organizer);
+    super.setModel(model);
+    //move to register?
     organizer.addView(this);
     try {
-      organizer.register(model);
+      organizer.register(this);
+      organizer.alert(this, ("Camera (" + model.getIdentifier() + ") added"));
     } catch (Exception e) {
-      System.err.println("Registration error");
+      System.out.println("Reg Error: Error Line " + new Exception().getStackTrace()[0].getLineNumber());
+      e.printStackTrace();
     }
 
     statusLabel = new Label("OFF");

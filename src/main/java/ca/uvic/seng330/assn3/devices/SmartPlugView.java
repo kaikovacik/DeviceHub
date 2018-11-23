@@ -25,13 +25,16 @@ public class SmartPlugView extends DeviceView {
   public int index; // ****
   
   public SmartPlugView(Organizer organizer) {
+    
     super(organizer);
     this.model = new SmartPlugModel(organizer.deviceCount);
+    super.setModel(model);
     organizer.addView(this);
+    
     try { 
       organizer.register(this);
       organizer.alert(this, ("SmartPlug (" + model.getIdentifier() + ") added"));
-    } catch (HubRegistrationException e) {
+    } catch (Exception e) {
       System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
       e.printStackTrace();
     }

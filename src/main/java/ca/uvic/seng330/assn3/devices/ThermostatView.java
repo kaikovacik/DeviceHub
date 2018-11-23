@@ -98,6 +98,7 @@ public class ThermostatView extends DeviceView {
     
     super(organizer);
     this.model = new ThermostatModel(organizer.deviceCount);
+    super.setModel(model);
     organizer.addView(this);
     
     // Add to organizer

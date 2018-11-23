@@ -145,14 +145,11 @@ public class Client extends Application {
   }
 
   private static void PopulateSystem(Organizer organizer) {
-    CameraModel cameraModel1 = new CameraModel(organizer.deviceCount);
-    System.out.println(cameraModel1.id);
-    CameraController cameraController1 = new CameraController(cameraModel1, organizer);
-    CameraView cameraView1 = new CameraView(cameraController1, organizer);
+    CameraView cameraView1 = new CameraView(organizer);
     organizer.deviceCount++;
 
-    CameraModel cameraModel2 = new CameraModel(organizer);
-    CameraView cameraView2 = new CameraView(cameraModel2, organizer);
+    
+    CameraView cameraView2 = new CameraView( organizer);
     organizer.deviceCount++;
   }
 

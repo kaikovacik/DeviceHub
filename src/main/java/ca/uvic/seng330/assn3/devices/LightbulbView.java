@@ -25,6 +25,7 @@ public class LightbulbView extends DeviceView{
   public LightbulbView(Organizer organizer) {
     super(organizer);
     this.model = new LightbulbModel(organizer.deviceCount);
+    super.setModel(model);
     organizer.addView(this);
     try { 
       organizer.register(this);

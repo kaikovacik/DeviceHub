@@ -21,8 +21,9 @@ public class CameraModel extends DeviceModel {
   private StringProperty statusObsStr;
   private Organizer organizer;
   
-  public CameraModel(int id) {
-    super(id);
+  public CameraModel(Organizer pOrganizer) {
+    super(pOrganizer.deviceCount);
+    organizer = pOrganizer;
 
     this.aID = UUID.randomUUID();
     this.diskSizeRemainingProperty.set(maxMem);
@@ -79,7 +80,7 @@ public class CameraModel extends DeviceModel {
     } else {
       setStatus(Status.ERROR);
       statusObsStr.set(aStatus.toString());
-      organizer.alert(this, "Camera is full!");
+      //organizer.alert(this, "Camera is full!");
      
     }
   }
