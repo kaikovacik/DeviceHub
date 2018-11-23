@@ -64,18 +64,18 @@ public class LightbulbModel extends DeviceModel {
   // Consider making the following default in DeviceModel
   private StringProperty statusObsStr;
 
-  public LightbulbModel(Organizer organizer) {
-    super(organizer.deviceCount);
+  public LightbulbModel(int id) {
+    super(id);
     this.aID = UUID.randomUUID();
     this.aStatus = Status.OFF;
     this.statusObsStr = new SimpleStringProperty(aStatus.toString());
-    try { 
-      organizer.register(this);
-      organizer.alert(this, ("Lightbulb (" + this.getIdentifier().toString() + ") added"));
-    } catch (HubRegistrationException e) {
-      System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
-      e.printStackTrace();
-    }
+//    try { 
+//      organizer.register(this);
+//      organizer.alert(this, ("Lightbulb (" + this.getIdentifier().toString() + ") added"));
+//    } catch (HubRegistrationException e) {
+//      System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
+//      e.printStackTrace();
+//    }
   }
   
   public StringProperty getStatusAsString() {

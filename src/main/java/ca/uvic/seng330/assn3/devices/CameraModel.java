@@ -21,9 +21,9 @@ public class CameraModel extends DeviceModel {
   private StringProperty statusObsStr;
   private Organizer organizer;
   
-  public CameraModel( Organizer pOrganizer ) {
-    super(pOrganizer.deviceCount);
-    this.organizer = pOrganizer;
+  public CameraModel(int id) {
+    super(id);
+
     this.aID = UUID.randomUUID();
     this.diskSizeRemainingProperty.set(maxMem);
     this.isThisRecordingProperty.set(false);

@@ -1,5 +1,6 @@
 package ca.uvic.seng330.assn3.devices;
 
+import ca.uvic.seng330.assn3.HubRegistrationException;
 import ca.uvic.seng330.assn3.Organizer;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
@@ -15,7 +16,7 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 
-public class SmartPlugView {
+public class SmartPlugView extends DeviceView {
  
   private GridPane view ;
   private Label statusLabel;
@@ -23,19 +24,17 @@ public class SmartPlugView {
   private SmartPlugModel model;
   public int index; // ****
   
-  public int id;
-  
-  public SmartPlugView(SmartPlugModel model, Organizer organizer) {
-    
-    this.id = id;
-    this.model = model;
+  public SmartPlugView(Organizer organizer) {
+    super(organizer);
+    this.model = new SmartPlugModel(organizer.deviceCount);
     organizer.addView(this);
-//    try {
-//      organizer.register(model);
-//    } catch (Exception e) {
-//      System.err.println("incorrect registration");
-//    }
-    //this.driver = driver;
+    try { 
+      organizer.register(this);
+      organizer.alert(this, ("SmartPlug (" + model.getIdentifier() + ") added"));
+    } catch (HubRegistrationException e) {
+      System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
+      e.printStackTrace();
+    }
     
     createAndConfigurePane();
     
@@ -63,7 +62,7 @@ public class SmartPlugView {
     })); 
     
     // Construct UI
-    view.addRow(0, new Label("SmartPlug Status:"), statusLabel, new Label("Device ID:"), new Label(""+(organizer.deviceCount-1)));
+    view.addRow(0, new Label("SmartPlug Status:"), statusLabel, new Label("Device ID:"), new Label(""+(organizer.deviceCount)));
     view.addRow(1, toggleB);
   }
 

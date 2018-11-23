@@ -1,5 +1,6 @@
 package ca.uvic.seng330.assn3.devices;
 
+import ca.uvic.seng330.assn3.HubRegistrationException;
 import ca.uvic.seng330.assn3.Organizer;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
@@ -12,7 +13,7 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 
-public class LightbulbView {
+public class LightbulbView extends DeviceView{
  
   private GridPane view ;
   private Label statusLabel;
@@ -21,15 +22,17 @@ public class LightbulbView {
   public int index; // ****
 
   
-  public LightbulbView(LightbulbModel model, Organizer organizer) {
-    
-    this.model = model;
+  public LightbulbView(Organizer organizer) {
+    super(organizer);
+    this.model = new LightbulbModel(organizer.deviceCount);
     organizer.addView(this);
-//    try {
-//      organizer.register(model);
-//    } catch (Exception e) {
-//      System.err.println("incorrect registration");
-//    }
+    try { 
+      organizer.register(this);
+      organizer.alert(this, ("Lightbulb (" + model.getIdentifier() + ") added"));
+    } catch (HubRegistrationException e) {
+      System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
+      e.printStackTrace();
+    }
     
     createAndConfigurePane();
     
@@ -57,7 +60,7 @@ public class LightbulbView {
     })); 
     
     // Construct UI
-    view.addRow(1, new Label("Lightbulb Status:"), statusLabel, new Label("Device ID:"), new Label(""+(organizer.deviceCount-1)));
+    view.addRow(1, new Label("Lightbulb Status:"), statusLabel, new Label("Device ID:"), new Label(""+(organizer.deviceCount)));
     view.addRow(2, toggleB);
   }
 
