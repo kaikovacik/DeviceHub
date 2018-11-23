@@ -48,18 +48,10 @@ public class Organizer{
   }
 
   //add list to alert
-  public void alert(DeviceView deviceView, String message) {
-    JSONMessaging json = new JSONMessaging(deviceView.getModel(), message);
+  public void alert(DeviceModel model, String message) {
+    JSONMessaging json = new JSONMessaging(model, message);
     System.out.println(json.invoke());
     lastAllert.set(message);
-
-    Object obj = deviceView.getModel();
-//    if (obj instanceof CameraController) {
-//      for (Object model : modelRegistry.values()) {
-//        //TODO fix this
-//        //if (model instanceof Lightbulb) ((Lightbulb) model).toggle();
-//      }
-//    }  ()()()()()
   }
 
   public SimpleStringProperty getLastAllert() {
@@ -68,7 +60,6 @@ public class Organizer{
 
   public void register(DeviceView device) throws HubRegistrationException {
     try {
-      //modelRegistry.put(deviceCount, device);
       viewList.put(deviceCount, device);
     } catch (Exception e) {
       System.out.println("reg ex");
@@ -107,7 +98,7 @@ public class Organizer{
     int id = Integer.parseInt(entry);
 
     if (deviceCount > 0 && viewList.containsKey(id)) {
-      alert(viewList.get(id), ("Device (" + id + ") removed"));
+      alert(viewList.get(id).getModel(), ("Device (" + id + ") removed"));
       viewList.remove(id);
     } else {
       throw new HubRegistrationException("Specified device is not in the network");

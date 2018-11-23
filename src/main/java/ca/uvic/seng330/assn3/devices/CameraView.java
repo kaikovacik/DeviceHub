@@ -43,7 +43,7 @@ public class CameraView extends DeviceView{
     organizer.addView(this);
     try {
       organizer.register(this);
-      organizer.alert(this, ("Camera (" + model.getIdentifier() + ") added"));
+      organizer.alert(model, ("Camera (" + model.getIdentifier() + ") added"));
     } catch (Exception e) {
       System.out.println("Reg Error: Error Line " + new Exception().getStackTrace()[0].getLineNumber());
       e.printStackTrace();
@@ -84,7 +84,13 @@ public class CameraView extends DeviceView{
     recordB.setLayoutY(50);  
     recordB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) { 
-        model.record();
+        
+        try {
+          model.record();
+        } catch (cameraFullException e) {
+          organizer.alert( model , e.getMessage());
+        }
+        
         recordingLabel.setText((model.isThisRecording().getValue())? "Camera is recording" : "Camera is not recording");
       } 
     })); 

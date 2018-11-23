@@ -17,7 +17,7 @@ public class CameraModel extends DeviceModel {
   private SimpleIntegerProperty diskSizeRemainingProperty = new SimpleIntegerProperty();
   private boolean isObject;
   private static final int maxMem = 3;
-  //make default in deviceModel
+  //make default in deviceModel?
   private StringProperty statusObsStr;
   private Organizer organizer;
   
@@ -67,7 +67,7 @@ public class CameraModel extends DeviceModel {
     this.isThisRecordingProperty.set(bool);
   }
   
-  public final void record() {
+  public final void record() throws cameraFullException {
     if (aStatus.equals(Status.OFF)) {
       turnOn();
     }
@@ -80,7 +80,7 @@ public class CameraModel extends DeviceModel {
     } else {
       setStatus(Status.ERROR);
       statusObsStr.set(aStatus.toString());
-      //organizer.alert(this, "Camera is full!");
+      throw new cameraFullException("Camera " + getIdentifier() + " is full!");
      
     }
   }

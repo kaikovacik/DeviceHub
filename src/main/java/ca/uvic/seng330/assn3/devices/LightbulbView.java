@@ -29,7 +29,7 @@ public class LightbulbView extends DeviceView{
     organizer.addView(this);
     try { 
       organizer.register(this);
-      organizer.alert(this, ("Lightbulb (" + model.getIdentifier() + ") added"));
+      organizer.alert(model, ("Lightbulb (" + model.getIdentifier() + ") added"));
     } catch (HubRegistrationException e) {
       System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
       e.printStackTrace();

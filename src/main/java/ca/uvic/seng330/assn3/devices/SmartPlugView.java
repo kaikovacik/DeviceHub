@@ -33,7 +33,7 @@ public class SmartPlugView extends DeviceView {
     
     try { 
       organizer.register(this);
-      organizer.alert(this, ("SmartPlug (" + model.getIdentifier() + ") added"));
+      organizer.alert(model, ("SmartPlug (" + model.getIdentifier() + ") added"));
     } catch (Exception e) {
       System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
       e.printStackTrace();
