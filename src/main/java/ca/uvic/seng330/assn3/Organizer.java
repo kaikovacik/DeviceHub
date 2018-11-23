@@ -83,4 +83,8 @@ public class Organizer{
       throw new HubRegistrationException("Specified device is not in the network");
     }
   }
+  
+  public int numOfDevices() {
+    return viewList.size();
+  }
 }

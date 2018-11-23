@@ -28,18 +28,18 @@ public class NonUIAcceptanceTests {
   
   @Test
   public void testB_Hub() {
-    CameraModel cModel = new CameraModel(organizer);
-    ThermostatModel tModel = new ThermostatModel(organizer);
-    LightbulbModel lModel = new LightbulbModel(organizer);
-    SmartPlugModel sPModel1 = new SmartPlugModel(organizer);
-    SmartPlugModel sPModel2 = new SmartPlugModel(organizer);
-    SmartPlugModel sPModel3 = new SmartPlugModel(organizer);
-
+    CameraView cView = new CameraView(organizer);
+    ThermostatView tView = new ThermostatView(organizer);
+    LightbulbView lView = new LightbulbView(organizer);
+    SmartPlugView sPView1 = new SmartPlugView(organizer);
+    SmartPlugView sPView2 = new SmartPlugView(organizer);
+    SmartPlugView sPView3 = new SmartPlugView(organizer);
     
-    assertTrue("failure message", organizer.getDevices().containsKey(sPModel2.getIdentifier()));
+    assertTrue("failure message", organizer.getViews().contains(sPView2));
+    assertTrue("failure message", sPView2.getModel().id.equals(5));
     
     try {
-      organizer.register(cModel);
+      organizer.register(cView);
       
       //
     } catch (HubRegistrationException e) {
@@ -49,7 +49,7 @@ public class NonUIAcceptanceTests {
     assertEquals(organizer.numOfDevices(), 6);
     
     try {
-      organizer.unregister(cModel);
+      organizer.unregister(cView);
     } catch (HubRegistrationException e) {
       e.printStackTrace();
       fail();
@@ -57,7 +57,7 @@ public class NonUIAcceptanceTests {
     assertEquals(organizer.numOfDevices(), 5);
     
     try {
-      organizer.unregister(lModel);
+      organizer.unregister((String)lView.getModel().getIdentifier());
       // unregister nonexistant device
       organizer.unregister(cModel);
       fail();
