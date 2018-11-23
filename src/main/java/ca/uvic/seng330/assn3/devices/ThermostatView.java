@@ -1,5 +1,6 @@
 package ca.uvic.seng330.assn3.devices;
 
+import ca.uvic.seng330.assn3.HubRegistrationException;
 import ca.uvic.seng330.assn3.Organizer;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
@@ -15,7 +16,7 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 
-public class ThermostatView {
+public class ThermostatView extends DeviceView {
  
   public enum Unit {
     CELSIUS,
@@ -93,16 +94,20 @@ public class ThermostatView {
   private ThermostatModel model;
   
  
-  public ThermostatView(ThermostatModel model, Organizer organizer) {
+  public ThermostatView(Organizer organizer) {
     
-    this.model = model;
+    super(organizer);
+    this.model = new ThermostatModel(organizer.deviceCount);
     organizer.addView(this);
-//    try {
-//      organizer.register(model);
-//    } catch (Exception e) {
-//      System.err.println("incorrect registration");
-//    }
-    //this.driver = driver;
+    
+    // Add to organizer
+    try { 
+      organizer.register(this);
+      organizer.alert(this, ("Thermostat (" + model.getIdentifier() + ") added"));
+    } catch (HubRegistrationException e) {
+      System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
+      e.printStackTrace();
+    }
     
     createAndConfigurePane();
     

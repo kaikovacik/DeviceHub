@@ -27,8 +27,8 @@ public abstract class DeviceModel {
     return aStatus;
   }
 
-  public UUID getIdentifier() {
-    return aID;
+  public int getIdentifier() {
+    return id.intValue();
   }
   
   public void turnOn() {

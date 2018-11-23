@@ -27,21 +27,21 @@ public class ThermostatModel extends DeviceModel {
   private StringProperty statusObsStr;
   private int savedSetting;
 
-  public ThermostatModel(int id, Organizer organizer) {
+  public ThermostatModel(int id) {
     super(id);
-    this.aID = UUID.randomUUID();
+//    this.aID = UUID.randomUUID();
     this.aStatus = Status.OFF;
     this.statusObsStr = new SimpleStringProperty(aStatus.toString());
     this.setting = new SimpleIntegerProperty(0);
     this.savedSetting = 0;
     
-    try { 
-      organizer.register(this);
-      organizer.alert(this, ("Thermostat (" + this.getIdentifier().toString() + ") added"));
-    } catch (HubRegistrationException e) {
-      System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
-      e.printStackTrace();
-    }
+//    try { 
+//      organizer.register(this);
+//      organizer.alert(this, ("Thermostat (" + this.getIdentifier().toString() + ") added"));
+//    } catch (HubRegistrationException e) {
+//      System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
+//      e.printStackTrace();
+//    }
   }
 
   // Valid temperatures are [0 - 50] (Celsius)

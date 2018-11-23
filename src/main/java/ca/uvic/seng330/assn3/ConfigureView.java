@@ -148,20 +148,19 @@ public class ConfigureView {
   }
   
   public void addThermostat() {
-    ThermostatModel thermostatModel = new ThermostatModel(organizer.deviceCount, organizer);
-    ThermostatView thermostatView = new ThermostatView(thermostatModel, organizer);
+    ThermostatView thermostatView = new ThermostatView(organizer);
     organizer.deviceCount++;
+    
+    // ThermostatView thermostatView = new ThermostatView(organizer);
   }
   
   public void addLightbulb() {
-    LightbulbModel lightbulbModel = new LightbulbModel(organizer.deviceCount, organizer);
-    LightbulbView lightbulbView = new LightbulbView(lightbulbModel, organizer);
+    LightbulbView lightbulbView = new LightbulbView(organizer);
     organizer.deviceCount++;
   }
   
   public void addSmartPlug() {
-    SmartPlugModel smartPlugModel = new SmartPlugModel(organizer.deviceCount, organizer);
-    SmartPlugView smartPlugView = new SmartPlugView(smartPlugModel, organizer);
+    SmartPlugView smartPlugView = new SmartPlugView(organizer);
     organizer.deviceCount++;
   }
 
