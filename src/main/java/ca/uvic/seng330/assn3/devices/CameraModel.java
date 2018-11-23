@@ -17,8 +17,7 @@ public class CameraModel extends DeviceModel {
   private SimpleIntegerProperty diskSizeRemainingProperty = new SimpleIntegerProperty();
   private boolean isObject;
   private static final int maxMem = 3;
-  //make default in deviceModel?
-  private StringProperty statusObsStr;
+
   private Organizer organizer;
   
   public CameraModel(Organizer pOrganizer) {
@@ -31,10 +30,6 @@ public class CameraModel extends DeviceModel {
     this.aStatus = Status.OFF;
     this.isObject = false;
     this.statusObsStr = new SimpleStringProperty(aStatus.toString());
-  }
-  
-  public StringProperty getStatusAsString() {
-    return statusObsStr;
   }
   
   public IntegerProperty getDiskSize() {
@@ -104,13 +99,6 @@ public class CameraModel extends DeviceModel {
   public final void turnOff() {
     stopRecording();
     super.turnOff();
-    statusObsStr.set(aStatus.toString());
   }
-  
-  public void turnOn() {
-    super.turnOn();
-    statusObsStr.set(aStatus.toString());
-  }
-  
-  
+    
 }

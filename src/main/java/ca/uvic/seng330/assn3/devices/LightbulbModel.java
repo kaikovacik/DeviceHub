@@ -52,44 +52,17 @@
 package ca.uvic.seng330.assn3.devices;
 
 import java.util.UUID;
-
-import ca.uvic.seng330.assn3.HubRegistrationException;
-import ca.uvic.seng330.assn3.Organizer;
 import ca.uvic.seng330.assn3.Status;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class LightbulbModel extends DeviceModel {
 
-  // Consider making the following default in DeviceModel
-  private StringProperty statusObsStr;
-
   public LightbulbModel(int id) {
     super(id);
     this.aID = UUID.randomUUID();
     this.aStatus = Status.OFF;
     this.statusObsStr = new SimpleStringProperty(aStatus.toString());
-//    try { 
-//      organizer.register(this);
-//      organizer.alert(this, ("Lightbulb (" + this.getIdentifier().toString() + ") added"));
-//    } catch (HubRegistrationException e) {
-//      System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
-//      e.printStackTrace();
-//    }
-  }
-  
-  public StringProperty getStatusAsString() {
-    return statusObsStr;
-  }
-  
-  public void turnOn() {
-    super.turnOn();
-    statusObsStr.set(aStatus.toString());
-  }
-  
-  public void turnOff() {
-    super.turnOff();
-    statusObsStr.set(aStatus.toString());
   }
   
   public void toggle() {

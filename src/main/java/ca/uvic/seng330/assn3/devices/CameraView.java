@@ -23,13 +23,11 @@ public class CameraView extends DeviceView{
 
   private GridPane view;
   private CameraModel model;
-  //private Organizer organizer;
 
   private Label recordingLabel;
   private Label statusLabel;
   private Label memoryLabel;
   private Label currentMemoryLabel;
-
   private Button onOffB;
   private Button recordB;
   private Button eraseB;

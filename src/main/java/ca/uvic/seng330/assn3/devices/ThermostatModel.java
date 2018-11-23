@@ -23,8 +23,6 @@ public class ThermostatModel extends DeviceModel {
   }
 
   private IntegerProperty setting;
-  // Consider making the following default in DeviceModel
-  private StringProperty statusObsStr;
   private int savedSetting;
 
   public ThermostatModel(int id) {
@@ -51,10 +49,6 @@ public class ThermostatModel extends DeviceModel {
     }
   }
   
-  public StringProperty getStatusAsString() {
-    return statusObsStr;
-  }
-  
   public IntegerProperty getSetting() {
     return setting;
   }
@@ -62,12 +56,10 @@ public class ThermostatModel extends DeviceModel {
   public void turnOn() {
     super.turnOn();
     setting.set(savedSetting);
-    statusObsStr.set(aStatus.toString());
   }
   
   public void turnOff() {
     super.turnOff();
     setting.set(0);
-    statusObsStr.set(aStatus.toString());
   }
 }

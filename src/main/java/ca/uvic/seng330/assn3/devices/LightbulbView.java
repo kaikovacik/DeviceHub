@@ -19,7 +19,7 @@ public class LightbulbView extends DeviceView{
   private Label statusLabel;
   private Button toggleB;
   private LightbulbModel model;
-  public int index; // ****
+  public int index;
 
   
   public LightbulbView(Organizer organizer) {
@@ -38,8 +38,6 @@ public class LightbulbView extends DeviceView{
     createAndConfigurePane();
     
     statusLabel = new Label("OFF");
-//    statusLabel.textProperty().bind(model.getStatusAsString());
-    
     model.getStatusAsString().addListener((obs, prev, curr) -> {
       if (curr.equals("NORMAL")) statusLabel.textProperty().set("ON");
       else if (curr.equals("OFF")) statusLabel.textProperty().set("OFF");
