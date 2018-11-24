@@ -88,7 +88,7 @@ public class ThermostatView extends DeviceView {
 
   private TextField temperatureField;
 
-  private Button toggleB;
+  private Button onOffB;
   private Button celsiusB;
   private Button fahrenheitB;
   private ThermostatModel model;
@@ -102,7 +102,7 @@ public class ThermostatView extends DeviceView {
       this.model = new ThermostatModel(organizer.deviceCount);
       super.setModel(model);
       organizer.alert(model, ("Thermostat (" + model.getIdentifier() + ") added"));
-   
+
     } catch (HubRegistrationException e) {
       System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
       e.printStackTrace();
@@ -114,23 +114,33 @@ public class ThermostatView extends DeviceView {
     statusLabel.setId("thermostatStatusLabel");
     statusLabel.textProperty().bind(model.getStatusAsString());
 
-    toggleB = new Button("Start");
-    toggleB.setId("thermostatOnOffB");
-    toggleB.setLayoutX(50);
-    toggleB.setLayoutY(50);
-    toggleB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+    onOffB = new Button("Start");
+    onOffB.setId("thermostatOnOffB");
+    onOffB.setLayoutX(50);
+    onOffB.setLayoutY(50);
+    onOffB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         if ((model.getStatusAsString().getValue()).equals("OFF")) {
           model.turnOn();
-          toggleB.setText("Turn OFF");
           showData();
         } else if ((model.getStatusAsString().getValue()).equals("NORMAL") || (model.getStatusAsString().getValue()).equals("ERROR")) {
           model.turnOff();
-          toggleB.setText("Start");
           hideData();
         }
       } 
-    })); 
+    }));
+    // seperated from the above method so that shutdown works.
+    // OnOffB is not used during shutdown, so its handler doesnt trigger
+    model.getStatusAsString().addListener((obs, prev, curr) -> {
+      if (curr.equals("NORMAL")) {
+        onOffB.setText("Turn OFF"); 
+        showData();
+      }
+      else if (curr.equals("OFF")) {
+        onOffB.setText("Start"); 
+        hideData();
+      }
+    });
 
     // The following is only set as visible when thermostat is on
     settingLabel = new Label("Set Thermostat:");
@@ -190,7 +200,7 @@ public class ThermostatView extends DeviceView {
 
     // Construct UI
     view.addRow(0, new Label("Thermostat Status:"), statusLabel, new Label("Device ID:"), new Label(""+ (organizer.deviceCount)));
-    view.addRow(1, toggleB);
+    view.addRow(1, onOffB);
     view.addRow(2, settingLabel, temperatureField, celsiusB, fahrenheitB);
     view.addRow(3, celsiusLabel, fahrenheitLabel);
 

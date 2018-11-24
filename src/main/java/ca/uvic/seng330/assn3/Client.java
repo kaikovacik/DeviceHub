@@ -1,6 +1,6 @@
 package ca.uvic.seng330.assn3;
 
-import ca.uvic.seng330.assn3.AllertView;
+import ca.uvic.seng330.assn3.NotificationView;
 import ca.uvic.seng330.assn3.Organizer;
 import ca.uvic.seng330.assn3.devices.CameraView;
 import ca.uvic.seng330.assn3.devices.LightbulbView;
@@ -37,7 +37,7 @@ public class Client extends Application {
     Scene scene = createScene();
     
     // load stylesheet
-    scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
+    //scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
     
     primaryStage.setScene(scene);
     primaryStage.setAlwaysOnTop(true);
@@ -86,8 +86,6 @@ public class Client extends Application {
       configTab.setContent(configureView.asParent());
       tabPane.getTabs().add(configTab);
     }
-    
-    AllertView allertView = new AllertView(organizer);
 
     // Cameras Tab
     Tab cameraTab = new Tab();
@@ -160,10 +158,13 @@ public class Client extends Application {
         logout();
       }
     });
+    
     tabPane.getTabs().add(logoutTab);
-
     mainPane.setCenter(tabPane);
-    mainPane.setBottom(allertView.asParent());
+    
+    NotificationView notificationView = new NotificationView(organizer);
+    mainPane.setBottom(notificationView.asParent());
+    
     mainPane.prefHeightProperty().bind(scene.heightProperty());
     mainPane.prefWidthProperty().bind(scene.widthProperty());
 

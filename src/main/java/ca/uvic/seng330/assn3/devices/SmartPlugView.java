@@ -36,28 +36,22 @@ public class SmartPlugView extends DeviceView {
     
     createAndConfigurePane();
     
-    statusLabel = new Label("Turned Off");
-//    statusLabel.textProperty().bind(model.getStatusAsString());
+    statusLabel = new Label("OFF");
+    statusLabel.setId("smartPlugStatusLabel");
+    statusLabel.textProperty().bind(model.getStatusAsString());
     
-    model.getStatusAsString().addListener((obs, prev, curr) -> {
-      if (curr.equals("NORMAL")) statusLabel.textProperty().set("Turned On");
-      else if (curr.equals("OFF")) statusLabel.textProperty().set("Turned Off");
-    });
-    
-    toggleB = new Button("Turn ON");
+    toggleB = new Button("Toggle");
     toggleB.setLayoutX(50);
     toggleB.setLayoutY(50);
     toggleB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         if ((model.getStatusAsString().getValue()).equals("OFF")) {
           model.turnOn();
-          toggleB.setText("Turn OFF");
         } else if ((model.getStatusAsString().getValue()).equals("NORMAL") || (model.getStatusAsString().getValue()).equals("ERROR")) {
           model.turnOff();
-          toggleB.setText("Turn ON");
         }
       } 
-    })); 
+    }));
     
     // Construct UI
     view.addRow(0, new Label("SmartPlug Status:"), statusLabel, new Label("Device ID:"), new Label(""+(organizer.deviceCount)));

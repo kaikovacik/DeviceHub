@@ -23,6 +23,7 @@ public class ConfigureView {
   private Button addThermostatB;
   private Button addLightbulbB;
   private Button addSmartPlugB;
+  private Button shutdownB;
   private Button removeB;
   private GridPane view;
   private Organizer organizer;
@@ -74,20 +75,19 @@ public class ConfigureView {
       } 
     })); 
     
-    // SmartPlug Buttons
-//    removeSmartPlugB = new Button("Remove");
-//    removeSmartPlugB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
-//      public void handle(MouseEvent event) {
-//        //removeCamera();
-//      } 
-//    }));
-//    removeSmartPlugB.setVisible(false);
     addSmartPlugB = new Button("Add");
     addSmartPlugB.setId("addSmartPlugB");
     addSmartPlugB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         addSmartPlug();
-//        removeSmartPlugB.setVisible(true);
+      } 
+    }));
+    
+    shutdownB = new Button("Shutdown");
+    shutdownB.setId("shutdownB");
+    shutdownB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+      public void handle(MouseEvent event) {
+        organizer.shutdown();
       } 
     }));
     
@@ -97,6 +97,7 @@ public class ConfigureView {
     view.addRow(2, new Label("Thermostats:"), addThermostatB);
     view.addRow(3, new Label("Lightbulbs:"), addLightbulbB);
     view.addRow(4, new Label("Smart Plugs:"), addSmartPlugB);
+    view.addRow(8, new Label("System:"), shutdownB);
   }
 
   public void addCamera() {

@@ -11,14 +11,14 @@ import javafx.scene.layout.Priority;
 /*
  * Code sample from https://stackoverflow.com/questions/36868391/using-javafx-controller-without-fxml/36873768
  */
-public class AllertView {
+public class NotificationView {
 
   private GridPane view ;
   //private CameraController cameraController ;
   private Label statusLabel;
   private Organizer organizer;
 
-  public AllertView(Organizer pOrganizer) {
+  public NotificationView(Organizer pOrganizer) {
     this.organizer = pOrganizer;
     createAndConfigurePane();
  
@@ -53,6 +53,4 @@ public class AllertView {
   public Parent asParent() {
     return view ;
   }
-  
-  
 }

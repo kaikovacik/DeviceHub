@@ -32,38 +32,44 @@ public class CameraView extends DeviceView{
       this.model = new CameraModel(organizer.deviceCount);
       super.setModel(model);   
       organizer.alert(model, ("Camera (" + model.getIdentifier() + ") added"));
-      
+
     } catch (Exception e) {
       System.out.println("Reg Error: Error Line " + new Exception().getStackTrace()[0].getLineNumber());
       e.printStackTrace();
     }
-    
+
     createAndConfigurePane();
+
     statusLabel = new Label("OFF");
     statusLabel.setId("cameraStatusLabel");
-    model.getStatusAsString().addListener((obs, prev, curr) -> {
-      statusLabel.textProperty().set(model.getStatus().toString());
-    });
+    statusLabel.textProperty().bind(model.getStatusAsString());
 
     onOffB = new Button("Start");
     onOffB.setId("cameraOnOffB");
     onOffB.setLayoutX(50);
     onOffB.setLayoutY(50);
     onOffB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
-
       public void handle(MouseEvent event) {
         if ((model.getStatusAsString().getValue()).equals("OFF")) {
           model.turnOn();
           recordingLabel.setText((model.getIsRecording())? "Camera is recording" : "Camera is not recording");
-          onOffB.setText("Turn OFF");
-          showData();
         } else {
           model.turnOff();
-          onOffB.setText("Start");
-          hideData();
         }
       } 
     })); 
+    // seperated from the above method so that shutdown works.
+    // OnOffB is not used during shutdown, so its handler doesnt trigger
+    model.getStatusAsString().addListener((obs, prev, curr) -> {
+      if (curr.equals("NORMAL")) {
+        onOffB.setText("Turn OFF"); 
+        showData();
+      }
+      else if (curr.equals("OFF")) {
+        onOffB.setText("Start"); 
+        hideData();
+      }
+    });
 
     // The following is only set as visible when camera is on
     recordingLabel = new Label("Camera is not recording");
@@ -74,13 +80,13 @@ public class CameraView extends DeviceView{
     recordB.setLayoutY(50);  
     recordB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) { 
-        
+
         try {
           model.record();
         } catch (cameraFullException e) {
           organizer.alert( model , e.getMessage());
         }
-        
+
         recordingLabel.setText((model.isThisRecording().getValue())? "Camera is recording" : "Camera is not recording");
       } 
     })); 
@@ -149,7 +155,7 @@ public class CameraView extends DeviceView{
             " -fx-box-shadow: 10px; " +
             " -fx-background-color: lightgrey; " +
             " -fx-background-radius: 5; "
-    );
+        );
   }
 
   public Parent asParent() {

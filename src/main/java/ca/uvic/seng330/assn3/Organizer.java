@@ -68,10 +68,11 @@ public class Organizer{
    * and alerting the clients that each device is no longer operational. 
    */
   public void shutdown() {
-    for (/*DeviceView*/Object device : viewList.values()) {
-      // device.model.turnOff (or something of the sort)
-      // alert(device, (device.getClass().toString() + " (" + device.getIdentifier().toString() + ") is now operational"));
+    for (DeviceView deviceView : viewList.values()) {
+      deviceView.getModel().turnOff();
+      alert(deviceView.getModel(), (deviceView.getClass().toString() + " (" + deviceView.getModel().getIdentifier() + ") shutdown"));
     }
+    lastAllert.set("System Shutdown");
   }
 
   public void unregister(String entry) throws HubRegistrationException {
