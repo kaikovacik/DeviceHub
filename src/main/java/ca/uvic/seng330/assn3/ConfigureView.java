@@ -46,7 +46,6 @@ public class ConfigureView {
         } catch (Exception e) {
           removeField.setText("Invalid device!");
         }
-        
       } 
     }));
     addCameraB = new Button("Add");
@@ -149,5 +148,4 @@ public class ConfigureView {
   public Parent asParent() {
     return view ;
   }
-
 }

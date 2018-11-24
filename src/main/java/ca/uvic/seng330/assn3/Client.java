@@ -23,7 +23,11 @@ import javafx.stage.Stage;
  * @web http://java-buddy.blogspot.com/
  */
 public class Client extends Application {
-
+  
+  private static Group root;
+  private static Scene scene;
+  private static Organizer organizer;
+  
   public static void main(String[] args) {
     launch(args);
   }
@@ -33,7 +37,7 @@ public class Client extends Application {
     Scene scene = createScene();
     
     // load stylesheet
-//    scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
+    scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
     
     primaryStage.setScene(scene);
     primaryStage.setAlwaysOnTop(true);
@@ -42,36 +46,59 @@ public class Client extends Application {
 
   // scene object for unit tests
   public static Scene createScene() { 
-    Organizer organizer = new Organizer();
-    AllertView allertView = new AllertView(organizer);
-    ConfigureView configureView = new ConfigureView(organizer);
+    organizer = new Organizer();
 
-    Group root = new Group();
-    Scene scene = new Scene(root, 500, 400);
-
+    root = new Group();
+    scene = new Scene(root, 720, 480);
+    
+    logout();
+    
+    return scene;
+  }
+  
+  public static void logout() {
+    root.getChildren().clear(); 
+    
+    BorderPane mainPane = new BorderPane();
+    mainPane.setCenter(new LoginView(organizer).asParent());
+    
+    root.getChildren().add(mainPane);
+  }
+  
+  public static void login(User user) {
+    root.getChildren().clear();
+    
     BorderPane mainPane = new BorderPane();
     TabPane tabPane = new TabPane();
     tabPane.setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
 
     // puts Cameras + other Dev in system
-    PopulateSystem(organizer);
+    PopulateSystem();
 
-    // Configure Tab
-    Tab configTab = new Tab();
-    configTab.setText("Device Configuration");
-    configTab.setContent(configureView.asParent());
-    tabPane.getTabs().add(configTab);
+    // Only show configure tab when user is an admin
+    System.out.println(user + " logged in.");
+    if (user instanceof Admin) {
+      ConfigureView configureView = new ConfigureView(organizer);
+
+      // Configure Tab
+      Tab configTab = new Tab();
+      configTab.setText("Device Configuration");
+      configTab.setContent(configureView.asParent());
+      tabPane.getTabs().add(configTab);
+    }
+    
+    AllertView allertView = new AllertView(organizer);
 
     // Cameras Tab
     Tab cameraTab = new Tab();
     cameraTab.setId("cameraTab");
     cameraTab.setText("Cameras");
     VBox cameraVbox = new VBox();
-    refreshCameraTab(organizer, cameraVbox);
+    refreshCameraTab(cameraVbox);
     cameraTab.setOnSelectionChanged(new EventHandler<Event>() {
       public void handle(Event event) {
         if(cameraTab.isSelected()) {
-          refreshCameraTab(organizer, cameraVbox);
+          refreshCameraTab(cameraVbox);
         }
       }
     });
@@ -83,11 +110,11 @@ public class Client extends Application {
     thermostatTab.setId("thermostatTab");
     thermostatTab.setText("Thermostats");
     VBox thermostatVbox = new VBox();
-    refreshThermostatTab(organizer, thermostatVbox);
+    refreshThermostatTab(thermostatVbox);
     thermostatTab.setOnSelectionChanged(new EventHandler<Event>() {
       public void handle(Event event) {
         if(thermostatTab.isSelected()) {
-          refreshThermostatTab(organizer, thermostatVbox);
+          refreshThermostatTab(thermostatVbox);
         }
       }
     });
@@ -98,11 +125,11 @@ public class Client extends Application {
     Tab lightbulbTab = new Tab();
     lightbulbTab.setText("Lightbulbs");
     VBox lightbulbVbox = new VBox();
-    refreshLightbulbTab(organizer, lightbulbVbox);
+    refreshLightbulbTab(lightbulbVbox);
     lightbulbTab.setOnSelectionChanged(new EventHandler<Event>() {
       public void handle(Event event) {
         if(lightbulbTab.isSelected()) {
-          refreshLightbulbTab(organizer, lightbulbVbox);
+          refreshLightbulbTab(lightbulbVbox);
         }
       }
     });
@@ -113,16 +140,27 @@ public class Client extends Application {
     Tab smartPlugTab = new Tab();
     smartPlugTab.setText("Smart Plugs");
     VBox smartPlugVbox = new VBox();
-    refreshSmartPlugTab(organizer, smartPlugVbox);
+    refreshSmartPlugTab(smartPlugVbox);
     smartPlugTab.setOnSelectionChanged(new EventHandler<Event>() {
       public void handle(Event event) {
         if(smartPlugTab.isSelected()) {
-          refreshSmartPlugTab(organizer, smartPlugVbox);
+          refreshSmartPlugTab(smartPlugVbox);
         }
       }
     });
     smartPlugTab.setContent(smartPlugVbox);
     tabPane.getTabs().add(smartPlugTab);
+    
+    // Logout Tab
+    Tab logoutTab = new Tab("logout");
+    logoutTab.setId("logoutTab");
+//    logoutTab.setText("logout");
+    logoutTab.setOnSelectionChanged(new EventHandler<Event>() {
+      public void handle(Event event) {
+        logout();
+      }
+    });
+    tabPane.getTabs().add(logoutTab);
 
     mainPane.setCenter(tabPane);
     mainPane.setBottom(allertView.asParent());
@@ -130,17 +168,14 @@ public class Client extends Application {
     mainPane.prefWidthProperty().bind(scene.widthProperty());
 
     root.getChildren().add(mainPane);
-    
-    return scene;
   }
 
-  private static void PopulateSystem(Organizer organizer) {
+  private static void PopulateSystem() {
     new CameraView(organizer);
     new CameraView(organizer);
-
   }
 
-  private static void refreshCameraTab(Organizer organizer, VBox vbox) {
+  private static void refreshCameraTab(VBox vbox) {
     vbox.getChildren().clear();
     for ( Object d : organizer.getViews()) {
       if( d instanceof CameraView) {
@@ -149,7 +184,7 @@ public class Client extends Application {
     }
   }
 
-  private static void refreshThermostatTab(Organizer organizer, VBox vbox) {
+  private static void refreshThermostatTab(VBox vbox) {
     vbox.getChildren().clear();
     for ( Object d : organizer.getViews()) {
       if( d instanceof ThermostatView) {
@@ -158,7 +193,7 @@ public class Client extends Application {
     }
   }
 
-  private static void refreshLightbulbTab(Organizer organizer, VBox vbox) {
+  private static void refreshLightbulbTab(VBox vbox) {
     vbox.getChildren().clear();
     for ( Object d : organizer.getViews()) {
       if( d instanceof LightbulbView) {
@@ -167,7 +202,7 @@ public class Client extends Application {
     }
   }
 
-  private static void refreshSmartPlugTab(Organizer organizer, VBox vbox) {
+  private static void refreshSmartPlugTab(VBox vbox) {
     vbox.getChildren().clear();
     for ( Object d : organizer.getViews()) {
       if( d instanceof SmartPlugView) {

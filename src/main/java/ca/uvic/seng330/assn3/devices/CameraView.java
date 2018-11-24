@@ -25,8 +25,7 @@ public class CameraView extends DeviceView{
   private Button recordB;
   private Button eraseB;
 
-  public CameraView(Organizer organizer) {
-    
+  public CameraView(Organizer organizer) {    
     super(organizer);
     try {
       organizer.register(this);

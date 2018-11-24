@@ -39,6 +39,5 @@ public abstract class DeviceModel {
   
   public void turnOff() {
     setStatus(Status.OFF);
- 
   }
 }

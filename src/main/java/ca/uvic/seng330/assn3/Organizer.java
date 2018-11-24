@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ca.uvic.seng330.assn3.devices.DeviceModel;
 import ca.uvic.seng330.assn3.devices.DeviceView;
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Organizer{
@@ -15,6 +16,7 @@ public class Organizer{
   private SimpleStringProperty lastAllert = new SimpleStringProperty();
   
   public int deviceCount;
+//  public IntegerProperty deviceCountProperty; 
 
   public Organizer() {
     this.deviceCount = 0;
@@ -87,4 +89,6 @@ public class Organizer{
   public int numOfDevices() {
     return viewList.size();
   }
+  
+//  public void inc
 }
