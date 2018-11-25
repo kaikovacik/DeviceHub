@@ -59,7 +59,7 @@ public class LoginView {
         } catch (UnknownUserException e) {
           usernameField.setText("Unknown user!");
         } catch (IncorrectPasswordException e) {
-          passwordField.setText("Incorrect password!");
+          usernameField.setText("Incorrect password!");
         }
       } 
     }));
