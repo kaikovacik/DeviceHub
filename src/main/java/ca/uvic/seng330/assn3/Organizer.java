@@ -14,6 +14,7 @@ import javafx.beans.property.SimpleStringProperty;
 public class Organizer{
 
   private HashMap<Integer, DeviceView> viewList;
+  private HashMap<String, User> userList;
   private final Logger log;
   private SimpleStringProperty lastAllert = new SimpleStringProperty();
   private FileWriter file;
@@ -60,6 +61,15 @@ public class Organizer{
   public SimpleStringProperty getLastAllert() {
     return lastAllert;
   }
+  
+  public void addUser(User user) throws HubRegistrationException {
+    try {
+      userList.put(user.getUsername(), user);
+    } catch (Exception e) {
+      System.out.println("reg ex");
+      throw new HubRegistrationException((user == null)? "Invalid device" : "Unable to add this device");
+    }
+  }
 
   public void register(DeviceView deviceView) throws HubRegistrationException {
     try {
@@ -100,6 +110,4 @@ public class Organizer{
   public int numOfDevices() {
     return viewList.size();
   }
-
-  //  public void inc
 }
