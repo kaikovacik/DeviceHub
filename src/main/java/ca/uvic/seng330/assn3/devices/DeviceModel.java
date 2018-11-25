@@ -4,6 +4,7 @@ import ca.uvic.seng330.assn3.Organizer;
 import ca.uvic.seng330.assn3.Status;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public abstract class DeviceModel {
@@ -11,15 +12,19 @@ public abstract class DeviceModel {
   protected Status aStatus;
   public IntegerProperty id;
   protected StringProperty statusObsStr;
-  private Organizer organizer;
+  protected Organizer organizer;
   private String name;
   
   public DeviceModel(Organizer organizer) {
     this.id = new SimpleIntegerProperty();
     this.id.set(organizer.deviceCount);
     this.organizer = organizer;
+    this.statusObsStr = new SimpleStringProperty();
+    setStatus(Status.OFF);
+    
     this.name = this.getClass().getSimpleName().toString();
     name = name.substring(0, name.length() - 5);
+    
   }
   
   public void setStatus(Status pStatus) {
@@ -41,12 +46,12 @@ public abstract class DeviceModel {
   
   public void turnOn() {
     setStatus(Status.NORMAL);
-    organizer.alert(this, name + " turned on");
+    organizer.log(this, name + " (" + id.get() + ") turned on");
     //System.out.println(this.getClass().getName());
   }
   
   public void turnOff() {
     setStatus(Status.OFF);
-    organizer.alert(this, name + " (" + id.get() + ") turned off");
+    organizer.log(this, name + " (" + id.get() + ") turned off");
   }
 }

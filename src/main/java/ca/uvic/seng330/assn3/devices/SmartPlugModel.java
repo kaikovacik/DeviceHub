@@ -14,12 +14,13 @@ public class SmartPlugModel extends DeviceModel {
   
   public void toggle() {
     if (aStatus == Status.OFF) {
-      aStatus = Status.NORMAL;
-      statusObsStr.set(aStatus.toString());
+      turnOn();
     }
     else if (aStatus == Status.NORMAL) {
-      aStatus = Status.OFF;
-      statusObsStr.set(aStatus.toString());
+      turnOff();
+    }
+    else{
+      System.out.println("Error");
     }
     
   }

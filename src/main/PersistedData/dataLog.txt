@@ -1,46 +1,47 @@
-Client Started on: Sun Nov 25 13:04:30 PST 2018
-	{"device_id":1,"payload":"Camera (1) added","created_at":"Sun Nov 25 13:04:32 PST 2018","msg_id":"9809e709-8dbf-443d-b423-72b63be7167a","status":"OFF"}
-	{"device_id":2,"payload":"Camera (2) added","created_at":"Sun Nov 25 13:04:32 PST 2018","msg_id":"46316de1-a55d-47f4-8055-90795a2b316a","status":"OFF"}
-	{"device_id":3,"payload":"Lightbulb (3) added","created_at":"Sun Nov 25 13:04:34 PST 2018","msg_id":"3fbe739f-6b6d-4709-b51f-69bfd84174f2","status":"OFF"}
-Client booted on: Sun Nov 25 13:06:55 PST 2018
-	{"device_id":1,"payload":"Camera (1) added","created_at":"Sun Nov 25 13:06:57 PST 2018","msg_id":"b296fad9-78dd-48b1-9cc8-538196700352","status":"OFF"}
-	{"device_id":2,"payload":"Camera (2) added","created_at":"Sun Nov 25 13:06:57 PST 2018","msg_id":"4e3f5947-65c2-40c1-9745-ba107b20fb94","status":"OFF"}
-	{"device_id":3,"payload":"Lightbulb (3) added","created_at":"Sun Nov 25 13:06:58 PST 2018","msg_id":"9589a118-80c8-48f5-9f4f-2fc3e2a46071","status":"OFF"}
-	{"device_id":4,"payload":"Lightbulb (4) added","created_at":"Sun Nov 25 13:06:59 PST 2018","msg_id":"aff7eaf1-8bf7-40a1-99a6-39b0dd7bf6ff","status":"OFF"}
-	{"device_id":1,"payload":"class ca.uvic.seng330.assn3.devices.CameraView (1) shutdown","created_at":"Sun Nov 25 13:06:59 PST 2018","msg_id":"b85c8e9f-6fe3-4bd3-8b07-1df85c4db01e","status":"OFF"}
-	{"device_id":2,"payload":"class ca.uvic.seng330.assn3.devices.CameraView (2) shutdown","created_at":"Sun Nov 25 13:06:59 PST 2018","msg_id":"dacfc078-0d21-40f8-b61d-ec1577fcd2ee","status":"OFF"}
-	{"device_id":3,"payload":"class ca.uvic.seng330.assn3.devices.LightbulbView (3) shutdown","created_at":"Sun Nov 25 13:06:59 PST 2018","msg_id":"bd95e4f2-1208-40c2-b17d-af5716b14cb1","status":"OFF"}
-	{"device_id":4,"payload":"class ca.uvic.seng330.assn3.devices.LightbulbView (4) shutdown","created_at":"Sun Nov 25 13:06:59 PST 2018","msg_id":"bfcc4a67-b0c9-4715-8fd4-def981029032","status":"OFF"}
-	{"device_id":5,"payload":"Camera (5) added","created_at":"Sun Nov 25 13:08:25 PST 2018","msg_id":"0bed24ad-f60b-4804-ad79-3849d9d485ba","status":"OFF"}
-Client booted on: Sun Nov 25 13:36:59 PST 2018
-	{"device_id":1,"payload":"Camera (1) added","created_at":"Sun Nov 25 13:37:04 PST 2018","msg_id":"66ca60a8-aff5-4d4a-b323-7a27dd91e058","status":"OFF"}
-	{"device_id":2,"payload":"Camera (2) added","created_at":"Sun Nov 25 13:37:04 PST 2018","msg_id":"c63fa064-6677-4e5e-8976-b67af6deb9e8","status":"OFF"}
-	{"device_id":3,"payload":"SmartPlug (3) added","created_at":"Sun Nov 25 13:37:29 PST 2018","msg_id":"9e5de61e-1d7a-4539-a132-bbcc051c239a","status":"OFF"}
-Client booted on: Sun Nov 25 13:45:53 PST 2018
-	{"device_id":1,"payload":"Camera (1) added","created_at":"Sun Nov 25 13:45:59 PST 2018","msg_id":"e5a4cbd6-6e8f-47e1-abb2-4d6b16adadc8","status":"OFF"}
-	{"device_id":2,"payload":"Camera (2) added","created_at":"Sun Nov 25 13:45:59 PST 2018","msg_id":"d90fde6f-349d-49c5-b512-e6eb6e6d03c9","status":"OFF"}
-Client booted on: Sun Nov 25 13:50:38 PST 2018
-	{"device_id":1,"payload":"Camera (1) added","created_at":"Sun Nov 25 13:50:56 PST 2018","msg_id":"43b1b477-fdaa-4930-a29b-094ad464a439","status":"OFF"}
-	{"device_id":2,"payload":"Camera (2) added","created_at":"Sun Nov 25 13:50:56 PST 2018","msg_id":"9345a4a7-ebb7-42ea-8f80-ba9dd57400f0","status":"OFF"}
-Client booted on: Sun Nov 25 13:55:47 PST 2018
-	{"device_id":1,"payload":"Camera (1) added","created_at":"Sun Nov 25 13:55:51 PST 2018","msg_id":"ae704db7-3277-408c-b38d-8a67db641f35","status":"OFF"}
-	{"device_id":2,"payload":"Camera (2) added","created_at":"Sun Nov 25 13:55:51 PST 2018","msg_id":"621c8054-4991-4397-8f54-a1ec6d85b334","status":"OFF"}
-	{"device_id":3,"payload":"Lightbulb (3) added","created_at":"Sun Nov 25 13:55:53 PST 2018","msg_id":"7171d190-a355-4be8-a964-ef1118b1a1d1","status":"OFF"}
-	{"device_id":4,"payload":"Lightbulb (4) added","created_at":"Sun Nov 25 13:55:54 PST 2018","msg_id":"097234e9-ddd3-4028-ac67-eb08f3e4677c","status":"OFF"}
-	{"device_id":5,"payload":"SmartPlug (5) added","created_at":"Sun Nov 25 13:55:55 PST 2018","msg_id":"4cd9edc5-dc17-43d5-9713-4ee62f4049a2","status":"OFF"}
-	{"device_id":1,"payload":"Camera (1) turned off","created_at":"Sun Nov 25 13:55:55 PST 2018","msg_id":"937ae558-333e-4f09-a9cf-6008b07433d7","status":"OFF"}
-	{"device_id":2,"payload":"Camera (2) turned off","created_at":"Sun Nov 25 13:55:55 PST 2018","msg_id":"d9233c3c-d2f0-414e-8513-7712e575f4b5","status":"OFF"}
-	{"device_id":3,"payload":"Lightbulb (3) turned off","created_at":"Sun Nov 25 13:55:55 PST 2018","msg_id":"b759acf7-f83c-48f5-a539-14a71d4bb3b3","status":"OFF"}
-	{"device_id":4,"payload":"Lightbulb (4) turned off","created_at":"Sun Nov 25 13:55:55 PST 2018","msg_id":"d849a3d0-aa6c-4cca-ba13-e94314738b7c","status":"OFF"}
-	{"device_id":5,"payload":"SmartPlug (5) turned off","created_at":"Sun Nov 25 13:55:55 PST 2018","msg_id":"c38d93d0-a27f-4253-8697-0e2629b88684","status":"OFF"}
-Client booted on: Sun Nov 25 13:56:17 PST 2018
-	{"device_id":1,"payload":"Camera (1) added","created_at":"Sun Nov 25 13:56:19 PST 2018","msg_id":"a0eb363d-45e5-4f3e-8629-8ba530f0c2df","status":"OFF"}
-	{"device_id":2,"payload":"Camera (2) added","created_at":"Sun Nov 25 13:56:20 PST 2018","msg_id":"7cdd25cd-587e-4c51-b36d-3c5fbd09cb80","status":"OFF"}
-Client booted on: Sun Nov 25 13:57:02 PST 2018
-	{"device_id":1,"payload":"Camera (1) added","created_at":"Sun Nov 25 13:57:14 PST 2018","msg_id":"78913b68-546a-44dc-9f6d-75b38b02262b","status":"OFF"}
-	{"device_id":2,"payload":"Camera (2) added","created_at":"Sun Nov 25 13:57:14 PST 2018","msg_id":"d59e957c-bee6-4a20-b463-b5e2140c0e8c","status":"OFF"}
-	{"device_id":3,"payload":"Camera (3) added","created_at":"Sun Nov 25 13:57:32 PST 2018","msg_id":"b491d757-17e0-4e7c-a78c-23280e3d2e7c","status":"OFF"}
-	{"device_id":4,"payload":"Camera (4) added","created_at":"Sun Nov 25 13:57:32 PST 2018","msg_id":"59768bbb-36db-48da-a441-55e759e00d9f","status":"OFF"}
-Client booted on: Sun Nov 25 14:02:13 PST 2018
-	{"device_id":1,"payload":"Camera (1) added","created_at":"Sun Nov 25 14:02:26 PST 2018","msg_id":"00e7cbb2-8834-409d-a9fa-e6695f2b386d","status":"OFF"}
-	{"device_id":2,"payload":"Camera (2) added","created_at":"Sun Nov 25 14:02:26 PST 2018","msg_id":"3d53a339-a084-4123-9ccb-e24cb21efc0d","status":"OFF"}
+Client booted on: Sun Nov 25 15:02:09 PST 2018
+	{"device_id":1,"payload":"Camera (1) added","created_at":"Sun Nov 25 15:02:11 PST 2018","msg_id":"7cb2b5a6-00a8-4286-8951-2e0511863f85","status":"OFF"}
+	{"device_id":2,"payload":"Camera (2) added","created_at":"Sun Nov 25 15:02:11 PST 2018","msg_id":"076cf8df-2c4b-4f4e-bbe9-b834bfae980d","status":"OFF"}
+	{"device_id":3,"payload":"Camera (3) added","created_at":"Sun Nov 25 15:02:13 PST 2018","msg_id":"cfd2e348-f6f9-4e12-9668-473d851eef45","status":"OFF"}
+	{"device_id":4,"payload":"Lightbulb (4) added","created_at":"Sun Nov 25 15:02:15 PST 2018","msg_id":"5074db19-d9b3-4a62-a1b7-37a273e8719d","status":"OFF"}
+	{"device_id":5,"payload":"SmartPlug (5) added","created_at":"Sun Nov 25 15:02:16 PST 2018","msg_id":"09fb43a9-06cc-4d41-adc0-c50ad611e731","status":"OFF"}
+	{"device_id":6,"payload":"SmartPlug (6) added","created_at":"Sun Nov 25 15:02:16 PST 2018","msg_id":"2d081861-6ecf-420c-b13f-16f271c63333","status":"OFF"}
+	{"device_id":6,"payload":"SmartPlug (6) turned on","created_at":"Sun Nov 25 15:02:18 PST 2018","msg_id":"b8e20ebd-9d2d-4784-9633-09bfc9632540","status":"NORMAL"}
+	{"device_id":6,"payload":"SmartPlug (6) turned off","created_at":"Sun Nov 25 15:02:18 PST 2018","msg_id":"ae3b6a71-7eb5-4725-9232-bc6eb93b90f0","status":"OFF"}
+	{"device_id":6,"payload":"SmartPlug (6) turned on","created_at":"Sun Nov 25 15:02:19 PST 2018","msg_id":"436834cf-993d-49c3-9323-f772ca62f681","status":"NORMAL"}
+	{"device_id":6,"payload":"SmartPlug (6) turned off","created_at":"Sun Nov 25 15:02:20 PST 2018","msg_id":"8234316a-e56b-4f9d-a4b7-30b5b7089e8b","status":"OFF"}
+	{"device_id":5,"payload":"SmartPlug (5) turned on","created_at":"Sun Nov 25 15:02:32 PST 2018","msg_id":"8c0769c5-d747-4e50-a5d8-91168030a758","status":"NORMAL"}
+Client booted on: Sun Nov 25 15:03:40 PST 2018
+	{"device_id":1,"payload":"Camera (1) added","created_at":"Sun Nov 25 15:03:41 PST 2018","msg_id":"af8cdcf4-8c6c-4597-93a4-48c5936936d1","status":"OFF"}
+	{"device_id":2,"payload":"Camera (2) added","created_at":"Sun Nov 25 15:03:41 PST 2018","msg_id":"ff2d6227-db6e-4627-88e3-71741b27d769","status":"OFF"}
+	{"device_id":3,"payload":"Thermostat (3) added","created_at":"Sun Nov 25 15:03:43 PST 2018","msg_id":"c6d43bfa-2c41-492d-84a0-738969f990fb","status":"OFF"}
+	{"device_id":3,"payload":"Thermostat (3) turned on","created_at":"Sun Nov 25 15:03:45 PST 2018","msg_id":"8ef9127b-58ab-4b53-8990-e62f25bb73d6","status":"NORMAL"}
+Client booted on: Sun Nov 25 15:10:33 PST 2018
+	{"device_id":1,"payload":"Camera (1) added","created_at":"Sun Nov 25 15:10:35 PST 2018","msg_id":"411898ed-6f28-4a29-8888-f363c1b33859","status":"OFF"}
+	{"device_id":2,"payload":"Camera (2) added","created_at":"Sun Nov 25 15:10:35 PST 2018","msg_id":"4c821ee4-c7de-43ee-942c-49233900bd5c","status":"OFF"}
+	{"device_id":3,"payload":"Thermostat (3) added","created_at":"Sun Nov 25 15:10:36 PST 2018","msg_id":"59ce5de8-a3ea-4149-b437-9b17886623a7","status":"OFF"}
+	{"device_id":3,"payload":"Thermostat (3) turned on","created_at":"Sun Nov 25 15:10:38 PST 2018","msg_id":"51dbd4b5-1298-449f-ae82-bb3675867d28","status":"NORMAL"}
+	{"device_id":3,"payload":"Invalid temperature","created_at":"Sun Nov 25 15:10:39 PST 2018","msg_id":"36017760-3844-4a43-97a3-f8145a8724af","status":"NORMAL"}
+	{"device_id":3,"payload":"Invalid temperature","created_at":"Sun Nov 25 15:10:42 PST 2018","msg_id":"da4a93b5-e931-49e6-bc7b-ef72e700ebe6","status":"NORMAL"}
+Client booted on: Sun Nov 25 15:15:56 PST 2018
+	{"device_id":1,"payload":"Camera (1) added","created_at":"Sun Nov 25 15:15:59 PST 2018","msg_id":"21308e3b-98e3-466c-981b-b574ba9613d2","status":"OFF"}
+	{"device_id":2,"payload":"Camera (2) added","created_at":"Sun Nov 25 15:16:00 PST 2018","msg_id":"008e31d4-2f7e-4b72-8cc4-67ce62e65edc","status":"OFF"}
+	{"device_id":3,"payload":"Thermostat (3) added","created_at":"Sun Nov 25 15:16:01 PST 2018","msg_id":"6ee2bf72-d1e7-4cc4-8b10-a827197f9649","status":"OFF"}
+	{"device_id":3,"payload":"Thermostat (3) turned on","created_at":"Sun Nov 25 15:16:05 PST 2018","msg_id":"d336984a-fa01-4b73-8d37-ad7fae1b704b","status":"NORMAL"}
+	{"device_id":3,"payload":"Temperature out of bounds","created_at":"Sun Nov 25 15:16:13 PST 2018","msg_id":"64a612b2-95d1-4eb8-965f-d0d791ac231e","status":"NORMAL"}
+	{"device_id":3,"payload":"Thermostat (3) set to 45° F","created_at":"Sun Nov 25 15:16:25 PST 2018","msg_id":"aa9a1e19-77e8-4502-8052-78dde513b62c","status":"NORMAL"}
+Client booted on: Sun Nov 25 15:18:59 PST 2018
+	{"device_id":1,"payload":"Camera (1) added","created_at":"Sun Nov 25 15:19:01 PST 2018","msg_id":"c6367ab7-b044-4f62-b866-7e1daf80b92f","status":"OFF"}
+	{"device_id":2,"payload":"Camera (2) added","created_at":"Sun Nov 25 15:19:01 PST 2018","msg_id":"0c863ebd-e445-4b55-8cbc-190f2a2bf3d7","status":"OFF"}
+	{"device_id":3,"payload":"Thermostat (3) added","created_at":"Sun Nov 25 15:19:03 PST 2018","msg_id":"572b587f-84e6-4f2f-8d41-6217b7c34f4d","status":"OFF"}
+	{"device_id":3,"payload":"Thermostat (3) turned on","created_at":"Sun Nov 25 15:19:06 PST 2018","msg_id":"3aa057eb-b5f6-41b3-a600-f602a0e56d5f","status":"NORMAL"}
+	{"device_id":3,"payload":"Invalid temperature","created_at":"Sun Nov 25 15:19:11 PST 2018","msg_id":"45cf5eaf-1a4f-4bbd-bbdd-0c6c36460cd2","status":"NORMAL"}
+	{"device_id":3,"payload":"Thermostat (3) set to 4°C","created_at":"Sun Nov 25 15:19:15 PST 2018","msg_id":"cf5e2b7c-7fbf-417c-aaec-b25c5e20608e","status":"NORMAL"}
+	{"device_id":3,"payload":"Temperature out of bounds","created_at":"Sun Nov 25 15:19:24 PST 2018","msg_id":"14797d92-4799-45e8-93a6-773c70f18089","status":"NORMAL"}
+	{"device_id":3,"payload":"Temperature out of bounds","created_at":"Sun Nov 25 15:19:29 PST 2018","msg_id":"07978f69-38ac-4683-aa89-37915ea05486","status":"NORMAL"}
+	{"device_id":3,"payload":"Thermostat (3) set to 35°F","created_at":"Sun Nov 25 15:19:32 PST 2018","msg_id":"a988f8b8-a1cf-43a9-bff3-5e670a6cda05","status":"NORMAL"}
+	{"device_id":3,"payload":"Temperature out of bounds","created_at":"Sun Nov 25 15:19:41 PST 2018","msg_id":"397a8d09-9ca9-4b8a-a814-934408b5ea12","status":"NORMAL"}
+	{"device_id":3,"payload":"Thermostat (3) set to 5°C","created_at":"Sun Nov 25 15:19:44 PST 2018","msg_id":"8ea95fb4-30df-4c46-8993-6e1709bc0827","status":"NORMAL"}
+	{"device_id":3,"payload":"Thermostat (3) set to 35°F","created_at":"Sun Nov 25 15:19:47 PST 2018","msg_id":"3dc0e2fc-60c4-41ef-a74e-41358f473a10","status":"NORMAL"}
+	{"device_id":3,"payload":"Thermostat (3) set to 64°F","created_at":"Sun Nov 25 15:19:51 PST 2018","msg_id":"5cdaace7-1ce7-4a98-88f1-ec4d0cfbdd15","status":"NORMAL"}
+	{"device_id":3,"payload":"Temperature out of bounds","created_at":"Sun Nov 25 15:19:53 PST 2018","msg_id":"69e95a66-b8c6-4d9b-8d5d-d5e167131235","status":"NORMAL"}
+	{"device_id":3,"payload":"Thermostat (3) set to 64°F","created_at":"Sun Nov 25 15:20:02 PST 2018","msg_id":"58ad5dc6-ffb2-46e5-a25e-4ab59dc550d7","status":"NORMAL"}

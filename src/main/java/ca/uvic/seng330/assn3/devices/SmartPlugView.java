@@ -45,11 +45,8 @@ public class SmartPlugView extends DeviceView {
     toggleB.setLayoutY(50);
     toggleB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
-        if ((model.getStatusAsString().getValue()).equals("OFF")) {
-          model.turnOn();
-        } else if ((model.getStatusAsString().getValue()).equals("NORMAL") || (model.getStatusAsString().getValue()).equals("ERROR")) {
-          model.turnOff();
-        }
+        model.toggle();
+        
       } 
     }));
     

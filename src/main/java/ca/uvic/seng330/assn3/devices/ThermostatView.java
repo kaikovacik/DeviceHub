@@ -162,17 +162,18 @@ public class ThermostatView extends DeviceView {
     celsiusB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         if (temperatureField.getText().length() == 0) {
-          System.err.println("Warning: invalid entry"); //change to an actual alert
+          organizer.alert(model, "Invalid temperature");
           return;
         }
         try {
-          int data = Integer.parseInt(temperatureField.getText());
-          model.setSetting(data);
-          celsiusLabel.setText(data + "C");
-          fahrenheitLabel.setText((data * 9 / 5 + 32) + "F");
+          int tempInC = Integer.parseInt(temperatureField.getText());
+          model.setSetting(tempInC);
+          celsiusLabel.setText(tempInC + "C");
+          fahrenheitLabel.setText((tempInC * 9 / 5 + 32) + "F");
           temperatureField.setText("");
+          organizer.alert(model, "Thermostat (" + model.getIdentifier() + ") set to " + tempInC + "°C");
         } catch (ThermostatModel.TemperatureOutofBoundsException e) {
-          System.err.println((Integer.parseInt(temperatureField.getText()) > 50)? "Warning: entry too large" : "Warning: entry too small"); //change to an actual alert
+          organizer.alert(model, "Temperature out of bounds");
         }   
       } 
     })); 
@@ -184,16 +185,18 @@ public class ThermostatView extends DeviceView {
     fahrenheitB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         if (temperatureField.getText().length() == 0) { 
-          System.err.println("ALERT"); //change to an actual alert
+          organizer.alert(model, "Invalid temperature");
           return;
         }
         try {
-          model.setSetting((Integer.parseInt(temperatureField.getText()) - 32) * 5 / 9);
-          celsiusLabel.setText((Integer.parseInt(temperatureField.getText()) - 32) * 5 / 9 + "C");
-          fahrenheitLabel.setText(Integer.parseInt(temperatureField.getText()) + "F");
+          int tempInF = Integer.parseInt(temperatureField.getText());
+          model.setSetting((tempInF - 32) * 5 / 9);
+          celsiusLabel.setText((tempInF - 32) * 5 / 9 + "C");
+          fahrenheitLabel.setText(tempInF + "F");
           temperatureField.setText("");
+          organizer.alert(model, "Thermostat (" + model.getIdentifier() + ") set to " + tempInF + "°F");
         } catch (ThermostatModel.TemperatureOutofBoundsException e) {
-          System.err.println("ALERT"); //change to an actual alert
+          organizer.alert(model, "Temperature out of bounds");
         }  
       } 
     })); 

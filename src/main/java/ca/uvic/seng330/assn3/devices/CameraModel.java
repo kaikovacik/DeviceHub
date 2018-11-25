@@ -20,9 +20,7 @@ public class CameraModel extends DeviceModel {
     super(organizer);
     this.diskSizeRemainingProperty.set(maxMem);
     this.isThisRecordingProperty.set(false);
-    this.aStatus = Status.OFF;
     this.isObject = false;
-    this.statusObsStr = new SimpleStringProperty(aStatus.toString());
   }
   
   public IntegerProperty getDiskSize() {
@@ -57,12 +55,13 @@ public class CameraModel extends DeviceModel {
     if (getIsRecording()) {
       setIsRecording(false);
       diskSizeRemainingProperty.set(diskSizeRemainingProperty.intValue()-1);
+      organizer.alert(this, "Camera " + " (" + id.get() + ") stopped recording");
 
     } else if (getDiskSize().intValue() > 0) {
       setIsRecording(true);
+      organizer.alert(this, "Camera " + " (" + id.get() + ") started recording");
     } else {
       setStatus(Status.ERROR);
-      statusObsStr.set(aStatus.toString());
       throw new cameraFullException("Camera " + getIdentifier() + " is full!");
      
     }
