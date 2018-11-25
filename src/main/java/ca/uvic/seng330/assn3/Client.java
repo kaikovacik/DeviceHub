@@ -37,7 +37,7 @@ public class Client extends Application {
     Scene scene = createScene();
     
     // load stylesheet
-    //scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
+    scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
     
     primaryStage.setScene(scene);
     primaryStage.setAlwaysOnTop(true);
@@ -65,8 +65,13 @@ public class Client extends Application {
     root.getChildren().add(mainPane);
   }
   
-  public static void login(User user) {
+  public static void login(String username, String password) throws UnknownUserException, IncorrectPasswordException {
+    if (!organizer.getUsers().containsKey(username)) throw new UnknownUserException("Unknown user!");    
+    if (!organizer.getUsers().get(username).checkPassword(password)) throw new IncorrectPasswordException("Incorrect password!");
+    
     root.getChildren().clear();
+    
+    User user = organizer.getUsers().get(username);
     
     BorderPane mainPane = new BorderPane();
     TabPane tabPane = new TabPane();
