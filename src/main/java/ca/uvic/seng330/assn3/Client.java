@@ -23,11 +23,11 @@ import javafx.stage.Stage;
  * @web http://java-buddy.blogspot.com/
  */
 public class Client extends Application {
-  
+
   private static Group root;
   private static Scene scene;
   private static Organizer organizer;
-  
+
   public static void main(String[] args) {
     launch(args);
   }
@@ -35,10 +35,10 @@ public class Client extends Application {
   @Override
   public void start(Stage primaryStage) {
     Scene scene = createScene();
-    
+
     // load stylesheet
-    scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
-    
+    //scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
+
     primaryStage.setScene(scene);
     primaryStage.setAlwaysOnTop(true);
     primaryStage.show();
@@ -50,29 +50,40 @@ public class Client extends Application {
 
     root = new Group();
     scene = new Scene(root, 720, 480);
-    
+
     logout();
-    
+
     return scene;
   }
-  
+
   public static void logout() {
     root.getChildren().clear(); 
-    
+
     BorderPane mainPane = new BorderPane();
-    mainPane.setCenter(new LoginView(organizer).asParent());
-    
+    LoginView loginView = new LoginView(organizer);
+    // mainPane.setRight(loginView.asParent());
+
+    //mainPane.prefHeightProperty().bind(scene.heightProperty().divide(4));
+    //mainPane.prefWidthProperty().bind(scene.widthProperty().divide(4));
+    //mainPane.
+    //root.getChildren().add(mainPane);
+
+
+    mainPane.prefHeightProperty().bind(scene.heightProperty().divide(2));
+    mainPane.prefWidthProperty().bind(scene.widthProperty().divide(2));
+    mainPane.setCenter(loginView.asParent());
+
     root.getChildren().add(mainPane);
   }
-  
+
   public static void login(String username, String password) throws UnknownUserException, IncorrectPasswordException {
     if (!organizer.getUsers().containsKey(username)) throw new UnknownUserException("Unknown user!");    
     if (!organizer.getUsers().get(username).checkPassword(password)) throw new IncorrectPasswordException("Incorrect password!");
-    
+
     root.getChildren().clear();
-    
+
     User user = organizer.getUsers().get(username);
-    
+
     BorderPane mainPane = new BorderPane();
     TabPane tabPane = new TabPane();
     tabPane.setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
@@ -153,23 +164,23 @@ public class Client extends Application {
     });
     smartPlugTab.setContent(smartPlugVbox);
     tabPane.getTabs().add(smartPlugTab);
-    
+
     // Logout Tab
     Tab logoutTab = new Tab("logout");
     logoutTab.setId("logoutTab");
-//    logoutTab.setText("logout");
+    //    logoutTab.setText("logout");
     logoutTab.setOnSelectionChanged(new EventHandler<Event>() {
       public void handle(Event event) {
         logout();
       }
     });
-    
+
     tabPane.getTabs().add(logoutTab);
     mainPane.setCenter(tabPane);
-    
+
     NotificationView notificationView = new NotificationView(organizer);
     mainPane.setBottom(notificationView.asParent());
-    
+
     mainPane.prefHeightProperty().bind(scene.heightProperty());
     mainPane.prefWidthProperty().bind(scene.widthProperty());
 

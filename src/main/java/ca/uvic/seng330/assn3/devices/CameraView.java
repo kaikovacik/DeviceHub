@@ -142,7 +142,6 @@ public class CameraView extends DeviceView{
     rightCol.setHgrow(Priority.SOMETIMES);
 
     view.getColumnConstraints().addAll(leftCol, rightCol);
-
     view.setAlignment(Pos.CENTER);
     view.setHgap(5);
     view.setVgap(10);
@@ -161,5 +160,4 @@ public class CameraView extends DeviceView{
   public Parent asParent() {
     return view;
   }
-
 }
