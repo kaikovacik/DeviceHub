@@ -65,8 +65,13 @@ public class Client extends Application {
     root.getChildren().add(mainPane);
   }
   
-  public static void login(User user) {
+  public static void login(String username, String password) throws UnknownUserException, IncorrectPasswordException {
     root.getChildren().clear();
+    
+    if (!organizer.getUsers().containsKey(username)) throw new UnknownUserException("Unknown user!");    
+    if (!organizer.getUsers().get(username).checkPassword(password)) throw new IncorrectPasswordException("Incorrect password!");
+    
+    User user = organizer.getUsers().get(username);
     
     BorderPane mainPane = new BorderPane();
     TabPane tabPane = new TabPane();

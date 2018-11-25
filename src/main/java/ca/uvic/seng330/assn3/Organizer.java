@@ -25,6 +25,7 @@ public class Organizer{
   public Organizer() {
     this.deviceCount = 0;
     this.viewList = new HashMap<>();
+    this.userList = new HashMap<>();
     this.log = LoggerFactory.getLogger(Organizer.class);
     try {
       this.file = new FileWriter("/file1.txt");
@@ -36,6 +37,10 @@ public class Organizer{
 
   public Collection<DeviceView> getViews() {
     return viewList.values();
+  }
+  
+  public HashMap<String, User> getUsers() {
+    return userList;
   }
 
   public void log(String message) {
@@ -67,7 +72,7 @@ public class Organizer{
       userList.put(user.getUsername(), user);
     } catch (Exception e) {
       System.out.println("reg ex");
-      throw new HubRegistrationException((user == null)? "Invalid device" : "Unable to add this device");
+      throw new HubRegistrationException((user == null)? "Invalid user" : "Unable to add this user");
     }
   }
 
