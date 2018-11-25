@@ -1,5 +1,7 @@
 package ca.uvic.seng330.assn3;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Collection;
 import java.util.HashMap;
 import org.slf4j.Logger;
@@ -14,14 +16,21 @@ public class Organizer{
   private HashMap<Integer, DeviceView> viewList;
   private final Logger log;
   private SimpleStringProperty lastAllert = new SimpleStringProperty();
-  
+  private FileWriter file;
+
   public int deviceCount;
-//  public IntegerProperty deviceCountProperty; 
+  //  public IntegerProperty deviceCountProperty; 
 
   public Organizer() {
     this.deviceCount = 0;
     this.viewList = new HashMap<>();
     this.log = LoggerFactory.getLogger(Organizer.class);
+    try {
+      this.file = new FileWriter("/file1.txt");
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
   }
 
   public Collection<DeviceView> getViews() {
@@ -29,14 +38,23 @@ public class Organizer{
   }
 
   public void log(String message) {
-    log.info(message);
+    log.info(message + "seth");
+
   }
 
   //add list to alert
   public void alert(DeviceModel model, String message) {
-    JSONMessaging json = new JSONMessaging(model, message);
-    System.out.println(json.invoke());
+    JSONMessaging jsonO = new JSONMessaging(model, message);
+    jsonO.invoke();
+    System.out.println(jsonO.getJSON());
     lastAllert.set(message);
+    try {
+      file.write(jsonO.getJSON().toString() + '\n');
+      file.flush();
+    } catch (IOException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
   }
 
   public SimpleStringProperty getLastAllert() {
@@ -52,10 +70,6 @@ public class Organizer{
     }
   } 
 
-  /*
-   * Iterates through all devices in the registry, setting their status' to NORMAL
-   * and alerting the clients that each device is now operational.
-   */
   public void startup() {
     for (/*DeviceView*/Object device : viewList.values()) {
       // device.model.turnOn (or something of the sort)
@@ -63,10 +77,6 @@ public class Organizer{
     }
   }
 
-  /*
-   * Iterates through all devices in the registry, setting their status' to DISABLED
-   * and alerting the clients that each device is no longer operational. 
-   */
   public void shutdown() {
     for (DeviceView deviceView : viewList.values()) {
       deviceView.getModel().turnOff();
@@ -86,10 +96,10 @@ public class Organizer{
       throw new HubRegistrationException("Specified device is not in the network");
     }
   }
-  
+
   public int numOfDevices() {
     return viewList.size();
   }
-  
-//  public void inc
+
+  //  public void inc
 }
