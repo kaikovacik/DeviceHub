@@ -17,7 +17,8 @@ public class Organizer{
   private HashMap<String, User> userList;
   private final Logger log;
   private SimpleStringProperty lastAllert = new SimpleStringProperty();
-  private FileWriter file;
+
+  private final DataPersister dP;
 
   public int deviceCount;
   //  public IntegerProperty deviceCountProperty; 
@@ -27,12 +28,7 @@ public class Organizer{
     this.viewList = new HashMap<>();
     this.userList = new HashMap<>();
     this.log = LoggerFactory.getLogger(Organizer.class);
-    try {
-      this.file = new FileWriter("/file1.txt");
-    } catch (IOException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
+    this.dP = new DataPersister();
   }
 
   public Collection<DeviceView> getViews() {
@@ -54,13 +50,7 @@ public class Organizer{
     jsonO.invoke();
     System.out.println(jsonO.getJSON());
     lastAllert.set(message);
-    try {
-      file.write(jsonO.getJSON().toString() + '\n');
-      file.flush();
-    } catch (IOException e) {
-      // TODO Auto-generated catch block
-      e.printStackTrace();
-    }
+    dP.writeThis(jsonO.getJSON());
   }
 
   public SimpleStringProperty getLastAllert() {
