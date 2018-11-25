@@ -37,10 +37,14 @@ public class LoginView {
       System.out.println(e.getMessage());
     }
     
+    Label alertLabel = new Label();
+    alertLabel.setStyle("-fx-font-style: italic");
+    
     TextField usernameField = new TextField();
     usernameField.setOnMouseClicked((new EventHandler<MouseEvent>() {
       public void handle(MouseEvent event) {
         usernameField.setText("");
+        alertLabel.setText("");
       }
     }));   
     
@@ -48,6 +52,7 @@ public class LoginView {
     passwordField.setOnMouseClicked((new EventHandler<MouseEvent>() {
       public void handle(MouseEvent event) {
         passwordField.setText("");
+        alertLabel.setText("");
       }
     }));
     
@@ -57,9 +62,9 @@ public class LoginView {
         try {
           Client.login(usernameField.getText(), passwordField.getText());
         } catch (UnknownUserException e) {
-          usernameField.setText("Unknown user!");
+          alertLabel.setText("Unknown user!");
         } catch (IncorrectPasswordException e) {
-          usernameField.setText("Incorrect password!");
+          alertLabel.setText("Incorrect password!");
         }
       } 
     }));
@@ -71,9 +76,9 @@ public class LoginView {
         try {
           Client.login("kai", "iak");
         } catch (UnknownUserException e) {
-          usernameField.setText("Unknown user!");
+          alertLabel.setText("Unknown user!");
         } catch (IncorrectPasswordException e) {
-          usernameField.setText("Incorrect password!");
+          alertLabel.setText("Incorrect password!");
         }
       } 
     }));
@@ -94,7 +99,7 @@ public class LoginView {
 //    }));
     
     view.setAlignment(Pos.BOTTOM_LEFT);
-    view.addRow(0, new Label("Login"));
+    view.addRow(0, new Label("Login"), alertLabel);
     view.addRow(1, new Label("Username:"), usernameField);
     view.addRow(2, new Label("Password:"), passwordField);
     view.addRow(3, loginB, bypassB);

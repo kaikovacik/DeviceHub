@@ -16,3 +16,9 @@ Client booted on: Sun Nov 25 13:36:59 PST 2018
 	{"device_id":1,"payload":"Camera (1) added","created_at":"Sun Nov 25 13:37:04 PST 2018","msg_id":"66ca60a8-aff5-4d4a-b323-7a27dd91e058","status":"OFF"}
 	{"device_id":2,"payload":"Camera (2) added","created_at":"Sun Nov 25 13:37:04 PST 2018","msg_id":"c63fa064-6677-4e5e-8976-b67af6deb9e8","status":"OFF"}
 	{"device_id":3,"payload":"SmartPlug (3) added","created_at":"Sun Nov 25 13:37:29 PST 2018","msg_id":"9e5de61e-1d7a-4539-a132-bbcc051c239a","status":"OFF"}
+Client booted on: Sun Nov 25 13:45:53 PST 2018
+	{"device_id":1,"payload":"Camera (1) added","created_at":"Sun Nov 25 13:45:59 PST 2018","msg_id":"e5a4cbd6-6e8f-47e1-abb2-4d6b16adadc8","status":"OFF"}
+	{"device_id":2,"payload":"Camera (2) added","created_at":"Sun Nov 25 13:45:59 PST 2018","msg_id":"d90fde6f-349d-49c5-b512-e6eb6e6d03c9","status":"OFF"}
+Client booted on: Sun Nov 25 13:50:38 PST 2018
+	{"device_id":1,"payload":"Camera (1) added","created_at":"Sun Nov 25 13:50:56 PST 2018","msg_id":"43b1b477-fdaa-4930-a29b-094ad464a439","status":"OFF"}
+	{"device_id":2,"payload":"Camera (2) added","created_at":"Sun Nov 25 13:50:56 PST 2018","msg_id":"9345a4a7-ebb7-42ea-8f80-ba9dd57400f0","status":"OFF"}
