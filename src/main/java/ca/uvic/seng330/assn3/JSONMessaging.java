@@ -16,10 +16,6 @@ public class JSONMessaging {
     this.device = device;
     this.message = message;
     this.date = new Date();
-  }
-
-  // Creates and returns a new JSONObject
-  public JSONObject invoke() {
     
     json = new JSONObject();
     json.put("msg_id", UUID.randomUUID());
@@ -27,10 +23,8 @@ public class JSONMessaging {
     json.put("status", device.getStatus());
     json.put("payload", message);
     json.put("created_at", date.toString());
-
-    return json;
   }
-  
+ 
   public JSONObject getJSON() {
     return json;
   }

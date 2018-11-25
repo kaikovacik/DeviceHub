@@ -15,7 +15,7 @@ public class Organizer{
 
   private HashMap<Integer, DeviceView> viewList;
   private HashMap<String, User> userList;
-  private final Logger log;
+  //private final Logger log;
   private SimpleStringProperty lastAllert = new SimpleStringProperty();
 
   private final DataPersister dP;
@@ -26,7 +26,7 @@ public class Organizer{
   public Organizer() {
     this.deviceCount = 0;
     this.viewList = new HashMap<>();
-    this.log = LoggerFactory.getLogger(Organizer.class);
+    //this.log = LoggerFactory.getLogger(Organizer.class);
     this.dP = new DataPersister();
   }
 
@@ -34,18 +34,18 @@ public class Organizer{
     return viewList.values();
   }
 
-  public void log(String message) {
-    log.info(message + "seth");
-
+  // logs data to file.
+  public void log(DeviceModel model, String message) {
+    JSONMessaging jsonO = new JSONMessaging(model, message);   
+    dP.writeThis(jsonO.getJSON());
+    
+    System.out.println(jsonO.getJSON());
   }
 
   //add list to alert
   public void alert(DeviceModel model, String message) {
-    JSONMessaging jsonO = new JSONMessaging(model, message);
-    jsonO.invoke();
-    System.out.println(jsonO.getJSON());
+    log(model, message);
     lastAllert.set(message);
-    dP.writeThis(jsonO.getJSON());
   }
 
   public SimpleStringProperty getLastAllert() {
@@ -80,7 +80,6 @@ public class Organizer{
   public void shutdown() {
     for (DeviceView deviceView : viewList.values()) {
       deviceView.getModel().turnOff();
-      alert(deviceView.getModel(), (deviceView.getClass().toString() + " (" + deviceView.getModel().getIdentifier() + ") shutdown"));
     }
     lastAllert.set("System Shutdown");
   }

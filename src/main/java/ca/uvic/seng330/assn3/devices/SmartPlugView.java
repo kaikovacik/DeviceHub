@@ -25,7 +25,7 @@ public class SmartPlugView extends DeviceView {
     super(organizer);
     try { 
       organizer.register(this);
-      this.model = new SmartPlugModel(organizer.deviceCount);
+      this.model = new SmartPlugModel(organizer);
       super.setModel(model);
       organizer.alert(model, ("SmartPlug (" + model.getIdentifier() + ") added"));
    

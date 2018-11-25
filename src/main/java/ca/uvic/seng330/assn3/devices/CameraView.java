@@ -29,7 +29,7 @@ public class CameraView extends DeviceView{
     super(organizer);
     try {
       organizer.register(this);
-      this.model = new CameraModel(organizer.deviceCount);
+      this.model = new CameraModel(organizer);
       super.setModel(model);   
       organizer.alert(model, ("Camera (" + model.getIdentifier() + ") added"));
 

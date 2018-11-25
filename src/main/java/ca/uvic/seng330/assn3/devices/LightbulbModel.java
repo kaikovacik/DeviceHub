@@ -1,12 +1,13 @@
 package ca.uvic.seng330.assn3.devices;
 
+import ca.uvic.seng330.assn3.Organizer;
 import ca.uvic.seng330.assn3.Status;
 import javafx.beans.property.SimpleStringProperty;
 
 public class LightbulbModel extends DeviceModel {
 
-  public LightbulbModel(int id) {
-    super(id);
+  public LightbulbModel(Organizer organizer) {
+    super(organizer);
     this.aStatus = Status.OFF;
     this.statusObsStr = new SimpleStringProperty(aStatus.toString());
   }

@@ -1,5 +1,6 @@
 package ca.uvic.seng330.assn3.devices;
 
+import ca.uvic.seng330.assn3.Organizer;
 import ca.uvic.seng330.assn3.Status;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -10,10 +11,15 @@ public abstract class DeviceModel {
   protected Status aStatus;
   public IntegerProperty id;
   protected StringProperty statusObsStr;
+  private Organizer organizer;
+  private String name;
   
-  public DeviceModel(int id) {
+  public DeviceModel(Organizer organizer) {
     this.id = new SimpleIntegerProperty();
-    this.id.set(id);
+    this.id.set(organizer.deviceCount);
+    this.organizer = organizer;
+    this.name = this.getClass().getSimpleName().toString();
+    name = name.substring(0, name.length() - 5);
   }
   
   public void setStatus(Status pStatus) {
@@ -35,9 +41,12 @@ public abstract class DeviceModel {
   
   public void turnOn() {
     setStatus(Status.NORMAL);
+    organizer.alert(this, name + " turned on");
+    //System.out.println(this.getClass().getName());
   }
   
   public void turnOff() {
     setStatus(Status.OFF);
+    organizer.alert(this, name + " (" + id.get() + ") turned off");
   }
 }

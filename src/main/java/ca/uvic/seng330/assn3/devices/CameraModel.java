@@ -1,5 +1,6 @@
 package ca.uvic.seng330.assn3.devices;
 
+import ca.uvic.seng330.assn3.Organizer;
 import ca.uvic.seng330.assn3.Status;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
@@ -14,9 +15,9 @@ public class CameraModel extends DeviceModel {
   private boolean isObject;
   private static final int maxMem = 3;
   
-  public CameraModel(int id) {
+  public CameraModel(Organizer organizer) {
     
-    super(id);
+    super(organizer);
     this.diskSizeRemainingProperty.set(maxMem);
     this.isThisRecordingProperty.set(false);
     this.aStatus = Status.OFF;

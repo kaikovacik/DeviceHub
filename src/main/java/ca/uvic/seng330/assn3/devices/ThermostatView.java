@@ -99,7 +99,7 @@ public class ThermostatView extends DeviceView {
     super(organizer);
     try { 
       organizer.register(this);
-      this.model = new ThermostatModel(organizer.deviceCount);
+      this.model = new ThermostatModel(organizer);
       super.setModel(model);
       organizer.alert(model, ("Thermostat (" + model.getIdentifier() + ") added"));
 
