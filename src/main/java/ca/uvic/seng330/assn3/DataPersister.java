@@ -34,7 +34,7 @@ public class DataPersister {
   
   public void writeThis(String str) {
     try {
-      //file.write(str + "on: " + date.toString() + "\r\n");
+      file.write(str + "\r\n");
       file.flush();
     } catch (IOException e) {
       // TODO Auto-generated catch block

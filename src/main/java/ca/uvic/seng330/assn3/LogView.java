@@ -30,6 +30,7 @@ public class LogView {
   private ListView<String> list;
   private ObservableList<String> items;
   private int x;
+  private int oldMaxDevID;
 
   public LogView(Organizer pOrganizer) {
     x = 0;
@@ -67,16 +68,17 @@ public class LogView {
     view.setHgap(5);
     view.setVgap(10);
     view.borderProperty();
-    // black border
+    // black borders
     view.setStyle("-fx-border-color: black; -fx-border-radius: 5;");
   }
 
   private void addMessage( String message ) {
     JSONObject jsonObj = new JSONObject(message);
-    items.add(++x +": " + jsonObj.get("payload").toString());
+    items.add(++x +": " +  jsonObj.getString("payload") + " \t on " + jsonObj.getString("created_at"));
   }
   
   private void readOldLogs() {
+    items.add(++x +": Old Activity... ");
     try {
       Path path = Paths.get("src/main/PersistedData/dataLog.txt");
       List<String> lines = Files.readAllLines(path,StandardCharsets.ISO_8859_1);
@@ -87,6 +89,7 @@ public class LogView {
     } catch (IOException e) {
       System.out.println(e);
     }
+    items.add(++x +": New Activity... ");
   }
   
   

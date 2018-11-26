@@ -3,6 +3,7 @@ package ca.uvic.seng330.assn3;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -46,6 +47,13 @@ public class Organizer{
     dP.writeThis(jsonO.getJSON());
     lastLog.set(jsonO.getJSON().toString());
     System.out.println(jsonO.getJSON());
+  }
+  
+  public void logString(String message) {
+    String toLog = "{\"payload\":\"" + message + "\",\"created_at\":\"" + new Date() + "\"}";
+    dP.writeThis(toLog);  // writes to log file
+    lastLog.set(toLog);   // writes to Activity
+    lastAllert.set(message);  // writes to allers
   }
 
   //add list to alert
@@ -91,8 +99,7 @@ public class Organizer{
     for (DeviceView deviceView : viewList.values()) {
       deviceView.getModel().turnOff();
     }
-    dP.writeThis("System Shutdown");
-    lastAllert.set("System Shutdown");
+    logString("Devices Shutdown");
   }
 
   public void unregister(String entry) throws HubRegistrationException {

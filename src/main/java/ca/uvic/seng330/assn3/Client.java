@@ -17,6 +17,7 @@ import javafx.scene.control.TabPane.TabClosingPolicy;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 /**
  *
@@ -42,6 +43,11 @@ public class Client extends Application {
     primaryStage.setScene(scene);
     primaryStage.setAlwaysOnTop(true);
     primaryStage.show();
+    primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+      public void handle(WindowEvent we) {
+        closeClient();
+      }
+    });     
   }
 
   // scene object for unit tests
@@ -81,19 +87,16 @@ public class Client extends Application {
     TabPane tabPane = new TabPane();
     tabPane.setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
 
-    // puts Cameras + other Dev in system
-    PopulateSystem();
-
     // Only show configure tab when user is an admin
     System.out.println(user + " logged in.");
     if (user instanceof Admin) {
-      
+
       // Configure Tab
       ConfigureView configureView = new ConfigureView(organizer);
       LogView prevActivitiesView = new LogView(organizer);
       VBox configVbox = new VBox();
       Tab configTab = new Tab();
-      
+
       configTab.setText("Device Configuration");
       configVbox.getChildren().add(configureView.asParent() );
       configVbox.getChildren().add(prevActivitiesView.asParent() );
@@ -174,6 +177,9 @@ public class Client extends Application {
       }
     });
 
+    // puts Cameras + other Dev in system
+    PopulateSystem();
+
     tabPane.getTabs().add(logoutTab);
     mainPane.setCenter(tabPane);
 
@@ -184,11 +190,17 @@ public class Client extends Application {
     mainPane.prefWidthProperty().bind(scene.widthProperty());
 
     root.getChildren().add(mainPane);
+
   }
 
   private static void PopulateSystem() {
     new CameraView(organizer);
     new CameraView(organizer);
+  }
+
+  private static void closeClient() {
+    organizer.shutdown();
+    organizer.logString("Client Closed");
   }
 
   private static void refreshCameraTab(VBox vbox) {
