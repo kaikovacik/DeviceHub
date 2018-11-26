@@ -26,3 +26,4 @@ hs_err_pid*
 /.gradle/
 .classpath
 /build/
+src/main/PersistedData/dataLog.txt
