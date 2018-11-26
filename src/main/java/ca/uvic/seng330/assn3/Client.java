@@ -1,6 +1,6 @@
 package ca.uvic.seng330.assn3;
 
-import ca.uvic.seng330.assn3.NotificationView;
+import ca.uvic.seng330.assn3.AlertsView;
 import ca.uvic.seng330.assn3.Organizer;
 import ca.uvic.seng330.assn3.devices.CameraView;
 import ca.uvic.seng330.assn3.devices.LightbulbView;
@@ -87,12 +87,18 @@ public class Client extends Application {
     // Only show configure tab when user is an admin
     System.out.println(user + " logged in.");
     if (user instanceof Admin) {
-      ConfigureView configureView = new ConfigureView(organizer);
-
+      
       // Configure Tab
+      ConfigureView configureView = new ConfigureView(organizer);
+      LogView prevActivitiesView = new LogView(organizer);
+      VBox configVbox = new VBox();
       Tab configTab = new Tab();
+      
       configTab.setText("Device Configuration");
-      configTab.setContent(configureView.asParent());
+      configVbox.getChildren().add(configureView.asParent() );
+      configVbox.getChildren().add(prevActivitiesView.asParent() );
+      //mainPane.setBottom(alertsView2.asParent());
+      configTab.setContent(configVbox);
       tabPane.getTabs().add(configTab);
     }
 
@@ -171,8 +177,8 @@ public class Client extends Application {
     tabPane.getTabs().add(logoutTab);
     mainPane.setCenter(tabPane);
 
-    NotificationView notificationView = new NotificationView(organizer);
-    mainPane.setBottom(notificationView.asParent());
+    AlertsView alertsView = new AlertsView(organizer);
+    mainPane.setBottom(alertsView.asParent());
 
     mainPane.prefHeightProperty().bind(scene.heightProperty());
     mainPane.prefWidthProperty().bind(scene.widthProperty());

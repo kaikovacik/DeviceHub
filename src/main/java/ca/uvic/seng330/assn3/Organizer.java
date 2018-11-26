@@ -17,6 +17,7 @@ public class Organizer{
   private HashMap<String, User> userList;
   //private final Logger log;
   private SimpleStringProperty lastAllert = new SimpleStringProperty();
+  private SimpleStringProperty lastLog = new SimpleStringProperty();
 
   private final DataPersister dP;
 
@@ -43,7 +44,7 @@ public class Organizer{
   public void log(DeviceModel model, String message) {
     JSONMessaging jsonO = new JSONMessaging(model, message);   
     dP.writeThis(jsonO.getJSON());
-    
+    lastLog.set(jsonO.getJSON().toString());
     System.out.println(jsonO.getJSON());
   }
 
@@ -55,6 +56,10 @@ public class Organizer{
 
   public SimpleStringProperty getLastAllert() {
     return lastAllert;
+  }
+  
+  public SimpleStringProperty getLastLog() {
+    return lastLog;
   }
   
   public void addUser(User user) throws HubRegistrationException {
@@ -86,6 +91,7 @@ public class Organizer{
     for (DeviceView deviceView : viewList.values()) {
       deviceView.getModel().turnOff();
     }
+    dP.writeThis("System Shutdown");
     lastAllert.set("System Shutdown");
   }
 
