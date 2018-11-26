@@ -27,6 +27,10 @@ public abstract class DeviceModel {
     
   }
   
+  public String getName() {
+    return name;
+  }
+  
   public void setStatus(Status pStatus) {
     aStatus = pStatus;
     statusObsStr.set(aStatus.toString());

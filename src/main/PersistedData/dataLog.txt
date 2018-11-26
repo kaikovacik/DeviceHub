@@ -1,229 +1,64 @@
-{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 11:33:29 PST 2018","msg_id":"b04f0fd8-e624-4c92-9c92-6cf4e3c53185","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 11:33:29 PST 2018","msg_id":"026cdba0-f5bd-4786-a920-73e9a04cb030","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 11:33:43 PST 2018","msg_id":"3776a4d8-e1ec-4c9b-815f-f72177802b41","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 11:33:43 PST 2018","msg_id":"09e81f27-363a-4f77-bb33-43482d6d2043","status":"OFF"}
-{"device_id":3,"payload":"Lightbulb (3) added","created_at":"Mon Nov 26 11:34:00 PST 2018","msg_id":"47baac70-eaa6-40a9-8dc5-4718bdaab162","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 11:38:42 PST 2018","msg_id":"8e60853b-0957-4819-8dd8-6c83e39252f5","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 11:38:43 PST 2018","msg_id":"20e700ea-bbc6-477f-9ebd-d36a7e4d94a6","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 11:40:36 PST 2018","msg_id":"c5592923-f5b6-4c60-85c7-d044fb7e607a","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 11:40:36 PST 2018","msg_id":"bf17c09a-b22c-405d-8788-74a876eacd68","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 11:41:36 PST 2018","msg_id":"d512efa8-b566-4c07-a042-1ee0dcce64ed","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 11:41:36 PST 2018","msg_id":"f69c7183-140b-4db3-8980-63fbe257ebdd","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 11:42:15 PST 2018","msg_id":"b166a004-22aa-4d93-894e-09f179e46ee9","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 11:42:15 PST 2018","msg_id":"eba31609-3e12-4c2c-b4f7-e925a21c701b","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 11:44:58 PST 2018","msg_id":"c19b7eb9-1c98-4cd0-a28d-5cc28ba5191f","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 11:44:59 PST 2018","msg_id":"92e6b1fd-462e-4d57-8f9f-875709d1fae2","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 11:46:04 PST 2018","msg_id":"fd1bd959-9c51-4c45-9cc0-b63a1b952327","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 11:46:04 PST 2018","msg_id":"e47e2db0-9631-4b49-b6e8-3932f3a802f6","status":"OFF"}
-{"device_id":3,"payload":"Lightbulb (3) added","created_at":"Mon Nov 26 11:46:24 PST 2018","msg_id":"218e3d47-d859-495d-8f75-e38fcc7cb436","status":"OFF"}
-{"device_id":4,"payload":"SmartPlug (4) added","created_at":"Mon Nov 26 11:46:26 PST 2018","msg_id":"e9a2f738-91fd-4075-850b-e99caa3eb7ab","status":"OFF"}
-{"device_id":3,"payload":"Lightbulb (3) turned on","created_at":"Mon Nov 26 11:46:29 PST 2018","msg_id":"7f8bf55a-5350-4cee-9a3b-a3065b02ce89","status":"NORMAL"}
-{"device_id":3,"payload":"Lightbulb (3) turned off","created_at":"Mon Nov 26 11:46:30 PST 2018","msg_id":"f86ca440-7721-4bc7-bffb-7eedb301f352","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) turned on","created_at":"Mon Nov 26 11:46:43 PST 2018","msg_id":"ed5abeb0-024c-4678-986e-b9cbcd615908","status":"NORMAL"}
-{"device_id":1,"payload":"Camera  (1) started recording","created_at":"Mon Nov 26 11:46:45 PST 2018","msg_id":"f9f96371-2548-4b7d-b717-ed174628b537","status":"NORMAL"}
-{"device_id":1,"payload":"Camera  (1) stopped recording","created_at":"Mon Nov 26 11:46:45 PST 2018","msg_id":"7aa8e6ce-91f4-4543-a5c6-d84a788a24c2","status":"NORMAL"}
-{"device_id":1,"payload":"Camera  (1) started recording","created_at":"Mon Nov 26 11:46:46 PST 2018","msg_id":"8d4a15f5-f0e2-434b-a6c5-4ce5f9ce9426","status":"NORMAL"}
-{"device_id":1,"payload":"Camera  (1) stopped recording","created_at":"Mon Nov 26 11:46:46 PST 2018","msg_id":"cee887b7-3687-4001-9849-dc0ac20007c4","status":"NORMAL"}
-{"device_id":1,"payload":"Camera  (1) started recording","created_at":"Mon Nov 26 11:46:46 PST 2018","msg_id":"a95e2226-4e8a-4540-a361-2478a2b7b4f6","status":"NORMAL"}
-{"device_id":1,"payload":"Camera  (1) stopped recording","created_at":"Mon Nov 26 11:46:47 PST 2018","msg_id":"8061e453-5728-4a81-a974-83b6df4c3f81","status":"NORMAL"}
-{"device_id":1,"payload":"Camera 1 is full!","created_at":"Mon Nov 26 11:46:48 PST 2018","msg_id":"7fdd7ce9-3174-475f-b3d1-d0a2a680ee02","status":"ERROR"}
-{"device_id":1,"payload":"Camera 1 is full!","created_at":"Mon Nov 26 11:46:50 PST 2018","msg_id":"e5d58e0f-b2f6-4944-8867-4d53420c0b80","status":"ERROR"}
-{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 11:51:48 PST 2018","msg_id":"e2bdf944-9e91-4f91-9dde-11ab4515f5a9","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 11:51:48 PST 2018","msg_id":"b17288f2-a3ae-459c-b373-57bd5af8e467","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 11:54:51 PST 2018","msg_id":"8c1ae593-437c-431a-bc45-b07cbf3ce6f7","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 11:54:51 PST 2018","msg_id":"327f8e76-6a32-4e3c-bff3-b76deab6518f","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 11:56:38 PST 2018","msg_id":"f091beca-d065-4b43-8f98-778ea10ee96d","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 11:56:38 PST 2018","msg_id":"2a6e7d21-49cb-40de-951e-3c6d20b52d9b","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 12:37:22 PST 2018","msg_id":"7434639c-88a1-4ab3-a9ba-43567ea9eb2f","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 12:37:22 PST 2018","msg_id":"ee6555e9-9fe6-4f02-afe9-1a908c63cd55","status":"OFF"}
-{"device_id":3,"payload":"Camera (3) added","created_at":"Mon Nov 26 12:37:27 PST 2018","msg_id":"adf75d08-5d6e-4f55-bb69-085d49567a62","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 12:37:29 PST 2018","msg_id":"ce1487f1-3b2e-4e80-82fe-f9a04cf4afdd","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 12:37:29 PST 2018","msg_id":"2c186b28-e0c7-4552-9741-04272caa66f0","status":"OFF"}
-{"device_id":3,"payload":"Camera (3) turned off","created_at":"Mon Nov 26 12:37:29 PST 2018","msg_id":"aef557c1-d50f-4e06-aa3f-f7276a5e8729","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 12:40:51 PST 2018","msg_id":"a4562bdd-2103-4a42-ba35-9db711d7bd3a","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 12:40:51 PST 2018","msg_id":"947c500d-d30b-4b7a-8979-3d0a38b997e9","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 12:40:52 PST 2018","msg_id":"4181fa46-223b-4ed3-9ea3-b8a93b194621","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 12:40:52 PST 2018","msg_id":"97af3695-71bd-4869-bf01-b253b3c2114d","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 12:42:11 PST 2018","msg_id":"5f409346-445a-4d23-9c86-01fd3d129439","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 12:42:11 PST 2018","msg_id":"77074786-7c11-469b-b761-2e0a56f572b5","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 12:42:13 PST 2018","msg_id":"ff900420-47a5-4cad-9a7a-cdd3a026ef9f","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 12:42:13 PST 2018","msg_id":"4ab7f2c1-8b20-4627-a1f8-9d85472ea73b","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 12:43:26 PST 2018","msg_id":"f24be0ad-6886-49b0-b318-4b45202afb93","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 12:43:26 PST 2018","msg_id":"f9ba189d-4f6a-4603-833a-13550302c100","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 12:43:28 PST 2018","msg_id":"6bfe0487-f237-4862-ac37-8ea2404db4cb","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 12:43:28 PST 2018","msg_id":"97526a3a-0058-49b9-98dd-b250be397067","status":"OFF"}
-{"device_id":3,"payload":"Lightbulb (3) added","created_at":"Mon Nov 26 12:43:32 PST 2018","msg_id":"f13cfe28-d0df-47d3-9845-a198a9d4e82b","status":"OFF"}
-{"device_id":4,"payload":"SmartPlug (4) added","created_at":"Mon Nov 26 12:43:33 PST 2018","msg_id":"156a6715-6120-403e-9c40-7de03d7f1a96","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 12:43:34 PST 2018","msg_id":"a6917143-d502-4b75-814f-d6d22191ce12","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 12:43:34 PST 2018","msg_id":"a5b2065c-0bb9-481e-9b88-09d6743dd170","status":"OFF"}
-{"device_id":3,"payload":"Lightbulb (3) turned off","created_at":"Mon Nov 26 12:43:34 PST 2018","msg_id":"b0098759-89b5-46da-b0ce-5bbee1d87671","status":"OFF"}
-{"device_id":4,"payload":"SmartPlug (4) turned off","created_at":"Mon Nov 26 12:43:34 PST 2018","msg_id":"44f12808-1162-4877-a796-aa71f793166a","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 12:43:36 PST 2018","msg_id":"0945bbf0-4e82-44a0-a4e2-aa4771cf666c","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 12:43:36 PST 2018","msg_id":"29b91ddb-92ee-4cca-a432-86c57f6f0721","status":"OFF"}
-{"device_id":3,"payload":"Lightbulb (3) turned off","created_at":"Mon Nov 26 12:43:36 PST 2018","msg_id":"dca978ff-81e3-4f0c-8161-f016e1f736b3","status":"OFF"}
-{"device_id":4,"payload":"SmartPlug (4) turned off","created_at":"Mon Nov 26 12:43:36 PST 2018","msg_id":"73a54060-ee29-4731-95ad-15a2be121da7","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 12:44:22 PST 2018","msg_id":"589a84c7-3fe8-4b06-ba41-90997930d888","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 12:44:22 PST 2018","msg_id":"1a54ecc2-f6bc-476e-8c4f-44fa7d83bc62","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 12:44:24 PST 2018","msg_id":"a4856607-a614-4be1-80b2-fb7706429d66","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 12:44:24 PST 2018","msg_id":"5c2086ec-d841-419a-b58a-f6471d8f0641","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 12:46:17 PST 2018","msg_id":"299a3ca9-f777-49e5-8eb3-2b30775f8bc8","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 12:46:17 PST 2018","msg_id":"2210c5c9-ef7d-43c9-a02e-a137b43ac4a4","status":"OFF"}
-{"device_id":3,"payload":"SmartPlug (3) added","created_at":"Mon Nov 26 12:46:19 PST 2018","msg_id":"5cf5d3db-efac-45b2-9f0d-2b7d1b6b28a9","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 12:46:25 PST 2018","msg_id":"e0271494-4f8a-4032-af1c-d88d81a7998b","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 12:46:25 PST 2018","msg_id":"647de19b-6608-417a-820d-14c127ba1354","status":"OFF"}
-{"device_id":3,"payload":"SmartPlug (3) turned off","created_at":"Mon Nov 26 12:46:25 PST 2018","msg_id":"7c2f0925-02cd-46b7-8f83-976c9282f791","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 12:47:48 PST 2018","msg_id":"dd35546f-6d21-4bed-98e7-c200b92e290a","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 12:47:48 PST 2018","msg_id":"48dc5d9d-c5b4-4b15-ab82-73f6359096d4","status":"OFF"}
-{"device_id":3,"payload":"SmartPlug (3) added","created_at":"Mon Nov 26 12:48:07 PST 2018","msg_id":"56c4eb2c-be2f-487e-bf50-9beffad997a9","status":"OFF"}
-{"device_id":4,"payload":"SmartPlug (4) added","created_at":"Mon Nov 26 12:48:08 PST 2018","msg_id":"3e72b328-2678-4195-b65d-25aba534a942","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 12:48:10 PST 2018","msg_id":"365b6d11-4da0-4f8e-a418-42688ba4ef53","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 12:48:10 PST 2018","msg_id":"5ceceeef-527e-4503-af9f-73e1491ff7db","status":"OFF"}
-{"device_id":3,"payload":"SmartPlug (3) turned off","created_at":"Mon Nov 26 12:48:10 PST 2018","msg_id":"99f7db55-14d5-4499-b015-a697f78650d5","status":"OFF"}
-{"device_id":4,"payload":"SmartPlug (4) turned off","created_at":"Mon Nov 26 12:48:10 PST 2018","msg_id":"7a8f6e68-f0e1-469c-bfaf-d9aaca2f04bb","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 12:48:19 PST 2018","msg_id":"23103bb2-fd76-4dbe-91a7-dedd01c95c57","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 12:48:19 PST 2018","msg_id":"d89dd131-d240-493c-ada2-c02ac143f77f","status":"OFF"}
-{"device_id":3,"payload":"SmartPlug (3) turned off","created_at":"Mon Nov 26 12:48:19 PST 2018","msg_id":"07eaa16b-dfc8-43e3-b228-cfba58bc5a6f","status":"OFF"}
-{"device_id":4,"payload":"SmartPlug (4) turned off","created_at":"Mon Nov 26 12:48:19 PST 2018","msg_id":"bdf2ba14-155c-4204-97a6-f4e3648f9ef5","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 12:49:32 PST 2018","msg_id":"10cdfaf4-986c-464d-90a2-a57e2e995ab5","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 12:49:33 PST 2018","msg_id":"496fd600-675b-45b7-ab1d-a818cbfdd806","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 12:49:38 PST 2018","msg_id":"854e68db-8c34-49ac-b38f-c5ffbbc75e4d","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 12:49:38 PST 2018","msg_id":"ab00f6c1-7772-46fc-80e6-66af6a1b2110","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 12:51:20 PST 2018","msg_id":"389f6cc6-0e07-4696-9473-3fd34cdcb9af","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 12:51:20 PST 2018","msg_id":"d09f8e97-dd0d-43c1-94ab-fca8876ee586","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 12:51:49 PST 2018","msg_id":"ee8db51a-bb66-461a-9eb6-110c79b2c187","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 12:51:49 PST 2018","msg_id":"d1426d8f-be66-46ae-ada1-35ff28f3f19f","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 12:54:08 PST 2018","msg_id":"fa30d1c1-aaa3-4924-9d58-c276528f2124","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 12:54:08 PST 2018","msg_id":"62f310fc-1978-4584-8de9-9c2e2ce9c55f","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 12:54:11 PST 2018","msg_id":"bd28d458-e03b-409a-b1e1-72e45a99df7e","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 12:54:11 PST 2018","msg_id":"368d5823-55b6-41cd-baf2-5fb442c4d17c","status":"OFF"}
-{"payload":"Devices Shutdown","created_at":"Mon Nov 26 12:54:11 PST 2018"}
-{"device_id":3,"payload":"Lightbulb (3) added","created_at":"Mon Nov 26 12:54:21 PST 2018","msg_id":"fdc18566-4268-48a9-9229-3b0f5a3a1f66","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 12:54:23 PST 2018","msg_id":"97e069c9-0d61-4d87-8787-db676d9340df","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 12:54:23 PST 2018","msg_id":"4999c68b-93ba-4b49-a0d2-4556b19622a1","status":"OFF"}
-{"device_id":3,"payload":"Lightbulb (3) turned off","created_at":"Mon Nov 26 12:54:23 PST 2018","msg_id":"b3b1b91b-bef0-46d6-92e3-5c9b77dbcdcd","status":"OFF"}
-{"payload":"Devices Shutdown","created_at":"Mon Nov 26 12:54:23 PST 2018"}
-{"payload":"Client Closed","created_at":"Mon Nov 26 12:54:23 PST 2018"}
-{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 12:54:32 PST 2018","msg_id":"180359d4-98dc-4d27-b9ca-f321eaf90bf4","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 12:54:33 PST 2018","msg_id":"1d45da3e-7a01-4933-9040-7c6e8bb00d05","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 12:55:01 PST 2018","msg_id":"23b22549-a1bb-4b4c-9576-cbb4a738715c","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 12:55:01 PST 2018","msg_id":"15da311c-4715-4582-8849-b89a67ee5c60","status":"OFF"}
-{"payload":"Devices Shutdown","created_at":"Mon Nov 26 12:55:01 PST 2018"}
-{"payload":"Client Closed","created_at":"Mon Nov 26 12:55:01 PST 2018"}
-{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 12:55:07 PST 2018","msg_id":"7464d2ad-1b02-441c-9603-3d5f195581b3","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 12:55:08 PST 2018","msg_id":"b84b4090-e7ad-4426-8de5-6c01d83588d0","status":"OFF"}
-{"device_id":3,"payload":"Lightbulb (3) added","created_at":"Mon Nov 26 12:55:09 PST 2018","msg_id":"03231c86-b087-4580-987c-f945fc3c82ed","status":"OFF"}
-{"device_id":4,"payload":"Lightbulb (4) added","created_at":"Mon Nov 26 12:55:09 PST 2018","msg_id":"9e8821c5-2801-48e0-bfe3-97db5f68b51d","status":"OFF"}
-{"device_id":5,"payload":"Lightbulb (5) added","created_at":"Mon Nov 26 12:55:09 PST 2018","msg_id":"3ecfd74e-d761-4a9c-bdad-9596303854cd","status":"OFF"}
-{"device_id":6,"payload":"Lightbulb (6) added","created_at":"Mon Nov 26 12:55:09 PST 2018","msg_id":"0feec423-48ee-4548-b10b-10a6640a4e0d","status":"OFF"}
-{"device_id":7,"payload":"Lightbulb (7) added","created_at":"Mon Nov 26 12:55:09 PST 2018","msg_id":"b6523943-9c27-418d-a7f4-465631366731","status":"OFF"}
-{"device_id":8,"payload":"Lightbulb (8) added","created_at":"Mon Nov 26 12:55:09 PST 2018","msg_id":"47f89007-251c-4c39-9bbd-a471df182f7d","status":"OFF"}
-{"device_id":9,"payload":"Lightbulb (9) added","created_at":"Mon Nov 26 12:55:10 PST 2018","msg_id":"91078ee6-b2a1-4c39-ac62-2943037f758a","status":"OFF"}
-{"device_id":10,"payload":"SmartPlug (10) added","created_at":"Mon Nov 26 12:55:11 PST 2018","msg_id":"4db54b58-1c96-4a02-9055-e6b35aa8700b","status":"OFF"}
-{"device_id":11,"payload":"SmartPlug (11) added","created_at":"Mon Nov 26 12:55:11 PST 2018","msg_id":"b4458c0a-3973-4529-818a-23fb9bfee3de","status":"OFF"}
-{"device_id":12,"payload":"SmartPlug (12) added","created_at":"Mon Nov 26 12:55:11 PST 2018","msg_id":"c79b2317-ab6b-439e-982c-2996c4b0d043","status":"OFF"}
-{"device_id":13,"payload":"SmartPlug (13) added","created_at":"Mon Nov 26 12:55:11 PST 2018","msg_id":"7aa4f49c-e1a7-4b30-8e43-d130147577fe","status":"OFF"}
-{"device_id":14,"payload":"SmartPlug (14) added","created_at":"Mon Nov 26 12:55:11 PST 2018","msg_id":"f0bdca69-1c15-4c5d-86bf-dfdc6923d92a","status":"OFF"}
-{"device_id":15,"payload":"SmartPlug (15) added","created_at":"Mon Nov 26 12:55:11 PST 2018","msg_id":"d7adb540-c9dd-46e3-8fb0-da699437691c","status":"OFF"}
-{"device_id":16,"payload":"Camera (16) added","created_at":"Mon Nov 26 12:55:12 PST 2018","msg_id":"5b7581f9-4cb1-49dd-bb30-3ede86f2bde6","status":"OFF"}
-{"device_id":17,"payload":"Camera (17) added","created_at":"Mon Nov 26 12:55:12 PST 2018","msg_id":"893e3bea-1a0a-4015-9426-82b55aa3430a","status":"OFF"}
-{"device_id":18,"payload":"Camera (18) added","created_at":"Mon Nov 26 12:55:13 PST 2018","msg_id":"a4b93db8-2f04-440e-acac-d7ce4d4fcca8","status":"OFF"}
-{"device_id":19,"payload":"Camera (19) added","created_at":"Mon Nov 26 12:55:13 PST 2018","msg_id":"7ba05fb7-0050-45cf-afd3-5549726b31d0","status":"OFF"}
-{"device_id":20,"payload":"Camera (20) added","created_at":"Mon Nov 26 12:55:13 PST 2018","msg_id":"3d16e61d-30eb-426b-bab5-2c0edc7a946e","status":"OFF"}
-{"device_id":21,"payload":"Camera (21) added","created_at":"Mon Nov 26 12:55:13 PST 2018","msg_id":"f980d5ed-9e34-46d8-b4c2-21938a9b3834","status":"OFF"}
-{"device_id":22,"payload":"Thermostat (22) added","created_at":"Mon Nov 26 12:55:14 PST 2018","msg_id":"d92134bd-c291-40a3-9df0-9035aca54e4c","status":"OFF"}
-{"device_id":23,"payload":"Thermostat (23) added","created_at":"Mon Nov 26 12:55:14 PST 2018","msg_id":"9bf64bef-d3fb-4119-844e-0b65c663d6df","status":"OFF"}
-{"device_id":24,"payload":"Thermostat (24) added","created_at":"Mon Nov 26 12:55:14 PST 2018","msg_id":"f4a371aa-2b4c-4d55-813e-ad84f1c05412","status":"OFF"}
-{"device_id":25,"payload":"Thermostat (25) added","created_at":"Mon Nov 26 12:55:14 PST 2018","msg_id":"0fc3f173-5d30-4383-8f4a-42864159afa3","status":"OFF"}
-{"device_id":26,"payload":"Thermostat (26) added","created_at":"Mon Nov 26 12:55:15 PST 2018","msg_id":"c5b39fc4-0103-4f6d-9fae-ffb047e9511e","status":"OFF"}
-{"device_id":27,"payload":"Thermostat (27) added","created_at":"Mon Nov 26 12:55:15 PST 2018","msg_id":"ccc3abba-7a2b-4cf1-8c94-3f8916e843ec","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"8dee2f26-4f8c-4504-ba0f-d7680eb3f62d","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"3131b897-9d10-43e8-8872-3e5165e93140","status":"OFF"}
-{"device_id":3,"payload":"Lightbulb (3) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"694eca85-b6ec-4fca-8edb-15de80c2f94b","status":"OFF"}
-{"device_id":4,"payload":"Lightbulb (4) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"93aea882-5a77-4f91-ac44-a77c4a05d0b7","status":"OFF"}
-{"device_id":5,"payload":"Lightbulb (5) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"5d27c203-9206-467d-8a4f-5435580985d7","status":"OFF"}
-{"device_id":6,"payload":"Lightbulb (6) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"21bfbc00-747f-4a50-95f5-d0c95ac4af9d","status":"OFF"}
-{"device_id":7,"payload":"Lightbulb (7) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"aed04001-0df9-4dcf-97d2-d64148000501","status":"OFF"}
-{"device_id":8,"payload":"Lightbulb (8) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"091202ad-89c8-4e8c-beac-468aefd41ccc","status":"OFF"}
-{"device_id":9,"payload":"Lightbulb (9) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"a03b4f42-1e97-4568-8b2d-46e034a9de6d","status":"OFF"}
-{"device_id":10,"payload":"SmartPlug (10) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"6f4ade08-10e1-4071-939b-9aeb06427c9a","status":"OFF"}
-{"device_id":11,"payload":"SmartPlug (11) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"897fa9bf-6df0-4db3-890f-18e94f76e87c","status":"OFF"}
-{"device_id":12,"payload":"SmartPlug (12) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"0d1796cd-14df-4167-8d5b-d33836880b48","status":"OFF"}
-{"device_id":13,"payload":"SmartPlug (13) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"54d97301-6ff6-48c3-b2c5-817ee1f51c78","status":"OFF"}
-{"device_id":14,"payload":"SmartPlug (14) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"2b43d007-57c5-4d57-9c35-636d783025f8","status":"OFF"}
-{"device_id":15,"payload":"SmartPlug (15) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"1acd2fa5-e8f1-48bc-a31f-6d25c060a552","status":"OFF"}
-{"device_id":16,"payload":"Camera (16) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"ec149f89-7d97-46bf-8924-f65305abefa6","status":"OFF"}
-{"device_id":17,"payload":"Camera (17) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"e6bc2be3-8891-4233-b46f-35209d764168","status":"OFF"}
-{"device_id":18,"payload":"Camera (18) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"b1645f1f-1c60-403c-8204-bdf49da50711","status":"OFF"}
-{"device_id":19,"payload":"Camera (19) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"fed4a3ef-23d3-45ae-ada0-0717406be5c6","status":"OFF"}
-{"device_id":20,"payload":"Camera (20) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"7e5da44a-ad01-42d7-9606-e183d276a89c","status":"OFF"}
-{"device_id":21,"payload":"Camera (21) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"591e7759-bbbf-4deb-98cb-b1a54758c901","status":"OFF"}
-{"device_id":22,"payload":"Thermostat (22) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"38687b9f-7f9b-44c4-9773-8f66a480f73a","status":"OFF"}
-{"device_id":23,"payload":"Thermostat (23) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"66953518-d9c8-41b8-9f37-5777ba64445e","status":"OFF"}
-{"device_id":24,"payload":"Thermostat (24) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"d04865de-b81a-4f84-a38f-39371eefca4c","status":"OFF"}
-{"device_id":25,"payload":"Thermostat (25) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"d93a3413-3eb4-473e-90e9-4fb279952496","status":"OFF"}
-{"device_id":26,"payload":"Thermostat (26) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"733ec214-0356-426d-95e0-8c05192049c9","status":"OFF"}
-{"device_id":27,"payload":"Thermostat (27) turned off","created_at":"Mon Nov 26 12:55:17 PST 2018","msg_id":"24f5608a-afa7-4084-a406-85a618a8d823","status":"OFF"}
-{"payload":"Devices Shutdown","created_at":"Mon Nov 26 12:55:17 PST 2018"}
-{"device_id":28,"payload":"SmartPlug (28) added","created_at":"Mon Nov 26 12:55:18 PST 2018","msg_id":"3db46584-17b5-4aef-9d97-c0b0c42d2359","status":"OFF"}
-{"device_id":29,"payload":"SmartPlug (29) added","created_at":"Mon Nov 26 12:55:18 PST 2018","msg_id":"8084af5a-c596-4440-ba57-acff2edf3baa","status":"OFF"}
-{"device_id":30,"payload":"SmartPlug (30) added","created_at":"Mon Nov 26 12:55:19 PST 2018","msg_id":"83542a76-c724-446f-b5cd-117e2fb54021","status":"OFF"}
-{"device_id":31,"payload":"SmartPlug (31) added","created_at":"Mon Nov 26 12:55:19 PST 2018","msg_id":"9a30413d-9965-4fd7-ab41-b8b6dde03974","status":"OFF"}
-{"device_id":32,"payload":"SmartPlug (32) added","created_at":"Mon Nov 26 12:55:19 PST 2018","msg_id":"88a46fa5-39bc-4c35-8f07-c9d5bb93a270","status":"OFF"}
-{"device_id":33,"payload":"SmartPlug (33) added","created_at":"Mon Nov 26 12:55:19 PST 2018","msg_id":"1f351232-ec3e-4353-ad36-a954236f81ce","status":"OFF"}
-{"device_id":34,"payload":"SmartPlug (34) added","created_at":"Mon Nov 26 12:55:19 PST 2018","msg_id":"27dd80ba-5ba2-4238-8672-8099c98a4316","status":"OFF"}
-{"device_id":35,"payload":"SmartPlug (35) added","created_at":"Mon Nov 26 12:55:19 PST 2018","msg_id":"f9063846-c595-4d95-9e9d-b6e5d2d22d47","status":"OFF"}
-{"device_id":36,"payload":"Lightbulb (36) added","created_at":"Mon Nov 26 12:55:21 PST 2018","msg_id":"047c19f5-baf8-4970-becb-737246566a22","status":"OFF"}
-{"device_id":37,"payload":"Lightbulb (37) added","created_at":"Mon Nov 26 12:55:21 PST 2018","msg_id":"a87491db-97b8-41fb-bd0f-38f7320babb0","status":"OFF"}
-{"device_id":38,"payload":"Lightbulb (38) added","created_at":"Mon Nov 26 12:55:21 PST 2018","msg_id":"9404c8cb-c30b-4aae-b08c-f4f73cc1fd96","status":"OFF"}
-{"device_id":39,"payload":"Lightbulb (39) added","created_at":"Mon Nov 26 12:55:21 PST 2018","msg_id":"3e4fd17e-b292-4b16-938e-c2226e54701a","status":"OFF"}
-{"device_id":40,"payload":"Lightbulb (40) added","created_at":"Mon Nov 26 12:55:21 PST 2018","msg_id":"9a952f2b-33ac-4f5c-a17a-115867002675","status":"OFF"}
-{"device_id":41,"payload":"Thermostat (41) added","created_at":"Mon Nov 26 12:55:22 PST 2018","msg_id":"48df7155-ad5b-4e16-8e5e-cc1ebe121149","status":"OFF"}
-{"device_id":42,"payload":"Thermostat (42) added","created_at":"Mon Nov 26 12:55:22 PST 2018","msg_id":"27977077-462b-4736-98a5-5ca4c4f544a1","status":"OFF"}
-{"device_id":43,"payload":"Thermostat (43) added","created_at":"Mon Nov 26 12:55:23 PST 2018","msg_id":"63e652ca-df8e-44d2-941c-c01e39d6692f","status":"OFF"}
-{"device_id":44,"payload":"Thermostat (44) added","created_at":"Mon Nov 26 12:55:23 PST 2018","msg_id":"4b386902-3f7b-4839-9870-9f2e71f85e68","status":"OFF"}
-{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"51941b6d-1c73-49d0-880d-f1304b39aef7","status":"OFF"}
-{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"9fb8168d-abaa-43cc-b28a-6cd39ebd81ab","status":"OFF"}
-{"device_id":3,"payload":"Lightbulb (3) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"47d8bc2a-e290-4966-a9f8-7ede5994b583","status":"OFF"}
-{"device_id":4,"payload":"Lightbulb (4) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"4bd73684-2136-4a7e-b989-7fda3ab1162c","status":"OFF"}
-{"device_id":5,"payload":"Lightbulb (5) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"55416958-b586-4755-b1b6-adc7761f5f9e","status":"OFF"}
-{"device_id":6,"payload":"Lightbulb (6) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"8a7b2241-2358-4989-8305-20947b7adbdd","status":"OFF"}
-{"device_id":7,"payload":"Lightbulb (7) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"e1239d9d-7d33-4bb7-8939-48e9d5ab7d1b","status":"OFF"}
-{"device_id":8,"payload":"Lightbulb (8) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"bee1b348-26f3-4a68-83ca-5aee212044c9","status":"OFF"}
-{"device_id":9,"payload":"Lightbulb (9) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"2eec7dbf-4fa8-474e-9e3a-111ab6c3351e","status":"OFF"}
-{"device_id":10,"payload":"SmartPlug (10) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"91452137-1e53-473e-bc44-d8ff3a5cd82f","status":"OFF"}
-{"device_id":11,"payload":"SmartPlug (11) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"fb589989-4ee9-446e-970c-898dcafe8a1c","status":"OFF"}
-{"device_id":12,"payload":"SmartPlug (12) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"3df4831e-dcdd-4998-ab05-db81091c1330","status":"OFF"}
-{"device_id":13,"payload":"SmartPlug (13) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"f8162998-a567-4539-ab84-e22fbc870271","status":"OFF"}
-{"device_id":14,"payload":"SmartPlug (14) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"2696c2be-e4bd-4e31-8830-6a75b8edf10e","status":"OFF"}
-{"device_id":15,"payload":"SmartPlug (15) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"3c8ed34d-60fa-4ee6-963f-4ea9020d0e6c","status":"OFF"}
-{"device_id":16,"payload":"Camera (16) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"c30e7fb2-e1b2-4aa9-a016-5e625e36fef6","status":"OFF"}
-{"device_id":17,"payload":"Camera (17) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"584cb7d7-adb4-4238-9df0-3e978f6e05d7","status":"OFF"}
-{"device_id":18,"payload":"Camera (18) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"0589bb76-95e1-4b2d-bf3e-7b965268406b","status":"OFF"}
-{"device_id":19,"payload":"Camera (19) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"a1a6bd1e-9f13-4888-bf83-8c7a16e5de92","status":"OFF"}
-{"device_id":20,"payload":"Camera (20) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"53d7035b-4b9b-469b-8f2c-1b23018cda61","status":"OFF"}
-{"device_id":21,"payload":"Camera (21) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"6a57967c-233b-4a3e-8ff2-05ced5ca72d3","status":"OFF"}
-{"device_id":22,"payload":"Thermostat (22) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"88a9919c-0c3a-4d47-9e64-b5e1e51c521d","status":"OFF"}
-{"device_id":23,"payload":"Thermostat (23) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"283c1021-f2a1-4310-999e-5bc70531b435","status":"OFF"}
-{"device_id":24,"payload":"Thermostat (24) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"a682008c-a15f-4ba9-a1d8-ac237d4151e7","status":"OFF"}
-{"device_id":25,"payload":"Thermostat (25) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"63abed7e-bc7c-4f39-85a2-70319cbca101","status":"OFF"}
-{"device_id":26,"payload":"Thermostat (26) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"f46078de-e94b-4cc7-a7a3-fce8301f1b58","status":"OFF"}
-{"device_id":27,"payload":"Thermostat (27) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"7ae08f89-5010-4361-9107-4efb40b51f7a","status":"OFF"}
-{"device_id":28,"payload":"SmartPlug (28) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"375da42e-478e-401e-8b83-b4a8614909c2","status":"OFF"}
-{"device_id":29,"payload":"SmartPlug (29) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"9a822e70-1fe5-46f3-b360-393779e00c1f","status":"OFF"}
-{"device_id":30,"payload":"SmartPlug (30) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"29b2f425-db5c-437c-855b-84941e9ccfb3","status":"OFF"}
-{"device_id":31,"payload":"SmartPlug (31) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"ff4e612d-4916-4542-8157-46d317e00840","status":"OFF"}
-{"device_id":32,"payload":"SmartPlug (32) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"faceb1a0-749a-4eb4-bd55-ef8d1fd57799","status":"OFF"}
-{"device_id":33,"payload":"SmartPlug (33) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"b48c4943-4af6-4a1c-8e43-6ac4dd7c0c55","status":"OFF"}
-{"device_id":34,"payload":"SmartPlug (34) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"fb4fb9b0-a9f7-4534-82ce-1b924ebd4f29","status":"OFF"}
-{"device_id":35,"payload":"SmartPlug (35) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"06c7688c-5575-460a-ad15-29ab952f3044","status":"OFF"}
-{"device_id":36,"payload":"Lightbulb (36) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"87a76fe5-a66d-4ec2-9480-dae443c0d14e","status":"OFF"}
-{"device_id":37,"payload":"Lightbulb (37) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"9b641744-552c-45a3-b65b-e4391ab363ea","status":"OFF"}
-{"device_id":38,"payload":"Lightbulb (38) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"0ae0ecaf-4dfd-4460-8dfe-500e91f6e52f","status":"OFF"}
-{"device_id":39,"payload":"Lightbulb (39) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"99583e1b-d92a-49f7-8069-ea7a6818f695","status":"OFF"}
-{"device_id":40,"payload":"Lightbulb (40) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"a9c2d8bc-7e53-4cc0-97fd-e5e200a4d93b","status":"OFF"}
-{"device_id":41,"payload":"Thermostat (41) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"8c1b4bd2-9444-400c-bfe9-3f9e956a825b","status":"OFF"}
-{"device_id":42,"payload":"Thermostat (42) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"16929a3e-3e4a-4d43-bb10-9f96c0bcca7a","status":"OFF"}
-{"device_id":43,"payload":"Thermostat (43) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"54f4cca1-fd59-42ce-a1f4-b135d395ff6d","status":"OFF"}
-{"device_id":44,"payload":"Thermostat (44) turned off","created_at":"Mon Nov 26 12:55:25 PST 2018","msg_id":"22932ee5-fbe2-4653-8382-882ded0ac222","status":"OFF"}
-{"payload":"Devices Shutdown","created_at":"Mon Nov 26 12:55:25 PST 2018"}
-{"payload":"Client Closed","created_at":"Mon Nov 26 12:55:25 PST 2018"}
+{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 13:17:48 PST 2018","msg_id":"058a63ed-3c0c-4b86-a908-5c53fbbce2b2","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 13:17:48 PST 2018","msg_id":"73e28087-6198-4da5-8b40-f587a279d5a0","status":"OFF"}
+{"device_id":1,"payload":"Camera (1) removed","created_at":"Mon Nov 26 13:18:00 PST 2018","msg_id":"f5450924-b974-4186-99a9-3ab3efbe9462","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 13:18:13 PST 2018","msg_id":"ac7c0ef0-5716-42b7-be51-f399f8a92e0b","status":"OFF"}
+{"payload":"Devices Shutdown","created_at":"Mon Nov 26 13:18:13 PST 2018"}
+{"payload":"Client Closed","created_at":"Mon Nov 26 13:18:13 PST 2018"}
+{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 13:19:28 PST 2018","msg_id":"c4ca52ed-90d4-4b90-9889-cf0cc653fd2d","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 13:19:28 PST 2018","msg_id":"2052fb14-e688-446c-ad59-4821f25cb192","status":"OFF"}
+{"device_id":3,"payload":"SmartPlug (3) added","created_at":"Mon Nov 26 13:19:36 PST 2018","msg_id":"31161824-c3de-42dc-96db-bea12173c19a","status":"OFF"}
+{"device_id":4,"payload":"SmartPlug (4) added","created_at":"Mon Nov 26 13:19:37 PST 2018","msg_id":"c4dc6cf1-0f9f-460c-bf7f-0c29e78b464a","status":"OFF"}
+{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 13:19:52 PST 2018","msg_id":"839a0576-ea5a-4c81-99ef-b007097ad1d9","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 13:19:52 PST 2018","msg_id":"3f63473c-cf9c-4e08-9a9e-85ccbf63dd4c","status":"OFF"}
+{"device_id":3,"payload":"SmartPlug (3) turned off","created_at":"Mon Nov 26 13:19:52 PST 2018","msg_id":"0e3b7558-1382-4035-a16a-64336f5ea5ff","status":"OFF"}
+{"device_id":4,"payload":"SmartPlug (4) turned off","created_at":"Mon Nov 26 13:19:52 PST 2018","msg_id":"fc3f757c-c8bf-4a48-a5fe-08f39e93f8c1","status":"OFF"}
+{"payload":"Devices Shutdown","created_at":"Mon Nov 26 13:19:52 PST 2018"}
+{"payload":"Client Closed","created_at":"Mon Nov 26 13:19:52 PST 2018"}
+{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 13:23:17 PST 2018","msg_id":"8e1cfcc9-4859-4cbf-bb0b-9eb7db66bc9d","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 13:23:17 PST 2018","msg_id":"7f0a0069-e300-4cc4-8e23-03203e00dd5d","status":"OFF"}
+{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 13:24:07 PST 2018","msg_id":"a2369a7a-4c12-4368-89c4-9c0ea655b18b","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 13:24:07 PST 2018","msg_id":"1fcd07d8-af08-4afe-8d14-909c45ae7029","status":"OFF"}
+{"payload":"All devices shutdown.","created_at":"Mon Nov 26 13:24:07 PST 2018"}
+{"payload":"Client Closed","created_at":"Mon Nov 26 13:24:07 PST 2018"}
+{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 13:24:19 PST 2018","msg_id":"110f50da-ba7a-434e-82eb-5c341d41377c","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 13:24:19 PST 2018","msg_id":"49c4d38b-d46e-4d95-99d2-f96d9f8d3e89","status":"OFF"}
+{"device_id":3,"payload":"Lightbulb (3) added","created_at":"Mon Nov 26 13:24:21 PST 2018","msg_id":"3ebdea7d-8493-4d23-86a5-e19686af7e92","status":"OFF"}
+{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 13:24:25 PST 2018","msg_id":"b5342f4f-aa23-4e68-86b4-86cbedaec76e","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 13:24:25 PST 2018","msg_id":"f6f652e9-0b9b-4cc3-aa4c-f82179ebf031","status":"OFF"}
+{"device_id":3,"payload":"Lightbulb (3) turned off","created_at":"Mon Nov 26 13:24:25 PST 2018","msg_id":"08c80cdf-8c42-435d-b893-fbdfccf31eb1","status":"OFF"}
+{"payload":"All devices shutdown.","created_at":"Mon Nov 26 13:24:25 PST 2018"}
+{"payload":"Client Closed","created_at":"Mon Nov 26 13:24:25 PST 2018"}
+{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 13:27:29 PST 2018","msg_id":"a7722d86-a7d7-4755-a081-9f618445a0c0","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 13:27:30 PST 2018","msg_id":"5b5a31ef-25e0-40a8-8fd4-592a1ffe2039","status":"OFF"}
+{"device_id":3,"payload":"Thermostat (3) added","created_at":"Mon Nov 26 13:27:32 PST 2018","msg_id":"16ce2180-f02e-4b9a-adb1-8512d7774715","status":"OFF"}
+{"device_id":4,"payload":"Thermostat (4) added","created_at":"Mon Nov 26 13:28:11 PST 2018","msg_id":"fc37afbd-7cc0-4661-af19-f0c85094298d","status":"OFF"}
+{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 13:28:28 PST 2018","msg_id":"0cd5a760-dde4-4565-8b51-fbb5b65439e7","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 13:28:28 PST 2018","msg_id":"4fd87ad7-7a1b-484d-8951-c20db818c723","status":"OFF"}
+{"device_id":3,"payload":"Thermostat (3) turned off","created_at":"Mon Nov 26 13:28:28 PST 2018","msg_id":"de220b8b-d718-4e6a-842f-50f3d1b4d5f6","status":"OFF"}
+{"device_id":4,"payload":"Thermostat (4) turned off","created_at":"Mon Nov 26 13:28:28 PST 2018","msg_id":"813135fb-671c-4e97-869d-c9e1168845a2","status":"OFF"}
+{"payload":"All devices shutdown.","created_at":"Mon Nov 26 13:28:28 PST 2018"}
+{"payload":"Client Closed","created_at":"Mon Nov 26 13:28:28 PST 2018"}
+{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 13:30:39 PST 2018","msg_id":"4d9e443f-4e77-4e5c-b2d9-410c816e800c","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 13:30:39 PST 2018","msg_id":"7a1fc3f8-6d91-4902-80cb-0c9db5ab8bfc","status":"OFF"}
+{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 13:34:25 PST 2018","msg_id":"0f1aaaa7-a31d-46f3-aa29-e88d4f0f4e6e","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 13:34:25 PST 2018","msg_id":"11d10635-609e-46d9-8bb8-fb4abfc4e841","status":"OFF"}
+{"payload":"All devices shutdown.","created_at":"Mon Nov 26 13:34:25 PST 2018"}
+{"payload":"Client Closed","created_at":"Mon Nov 26 13:34:25 PST 2018"}
+{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 13:35:55 PST 2018","msg_id":"4868a19f-5cf9-4c80-b4d6-5013d888bde6","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 13:35:55 PST 2018","msg_id":"5c68b9ce-009d-49c1-961a-f60a3c0af1c7","status":"OFF"}
+{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 13:36:01 PST 2018","msg_id":"e1233701-966a-44cc-9e97-ece5444d7f3e","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 13:36:01 PST 2018","msg_id":"614c5232-d745-4aab-9965-3936810d888e","status":"OFF"}
+{"payload":"All devices shutdown.","created_at":"Mon Nov 26 13:36:01 PST 2018"}
+{"payload":"Client Closed","created_at":"Mon Nov 26 13:36:01 PST 2018"}
+{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 13:38:24 PST 2018","msg_id":"836118a5-6f17-4125-be7b-f9c8dafe86b1","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 13:38:25 PST 2018","msg_id":"1670408b-737a-48db-b948-a3626c5108de","status":"OFF"}
+{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 13:38:50 PST 2018","msg_id":"a860c1c4-101e-4587-9c7a-36af2a113ef8","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 13:38:50 PST 2018","msg_id":"477ed236-ce05-4f7b-aa68-b7ccd10cbcc2","status":"OFF"}
+{"payload":"All devices shutdown.","created_at":"Mon Nov 26 13:38:50 PST 2018"}
+{"payload":"Client Closed","created_at":"Mon Nov 26 13:38:50 PST 2018"}
+{"device_id":1,"payload":"Camera (1) added","created_at":"Mon Nov 26 13:40:24 PST 2018","msg_id":"103fc642-e2e2-4bf6-8228-d2656f75d4b4","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 13:40:24 PST 2018","msg_id":"0686b168-05ad-4317-88e2-f64fb0fad67d","status":"OFF"}
+{"device_id":1,"payload":"Camera (1) turned off","created_at":"Mon Nov 26 13:40:34 PST 2018","msg_id":"bd2f8105-9eca-4677-baaf-06ddf08a4b73","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) turned off","created_at":"Mon Nov 26 13:40:34 PST 2018","msg_id":"7837c784-8590-456f-9a66-b8da2969f1ae","status":"OFF"}
+{"payload":"All devices shutdown.","created_at":"Mon Nov 26 13:40:34 PST 2018"}
+{"payload":"Client Closed","created_at":"Mon Nov 26 13:40:34 PST 2018"}
