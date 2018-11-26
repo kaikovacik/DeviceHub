@@ -196,6 +196,11 @@ public class Client extends Application {
   private static void PopulateSystem() {
     new CameraView(organizer);
     new CameraView(organizer);
+    int i = 0;
+    while ( i < 20000) {
+      new CameraView(organizer);
+      i ++;
+    }
   }
 
   private static void closeClient() {

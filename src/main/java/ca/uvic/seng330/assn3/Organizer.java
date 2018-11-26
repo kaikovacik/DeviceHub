@@ -35,7 +35,7 @@ public class Organizer{
   public Collection<DeviceView> getViews() {
     return viewList.values();
   }
-  
+
   public HashMap<String, User> getUsers() {
     return userList;
   }
@@ -47,12 +47,12 @@ public class Organizer{
     lastLog.set(jsonO.getJSON().toString());
     System.out.println(jsonO.getJSON());
   }
-  
+
   public void logString(String message) {
     String toLog = "{\"payload\":\"" + message + "\",\"created_at\":\"" + new Date() + "\"}";
     dP.writeThis(toLog);  // writes to log file
     lastLog.set(toLog);   // writes to Activity
-    lastAllert.set(message);  // writes to allers
+    //lastAllert.set(message);  // writes to alerts
   }
 
   //add list to alert
@@ -64,11 +64,11 @@ public class Organizer{
   public SimpleStringProperty getLastAllert() {
     return lastAllert;
   }
-  
+
   public SimpleStringProperty getLastLog() {
     return lastLog;
   }
-  
+
   public void addUser(User user) throws HubRegistrationException {
     try {
       userList.put(user.getUsername(), user);
@@ -100,7 +100,7 @@ public class Organizer{
       throw new HubRegistrationException("Specified device is not in the network");
     }
   }
-  
+
   public void startup() {
     for (/*DeviceView*/Object device : viewList.values()) {
       // device.model.turnOn (or something of the sort)
@@ -116,9 +116,20 @@ public class Organizer{
   }
 
   public void statusCheck() {
-    System.out.println("stat check");
+    //System.out.format("%s: %s%n", Thread.currentThread().getName(), "stat check");
+    String statusString = "Status Check:";
+    DeviceModel m;
+    if (viewList.size() == 0 ) {
+      statusString = statusString.concat(" There are no devices in the system.");
+    }else {
+      for( DeviceView v : viewList.values()) {
+        m = v.getModel();
+        statusString = statusString.concat("  -  " + m.getName() + " (" + m.getIdentifier() +"): " + m.getStatus());
+      }
+    }
+    logString(statusString);
   }
-  
+
   public int numOfDevices() {
     return viewList.size();
   }
