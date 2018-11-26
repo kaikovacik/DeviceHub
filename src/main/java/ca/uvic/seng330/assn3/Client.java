@@ -197,7 +197,7 @@ public class Client extends Application {
     new CameraView(organizer);
     new CameraView(organizer);
     int i = 0;
-    while ( i < 20000) {
+    while ( i < 0) {
       new CameraView(organizer);
       i ++;
     }

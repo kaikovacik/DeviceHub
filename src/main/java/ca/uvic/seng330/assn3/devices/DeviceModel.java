@@ -49,12 +49,18 @@ public abstract class DeviceModel {
   }
   
   public void turnOn() {
+    if(aStatus.equals(Status.NORMAL)) {
+      return;
+    }
     setStatus(Status.NORMAL);
     organizer.log(this, name + " (" + id.get() + ") turned on");
     //System.out.println(this.getClass().getName());
   }
   
   public void turnOff() {
+    if(aStatus.equals(Status.OFF)) {
+      return;
+    }
     setStatus(Status.OFF);
     organizer.log(this, name + " (" + id.get() + ") turned off");
   }
