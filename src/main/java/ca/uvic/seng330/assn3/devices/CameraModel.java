@@ -1,5 +1,6 @@
 package ca.uvic.seng330.assn3.devices;
 
+import ca.uvic.seng330.assn3.Organizer;
 import ca.uvic.seng330.assn3.Status;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.IntegerProperty;
@@ -14,14 +15,12 @@ public class CameraModel extends DeviceModel {
   private boolean isObject;
   private static final int maxMem = 3;
   
-  public CameraModel(int id) {
+  public CameraModel(Organizer organizer) {
     
-    super(id);
+    super(organizer);
     this.diskSizeRemainingProperty.set(maxMem);
     this.isThisRecordingProperty.set(false);
-    this.aStatus = Status.OFF;
     this.isObject = false;
-    this.statusObsStr = new SimpleStringProperty(aStatus.toString());
   }
   
   public IntegerProperty getDiskSize() {
@@ -56,12 +55,13 @@ public class CameraModel extends DeviceModel {
     if (getIsRecording()) {
       setIsRecording(false);
       diskSizeRemainingProperty.set(diskSizeRemainingProperty.intValue()-1);
+      organizer.alert(this, "Camera " + " (" + id.get() + ") stopped recording");
 
     } else if (getDiskSize().intValue() > 0) {
       setIsRecording(true);
+      organizer.alert(this, "Camera " + " (" + id.get() + ") started recording");
     } else {
       setStatus(Status.ERROR);
-      statusObsStr.set(aStatus.toString());
       throw new cameraFullException("Camera " + getIdentifier() + " is full!");
      
     }

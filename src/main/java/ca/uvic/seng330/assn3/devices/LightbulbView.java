@@ -27,7 +27,7 @@ public class LightbulbView extends DeviceView{
     super(organizer);
     try { 
       organizer.register(this);
-      this.model = new LightbulbModel(organizer.deviceCount);
+      this.model = new LightbulbModel(organizer);
       super.setModel(model);
       organizer.alert(model, ("Lightbulb (" + model.getIdentifier() + ") added"));
    
@@ -47,16 +47,16 @@ public class LightbulbView extends DeviceView{
     toggleB.setLayoutY(50);
     toggleB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
-        if ((model.getStatusAsString().getValue()).equals("OFF")) {
-          model.turnOn();
-        } else if ((model.getStatusAsString().getValue()).equals("NORMAL") || (model.getStatusAsString().getValue()).equals("ERROR")) {
-          model.turnOff();
-        }
+        model.toggle();
       } 
     }));
     model.getStatusAsString().addListener((obs, prev, curr) -> {
-      if (curr.equals("NORMAL")) toggleB.setText("Turn OFF");
-      else if (curr.equals("OFF")) toggleB.setText("Turn ON");
+      if (curr.equals("NORMAL")) {
+        toggleB.setText("Turn OFF");
+      }
+      else if (curr.equals("OFF")) {
+        toggleB.setText("Turn ON");
+      }
     });
     
     // Construct UI

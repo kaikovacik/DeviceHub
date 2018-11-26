@@ -11,22 +11,22 @@ import javafx.scene.layout.Priority;
 /*
  * Code sample from https://stackoverflow.com/questions/36868391/using-javafx-controller-without-fxml/36873768
  */
-public class NotificationView {
+public class AlertsView {
 
   private GridPane view ;
   //private CameraController cameraController ;
-  private Label statusLabel;
+  private Label alertText;
   private Organizer organizer;
 
-  public NotificationView(Organizer pOrganizer) {
+  public AlertsView(Organizer pOrganizer) {
     this.organizer = pOrganizer;
     createAndConfigurePane();
  
     //recordingLabel.textProperty().bind(cameraController.isModelRecordingProperty().asString());
-    statusLabel = new Label();
-    statusLabel.textProperty().bind(organizer.getLastAllert());
+    alertText = new Label();
+    alertText.textProperty().bind(organizer.getLastAllert());
     
-    view.addRow(1, new Label("Allerts: "), statusLabel);
+    view.addRow(1, new Label("Allerts: "), alertText);
 
   }
 

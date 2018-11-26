@@ -98,7 +98,7 @@ public class LoginView {
 //      } 
 //    }));
     
-    view.setAlignment(Pos.BOTTOM_LEFT);
+    //view.setAlignment(Pos.CENTER);
     view.addRow(0, new Label("Login"), alertLabel);
     view.addRow(1, new Label("Username:"), usernameField);
     view.addRow(2, new Label("Password:"), passwordField);
@@ -114,9 +114,8 @@ public class LoginView {
 
     ColumnConstraints rightCol = new ColumnConstraints();
     rightCol.setHgrow(Priority.SOMETIMES);
-
+    
     view.getColumnConstraints().addAll(leftCol, rightCol);
-
     view.setAlignment(Pos.CENTER);
     view.setHgap(5);
     view.setVgap(10);

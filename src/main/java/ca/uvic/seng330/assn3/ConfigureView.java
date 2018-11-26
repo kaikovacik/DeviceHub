@@ -62,7 +62,6 @@ public class ConfigureView {
     addThermostatB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         addThermostat();
-//        removeThermostatB.setVisible(true);
       } 
     })); 
     
@@ -71,7 +70,6 @@ public class ConfigureView {
     addLightbulbB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         addLightbulb();
-//        removeLightbulbB.setVisible(true);
       } 
     })); 
     
@@ -90,7 +88,7 @@ public class ConfigureView {
         organizer.shutdown();
       } 
     }));
-    
+      
     view.setAlignment(Pos.TOP_LEFT);
     view.addRow(0, new Label("Remove device by Id:"), removeField, removeB);
     view.addRow(1, new Label("Cameras:"), addCameraB);
