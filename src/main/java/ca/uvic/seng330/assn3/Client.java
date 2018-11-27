@@ -10,7 +10,6 @@ import javafx.application.Application;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -39,7 +38,7 @@ public class Client extends Application {
     Scene scene = createScene();
 
     // load stylesheet
-    scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
+    //scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
 
     primaryStage.setScene(scene);
     primaryStage.setAlwaysOnTop(true);
@@ -62,32 +61,16 @@ public class Client extends Application {
 
     return scene;
   }
-  
+
   public static void logout() {
-    logout(null);
-  }
-  public static void logout(String initialMessage) {
     root.getChildren().clear(); 
 
     BorderPane mainPane = new BorderPane();
-    LoginView loginView = (initialMessage == null)? new LoginView(organizer) : new LoginView(initialMessage, organizer);
+    LoginView loginView = new LoginView(organizer);
 
     //mainPane.prefHeightProperty().bind(scene.heightProperty().divide(2));
     //mainPane.prefWidthProperty().bind(scene.widthProperty().divide(2));
     mainPane.setCenter(loginView.asParent());
-
-    root.getChildren().add(mainPane);
-  }
-  
-  public static void addUserLayout() {
-    root.getChildren().clear(); 
-    
-    BorderPane mainPane = new BorderPane();
-    AddUserView addUserView = new AddUserView(organizer);
-
-    mainPane.prefHeightProperty().bind(scene.heightProperty().divide(2));
-    //mainPane.prefWidthProperty().bind(scene.widthProperty().divide(2));
-    mainPane.setCenter(addUserView.asParent());
 
     root.getChildren().add(mainPane);
   }
@@ -110,33 +93,18 @@ public class Client extends Application {
 
       // Configure Tab
       ConfigureView configureView = new ConfigureView(organizer);
-//      LogView prevActivitiesView = new LogView(organizer);          (KAI)
+      LogView prevActivitiesView = new LogView(organizer);
       VBox configVbox = new VBox();
       Tab configTab = new Tab();
 
       configTab.setText("Device Configuration");
       configVbox.getChildren().add(configureView.asParent() );
-//      configVbox.getChildren().add(prevActivitiesView.asParent() ); (KAI)
+      configVbox.getChildren().add(prevActivitiesView.asParent() );
       //mainPane.setBottom(alertsView2.asParent());
       configTab.setContent(configVbox);
       tabPane.getTabs().add(configTab);
-      
-      // User Tab
-      Tab userTab = new Tab("Users");
-      userTab.setId("userTab");
-      VBox userVbox = new VBox();
-      refreshUserTab(userVbox);
-      userTab.setOnSelectionChanged(new EventHandler<Event>() {
-        public void handle(Event event) {
-          if(userTab.isSelected()) {
-            refreshUserTab(userVbox);
-          }
-        }
-      });
-      userTab.setContent(userVbox);
-      tabPane.getTabs().add(userTab);
     }
-    
+
     // Cameras Tab
     Tab cameraTab = new Tab();
     cameraTab.setId("cameraTab");
@@ -238,11 +206,6 @@ public class Client extends Application {
   private static void closeClient() {
     organizer.shutdown();
     organizer.logString("Client Closed");
-  }
-  
-  private static void refreshUserTab(VBox vbox) {
-    vbox.getChildren().clear();
-    vbox.getChildren().add(new UserView(organizer.getUsers().values()).asParent());
   }
 
   private static void refreshCameraTab(VBox vbox) {
