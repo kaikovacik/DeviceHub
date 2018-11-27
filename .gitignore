@@ -29,13 +29,4 @@ hs_err_pid*
 .classpath
 /build/
 src/main/PersistedData/dataLog.txt
-<<<<<<< HEAD
-<<<<<<< HEAD
-src/main/PersistedData/dataLog.txt
-=======
-/src/main/PersistedData/dataLog.txt
->>>>>>> parent of ba3f02d... try again to merge
-=======
-/src/main/PersistedData/dataLog.txt
->>>>>>> parent of ba3f02d... try again to merge
-src/main/PersistedData/dataLog.txt
+

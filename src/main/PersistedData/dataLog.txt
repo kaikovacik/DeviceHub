@@ -57,3 +57,5 @@
 {"device_id":2,"payload":"Camera (2) added","created_at":"Tue Nov 27 11:31:10 PST 2018","msg_id":"83275ddd-a4c6-40ed-a7f3-360dae6f3be1","status":"OFF"}
 {"payload":"All devices shutdown.","created_at":"Tue Nov 27 11:31:19 PST 2018"}
 {"payload":"Client Closed","created_at":"Tue Nov 27 11:31:19 PST 2018"}
+{"payload":"All devices shutdown.","created_at":"Tue Nov 27 11:40:19 PST 2018"}
+{"payload":"Client Closed","created_at":"Tue Nov 27 11:40:19 PST 2018"}
