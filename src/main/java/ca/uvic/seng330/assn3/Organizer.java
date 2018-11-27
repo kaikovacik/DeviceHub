@@ -15,8 +15,8 @@ import javafx.beans.property.SimpleStringProperty;
 public class Organizer{
 
   private HashMap<Integer, DeviceView> viewList;
-  private HashMap<String, User> userList;
   
+  private HashMap<String, User> userList;
   //private final Logger log;
   private SimpleStringProperty lastAllert = new SimpleStringProperty();
   private SimpleStringProperty lastLog = new SimpleStringProperty();
@@ -33,8 +33,8 @@ public class Organizer{
     this.dP = new DataPersister();
   }
 
-  public Collection<DeviceView> getViews() {
-    return viewList.values();
+  public HashMap<Integer, DeviceView> getViews() {
+    return viewList;
   }
 
   public HashMap<String, User> getUsers() {

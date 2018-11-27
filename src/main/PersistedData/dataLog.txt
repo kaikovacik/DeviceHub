@@ -69,3 +69,15 @@
 {"device_id":2,"payload":"Camera (2) added","created_at":"Tue Nov 27 12:11:05 PST 2018","msg_id":"244250bd-aa1a-424e-90e9-75e1efb6d0e6","status":"OFF"}
 {"payload":"All devices shutdown.","created_at":"Tue Nov 27 12:11:18 PST 2018"}
 {"payload":"Client Closed","created_at":"Tue Nov 27 12:11:18 PST 2018"}
+{"payload":"All devices shutdown.","created_at":"Tue Nov 27 12:27:05 PST 2018"}
+{"payload":"Client Closed","created_at":"Tue Nov 27 12:27:05 PST 2018"}
+{"payload":"All devices shutdown.","created_at":"Tue Nov 27 12:34:25 PST 2018"}
+{"payload":"Client Closed","created_at":"Tue Nov 27 12:34:25 PST 2018"}
+{"payload":"All devices shutdown.","created_at":"Tue Nov 27 12:37:25 PST 2018"}
+{"payload":"Client Closed","created_at":"Tue Nov 27 12:37:26 PST 2018"}
+{"payload":"All devices shutdown.","created_at":"Tue Nov 27 12:38:10 PST 2018"}
+{"payload":"Client Closed","created_at":"Tue Nov 27 12:38:10 PST 2018"}
+{"device_id":1,"payload":"Camera (1) added","created_at":"Tue Nov 27 12:39:40 PST 2018","msg_id":"4c55cde3-f2fc-40f3-853e-6bc99dc075ca","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) added","created_at":"Tue Nov 27 12:39:41 PST 2018","msg_id":"3d63dc2d-4da9-4abf-a87a-19c959648130","status":"OFF"}
+{"payload":"All devices shutdown.","created_at":"Tue Nov 27 12:40:07 PST 2018"}
+{"payload":"Client Closed","created_at":"Tue Nov 27 12:40:07 PST 2018"}

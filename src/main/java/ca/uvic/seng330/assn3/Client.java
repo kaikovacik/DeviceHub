@@ -29,6 +29,7 @@ public class Client extends Application {
   private static Group root;
   private static Scene scene;
   private static Organizer organizer;
+  private static User currentUser;
 
   public static void main(String[] args) {
     launch(args);
@@ -39,7 +40,7 @@ public class Client extends Application {
     Scene scene = createScene();
 
     // load stylesheet
-    scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
+    //scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
 
     primaryStage.setScene(scene);
     primaryStage.setAlwaysOnTop(true);
@@ -98,15 +99,15 @@ public class Client extends Application {
 
     root.getChildren().clear();
 
-    User user = organizer.getUsers().get(username);
+    currentUser = organizer.getUsers().get(username);
 
     BorderPane mainPane = new BorderPane();
     TabPane tabPane = new TabPane();
     tabPane.setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
 
     // Only show configure tab when user is an admin
-    System.out.println(user + " logged in.");
-    if (user instanceof Admin) {
+    System.out.println(currentUser + " logged in.");
+    if (currentUser instanceof Admin) {
 
       // Configure Tab
       ConfigureView configureView = new ConfigureView(organizer);
@@ -210,7 +211,7 @@ public class Client extends Application {
     });
 
     // puts Cameras + other Dev in system
-    PopulateSystem();
+    // PopulateSystem();
 
     tabPane.getTabs().add(logoutTab);
     mainPane.setCenter(tabPane);
@@ -240,6 +241,10 @@ public class Client extends Application {
     organizer.logString("Client Closed");
   }
   
+  public static Organizer getOrganizer() {
+    return organizer;
+  }
+  
   private static void refreshUserTab(VBox vbox) {
     vbox.getChildren().clear();
     vbox.getChildren().add(new UserView(organizer.getUsers().values()).asParent());
@@ -247,37 +252,45 @@ public class Client extends Application {
 
   private static void refreshCameraTab(VBox vbox) {
     vbox.getChildren().clear();
-    for ( Object d : organizer.getViews()) {
-      if( d instanceof CameraView) {
+//    for ( Object d : organizer.getViews()) {
+//      if( d instanceof CameraView) {
+//        vbox.getChildren().add( ((CameraView) d).asParent() );
+//      } 
+//    }
+    
+    System.out.println(currentUser);
+    
+    for (Object d : currentUser.getDevices().values()) {
+      if (d instanceof CameraView) {
         vbox.getChildren().add( ((CameraView) d).asParent() );
-      } 
+      }
     }
   }
 
   private static void refreshThermostatTab(VBox vbox) {
     vbox.getChildren().clear();
-    for ( Object d : organizer.getViews()) {
-      if( d instanceof ThermostatView) {
+    for (Object d : currentUser.getDevices().values()) {
+      if (d instanceof ThermostatView) {
         vbox.getChildren().add( ((ThermostatView) d).asParent() );
-      } 
+      }
     }
   }
 
   private static void refreshLightbulbTab(VBox vbox) {
     vbox.getChildren().clear();
-    for ( Object d : organizer.getViews()) {
-      if( d instanceof LightbulbView) {
+    for (Object d : currentUser.getDevices().values()) {
+      if (d instanceof LightbulbView) {
         vbox.getChildren().add( ((LightbulbView) d).asParent() );
-      } 
+      }
     }
   }
 
   private static void refreshSmartPlugTab(VBox vbox) {
     vbox.getChildren().clear();
-    for ( Object d : organizer.getViews()) {
-      if( d instanceof SmartPlugView) {
+    for (Object d : currentUser.getDevices().values()) {
+      if (d instanceof SmartPlugView) {
         vbox.getChildren().add( ((SmartPlugView) d).asParent() );
-      } 
+      }
     }
   }
 }
