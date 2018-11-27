@@ -19,20 +19,16 @@ public class LoginView {
   private GridPane view;
   private Organizer organizer;
   
-  private final String initialMessage;
-  
   public LoginView(Organizer organizer) {
-    this(null, organizer);
-  }
-  
-  public LoginView(String initialMessage, Organizer organizer) {
-    this.initialMessage = initialMessage;
     this.organizer = organizer;
+    
+    createAndConfigurePane();
     
     User kai = new Admin("kai", "iak");
     User seth = new Admin("seth", "htes");
     User guest = new User("guest", "tseug");
-   
+    
+    
     try {
       organizer.addUser(kai);
       organizer.addUser(seth);
@@ -41,14 +37,7 @@ public class LoginView {
       System.out.println(e.getMessage());
     }
     
-    createAndConfigurePane();
-    
-    constructLoginLayout();
-  }
-  
-  private void constructLoginLayout() {
-    
-    Label alertLabel = new Label(initialMessage);
+    Label alertLabel = new Label();
     alertLabel.setStyle("-fx-font-style: italic");
     
     TextField usernameField = new TextField();
@@ -67,7 +56,7 @@ public class LoginView {
       }
     }));
     
-    Button loginB = new Button("Login");
+    Button loginB = new Button("login");
     loginB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         try {
@@ -81,7 +70,7 @@ public class LoginView {
     }));
     
     // Temporary bypass logs in as "kai" with pass "iak"
-    Button bypassB = new Button("Bypass");
+    Button bypassB = new Button("bypass");
     bypassB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         try {
@@ -94,19 +83,26 @@ public class LoginView {
       } 
     }));
     
-    Button newUserB = new Button("New user");
-    newUserB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
-      public void handle(MouseEvent event) {
-        Client.addUserLayout();
-      } 
-    }));
+//    Button loginB = new Button("Admin");
+//    loginB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+//      public void handle(MouseEvent event) {
+//        Client.login(new Admin("kai", "password123"));
+//      } 
+//    }));
+//    
+//    //Simulate not admin
+//    Button loginB2 = new Button("User");
+//    loginB2.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+//      public void handle(MouseEvent event) {
+//        Client.login(new User("kai", "password123"));
+//      } 
+//    }));
     
     //view.setAlignment(Pos.CENTER);
     view.addRow(0, new Label("Login"), alertLabel);
     view.addRow(1, new Label("Username:"), usernameField);
     view.addRow(2, new Label("Password:"), passwordField);
-    view.addRow(3, loginB, newUserB);
-    view.addRow(4, bypassB);
+    view.addRow(3, loginB, bypassB);
   }
   
   private void createAndConfigurePane() {

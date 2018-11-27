@@ -17,7 +17,6 @@ public class Organizer{
   private HashMap<Integer, DeviceView> viewList;
   
   private HashMap<String, User> userList;
-  
   //private final Logger log;
   private SimpleStringProperty lastAllert = new SimpleStringProperty();
   private SimpleStringProperty lastLog = new SimpleStringProperty();
