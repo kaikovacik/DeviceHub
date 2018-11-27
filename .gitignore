@@ -1,5 +1,3 @@
-/src/main/PersistedData/dataLog.txt
-
 # Compiled class file
 *.class
 
@@ -29,4 +27,3 @@ hs_err_pid*
 .classpath
 /build/
 src/main/PersistedData/dataLog.txt
-/src/main/PersistedData/dataLog.txt
