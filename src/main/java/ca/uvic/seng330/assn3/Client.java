@@ -110,13 +110,13 @@ public class Client extends Application {
 
       // Configure Tab
       ConfigureView configureView = new ConfigureView(organizer);
-//      LogView prevActivitiesView = new LogView(organizer);          (KAI)
+      LogView prevActivitiesView = new LogView(organizer);
       VBox configVbox = new VBox();
       Tab configTab = new Tab();
 
       configTab.setText("Device Configuration");
       configVbox.getChildren().add(configureView.asParent() );
-//      configVbox.getChildren().add(prevActivitiesView.asParent() ); (KAI)
+      configVbox.getChildren().add(prevActivitiesView.asParent() );
       //mainPane.setBottom(alertsView2.asParent());
       configTab.setContent(configVbox);
       tabPane.getTabs().add(configTab);

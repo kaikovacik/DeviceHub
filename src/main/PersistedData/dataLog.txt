@@ -59,3 +59,13 @@
 {"payload":"Client Closed","created_at":"Tue Nov 27 11:31:19 PST 2018"}
 {"payload":"All devices shutdown.","created_at":"Tue Nov 27 11:40:19 PST 2018"}
 {"payload":"Client Closed","created_at":"Tue Nov 27 11:40:19 PST 2018"}
+{"device_id":1,"payload":"Camera (1) added","created_at":"Tue Nov 27 12:08:30 PST 2018","msg_id":"238ab18f-08a1-4dfd-820d-63ef99192e25","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) added","created_at":"Tue Nov 27 12:08:30 PST 2018","msg_id":"622c40c3-a889-482f-a667-8e7c32e70628","status":"OFF"}
+{"device_id":3,"payload":"Camera (3) added","created_at":"Tue Nov 27 12:08:56 PST 2018","msg_id":"9d3ba55a-fb0c-4fbd-b826-9671d8a79aa0","status":"OFF"}
+{"device_id":4,"payload":"Camera (4) added","created_at":"Tue Nov 27 12:08:56 PST 2018","msg_id":"4aa41363-2620-466f-a698-71826775bc2a","status":"OFF"}
+{"payload":"All devices shutdown.","created_at":"Tue Nov 27 12:08:58 PST 2018"}
+{"payload":"Client Closed","created_at":"Tue Nov 27 12:08:58 PST 2018"}
+{"device_id":1,"payload":"Camera (1) added","created_at":"Tue Nov 27 12:11:05 PST 2018","msg_id":"1651f004-1986-45a6-a611-dff35a70e82e","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) added","created_at":"Tue Nov 27 12:11:05 PST 2018","msg_id":"244250bd-aa1a-424e-90e9-75e1efb6d0e6","status":"OFF"}
+{"payload":"All devices shutdown.","created_at":"Tue Nov 27 12:11:18 PST 2018"}
+{"payload":"Client Closed","created_at":"Tue Nov 27 12:11:18 PST 2018"}
