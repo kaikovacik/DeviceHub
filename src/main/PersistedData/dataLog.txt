@@ -53,3 +53,7 @@
 {"device_id":2,"payload":"Camera (2) added","created_at":"Mon Nov 26 17:26:19 PST 2018","msg_id":"9c1701d0-ed68-4e50-b34f-f456b570c4e4","status":"OFF"}
 {"payload":"All devices shutdown.","created_at":"Mon Nov 26 17:28:27 PST 2018"}
 {"payload":"Client Closed","created_at":"Mon Nov 26 17:28:27 PST 2018"}
+{"device_id":1,"payload":"Camera (1) added","created_at":"Tue Nov 27 11:31:10 PST 2018","msg_id":"b39bad95-cfb2-43ac-bd9c-3a6e1e298f1e","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) added","created_at":"Tue Nov 27 11:31:10 PST 2018","msg_id":"83275ddd-a4c6-40ed-a7f3-360dae6f3be1","status":"OFF"}
+{"payload":"All devices shutdown.","created_at":"Tue Nov 27 11:31:19 PST 2018"}
+{"payload":"Client Closed","created_at":"Tue Nov 27 11:31:19 PST 2018"}
