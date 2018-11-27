@@ -24,6 +24,7 @@ public class ConfigureView {
   private Button addLightbulbB;
   private Button addSmartPlugB;
   private Button shutdownB;
+  private Button statusCheckB;
   private Button removeB;
   private GridPane view;
   private Organizer organizer;
@@ -32,13 +33,12 @@ public class ConfigureView {
   public ConfigureView(Organizer pOrganizer) {
     this.organizer = pOrganizer;
     createAndConfigurePane();
-    
-    // Camera Buttons
+
     removeField = new TextField();
     removeField.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         removeField.setText("");
-    }}));
+      }}));
     removeB = new Button("Remove");
     removeB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
@@ -49,6 +49,8 @@ public class ConfigureView {
         }
       } 
     }));
+    
+    // Camera Buttons
     addCameraB = new Button("Add");
     addCameraB.setId("addCameraB");
     addCameraB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
@@ -56,7 +58,7 @@ public class ConfigureView {
         addCamera();
       } 
     }));
-    
+
     addThermostatB = new Button("Add");
     addThermostatB.setId("addThermostatB");
     addThermostatB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
@@ -64,7 +66,7 @@ public class ConfigureView {
         addThermostat();
       } 
     })); 
-    
+
     addLightbulbB = new Button("Add");
     addLightbulbB.setId("addLightbulbB");
     addLightbulbB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
@@ -72,7 +74,7 @@ public class ConfigureView {
         addLightbulb();
       } 
     })); 
-    
+
     addSmartPlugB = new Button("Add");
     addSmartPlugB.setId("addSmartPlugB");
     addSmartPlugB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
@@ -80,7 +82,7 @@ public class ConfigureView {
         addSmartPlug();
       } 
     }));
-    
+
     shutdownB = new Button("Shutdown");
     shutdownB.setId("shutdownB");
     shutdownB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
@@ -88,14 +90,25 @@ public class ConfigureView {
         organizer.shutdown();
       } 
     }));
+
+    statusCheckB = new Button("Check Device Status");
+    statusCheckB.setId("statusCheckB");
+    statusCheckB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+      public void handle(MouseEvent event) {
+        //organizer.statusCheck();
+        Thread t = new Thread(() -> organizer.statusCheck());
+        t.start();
+      } 
+    }));
       
-    view.setAlignment(Pos.TOP_LEFT);
     view.addRow(0, new Label("Remove device by Id:"), removeField, removeB);
     view.addRow(1, new Label("Cameras:"), addCameraB);
     view.addRow(2, new Label("Thermostats:"), addThermostatB);
     view.addRow(3, new Label("Lightbulbs:"), addLightbulbB);
     view.addRow(4, new Label("Smart Plugs:"), addSmartPlugB);
-    view.addRow(8, new Label("System:"), shutdownB);
+    view.addRow(8, new Label("System:"), shutdownB, statusCheckB );
+
+    //view.setGridLinesVisible(true);
   }
 
   public void addCamera() {
@@ -111,15 +124,15 @@ public class ConfigureView {
       removeField.setText("Invalid device!");
     }
   }
-  
+
   public void addThermostat() {
     new ThermostatView(organizer);
   }
-  
+
   public void addLightbulb() {
     new LightbulbView(organizer);
   }
-  
+
   public void addSmartPlug() {
     new SmartPlugView(organizer);
   }
@@ -127,15 +140,20 @@ public class ConfigureView {
   private void createAndConfigurePane() {
     view = new GridPane();
 
-    ColumnConstraints leftCol = new ColumnConstraints();
+    ColumnConstraints leftCol = new ColumnConstraints(150);
     leftCol.setHalignment(HPos.RIGHT);
     leftCol.setHgrow(Priority.NEVER);
 
-    ColumnConstraints rightCol = new ColumnConstraints();
+    ColumnConstraints rightCol = new ColumnConstraints(100);
     rightCol.setHgrow(Priority.SOMETIMES);
+    
+    //view.getColumnConstraints().add(new ColumnConstraints(100)); // column 0 is 100 wide
+    //view.getColumnConstraints().add(new ColumnConstraints(200));
+    
+    
 
     view.getColumnConstraints().addAll(leftCol, rightCol);
-    view.setAlignment(Pos.CENTER);
+    view.setAlignment(Pos.TOP_LEFT);
     view.setHgap(5);
     view.setVgap(10);
     view.borderProperty();

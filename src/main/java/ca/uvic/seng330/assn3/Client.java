@@ -18,6 +18,7 @@ import javafx.scene.control.TabPane.TabClosingPolicy;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 /**
  *
@@ -44,6 +45,11 @@ public class Client extends Application {
     primaryStage.setScene(scene);
     primaryStage.setAlwaysOnTop(true);
     primaryStage.show();
+    primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+      public void handle(WindowEvent we) {
+        closeClient();
+      }
+    });     
   }
 
   // scene object for unit tests
@@ -67,7 +73,7 @@ public class Client extends Application {
     BorderPane mainPane = new BorderPane();
     LoginView loginView = (initialMessage == null)? new LoginView(organizer) : new LoginView(initialMessage, organizer);
 
-    mainPane.prefHeightProperty().bind(scene.heightProperty().divide(2));
+    //mainPane.prefHeightProperty().bind(scene.heightProperty().divide(2));
     //mainPane.prefWidthProperty().bind(scene.widthProperty().divide(2));
     mainPane.setCenter(loginView.asParent());
 
@@ -98,18 +104,16 @@ public class Client extends Application {
     TabPane tabPane = new TabPane();
     tabPane.setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
 
-    // puts Cameras + other Dev in system
-    PopulateSystem();
-
     // Only show configure tab when user is an admin
     System.out.println(currentUser + " logged in.");
+    
     if (currentUser instanceof Admin) {
       // Configure Tab
       ConfigureView configureView = new ConfigureView(organizer);
       LogView prevActivitiesView = new LogView(organizer);
       VBox configVbox = new VBox();
       Tab configTab = new Tab();
-      
+
       configTab.setText("Device Configuration");
       configVbox.getChildren().add(configureView.asParent() );
       configVbox.getChildren().add(prevActivitiesView.asParent() );
@@ -205,6 +209,9 @@ public class Client extends Application {
       }
     });
 
+    // puts Cameras + other Dev in system
+    PopulateSystem();
+
     tabPane.getTabs().add(logoutTab);
     mainPane.setCenter(tabPane);
 
@@ -215,11 +222,22 @@ public class Client extends Application {
     mainPane.prefWidthProperty().bind(scene.widthProperty());
 
     root.getChildren().add(mainPane);
+
   }
 
   private static void PopulateSystem() {
     new CameraView(organizer);
     new CameraView(organizer);
+    int i = 0;
+    while ( i < 0) {
+      new CameraView(organizer);
+      i ++;
+    }
+  }
+
+  private static void closeClient() {
+    organizer.shutdown();
+    organizer.logString("Client Closed");
   }
   
   public static Organizer getOrganizer() {

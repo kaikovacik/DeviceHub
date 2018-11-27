@@ -30,6 +30,7 @@ public class LogView {
   private ListView<String> list;
   private ObservableList<String> items;
   private int x;
+  private int oldMaxDevID;
 
   public LogView(Organizer pOrganizer) {
     x = 0;
@@ -41,17 +42,37 @@ public class LogView {
     list.setPrefHeight(150);
     items = FXCollections.observableArrayList ();
     list.setItems(items);
-    
+        
     readOldLogs();
     
     organizer.getLastLog().addListener((obs, prev, curr) -> {
       addMessage(organizer.getLastLog().getValue());
     });
     
-    view.addRow(1, new Label("Previous Activities: "), list);
+    //list.scrollTo(list.getItems().size()-1);
+    view.addRow(1, new Label("Logs: "), list);
   
   }
 
+  private void addMessage( String message ) {
+    JSONObject jsonObj = new JSONObject(message);
+    items.add(++x +": \t" +  jsonObj.getString("payload") + " \t on " + jsonObj.getString("created_at"));
+  }
+  
+  private void readOldLogs() {
+    items.add(++x +": Old Activity... ");
+    try {
+      Path path = Paths.get("src/main/PersistedData/dataLog.txt");
+      List<String> lines = Files.readAllLines(path,StandardCharsets.ISO_8859_1);
+      for (String line : lines) {
+        addMessage(line);
+      }
+    } catch (IOException e) {
+      System.out.println(e);
+    }
+    items.add(++x +": New Activity... ");
+  }
+  
   private void createAndConfigurePane() {
     view = new GridPane();
 
@@ -67,28 +88,9 @@ public class LogView {
     view.setHgap(5);
     view.setVgap(10);
     view.borderProperty();
-    // black border
+    // black borders
     view.setStyle("-fx-border-color: black; -fx-border-radius: 5;");
   }
-
-  private void addMessage( String message ) {
-    JSONObject jsonObj = new JSONObject(message);
-    items.add(++x +": " + jsonObj.get("payload").toString());
-  }
-  
-  private void readOldLogs() {
-    try {
-      Path path = Paths.get("src/main/PersistedData/dataLog.txt");
-      List<String> lines = Files.readAllLines(path,StandardCharsets.ISO_8859_1);
-      for (String line : lines) {
-        //JSONObject jsonObj = new JSONObject(line);
-        addMessage(line);
-      }
-    } catch (IOException e) {
-      System.out.println(e);
-    }
-  }
-  
   
   public Parent asParent() {
     return view ;

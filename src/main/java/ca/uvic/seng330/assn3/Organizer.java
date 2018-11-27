@@ -3,6 +3,7 @@ package ca.uvic.seng330.assn3;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Collection;
+import java.util.Date;
 import java.util.HashMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,7 +30,6 @@ public class Organizer{
   public Organizer() {
     this.deviceCount = 0;
     this.viewList = new HashMap<>();
-    //this.log = LoggerFactory.getLogger(Organizer.class);
     this.userList = new HashMap<>();
     this.dP = new DataPersister();
   }
@@ -37,7 +37,7 @@ public class Organizer{
   public HashMap<Integer, DeviceView> getViews() {
     return viewList;
   }
-  
+
   public HashMap<String, User> getUsers() {
     return userList;
   }
@@ -50,6 +50,13 @@ public class Organizer{
     System.out.println(jsonO.getJSON());
   }
 
+  public void logString(String message) {
+    String toLog = "{\"payload\":\"" + message + "\",\"created_at\":\"" + new Date() + "\"}";
+    dP.writeThis(toLog);  // writes to log file
+    lastLog.set(toLog);   // writes to Activity
+    //lastAllert.set(message);  // writes to alerts
+  }
+
   //add list to alert
   public void alert(DeviceModel model, String message) {
     log(model, message);
@@ -59,11 +66,11 @@ public class Organizer{
   public SimpleStringProperty getLastAllert() {
     return lastAllert;
   }
-  
+
   public SimpleStringProperty getLastLog() {
     return lastLog;
   }
-  
+
   public void addUser(User user) throws HubRegistrationException {
     try {
       userList.put(user.getUsername(), user);
@@ -82,6 +89,20 @@ public class Organizer{
     }
   } 
 
+  public void unregister(String entry) throws HubRegistrationException {
+
+    int id = Integer.parseInt(entry);
+
+    if (deviceCount > 0 && viewList.containsKey(id)) {
+      //alert(viewList.get(id).getModel(), ("Device (" + id + ") removed"));
+      DeviceModel m = viewList.get(id).getModel();
+      alert(m, m.getName() + " (" + m.getIdentifier() + ") removed");
+      viewList.remove(id);
+    } else {
+      throw new HubRegistrationException("Specified device is not in the network");
+    }
+  }
+
   public void startup() {
     for (/*DeviceView*/Object device : viewList.values()) {
       // device.model.turnOn (or something of the sort)
@@ -93,20 +114,22 @@ public class Organizer{
     for (DeviceView deviceView : viewList.values()) {
       deviceView.getModel().turnOff();
     }
-    dP.writeThis("System Shutdown");
-    lastAllert.set("System Shutdown");
+    logString("All devices shutdown.");
   }
 
-  public void unregister(String entry) throws HubRegistrationException {
-
-    int id = Integer.parseInt(entry);
-
-    if (deviceCount > 0 && viewList.containsKey(id)) {
-      alert(viewList.get(id).getModel(), ("Device (" + id + ") removed"));
-      viewList.remove(id);
-    } else {
-      throw new HubRegistrationException("Specified device is not in the network");
+  public void statusCheck() {
+    //System.out.format("%s: %s%n", Thread.currentThread().getName(), "stat check");
+    String statusString = "Status Check:";
+    DeviceModel m;
+    if (viewList.size() == 0 ) {
+      statusString = statusString.concat(" There are no devices in the system.");
+    }else {
+      for( DeviceView v : viewList.values()) {
+        m = v.getModel();
+        statusString = statusString.concat("  -  " + m.getName() + " (" + m.getIdentifier() +"): " + m.getStatus());
+      }
     }
+    logString(statusString);
   }
 
   public int numOfDevices() {
