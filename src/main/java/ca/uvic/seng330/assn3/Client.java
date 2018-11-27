@@ -69,7 +69,7 @@ public class Client extends Application {
     BorderPane mainPane = new BorderPane();
     LoginView loginView = new LoginView(organizer);
 
-    //mainPane.prefHeightProperty().bind(scene.heightProperty().divide(2));
+    mainPane.prefHeightProperty().bind(scene.heightProperty().divide(2));
     //mainPane.prefWidthProperty().bind(scene.widthProperty().divide(2));
     mainPane.setCenter(loginView.asParent());
 
