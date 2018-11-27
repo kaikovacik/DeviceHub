@@ -14,19 +14,12 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 
-public class LoginView {
+public class AddUserView {
   
   private GridPane view;
   private Organizer organizer;
   
-  private final String initialMessage;
-  
-  public LoginView(Organizer organizer) {
-    this(null, organizer);
-  }
-  
-  public LoginView(String initialMessage, Organizer organizer) {
-    this.initialMessage = initialMessage;
+  public AddUserView(Organizer organizer) {
     this.organizer = organizer;
     
     User kai = new Admin("kai", "iak");
@@ -48,7 +41,7 @@ public class LoginView {
   
   private void constructLoginLayout() {
     
-    Label alertLabel = new Label(initialMessage);
+    Label alertLabel = new Label();
     alertLabel.setStyle("-fx-font-style: italic");
     
     TextField usernameField = new TextField();
@@ -60,6 +53,14 @@ public class LoginView {
     }));   
     
     PasswordField passwordField = new PasswordField();
+    passwordField.setOnMouseClicked((new EventHandler<MouseEvent>() {
+      public void handle(MouseEvent event) {
+        passwordField.setText("");
+        alertLabel.setText("");
+      }
+    }));
+    
+    PasswordField confirmPasswordField = new PasswordField();
     passwordField.setOnMouseClicked((new EventHandler<MouseEvent>() {
       public void handle(MouseEvent event) {
         passwordField.setText("");
@@ -94,19 +95,41 @@ public class LoginView {
       } 
     }));
     
-    Button newUserB = new Button("New user");
-    newUserB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+    Button cancelB = new Button("Cancel");
+    cancelB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
-        Client.addUserLayout();
+        Client.logout();
+      } 
+    }));
+    
+    Button addUserB = new Button("Add user");
+    addUserB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+      public void handle(MouseEvent event) {
+        
+        if (passwordField.getText().equals(confirmPasswordField.getText())) {
+          User user = new User(usernameField.getText(), passwordField.getText());
+          
+          try {
+            organizer.addUser(user);
+          } catch (HubRegistrationException e) {
+            System.out.println(e.getMessage());
+          }
+          
+          Client.logout(user + " added!");
+        } else {
+          alertLabel.setText("Passwords don't match!");
+          passwordField.setText("");
+          confirmPasswordField.setText("");
+        }
       } 
     }));
     
     //view.setAlignment(Pos.CENTER);
-    view.addRow(0, new Label("Login"), alertLabel);
+    view.addRow(0, new Label("Add User:"), alertLabel);
     view.addRow(1, new Label("Username:"), usernameField);
     view.addRow(2, new Label("Password:"), passwordField);
-    view.addRow(3, loginB, newUserB);
-    view.addRow(4, bypassB);
+    view.addRow(3, new Label("Confirm Pass:"), confirmPasswordField);
+    view.addRow(4, cancelB, addUserB);
   }
   
   private void createAndConfigurePane() {
