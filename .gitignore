@@ -30,6 +30,13 @@ hs_err_pid*
 /build/
 src/main/PersistedData/dataLog.txt
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> parent of 43a3da4... fixed gitignore hopefully
+=======
+src/main/PersistedData/dataLog.txt
+=======
+/src/main/PersistedData/dataLog.txt
+>>>>>>> parent of ba3f02d... try again to merge
+>>>>>>> parent of bc175ca... ...
