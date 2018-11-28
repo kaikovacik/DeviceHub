@@ -28,7 +28,14 @@ public class CameraModel extends DeviceModel {
   }
   
   public void setIsObject(boolean b) {
-    isObject = b;
+    if ( isObject != b ) {
+      isObject = b;
+      organizer.alert(this, "Camera (" + getIdentifier() + ") detected an object!");
+    }
+  }
+  
+  public boolean getIsObject() {
+    return isObject;
   }
 
  public final SimpleIntegerProperty diskSizeRemaining() {
@@ -55,14 +62,15 @@ public class CameraModel extends DeviceModel {
     if (getIsRecording()) {
       setIsRecording(false);
       diskSizeRemainingProperty.set(diskSizeRemainingProperty.intValue()-1);
-      organizer.alert(this, "Camera " + " (" + id.get() + ") stopped recording");
+      organizer.alert(this, "Camera (" + getIdentifier() + ") stopped recording");
 
     } else if (getDiskSize().intValue() > 0) {
       setIsRecording(true);
-      organizer.alert(this, "Camera " + " (" + id.get() + ") started recording");
+      organizer.alert(this, "Camera (" + getIdentifier() + ") started recording");
     } else {
       setStatus(Status.ERROR);
-      organizer.alert(this, "Camera " + getIdentifier() + " is full!");
+      organizer.alert(this, "Camera (" + getIdentifier() + ") is full!");
+      setIsObject(true);
      
     }
   }

@@ -9,13 +9,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ca.uvic.seng330.assn3.devices.DeviceModel;
 import ca.uvic.seng330.assn3.devices.DeviceView;
+import ca.uvic.seng330.assn3.devices.LightbulbView;
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Organizer{
 
   private HashMap<Integer, DeviceView> viewList;
-  
+
   private HashMap<String, User> userList;
   //private final Logger log;
   private SimpleStringProperty lastAllert = new SimpleStringProperty();
@@ -60,6 +61,14 @@ public class Organizer{
   public void alert(DeviceModel model, String message) {
     log(model, message);
     lastAllert.set(message);
+    
+    if (message.contains("object")) {
+      for( DeviceView d : viewList.values()) {
+        if (d instanceof LightbulbView) {
+          d.getModel().turnOn();
+        }
+      }
+    }
   }
 
   public SimpleStringProperty getLastAllert() {
