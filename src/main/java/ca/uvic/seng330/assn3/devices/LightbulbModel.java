@@ -23,6 +23,6 @@ public class LightbulbModel extends DeviceModel {
   
   @Override
   public String toString() {
-    return "[Camera: " + id + "]"; 
+    return "[Lightbulb: MODEL]"; 
   }
 }

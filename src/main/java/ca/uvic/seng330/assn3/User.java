@@ -27,6 +27,10 @@ public class User {
     deviceList.put(device.getId(), device);
   }
   
+  public void removeDevice(int id) {
+    deviceList.remove(id);
+  }
+  
   public HashMap<Integer, DeviceView> getDevices() {
     return deviceList;
   }

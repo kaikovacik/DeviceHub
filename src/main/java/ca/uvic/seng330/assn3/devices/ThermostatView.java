@@ -171,7 +171,7 @@ public class ThermostatView extends DeviceView {
           celsiusLabel.setText(tempInC + "C");
           fahrenheitLabel.setText((tempInC * 9 / 5 + 32) + "F");
           temperatureField.setText("");
-          organizer.alert(model, "Thermostat (" + model.getIdentifier() + ") set to " + tempInC + "°C");
+          organizer.alert(model, "Thermostat (" + model.getIdentifier() + ") set to " + tempInC + "ï¿½C");
         } catch (ThermostatModel.TemperatureOutofBoundsException e) {
           organizer.alert(model, "Temperature out of bounds");
         }   
@@ -194,7 +194,7 @@ public class ThermostatView extends DeviceView {
           celsiusLabel.setText((tempInF - 32) * 5 / 9 + "C");
           fahrenheitLabel.setText(tempInF + "F");
           temperatureField.setText("");
-          organizer.alert(model, "Thermostat (" + model.getIdentifier() + ") set to " + tempInF + "°F");
+          organizer.alert(model, "Thermostat (" + model.getIdentifier() + ") set to " + tempInF + "ï¿½F");
         } catch (ThermostatModel.TemperatureOutofBoundsException e) {
           organizer.alert(model, "Temperature out of bounds");
         }  
@@ -268,4 +268,7 @@ public class ThermostatView extends DeviceView {
     }));
   }
 
+  public String toString() {
+    return "[Thermostat: " + getId() + "]"; 
+  }
 }

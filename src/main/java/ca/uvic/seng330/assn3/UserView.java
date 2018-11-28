@@ -10,6 +10,7 @@ import ca.uvic.seng330.assn3.Organizer;
 import ca.uvic.seng330.assn3.UnknownUserException;
 import ca.uvic.seng330.assn3.User;
 import ca.uvic.seng330.assn3.devices.DeviceView;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
@@ -76,20 +77,20 @@ public class UserView {
   private void refreshMenu() {
     MenuButton linkedDeviceMenu = new MenuButton("Linked devices"); 
     for (DeviceView d : model.getDevices().values()) {
-      MenuItem menuItem = new MenuItem("" + d.getId() +  "");
-      
-//      menuItem.setOnMouseClicked((new EventHandler<MouseEvent>() { 
-//        public void handle(MouseEvent event) {
-//        } 
-//      }));
+      MenuItem menuItem = new MenuItem(d.toString());
+      menuItem.setOnAction((new EventHandler<ActionEvent>() { 
+        public void handle(ActionEvent event) {
+          model.removeDevice(d.getId());
+          linkedDeviceMenu.getItems().remove(menuItem);
+        } 
+      }));
       
       linkedDeviceMenu.getItems().add(menuItem);
     }
     
     deleteRow(view, 2);
     view.addRow(2, new Label("View/Remove device:"), linkedDeviceMenu);
-  }
-  
+  }  
   
   // FROM: https://stackoverflow.com/questions/40516514/remove-a-row-from-a-gridpane
   static void deleteRow(GridPane grid, final int row) {

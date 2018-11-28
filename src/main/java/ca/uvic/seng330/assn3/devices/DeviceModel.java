@@ -54,7 +54,6 @@ public abstract class DeviceModel {
     }
     setStatus(Status.NORMAL);
     organizer.log(this, name + " (" + id.get() + ") turned on");
-    //System.out.println(this.getClass().getName());
   }
   
   public void turnOff() {
@@ -66,6 +65,6 @@ public abstract class DeviceModel {
   }
   
   public String toString() {
-    return "[Device: " + id + "]"; 
+    return "[Device: MODEL]"; 
   }
 }

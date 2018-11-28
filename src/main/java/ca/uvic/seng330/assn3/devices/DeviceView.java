@@ -28,4 +28,8 @@ public abstract class DeviceView {
   public int getId() {
     return id;
   }
+  
+  public String toString() {
+    return "[Device: " + getId() + "]"; 
+  }
 }
