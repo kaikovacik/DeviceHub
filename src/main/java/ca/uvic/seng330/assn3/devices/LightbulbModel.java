@@ -18,7 +18,11 @@ public class LightbulbModel extends DeviceModel {
       turnOff();
     }else {
       System.out.println("Error");
-    }
-    
+    } 
+  }
+  
+  @Override
+  public String toString() {
+    return "[Camera: " + id + "]"; 
   }
 }

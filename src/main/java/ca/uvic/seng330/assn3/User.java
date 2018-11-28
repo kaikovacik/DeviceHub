@@ -23,8 +23,8 @@ public class User {
     return username;
   }
   
-  public void addDevice(int id, DeviceView device) {
-    deviceList.put(id, device);
+  public void addDevice(DeviceView device) {
+    deviceList.put(device.getId(), device);
   }
   
   public HashMap<Integer, DeviceView> getDevices() {

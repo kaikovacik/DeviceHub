@@ -21,7 +21,11 @@ public class SmartPlugModel extends DeviceModel {
     }
     else{
       System.out.println("Error");
-    }
-    
+    } 
+  }
+  
+  @Override
+  public String toString() {
+    return "[Camera: " + id + "]"; 
   }
 }

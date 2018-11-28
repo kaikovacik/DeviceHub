@@ -64,4 +64,8 @@ public abstract class DeviceModel {
     setStatus(Status.OFF);
     organizer.log(this, name + " (" + id.get() + ") turned off");
   }
+  
+  public String toString() {
+    return "[Device: " + id + "]"; 
+  }
 }

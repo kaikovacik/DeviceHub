@@ -6,10 +6,11 @@ public abstract class DeviceView {
   
   private DeviceModel model;
   private Organizer organizer;
+  private int id;
   
   public DeviceView(Organizer organizer ) {
     this.organizer = organizer;
-    //organizer.deviceCount++;
+    this.id = organizer.deviceCount+1;
   }
   
   public Organizer getOrganizer() {
@@ -22,5 +23,9 @@ public abstract class DeviceView {
   
   public void setModel(DeviceModel pModel) {
     model = pModel;
+  }
+  
+  public int getId() {
+    return id;
   }
 }
