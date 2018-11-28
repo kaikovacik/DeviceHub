@@ -24,7 +24,7 @@ public abstract class DeviceModel {
     
     this.name = this.getClass().getSimpleName().toString();
     name = name.substring(0, name.length() - 5);
-    
+    organizer.alert(this, (name + " (" + id.get() + ") added"));
   }
   
   public String getName() {
@@ -54,7 +54,6 @@ public abstract class DeviceModel {
     }
     setStatus(Status.NORMAL);
     organizer.log(this, name + " (" + id.get() + ") turned on");
-    //System.out.println(this.getClass().getName());
   }
   
   public void turnOff() {

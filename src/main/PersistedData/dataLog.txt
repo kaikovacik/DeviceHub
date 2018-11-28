@@ -81,3 +81,39 @@
 {"device_id":2,"payload":"Camera (2) added","created_at":"Tue Nov 27 12:39:41 PST 2018","msg_id":"3d63dc2d-4da9-4abf-a87a-19c959648130","status":"OFF"}
 {"payload":"All devices shutdown.","created_at":"Tue Nov 27 12:40:07 PST 2018"}
 {"payload":"Client Closed","created_at":"Tue Nov 27 12:40:07 PST 2018"}
+{"payload":"All devices shutdown.","created_at":"Tue Nov 27 15:41:33 PST 2018"}
+{"payload":"Client Closed","created_at":"Tue Nov 27 15:41:33 PST 2018"}
+{"device_id":1,"payload":"Camera (1) added","created_at":"Tue Nov 27 15:42:15 PST 2018","msg_id":"e8b7f8ce-4597-4bc5-bc8a-39ef3869a30c","status":"OFF"}
+{"payload":"All devices shutdown.","created_at":"Tue Nov 27 15:42:22 PST 2018"}
+{"payload":"Client Closed","created_at":"Tue Nov 27 15:42:22 PST 2018"}
+{"device_id":1,"payload":"Camera (1) added.","created_at":"Tue Nov 27 15:49:35 PST 2018","msg_id":"44d6bf97-ada2-4d5c-ad5a-2b83d40e0b6f","status":"OFF"}
+{"device_id":2,"payload":"Thermostat (2) added.","created_at":"Tue Nov 27 15:49:39 PST 2018","msg_id":"54de3748-3af4-4de7-8d16-4a76c7866cdd","status":"OFF"}
+{"device_id":2,"payload":"Thermostat (2) added","created_at":"Tue Nov 27 15:49:39 PST 2018","msg_id":"c0a084f6-5e85-43e3-92cc-c946c6d23409","status":"OFF"}
+{"payload":"All devices shutdown.","created_at":"Tue Nov 27 15:49:47 PST 2018"}
+{"payload":"Client Closed","created_at":"Tue Nov 27 15:49:47 PST 2018"}
+{"device_id":1,"payload":"Thermostat (1) added.","created_at":"Tue Nov 27 15:56:13 PST 2018","msg_id":"c012fbd2-56b7-45f6-8976-cab81e6466b3","status":"OFF"}
+{"device_id":1,"payload":"Thermostat (1) turned on","created_at":"Tue Nov 27 15:56:19 PST 2018","msg_id":"0fe34b5d-fe21-47f0-bd1d-1e41c294aab2","status":"NORMAL"}
+{"device_id":1,"payload":"Invalid temperature","created_at":"Tue Nov 27 15:56:26 PST 2018","msg_id":"ef509dd4-3b48-418f-8c32-09107b1d9ffa","status":"NORMAL"}
+{"device_id":1,"payload":"Invalid temperature","created_at":"Tue Nov 27 15:56:30 PST 2018","msg_id":"c2f87816-b378-4f17-9f71-3e85db50f146","status":"NORMAL"}
+{"device_id":1,"payload":"Invalid temperature","created_at":"Tue Nov 27 15:56:31 PST 2018","msg_id":"43049e9a-ef5f-4ff8-b168-b8766cc93d20","status":"NORMAL"}
+{"device_id":1,"payload":"Thermostat (1) set to 0°C","created_at":"Tue Nov 27 15:56:35 PST 2018","msg_id":"bdf64776-ac2e-4060-b331-eb47bed57d5a","status":"NORMAL"}
+{"device_id":1,"payload":"Invalid temperature","created_at":"Tue Nov 27 15:56:38 PST 2018","msg_id":"65c1cf67-0a9e-4e29-806e-26436a96a872","status":"NORMAL"}
+{"device_id":1,"payload":"Temperature is too low!","created_at":"Tue Nov 27 15:56:48 PST 2018","msg_id":"00411045-13c3-4d83-a4ae-c13405164592","status":"NORMAL"}
+{"device_id":1,"payload":"Thermostat (1) set to 0°F","created_at":"Tue Nov 27 15:56:48 PST 2018","msg_id":"83ca618b-c8f0-45cf-990a-65a26f9f9948","status":"NORMAL"}
+{"device_id":1,"payload":"Thermostat (1) added.","created_at":"Tue Nov 27 16:01:09 PST 2018","msg_id":"8904333d-0a85-4ad2-a7be-5b2ba6134b0a","status":"OFF"}
+{"device_id":1,"payload":"Thermostat (1) turned on","created_at":"Tue Nov 27 16:01:14 PST 2018","msg_id":"3b8cd21b-0198-45af-9e04-44cd41e2063f","status":"NORMAL"}
+{"device_id":1,"payload":"Invalid temperature","created_at":"Tue Nov 27 16:01:19 PST 2018","msg_id":"904b0f7e-525c-49b1-95a7-7e171799c93e","status":"NORMAL"}
+{"device_id":1,"payload":"Invalid temperature","created_at":"Tue Nov 27 16:01:20 PST 2018","msg_id":"204481f2-28b5-4683-bda4-f4fdf7215ee9","status":"NORMAL"}
+{"device_id":1,"payload":"Temperature out of bounds","created_at":"Tue Nov 27 16:01:25 PST 2018","msg_id":"fb0ed78b-9c0e-4b40-9e1a-00894e9d38e3","status":"NORMAL"}
+{"device_id":1,"payload":"Temperature out of bounds","created_at":"Tue Nov 27 16:01:37 PST 2018","msg_id":"4bfdae30-0683-4704-bc38-0637e7240370","status":"NORMAL"}
+{"device_id":1,"payload":"Temperature out of bounds","created_at":"Tue Nov 27 16:01:38 PST 2018","msg_id":"fae40de2-1617-4d77-bdbf-1523b0d497ef","status":"NORMAL"}
+{"device_id":1,"payload":"Thermostat (1) set to 1°C","created_at":"Tue Nov 27 16:01:41 PST 2018","msg_id":"f838431c-b08e-42fe-a1f4-8b98add9c7cb","status":"NORMAL"}
+{"device_id":1,"payload":"Thermostat (1) set to 45°C","created_at":"Tue Nov 27 16:01:49 PST 2018","msg_id":"61831e04-fc1f-46d7-a815-5bc15edeecc0","status":"NORMAL"}
+{"device_id":1,"payload":"Invalid temperature","created_at":"Tue Nov 27 16:01:51 PST 2018","msg_id":"3c1573ff-d6ff-4575-9f6b-1df6965f0f3a","status":"NORMAL"}
+{"device_id":1,"payload":"Thermostat (1) set to 45°F","created_at":"Tue Nov 27 16:01:56 PST 2018","msg_id":"69a30eec-6f69-4d49-accd-9228ceefa63c","status":"NORMAL"}
+{"device_id":1,"payload":"Thermostat (1) set to 100°F","created_at":"Tue Nov 27 16:02:05 PST 2018","msg_id":"6687a1af-b23a-439c-b415-a4b4414723d5","status":"NORMAL"}
+{"device_id":1,"payload":"Temperature out of bounds","created_at":"Tue Nov 27 16:02:09 PST 2018","msg_id":"33502a9f-daaa-40ee-a530-bbc38bd43125","status":"NORMAL"}
+{"device_id":1,"payload":"Temperature out of bounds","created_at":"Tue Nov 27 16:02:14 PST 2018","msg_id":"d66fcb7e-22cf-49ba-a8ab-fe732cfac14f","status":"NORMAL"}
+{"device_id":1,"payload":"Thermostat (1) turned off","created_at":"Tue Nov 27 16:02:28 PST 2018","msg_id":"b0f24674-1ac9-41de-bf1f-bf7320092fb3","status":"OFF"}
+{"payload":"All devices shutdown.","created_at":"Tue Nov 27 16:02:31 PST 2018"}
+{"payload":"Client Closed","created_at":"Tue Nov 27 16:02:31 PST 2018"}

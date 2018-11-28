@@ -118,7 +118,6 @@ public class Client extends Application {
       configTab.setText("Device Configuration");
       configVbox.getChildren().add(configureView.asParent() );
       configVbox.getChildren().add(prevActivitiesView.asParent() );
-      //mainPane.setBottom(alertsView2.asParent());
       configTab.setContent(configVbox);
       tabPane.getTabs().add(configTab);
       

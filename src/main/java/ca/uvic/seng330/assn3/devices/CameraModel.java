@@ -48,7 +48,7 @@ public class CameraModel extends DeviceModel {
     this.isThisRecordingProperty.set(bool);
   }
   
-  public final void record() throws cameraFullException {
+  public final void record() {
     if (aStatus.equals(Status.OFF)) {
       turnOn();
     }
@@ -62,7 +62,7 @@ public class CameraModel extends DeviceModel {
       organizer.alert(this, "Camera " + " (" + id.get() + ") started recording");
     } else {
       setStatus(Status.ERROR);
-      throw new cameraFullException("Camera " + getIdentifier() + " is full!");
+      organizer.alert(this, "Camera " + getIdentifier() + " is full!");
      
     }
   }

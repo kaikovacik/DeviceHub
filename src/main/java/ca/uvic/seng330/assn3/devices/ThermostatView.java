@@ -101,7 +101,6 @@ public class ThermostatView extends DeviceView {
       organizer.register(this);
       this.model = new ThermostatModel(organizer);
       super.setModel(model);
-      organizer.alert(model, ("Thermostat (" + model.getIdentifier() + ") added"));
 
     } catch (HubRegistrationException e) {
       System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());

@@ -27,7 +27,6 @@ public class SmartPlugView extends DeviceView {
       organizer.register(this);
       this.model = new SmartPlugModel(organizer);
       super.setModel(model);
-      organizer.alert(model, ("SmartPlug (" + model.getIdentifier() + ") added"));
    
     } catch (Exception e) {
       System.out.println("Error Line " + new Exception().getStackTrace()[0].getLineNumber());
