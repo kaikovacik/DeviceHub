@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ca.uvic.seng330.assn3.devices.DeviceModel;
@@ -15,7 +17,7 @@ import javafx.beans.property.SimpleStringProperty;
 
 public class Organizer{
 
-  private HashMap<Integer, DeviceView> viewList;
+  private ConcurrentHashMap<Integer, DeviceView> viewList;
 
   private HashMap<String, User> userList;
   //private final Logger log;
@@ -29,12 +31,12 @@ public class Organizer{
 
   public Organizer() {
     this.deviceCount = 0;
-    this.viewList = new HashMap<>();
+    this.viewList = new ConcurrentHashMap<>();
     this.userList = new HashMap<>();
     this.dP = new DataPersister();
   }
 
-  public HashMap<Integer, DeviceView> getViews() {
+  public ConcurrentHashMap<Integer, DeviceView> getViews() {
     return viewList;
   }
 

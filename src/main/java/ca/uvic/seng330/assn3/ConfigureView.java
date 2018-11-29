@@ -108,6 +108,7 @@ public class ConfigureView {
     view.addRow(0, new Label("Remove existing device:"), deviceMenu);
     view.addRow(1, new Label("New device:"));
     view.addColumn(1, addCameraB, addThermostatB, addLightbulbB, addSmartPlugB);
+    view.addRow(8, new Label("System:"), shutdownB, statusCheckB );
   }
   
   private void addToDeviceMenu(DeviceView d) {
