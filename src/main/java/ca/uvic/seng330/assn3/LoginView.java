@@ -68,9 +68,9 @@ public class LoginView {
       } 
     }));
     
-    // Temporary bypass logs in as "kai" with pass "iak"
-    Button bypassB = new Button("Bypass");
-    bypassB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+    // TEMPORARY
+    Button kaiBypassB = new Button("\"kai\"");
+    kaiBypassB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         try {
           Client.login("kai", "iak");
@@ -81,6 +81,33 @@ public class LoginView {
         }
       } 
     }));
+    
+    Button sethBypassB = new Button("\"seth\"");
+    sethBypassB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+      public void handle(MouseEvent event) {
+        try {
+          Client.login("seth", "htes");
+        } catch (UnknownUserException e) {
+          alertLabel.setText("Unknown user!");
+        } catch (IncorrectPasswordException e) {
+          alertLabel.setText("Incorrect password!");
+        }
+      } 
+    }));
+    
+    Button guestBypassB = new Button("\"guest\"");
+    guestBypassB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+      public void handle(MouseEvent event) {
+        try {
+          Client.login("guest", "tseug");
+        } catch (UnknownUserException e) {
+          alertLabel.setText("Unknown user!");
+        } catch (IncorrectPasswordException e) {
+          alertLabel.setText("Incorrect password!");
+        }
+      } 
+    }));
+    // END TEMPORARY
     
     Button newUserB = new Button("New user");
     newUserB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
@@ -94,7 +121,10 @@ public class LoginView {
     view.addRow(1, new Label("Username:"), usernameField);
     view.addRow(2, new Label("Password:"), passwordField);
     view.addRow(3, loginB, newUserB);
-    view.addRow(4, bypassB);
+    
+    // TEMPORARY
+    view.addRow(4, kaiBypassB, sethBypassB, guestBypassB);
+    // END TEMPORARY
   }
   
   private void createAndConfigurePane() {

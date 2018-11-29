@@ -111,14 +111,22 @@ public class Client extends Application {
     root.getChildren().clear();
 
     currentUser = organizer.getUsers().get(username);
-    System.out.println(currentUser.getDevices().values());
+    
+    // Login info to console
+    System.out.println(currentUser + 
+      " logged in and has access to " + 
+      ((currentUser instanceof Admin)? 
+        "ALL existing devices." 
+      : ((currentUser.getDevices().size() == 0)?
+          "NO devices"
+        : "the following devices:\n" + 
+          currentUser.getDevices().values())));
       
     BorderPane mainPane = new BorderPane();
     TabPane tabPane = new TabPane();
     tabPane.setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
 
     // Only show configure tab when user is an admin
-    System.out.println(currentUser + " logged in.");
     if (currentUser instanceof Admin) {
 
       // Configure Tab

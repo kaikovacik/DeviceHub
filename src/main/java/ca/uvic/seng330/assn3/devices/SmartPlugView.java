@@ -84,8 +84,4 @@ public class SmartPlugView extends DeviceView {
   public Parent asParent() {
     return view ;
   }
-
-  public String toString() {
-    return "[Smart Plug: " + getId() + "]"; 
-  }
 }

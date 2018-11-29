@@ -93,8 +93,4 @@ public class LightbulbView extends DeviceView{
   public Parent asParent() {
     return view ;
   }
-  
-  public String toString() {
-    return "[Lightbulb: " + getId() + "]"; 
-  }
 }

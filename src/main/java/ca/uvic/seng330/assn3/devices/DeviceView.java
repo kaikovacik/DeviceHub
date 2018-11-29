@@ -6,11 +6,9 @@ public abstract class DeviceView {
   
   private DeviceModel model;
   private Organizer organizer;
-  private int id;
   
   public DeviceView(Organizer organizer ) {
     this.organizer = organizer;
-    this.id = organizer.deviceCount+1;
   }
   
   public Organizer getOrganizer() {
@@ -25,11 +23,7 @@ public abstract class DeviceView {
     model = pModel;
   }
   
-  public int getId() {
-    return id;
-  }
-  
   public String toString() {
-    return "[Device: " + getId() + "]"; 
+    return "[" + model.getName() + ": " + model.getIdentifier() + "]"; 
   }
 }
