@@ -1,0 +1,30 @@
+{"device_id":0,"payload":"Camera (0) added","created_at":"Thu Nov 29 10:25:39 PST 2018","msg_id":"1f9733a0-226f-4be4-b24d-686ab5c9cb9f","status":"OFF"}
+{"device_id":2,"payload":"Lightbulb (2) added","created_at":"Thu Nov 29 10:25:42 PST 2018","msg_id":"e73047fd-c5b9-4561-8cc9-553d4c6327b9","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) added","created_at":"Thu Nov 29 10:25:48 PST 2018","msg_id":"a6d7f7d8-e4dd-4cb2-beea-146cc068e0f1","status":"OFF"}
+{"device_id":3,"payload":"Camera (3) added","created_at":"Thu Nov 29 10:25:50 PST 2018","msg_id":"ede71264-ecb0-4c41-b86e-912b0cec66fa","status":"OFF"}
+{"device_id":5,"payload":"Lightbulb (5) added","created_at":"Thu Nov 29 10:25:52 PST 2018","msg_id":"cc311a45-6a05-43ad-86cf-da88b3caa990","status":"OFF"}
+{"device_id":2,"payload":"Lightbulb (2) removed","created_at":"Thu Nov 29 10:26:12 PST 2018","msg_id":"75eb7c2c-f03f-4e34-8c44-69ec1258e5ad","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) removed","created_at":"Thu Nov 29 10:26:21 PST 2018","msg_id":"a81603cd-ed55-4b24-8278-47a6a9041a5d","status":"OFF"}
+{"payload":"All devices shutdown.","created_at":"Thu Nov 29 10:27:09 PST 2018"}
+{"payload":"Client Closed","created_at":"Thu Nov 29 10:27:09 PST 2018"}
+{"device_id":1,"payload":"Camera (1) added","created_at":"Thu Nov 29 10:39:36 PST 2018","msg_id":"c7776103-9b24-4464-b9ce-b5a5d8f06ab0","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) added","created_at":"Thu Nov 29 10:39:38 PST 2018","msg_id":"29ceda2b-b63f-41a2-9973-43007f691848","status":"OFF"}
+{"device_id":3,"payload":"Camera (3) added","created_at":"Thu Nov 29 10:39:38 PST 2018","msg_id":"d3bbd34d-a0e3-4070-86ff-f8b701fc18c8","status":"OFF"}
+{"device_id":5,"payload":"Thermostat (5) added","created_at":"Thu Nov 29 10:39:39 PST 2018","msg_id":"4208c577-f0f9-48d4-bff1-156591e37837","status":"OFF"}
+{"device_id":6,"payload":"Thermostat (6) added","created_at":"Thu Nov 29 10:39:45 PST 2018","msg_id":"b5b0fcca-67cd-4d60-9c34-ec3a9c730d27","status":"OFF"}
+{"device_id":7,"payload":"Lightbulb (7) added","created_at":"Thu Nov 29 10:39:46 PST 2018","msg_id":"df4fcdde-0a4c-44ff-99b8-872e34ed3825","status":"OFF"}
+{"device_id":8,"payload":"SmartPlug (8) added","created_at":"Thu Nov 29 10:39:47 PST 2018","msg_id":"cd1c5cbe-f990-43fb-9cb9-b927953670c9","status":"OFF"}
+{"device_id":9,"payload":"SmartPlug (9) added","created_at":"Thu Nov 29 10:39:48 PST 2018","msg_id":"5c942d93-a75b-42d5-9f8e-058f33369eb1","status":"OFF"}
+{"device_id":9,"payload":"Camera (9) added","created_at":"Thu Nov 29 10:39:49 PST 2018","msg_id":"461e3197-9010-4854-b896-4531c7c3e4b3","status":"OFF"}
+{"device_id":10,"payload":"Camera (10) added","created_at":"Thu Nov 29 10:39:51 PST 2018","msg_id":"405e2e59-b0a6-4524-b3ec-b8714228530c","status":"OFF"}
+{"device_id":9,"payload":"Camera (9) removed","created_at":"Thu Nov 29 10:39:56 PST 2018","msg_id":"d0501fb7-d62f-4dc8-9e06-3123d6cd4aab","status":"OFF"}
+{"payload":"All devices shutdown.","created_at":"Thu Nov 29 10:40:03 PST 2018"}
+{"payload":"Client Closed","created_at":"Thu Nov 29 10:40:03 PST 2018"}
+{"device_id":1,"payload":"Camera (1) added","created_at":"Thu Nov 29 10:42:30 PST 2018","msg_id":"c9cb0546-fd82-4bd9-a462-bc2fbcfa20fe","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) added","created_at":"Thu Nov 29 10:42:33 PST 2018","msg_id":"ddd86122-9fa2-4694-ad04-0c4edac99901","status":"OFF"}
+{"device_id":3,"payload":"Thermostat (3) added","created_at":"Thu Nov 29 10:42:34 PST 2018","msg_id":"c6ec9e4a-cd70-47d4-b90e-15f7ee0a5a03","status":"OFF"}
+{"device_id":4,"payload":"Lightbulb (4) added","created_at":"Thu Nov 29 10:42:36 PST 2018","msg_id":"25821bb1-d905-465c-b40a-d3ad5633b8b5","status":"OFF"}
+{"device_id":5,"payload":"SmartPlug (5) added","created_at":"Thu Nov 29 10:42:36 PST 2018","msg_id":"ebdf7cd6-d3e7-4a87-80ec-c7866dd6a2fc","status":"OFF"}
+{"device_id":2,"payload":"Camera (2) removed","created_at":"Thu Nov 29 10:42:38 PST 2018","msg_id":"3ea599d4-637d-4698-99bc-e4591c872a90","status":"OFF"}
+{"payload":"All devices shutdown.","created_at":"Thu Nov 29 10:42:52 PST 2018"}
+{"payload":"Client Closed","created_at":"Thu Nov 29 10:42:52 PST 2018"}

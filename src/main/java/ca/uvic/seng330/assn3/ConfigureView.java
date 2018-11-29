@@ -131,6 +131,7 @@ public class ConfigureView {
   }
 
   public void addThermostat() {
+    
     addToDeviceMenu(new ThermostatView(organizer));
   }
 

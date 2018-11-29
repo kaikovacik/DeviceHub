@@ -28,9 +28,8 @@ public class CameraView extends DeviceView{
   public CameraView(Organizer organizer) {    
     super(organizer);
     try {
-      
-      this.model = new CameraModel(organizer);
       organizer.register(this);
+      this.model = new CameraModel(organizer);
       super.setModel(model);   
 
     } catch (Exception e) {
