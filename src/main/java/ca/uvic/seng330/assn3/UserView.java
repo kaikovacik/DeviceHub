@@ -64,8 +64,9 @@ public class UserView {
         MenuItem menuItem = new MenuItem(d.toString());
         menuItem.setOnAction((new EventHandler<ActionEvent>() { 
           public void handle(ActionEvent event) {
-            try {
-              model.addDevice(d);
+            
+            // If not already linked, add to linked devices UI
+            if (!model.getDevices().containsValue(d)) {
               MenuItem menuItem = new MenuItem(d.toString());
               menuItem.setOnAction((new EventHandler<ActionEvent>() { 
                 public void handle(ActionEvent event) {
@@ -74,6 +75,11 @@ public class UserView {
                 } 
               }));
               linkedDeviceMenu.getItems().add(menuItem);
+              
+            // Link device
+            }
+            try {
+              model.addDevice(d);
             } catch (Exception e) {
               System.err.println("Unable to link " + d);
             }
