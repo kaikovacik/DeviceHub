@@ -6,6 +6,7 @@ import ca.uvic.seng330.assn3.HubRegistrationException;
 import ca.uvic.seng330.assn3.Organizer;
 import ca.uvic.seng330.assn3.User;
 import ca.uvic.seng330.assn3.devices.CameraView;
+import ca.uvic.seng330.assn3.devices.DeviceView;
 import ca.uvic.seng330.assn3.devices.LightbulbView;
 import ca.uvic.seng330.assn3.devices.SmartPlugView;
 import ca.uvic.seng330.assn3.devices.ThermostatView;
@@ -13,7 +14,6 @@ import javafx.application.Application;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -248,14 +248,30 @@ public class Client extends Application {
 
   private static void PopulateSystem() {
     int i = 0;
-    while ( i < 2) {
+    while ( i < 0) {
       configureView.addToDeviceMenu(new CameraView(organizer));
       i ++;
     }
+    
+    configureView.addToDeviceMenu(new CameraView(organizer));
+    configureView.addToDeviceMenu(new CameraView(organizer));
+    configureView.addToDeviceMenu(new ThermostatView(organizer));
+    configureView.addToDeviceMenu(new SmartPlugView(organizer));
+    configureView.addToDeviceMenu(new LightbulbView(organizer));
+    
   }
 
   private static void closeClient() {
     organizer.shutdown();
+    for ( DeviceView d : organizer.getViews().values()) {
+      try {
+        organizer.unregister(d.getModel().getIdentifier());
+      } catch (HubRegistrationException e) {
+        // TODO Auto-generated catch block
+        e.printStackTrace();
+      }
+    }
+    organizer.logString("All Devices Removed");
     organizer.logString("Client Closed");
   }
   

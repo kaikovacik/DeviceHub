@@ -1,6 +1,5 @@
 package ca.uvic.seng330.assn3;
 
-import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
 import ca.uvic.seng330.assn3.devices.DeviceView;
