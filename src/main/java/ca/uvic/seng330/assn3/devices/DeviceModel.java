@@ -10,7 +10,7 @@ import javafx.beans.property.StringProperty;
 public abstract class DeviceModel {
 
   protected Status aStatus;
-  public IntegerProperty id;
+  private IntegerProperty id;
   protected StringProperty statusObsStr;
   protected Organizer organizer;
   private String name;

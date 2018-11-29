@@ -6,14 +6,30 @@ import static org.junit.Assert.fail;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.testfx.framework.junit.ApplicationTest;
+
 import ca.uvic.seng330.assn3.*;
 import ca.uvic.seng330.assn3.devices.*;
 import ca.uvic.seng330.assn3.devices.ThermostatModel.TemperatureOutofBoundsException;
+import javafx.application.Application;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 
-public class NonUIAcceptanceTests {
+public class NonUIAcceptanceTests extends ApplicationTest {
 
   private Organizer organizer;
+  private Scene scene;
+  
+  
+  @Override 
+  public void start(Stage stage) {
+    scene = Client.createScene();
+    stage.setScene(scene);
+    stage.setAlwaysOnTop(true);
+    stage.show();
+  }
   
   @Before
   public void initializeSystem() {
@@ -27,6 +43,7 @@ public class NonUIAcceptanceTests {
   
   @Test
   public void testB_Hub() {
+    
     CameraView cView = new CameraView(organizer);
     ThermostatView tView = new ThermostatView(organizer);
     LightbulbView lView = new LightbulbView(organizer);
@@ -34,18 +51,12 @@ public class NonUIAcceptanceTests {
     SmartPlugView sPView2 = new SmartPlugView(organizer);
     SmartPlugView sPView3 = new SmartPlugView(organizer);
     
-    assertTrue("failure message", organizer.getViews().contains(sPView2));
-    assertTrue("failure message", sPView2.getModel().id.equals(5));
     
-    try {
-      organizer.register(cView);
-      
-      //
-    } catch (HubRegistrationException e) {
-      // TODO Auto-generated catch block
-      fail();
-    }
+    assertTrue("failure message", organizer.getViews().contains(sPView2));
+    assertTrue("failure message", sPView2.getModel().getIdentifier() == 5);
+    
     assertEquals(organizer.numOfDevices(), 6);
+    
     
     try {
       organizer.unregister(cView.getModel().getIdentifier());
@@ -103,16 +114,15 @@ public class NonUIAcceptanceTests {
 
     //assertTrue("failure message",organizer.numOfDevices() == 1);
     assertTrue("failure message",model.getStatus().equals(Status.OFF));
-
-    assertEquals(model.diskSizeRemaining(), space);
+    assertEquals(model.diskSizeRemaining().get(), space);
     model.record();
     assertEquals(model.getStatus(), Status.NORMAL);
-    assertEquals(model.isThisRecording(), true);
+    assertEquals(model.isThisRecording().getValue(), true);
     assertEquals(model.getIsRecording(), true);
 
     model.record(); // stop recording
     assertEquals(model.getStatus(), Status.NORMAL);
-    assertEquals(model.isThisRecording(), false);
+    assertEquals(model.getIsRecording(), false);
     assertEquals(model.getIsRecording(), false);
     // test decrement of disk size
     assertEquals(model.diskSizeRemaining().intValue(), space-1);
@@ -125,16 +135,16 @@ public class NonUIAcceptanceTests {
     // test recording when full
     model.record();
     assertEquals(model.getStatus(), Status.ERROR);
-    assertEquals(model.isThisRecording(), false);
     assertEquals(model.getIsRecording(), false);
-    assertEquals(model.diskSizeRemaining(), 0);
+    assertEquals(model.getIsRecording(), false);
+    assertEquals(model.diskSizeRemaining().get(), 0);
 
     // test memory reset method
     model.resetMemory();
     assertEquals(model.getStatus(), Status.NORMAL);
-    assertEquals(model.isThisRecording(), false);
+    assertEquals(model.isThisRecording().getValue(), false);
     assertEquals(model.getIsRecording(), false);
-    assertEquals(model.diskSizeRemaining(), space);
+    assertEquals(model.diskSizeRemaining().get(), space);
 
     model.turnOff();
     assertTrue("failure message",model.getStatus().equals(Status.OFF));
