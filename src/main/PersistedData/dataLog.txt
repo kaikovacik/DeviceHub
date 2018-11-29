@@ -1,0 +1,2 @@
+{"payload":"All devices shutdown.","created_at":"Wed Nov 28 17:07:26 PST 2018"}
+{"payload":"Client Closed","created_at":"Wed Nov 28 17:07:26 PST 2018"}

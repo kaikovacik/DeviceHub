@@ -43,7 +43,7 @@ public class Client extends Application {
     Scene scene = createScene();
 
     // load stylesheet
-    scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
+    //scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
 
     primaryStage.setScene(scene);
     primaryStage.setAlwaysOnTop(true);
