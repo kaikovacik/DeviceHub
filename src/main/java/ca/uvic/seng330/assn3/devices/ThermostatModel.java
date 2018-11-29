@@ -55,4 +55,9 @@ public class ThermostatModel extends DeviceModel {
     super.turnOff();
     setting.set(0);
   }
+  
+  @Override
+  public String toString() {
+    return "[Thermostat: MODEL]"; 
+  }
 }

@@ -1,7 +1,10 @@
 package ca.uvic.seng330.assn3;
 
+import ca.uvic.seng330.assn3.Admin;
 import ca.uvic.seng330.assn3.AlertsView;
+import ca.uvic.seng330.assn3.HubRegistrationException;
 import ca.uvic.seng330.assn3.Organizer;
+import ca.uvic.seng330.assn3.User;
 import ca.uvic.seng330.assn3.devices.CameraView;
 import ca.uvic.seng330.assn3.devices.LightbulbView;
 import ca.uvic.seng330.assn3.devices.SmartPlugView;
@@ -40,7 +43,7 @@ public class Client extends Application {
     Scene scene = createScene();
 
     // load stylesheet
-    //scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
+    scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
 
     primaryStage.setScene(scene);
     primaryStage.setAlwaysOnTop(true);
@@ -55,6 +58,14 @@ public class Client extends Application {
   // scene object for unit tests
   public static Scene createScene() { 
     organizer = new Organizer();
+   
+    try {
+      organizer.addUser(new Admin("kai", "iak"));
+      organizer.addUser(new Admin("seth", "htes"));
+      organizer.addUser(new User("guest", "tseug"));
+    } catch (HubRegistrationException e) {
+      System.out.println(e.getMessage());
+    }
 
     root = new Group();
     scene = new Scene(root, 720, 480);
@@ -100,7 +111,8 @@ public class Client extends Application {
     root.getChildren().clear();
 
     currentUser = organizer.getUsers().get(username);
-
+    System.out.println(currentUser.getDevices().values());
+      
     BorderPane mainPane = new BorderPane();
     TabPane tabPane = new TabPane();
     tabPane.setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
@@ -246,18 +258,14 @@ public class Client extends Application {
   
   private static void refreshUserTab(VBox vbox) {
     vbox.getChildren().clear();
-    vbox.getChildren().add(new UserView(organizer.getUsers().values()).asParent());
+    
+    for (User u : organizer.getUsers().values()) {
+      vbox.getChildren().add(new UserView(u, organizer).asParent());
+    }
   }
 
   private static void refreshCameraTab(VBox vbox) {
     vbox.getChildren().clear();
-//    for ( Object d : organizer.getViews()) {
-//      if( d instanceof CameraView) {
-//        vbox.getChildren().add( ((CameraView) d).asParent() );
-//      } 
-//    }
-    
-    System.out.println(currentUser);
     
     for (Object d : currentUser.getDevices().values()) {
       if (d instanceof CameraView) {

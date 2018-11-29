@@ -29,18 +29,6 @@ public class LoginView {
     this.initialMessage = initialMessage;
     this.organizer = organizer;
     
-    User kai = new Admin("kai", "iak");
-    User seth = new Admin("seth", "htes");
-    User guest = new User("guest", "tseug");
-   
-    try {
-      organizer.addUser(kai);
-      organizer.addUser(seth);
-      organizer.addUser(guest);
-    } catch (HubRegistrationException e) {
-      System.out.println(e.getMessage());
-    }
-    
     createAndConfigurePane();
     
     constructLoginLayout();

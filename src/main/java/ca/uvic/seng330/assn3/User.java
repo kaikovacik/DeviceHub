@@ -23,8 +23,12 @@ public class User {
     return username;
   }
   
-  public void addDevice(int id, DeviceView device) {
-    deviceList.put(id, device);
+  public void addDevice(DeviceView device) {
+    deviceList.put(device.getId(), device);
+  }
+  
+  public void removeDevice(int id) {
+    deviceList.remove(id);
   }
   
   public HashMap<Integer, DeviceView> getDevices() {

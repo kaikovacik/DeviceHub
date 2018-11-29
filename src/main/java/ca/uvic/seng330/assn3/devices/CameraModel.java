@@ -96,4 +96,8 @@ public class CameraModel extends DeviceModel {
     super.turnOff();
   }
     
+  @Override
+  public String toString() {
+    return "[Camera: MODEL]"; 
+  }
 }

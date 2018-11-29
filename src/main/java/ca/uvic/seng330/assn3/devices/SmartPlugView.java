@@ -85,4 +85,7 @@ public class SmartPlugView extends DeviceView {
     return view ;
   }
 
+  public String toString() {
+    return "[Smart Plug: " + getId() + "]"; 
+  }
 }
