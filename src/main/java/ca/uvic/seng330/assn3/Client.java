@@ -33,6 +33,7 @@ public class Client extends Application {
   private static Scene scene;
   private static Organizer organizer;
   private static User currentUser;
+  private static ConfigureView configureView;
 
   public static void main(String[] args) {
     launch(args);
@@ -125,12 +126,12 @@ public class Client extends Application {
     BorderPane mainPane = new BorderPane();
     TabPane tabPane = new TabPane();
     tabPane.setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
-
+       
+    configureView = new ConfigureView(organizer); //instantiated outside of if because PopulateSystem needs to acces it.
     // Only show configure tab when user is an admin
     if (currentUser instanceof Admin) {
 
       // Configure Tab
-      ConfigureView configureView = new ConfigureView(organizer);
       LogView prevActivitiesView = new LogView(organizer);
       VBox configVbox = new VBox();
       Tab configTab = new Tab();
@@ -246,11 +247,9 @@ public class Client extends Application {
   }
 
   private static void PopulateSystem() {
-    new CameraView(organizer);
-    new CameraView(organizer);
     int i = 0;
-    while ( i < 15000) {
-      new CameraView(organizer);
+    while ( i < 2) {
+      configureView.addToDeviceMenu(new CameraView(organizer));
       i ++;
     }
   }

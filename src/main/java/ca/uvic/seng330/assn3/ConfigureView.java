@@ -111,7 +111,7 @@ public class ConfigureView {
     view.addRow(8, new Label("System:"), shutdownB, statusCheckB );
   }
   
-  private void addToDeviceMenu(DeviceView d) {
+  protected void addToDeviceMenu(DeviceView d) {
     MenuItem menuItem = new MenuItem(d.toString());
     menuItem.setOnAction((new EventHandler<ActionEvent>() { 
       public void handle(ActionEvent event) {

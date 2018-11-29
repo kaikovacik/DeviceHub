@@ -47,9 +47,9 @@ public class Organizer{
   // logs data to file.
   public void log(DeviceModel model, String message) {
     JSONMessaging jsonO = new JSONMessaging(model, message);   
-    dP.writeThis(jsonO.getJSON());
-    lastLog.set(jsonO.getJSON().toString());
-    System.out.println(jsonO.getJSON());
+    dP.writeThis(jsonO.getJSON());            // to log file
+    lastLog.set(jsonO.getJSON().toString());  // writes to Activity
+    System.out.println(jsonO.getJSON());      
   }
 
   public void logString(String message) {
@@ -57,12 +57,13 @@ public class Organizer{
     dP.writeThis(toLog);  // writes to log file
     lastLog.set(toLog);   // writes to Activity
     //lastAllert.set(message);  // writes to alerts
+    System.out.println(toLog);
   }
 
   //add list to alert
   public void alert(DeviceModel model, String message) {
     log(model, message);
-    lastAllert.set(message);
+    lastAllert.set(message);    // writes to alerts
     
     if (message.contains("object")) {
       for( DeviceView d : viewList.values()) {

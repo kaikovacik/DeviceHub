@@ -1,27 +1,17 @@
 package ca.uvic.seng330.assn3;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
 
-import ca.uvic.seng330.assn3.Client;
-import ca.uvic.seng330.assn3.IncorrectPasswordException;
 import ca.uvic.seng330.assn3.Organizer;
-import ca.uvic.seng330.assn3.UnknownUserException;
 import ca.uvic.seng330.assn3.User;
 import ca.uvic.seng330.assn3.devices.DeviceView;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
@@ -29,64 +19,71 @@ import javafx.scene.layout.Priority;
 public class UserView {
 
   private GridPane view;
-  private User model;
+  private User user;
   private Organizer organizer;
 
-  UserView(User model, Organizer organizer) {
+  UserView(User user, Organizer organizer) {
 
-    this.model = model;
+    this.user = user;
     this.organizer = organizer;
     this.view = new GridPane();
 
     createAndConfigurePane();
 
-    Label titleLabel = new Label((model instanceof Admin)? "ADMIN:" : "USER:");
-    Label nameLabel = new Label(model.getUsername());
+    Label titleLabel = new Label((user instanceof Admin)? "ADMIN:" : "USER:");
+    Label nameLabel = new Label(user.getUsername());
 
     view.addRow(0, titleLabel, nameLabel);
-    
-    if (!(model instanceof Admin)) {
+
+    if (!(user instanceof Admin)) {
       MenuButton linkedDeviceMenu = new MenuButton("Linked devices"); 
-      for (DeviceView d : model.getDevices().values()) {
-        MenuItem menuItem = new MenuItem(d.toString());
-        menuItem.setOnAction((new EventHandler<ActionEvent>() { 
+
+      for (DeviceView d : user.getDevices().values()) {           // when switch to tab
+        MenuItem linkedMenuItem = new MenuItem(d.toString());
+
+        linkedMenuItem.setOnAction((new EventHandler<ActionEvent>() { 
           public void handle(ActionEvent event) {
-            model.removeDevice(d.getModel().getIdentifier());
-            linkedDeviceMenu.getItems().remove(menuItem);
+            user.removeDevice(d.getModel().getIdentifier());
+            linkedDeviceMenu.getItems().remove(linkedMenuItem);
+            organizer.logString(d.getModel().getName() + " ("+ d.getModel().getIdentifier() + ") hidden from " + user.getUsername());
           } 
         }));
-
-        linkedDeviceMenu.getItems().add(menuItem);
+        linkedDeviceMenu.getItems().add(linkedMenuItem);
       }
 
       MenuButton deviceMenu = new MenuButton("Devices");
-      for (DeviceView d : organizer.getViews().values()) {
-        MenuItem menuItem = new MenuItem(d.toString());
-        menuItem.setOnAction((new EventHandler<ActionEvent>() { 
-          public void handle(ActionEvent event) {
-            
-            // If not already linked, add to linked devices UI
-            if (!model.getDevices().containsValue(d)) {
-              MenuItem menuItem = new MenuItem(d.toString());
-              menuItem.setOnAction((new EventHandler<ActionEvent>() { 
+      for (DeviceView d : organizer.getViews().values()) {  
+        // If not already linked, add to linked devices UI
+        if (!user.getDevices().containsValue(d)) {
+          MenuItem menuItem = new MenuItem(d.toString());
+          deviceMenu.getItems().add(menuItem);
+          menuItem.setOnAction((new EventHandler<ActionEvent>() {   //if clicked, add to linkedDeviceMenu, add to user list, remove from deviceMenu
+            public void handle(ActionEvent event) {
+
+              MenuItem linkedMenuItem = new MenuItem(d.toString());
+              linkedMenuItem.setOnAction((new EventHandler<ActionEvent>() { 
                 public void handle(ActionEvent event) {
-                  model.removeDevice(d.getModel().getIdentifier());
-                  linkedDeviceMenu.getItems().remove(menuItem);
+                  user.removeDevice(d.getModel().getIdentifier());
+                  linkedDeviceMenu.getItems().remove(linkedMenuItem);
+                  organizer.logString(d.getModel().getName() + " ("+ d.getModel().getIdentifier() + ") hidden from " + user.getUsername());
+                  deviceMenu.getItems().add(menuItem);
                 } 
               }));
-              linkedDeviceMenu.getItems().add(menuItem);
-              
-            // Link device
-            }
-            try {
-              model.addDevice(d);
-            } catch (Exception e) {
-              System.err.println("Unable to link " + d);
-            }
-          } 
-        }));
+              linkedDeviceMenu.getItems().add(linkedMenuItem);
 
-        deviceMenu.getItems().add(menuItem);
+              // Link device
+              try {
+                user.addDevice(d);
+                deviceMenu.getItems().remove(menuItem);
+                organizer.logString(d.getModel().getName() + " ("+ d.getModel().getIdentifier() + ") registered to " + user.getUsername());
+              } catch (Exception e) {
+                System.err.println("Unable to link " + d);
+              }
+            } 
+          }));
+
+          
+        }
       }
       view.addRow(0, new Label("Link existing device:"), deviceMenu, new Label("Unlink Device:"), linkedDeviceMenu);
     }
