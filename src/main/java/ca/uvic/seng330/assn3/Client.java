@@ -230,7 +230,7 @@ public class Client extends Application {
     });
 
     // puts Cameras + other Dev in system
-    // PopulateSystem();
+     PopulateSystem();
 
     tabPane.getTabs().add(logoutTab);
     mainPane.setCenter(tabPane);
@@ -249,7 +249,7 @@ public class Client extends Application {
     new CameraView(organizer);
     new CameraView(organizer);
     int i = 0;
-    while ( i < 0) {
+    while ( i < 10000) {
       new CameraView(organizer);
       i ++;
     }
