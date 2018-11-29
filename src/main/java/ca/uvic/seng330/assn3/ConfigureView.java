@@ -1,9 +1,11 @@
 package ca.uvic.seng330.assn3;
 
 import ca.uvic.seng330.assn3.devices.CameraView;
+import ca.uvic.seng330.assn3.devices.DeviceView;
 import ca.uvic.seng330.assn3.devices.LightbulbView;
 import ca.uvic.seng330.assn3.devices.SmartPlugView;
 import ca.uvic.seng330.assn3.devices.ThermostatView;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -11,6 +13,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
@@ -26,6 +30,7 @@ public class ConfigureView {
   private Button shutdownB;
   private Button statusCheckB;
   private Button removeB;
+  private MenuButton deviceMenu;
   private GridPane view;
   private Organizer organizer;
 
@@ -33,25 +38,25 @@ public class ConfigureView {
   public ConfigureView(Organizer pOrganizer) {
     this.organizer = pOrganizer;
     createAndConfigurePane();
-
-    removeField = new TextField();
-    removeField.setOnMouseClicked((new EventHandler<MouseEvent>() { 
-      public void handle(MouseEvent event) {
-        removeField.setText("");
-      }}));
-    removeB = new Button("Remove");
-    removeB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
-      public void handle(MouseEvent event) {
-        try {
-          remove(removeField.getText());
-        } catch (Exception e) {
-          removeField.setText("Invalid device!");
-        }
-      } 
-    }));
     
-    // Camera Buttons
-    addCameraB = new Button("Add");
+    deviceMenu = new MenuButton("Devices"); 
+    for (DeviceView d : organizer.getViews().values()) {
+      MenuItem menuItem = new MenuItem(d.toString());
+      menuItem.setOnAction((new EventHandler<ActionEvent>() { 
+        public void handle(ActionEvent event) {
+          try {
+            organizer.unregister(d.getModel().getIdentifier());
+            deviceMenu.getItems().remove(menuItem);
+          } catch(HubRegistrationException e) {
+            System.err.println("Could not remove " + d);
+          }
+        } 
+      }));
+
+      deviceMenu.getItems().add(menuItem);
+    }
+    
+    addCameraB = new Button("Camera");
     addCameraB.setId("addCameraB");
     addCameraB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
@@ -59,7 +64,7 @@ public class ConfigureView {
       } 
     }));
 
-    addThermostatB = new Button("Add");
+    addThermostatB = new Button("Thermostat");
     addThermostatB.setId("addThermostatB");
     addThermostatB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
@@ -67,7 +72,7 @@ public class ConfigureView {
       } 
     })); 
 
-    addLightbulbB = new Button("Add");
+    addLightbulbB = new Button("Lightbulb");
     addLightbulbB.setId("addLightbulbB");
     addLightbulbB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
@@ -75,7 +80,7 @@ public class ConfigureView {
       } 
     })); 
 
-    addSmartPlugB = new Button("Add");
+    addSmartPlugB = new Button("Smart Plug");
     addSmartPlugB.setId("addSmartPlugB");
     addSmartPlugB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
@@ -95,46 +100,46 @@ public class ConfigureView {
     statusCheckB.setId("statusCheckB");
     statusCheckB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
-        //organizer.statusCheck();
         Thread t = new Thread(() -> organizer.statusCheck());
         t.start();
       } 
     }));
       
-    view.addRow(0, new Label("Remove device by Id:"), removeField, removeB);
-    view.addRow(1, new Label("Cameras:"), addCameraB);
-    view.addRow(2, new Label("Thermostats:"), addThermostatB);
-    view.addRow(3, new Label("Lightbulbs:"), addLightbulbB);
-    view.addRow(4, new Label("Smart Plugs:"), addSmartPlugB);
-    view.addRow(8, new Label("System:"), shutdownB, statusCheckB );
-
-    //view.setGridLinesVisible(true);
+    view.addRow(0, new Label("Remove existing device:"), deviceMenu);
+    view.addRow(1, new Label("New device:"));
+    view.addColumn(1, addCameraB, addThermostatB, addLightbulbB, addSmartPlugB);
+  }
+  
+  private void addToDeviceMenu(DeviceView d) {
+    MenuItem menuItem = new MenuItem(d.toString());
+    menuItem.setOnAction((new EventHandler<ActionEvent>() { 
+      public void handle(ActionEvent event) {
+        try {
+          organizer.unregister(d.getModel().getIdentifier());
+          deviceMenu.getItems().remove(menuItem);
+        } catch(HubRegistrationException e) {
+          System.err.println("Could not remove " + d);
+        }
+      } 
+    }));
+    
+    deviceMenu.getItems().add(menuItem);
   }
 
   public void addCamera() {
-    new CameraView(organizer);
-  }
-
-  public void remove(String id) throws Exception {
-    try {
-      organizer.unregister(id);
-      removeField.setText("");
-
-    } catch (Exception e) {
-      removeField.setText("Invalid device!");
-    }
+    addToDeviceMenu(new CameraView(organizer));
   }
 
   public void addThermostat() {
-    new ThermostatView(organizer);
+    addToDeviceMenu(new ThermostatView(organizer));
   }
 
   public void addLightbulb() {
-    new LightbulbView(organizer);
+    addToDeviceMenu(new LightbulbView(organizer));
   }
 
   public void addSmartPlug() {
-    new SmartPlugView(organizer);
+    addToDeviceMenu(new SmartPlugView(organizer));
   }
 
   private void createAndConfigurePane() {

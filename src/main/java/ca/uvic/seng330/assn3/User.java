@@ -24,7 +24,7 @@ public class User {
   }
   
   public void addDevice(DeviceView device) {
-    deviceList.put(device.getId(), device);
+    deviceList.put(device.getModel().getIdentifier(), device);
   }
   
   public void removeDevice(int id) {

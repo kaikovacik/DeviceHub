@@ -97,15 +97,15 @@ public class Organizer{
     }
   } 
 
-  public void unregister(String entry) throws HubRegistrationException {
-
-    int id = Integer.parseInt(entry);
-
+  public void unregister(int id) throws HubRegistrationException {
     if (deviceCount > 0 && viewList.containsKey(id)) {
       //alert(viewList.get(id).getModel(), ("Device (" + id + ") removed"));
       DeviceModel m = viewList.get(id).getModel();
       alert(m, m.getName() + " (" + m.getIdentifier() + ") removed");
       viewList.remove(id);
+      for (User u : userList.values()) {
+        u.removeDevice(id);
+      }
     } else {
       throw new HubRegistrationException("Specified device is not in the network");
     }

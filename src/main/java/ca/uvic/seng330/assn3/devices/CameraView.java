@@ -154,8 +154,4 @@ public class CameraView extends DeviceView{
   public Parent asParent() {
     return view;
   }
-  
-  public String toString() {
-    return "[Camera: " + getId() + "]"; 
-  }
 }

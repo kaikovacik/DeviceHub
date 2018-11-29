@@ -266,8 +266,4 @@ public class ThermostatView extends DeviceView {
       return null ;
     }));
   }
-
-  public String toString() {
-    return "[Thermostat: " + getId() + "]"; 
-  }
 }
