@@ -1,40 +1,31 @@
 package ca.uvic.seng330.assn3;
 
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.concurrent.ConcurrentHashMap;
 import ca.uvic.seng330.assn3.devices.DeviceModel;
 import ca.uvic.seng330.assn3.devices.DeviceView;
 import ca.uvic.seng330.assn3.devices.LightbulbView;
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 
 public class Organizer{
 
-  private HashMap<Integer, DeviceView> viewList;
+  private ConcurrentHashMap<Integer, DeviceView> viewList;
 
   private HashMap<String, User> userList;
-  //private final Logger log;
   private SimpleStringProperty lastAllert = new SimpleStringProperty();
   private SimpleStringProperty lastLog = new SimpleStringProperty();
-
   private final DataPersister dP;
-
   public int deviceCount;
-  //  public IntegerProperty deviceCountProperty; 
 
   public Organizer() {
     this.deviceCount = 0;
-    this.viewList = new HashMap<>();
+    this.viewList = new ConcurrentHashMap<>();
     this.userList = new HashMap<>();
     this.dP = new DataPersister();
   }
 
-  public HashMap<Integer, DeviceView> getViews() {
+  public ConcurrentHashMap<Integer, DeviceView> getViews() {
     return viewList;
   }
 
@@ -45,9 +36,9 @@ public class Organizer{
   // logs data to file.
   public void log(DeviceModel model, String message) {
     JSONMessaging jsonO = new JSONMessaging(model, message);   
-    dP.writeThis(jsonO.getJSON());
-    lastLog.set(jsonO.getJSON().toString());
-    System.out.println(jsonO.getJSON());
+    dP.writeThis(jsonO.getJSON());            // to log file
+    lastLog.set(jsonO.getJSON().toString());  // writes to Activity
+    System.out.println(jsonO.getJSON());      
   }
 
   public void logString(String message) {
@@ -55,12 +46,13 @@ public class Organizer{
     dP.writeThis(toLog);  // writes to log file
     lastLog.set(toLog);   // writes to Activity
     //lastAllert.set(message);  // writes to alerts
+    System.out.println(toLog);
   }
 
   //add list to alert
   public void alert(DeviceModel model, String message) {
     log(model, message);
-    lastAllert.set(message);
+    lastAllert.set(message);    // writes to alerts
     
     if (message.contains("object")) {
       for( DeviceView d : viewList.values()) {
@@ -99,7 +91,6 @@ public class Organizer{
 
   public void unregister(int id) throws HubRegistrationException {
     if (deviceCount > 0 && viewList.containsKey(id)) {
-      //alert(viewList.get(id).getModel(), ("Device (" + id + ") removed"));
       DeviceModel m = viewList.get(id).getModel();
       alert(m, m.getName() + " (" + m.getIdentifier() + ") removed");
       viewList.remove(id);
@@ -112,9 +103,9 @@ public class Organizer{
   }
 
   public void startup() {
-    for (/*DeviceView*/Object device : viewList.values()) {
-      // device.model.turnOn (or something of the sort)
-      // alert(device, (device.getClass().toString() + " (" + device.getIdentifier().toString() + ") is now operational"));
+    for (DeviceView device : viewList.values()) {
+      device.getModel().turnOn();
+      //alert(device, (device.getClass().toString() + " (" + device.getModel.getIdentifier().toString() + ") is now operational"));
     }
   }
 

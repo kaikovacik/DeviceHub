@@ -1,18 +1,18 @@
 package ca.uvic.seng330.assn3;
 
-import java.util.HashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 import ca.uvic.seng330.assn3.devices.DeviceView;
 
 public class User {
   private String username;
   private String password;
-  protected HashMap<Integer, DeviceView> deviceList;
+  protected ConcurrentHashMap<Integer, DeviceView> deviceList;
   
   public User(String username, String password) {
     this.username = username;
     this.password = password;
-    this.deviceList = new HashMap<>();
+    this.deviceList = new ConcurrentHashMap<>();
   }
   
   public void changeName(String username) {
@@ -31,7 +31,7 @@ public class User {
     deviceList.remove(id);
   }
   
-  public HashMap<Integer, DeviceView> getDevices() {
+  public ConcurrentHashMap<Integer, DeviceView> getDevices() {
     return deviceList;
   }
   

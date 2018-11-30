@@ -108,9 +108,10 @@ public class ConfigureView {
     view.addRow(0, new Label("Remove existing device:"), deviceMenu);
     view.addRow(1, new Label("New device:"));
     view.addColumn(1, addCameraB, addThermostatB, addLightbulbB, addSmartPlugB);
+    view.addRow(8, new Label("System:"), shutdownB, statusCheckB );
   }
   
-  private void addToDeviceMenu(DeviceView d) {
+  protected void addToDeviceMenu(DeviceView d) {
     MenuItem menuItem = new MenuItem(d.toString());
     menuItem.setOnAction((new EventHandler<ActionEvent>() { 
       public void handle(ActionEvent event) {
@@ -131,6 +132,7 @@ public class ConfigureView {
   }
 
   public void addThermostat() {
+    
     addToDeviceMenu(new ThermostatView(organizer));
   }
 

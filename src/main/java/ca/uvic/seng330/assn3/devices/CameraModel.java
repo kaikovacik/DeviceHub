@@ -70,8 +70,7 @@ public class CameraModel extends DeviceModel {
     } else {
       setStatus(Status.ERROR);
       organizer.alert(this, "Camera (" + getIdentifier() + ") is full!");
-      setIsObject(true);
-     
+      //setIsObject(true);
     }
   }
   
