@@ -417,3 +417,11 @@
 {"device_id":6,"payload":"Thermostat (6) added","created_at":"Thu Nov 29 09:37:13 PST 2018","msg_id":"6a0f9adb-2f81-4892-81b1-f13399249ef1","status":"OFF"}
 {"payload":"All devices shutdown.","created_at":"Thu Nov 29 09:37:23 PST 2018"}
 {"payload":"Client Closed","created_at":"Thu Nov 29 09:37:23 PST 2018"}
+{"payload":"All devices shutdown.","created_at":"Thu Nov 29 09:42:21 PST 2018"}
+{"payload":"Client Closed","created_at":"Thu Nov 29 09:42:21 PST 2018"}
+{"device_id":1,"payload":"Thermostat (1) added","created_at":"Thu Nov 29 09:46:36 PST 2018","msg_id":"194f9a31-8b8b-4ac6-b4e0-8423e3c1a76e","status":"OFF"}
+{"device_id":2,"payload":"Thermostat (2) added","created_at":"Thu Nov 29 09:46:37 PST 2018","msg_id":"bc6ad8e0-6208-4256-ab60-1921cc3ae1d9","status":"OFF"}
+{"device_id":3,"payload":"Lightbulb (3) added","created_at":"Thu Nov 29 09:46:38 PST 2018","msg_id":"d5b2838c-d0a0-4a2e-a727-8dceb90658ab","status":"OFF"}
+{"device_id":4,"payload":"Camera (4) added","created_at":"Thu Nov 29 09:46:41 PST 2018","msg_id":"72e62b40-d077-4fab-90af-e0e351bd0697","status":"OFF"}
+{"payload":"All devices shutdown.","created_at":"Thu Nov 29 09:47:03 PST 2018"}
+{"payload":"Client Closed","created_at":"Thu Nov 29 09:47:03 PST 2018"}

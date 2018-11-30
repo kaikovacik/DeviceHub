@@ -15,6 +15,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TabPane.TabClosingPolicy;
@@ -266,7 +267,6 @@ public class Client extends Application {
   
   private static void refreshUserTab(VBox vbox) {
     vbox.getChildren().clear();
-    
     for (User u : organizer.getUsers().values()) {
       vbox.getChildren().add(new UserView(u, organizer).asParent());
     }
@@ -274,7 +274,6 @@ public class Client extends Application {
 
   private static void refreshCameraTab(VBox vbox) {
     vbox.getChildren().clear();
-    
     for (Object d : currentUser.getDevices().values()) {
       if (d instanceof CameraView) {
         vbox.getChildren().add( ((CameraView) d).asParent() );
