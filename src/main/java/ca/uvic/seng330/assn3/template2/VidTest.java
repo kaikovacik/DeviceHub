@@ -1,4 +1,4 @@
-package ca.uvic.seng330.assn3;
+package ca.uvic.seng330.assn3.template2;
 
 import javax.swing.*;
 import javafx.application.Platform;

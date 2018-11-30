@@ -17,19 +17,10 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 
-public class NonUIAcceptanceTests extends ApplicationTest {
+public class NonUIAcceptanceTests {
 
   private Organizer organizer;
   private Scene scene;
-  
-  
-  @Override 
-  public void start(Stage stage) {
-    scene = Client.createScene();
-    stage.setScene(scene);
-    stage.setAlwaysOnTop(true);
-    stage.show();
-  }
   
   @Before
   public void initializeSystem() {
@@ -41,6 +32,7 @@ public class NonUIAcceptanceTests extends ApplicationTest {
     // Place holder, to be added
   }
   
+  /*
   @Test
   public void testB_Hub() {
     
@@ -106,7 +98,8 @@ public class NonUIAcceptanceTests extends ApplicationTest {
     }
 
   }
-
+*/
+ 
   @Test
   public void testC_Camera() {
     int space = 3;
