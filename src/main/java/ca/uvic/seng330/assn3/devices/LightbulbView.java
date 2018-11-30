@@ -38,10 +38,11 @@ public class LightbulbView extends DeviceView{
     createAndConfigurePane();
     
     statusLabel = new Label("OFF");
-    statusLabel.setId("lightbulbStatusLabel");
+    statusLabel.setId("lightbulbStatusLabel"); // id for ui tests
     statusLabel.textProperty().bind(model.getStatusAsString());
     
     toggleB = new Button("Turn ON");
+    toggleB.setId("lightbulbToggleB"); // id for ui tests
     toggleB.setLayoutX(50);
     toggleB.setLayoutY(50);
     toggleB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
@@ -49,6 +50,7 @@ public class LightbulbView extends DeviceView{
         model.toggle();
       } 
     }));
+    
     model.getStatusAsString().addListener((obs, prev, curr) -> {
       if (curr.equals("NORMAL")) {
         toggleB.setText("Turn OFF");

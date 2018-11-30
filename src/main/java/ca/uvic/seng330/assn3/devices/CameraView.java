@@ -54,11 +54,11 @@ public class CameraView extends DeviceView{
     createAndConfigurePane();
 
     statusLabel = new Label("OFF");
-    statusLabel.setId("cameraStatusLabel");
+    statusLabel.setId("cameraStatusLabel"); // id for ui tests
     statusLabel.textProperty().bind(model.getStatusAsString());
 
     onOffB = new Button("Start");
-    onOffB.setId("cameraOnOffB");
+    onOffB.setId("cameraOnOffB"); // id for ui tests
     onOffB.setLayoutX(50);
     onOffB.setLayoutY(50);
     onOffB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
@@ -86,9 +86,10 @@ public class CameraView extends DeviceView{
 
     // The following is only set as visible when camera is on
     recordingLabel = new Label("Camera is not recording");
-    recordingLabel.setId("cameraRecordingLabel");
+    recordingLabel.setId("cameraRecordingLabel"); // id for ui tests
+    
     recordB = new Button("Toggle Recording"); 
-    recordB.setId("cameraRecordB");
+    recordB.setId("cameraRecordB"); // id for ui tests
     recordB.setLayoutX(50); 
     recordB.setLayoutY(50);  
     recordB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
@@ -99,12 +100,14 @@ public class CameraView extends DeviceView{
     })); 
 
     memoryLabel = new Label();
-    memoryLabel.setId("cameraMemoryLabel");
+    memoryLabel.setId("cameraMemoryLabel"); // id for ui tests
     memoryLabel.textProperty().bind(model.diskSizeRemaining().asString());
+    
+    // set as variable such that it can be hidden
     currentMemoryLabel = new Label("Memory: ");
 
     eraseB = new Button("Erase Memory");
-    eraseB.setId("cameraEraseB");
+    eraseB.setId("cameraEraseB"); // id for ui tests
     eraseB.setLayoutX(50); 
     eraseB.setLayoutY(50); 
     eraseB.setOnMouseClicked((new EventHandler<MouseEvent>() {
@@ -153,6 +156,7 @@ public class CameraView extends DeviceView{
     
     player.setAutoPlay(false);
     mediaView = new MediaView(player);
+    mediaView.setId("cameraMediaView"); // id for ui tests
     mediaView.setFitHeight(200.0);
     mediaView.setPreserveRatio(true);
     mediaView.setFitWidth(200);
@@ -162,6 +166,7 @@ public class CameraView extends DeviceView{
     System.out.println("Status (playing?)" +player.getStatus());
     
     mediaControlB = new Button("Play");
+    mediaControlB.setId("cameraMediaControlB"); // id for ui tests
     mediaControlB.setOnMouseClicked((new EventHandler<MouseEvent>() {
       public void handle(MouseEvent event) {
         switch (mediaControlB.getText()) {

@@ -26,7 +26,9 @@ public class UIAcceptanceTests extends ApplicationTest {
   }
   
   @Test
-  public void test_user_add() {
+  public void test_user_add_and_login() {
+    
+    // ADD
     
     // CASE: invalid username
     clickOn("#newUserB");
@@ -50,19 +52,53 @@ public class UIAcceptanceTests extends ApplicationTest {
     verifyThat("#addUserViewAlertLabel", hasText("Passwords don't match!"));
     
     // CASE: everything is valid
-    clickOn("#addUserViewUsernameField");
-    write("neil");
     clickOn("#addUserViewPasswordField");
     write("password");
     clickOn("#addUserViewConfirmPasswordField");
     write("password");
     clickOn("#addUserViewAddUserB");
     verifyThat("#alertLabel", hasText("[USER: neil] added!"));
+    
+    // LOGIN
+    
+    // CASE: unknown user
+    clickOn("#usernameField");
+    write("neilll");
+    clickOn("#passwordField");
+    write("password");
+    clickOn("#loginB");
+    verifyThat("#alertLabel", hasText("Unknown user!"));
+    
+    // CASE: incorrect password
+    clickOn("#usernameField");
+    write("neil");
+    clickOn("#passwordField");
+    write("passwo");
+    clickOn("#loginB");
+    verifyThat("#alertLabel", hasText("Incorrect password!"));
+    
+    // CASE: everything is valid
+    clickOn("#usernameField");
+    write("neil");
+    clickOn("#passwordField");
+    write("password");
+    clickOn("#loginB");
+    // THIS VERIFY DOESNT SEEM TO WORK... PERHAPS WE DON'T VERIFY?
+    // verifyThat("#cameraTab", hasText("Camera")); // Arbitrary query to verify that the user is logged in
   }
   
   @Test
-  public void test_user_login() {
+  public void test_admin_login_and_OTHERSTUFF() { // @seth obviously replace "OTHERSTUFF" haha
     
+    // CASE: everything is valid
+    clickOn("#usernameField");
+    write("kai");
+    clickOn("#passwordField");
+    write("iak");
+    clickOn("#loginB");
+    // THIS VERIFY DOESNT SEEM TO WORK... PERHAPS WE DON'T VERIFY?
+    // verifyThat("#configTab", hasText("Camera")); // Arbitrary query to verify that the user is logged in
+
   }
 
   // Scenario C ============================================

@@ -49,7 +49,7 @@ public class Client extends Application {
      //scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
 
     primaryStage.setScene(scene);
-    primaryStage.setAlwaysOnTop(true);
+    primaryStage.setAlwaysOnTop(false);
     primaryStage.show();
     primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
       public void handle(WindowEvent we) {
@@ -137,7 +137,7 @@ public class Client extends Application {
       LogView prevActivitiesView = new LogView(organizer);
       VBox configVbox = new VBox();
       Tab configTab = new Tab();
-
+      configTab.setId("configTab"); // id for ui tests
       configTab.setText("Device Configuration");
       configVbox.getChildren().add(configureView.asParent() );
       configVbox.getChildren().add(prevActivitiesView.asParent() );
@@ -146,7 +146,7 @@ public class Client extends Application {
       
       // User Tab
       Tab userTab = new Tab("Users");
-      userTab.setId("userTab");
+      userTab.setId("userTab"); // id for ui tests
       VBox userVbox = new VBox();
       refreshUserTab(userVbox);
       userTab.setOnSelectionChanged(new EventHandler<Event>() {
@@ -157,6 +157,7 @@ public class Client extends Application {
         }
       });
       ScrollPane userScroll = new ScrollPane(userVbox);
+      userScroll.setId("userScroll"); // id for ui tests
       userScroll.setFitToHeight(true);
       userScroll.setFitToWidth(true);
       userTab.setContent(userScroll);
@@ -165,7 +166,7 @@ public class Client extends Application {
     
     // Cameras Tab
     Tab cameraTab = new Tab();
-    cameraTab.setId("cameraTab");
+    cameraTab.setId("cameraTab"); // id for ui tests
     cameraTab.setText("Cameras");
     VBox cameraVbox = new VBox();
     refreshCameraTab(cameraVbox);
@@ -177,6 +178,7 @@ public class Client extends Application {
       }
     });
     ScrollPane cameraScroll = new ScrollPane(cameraVbox);
+    cameraScroll.setId("cameraScroll"); // id for ui tests
     cameraScroll.setFitToHeight(true);
     cameraScroll.setFitToWidth(true);
     cameraTab.setContent(cameraScroll);
@@ -184,7 +186,7 @@ public class Client extends Application {
 
     // Thermostat Tab
     Tab thermostatTab = new Tab();
-    thermostatTab.setId("thermostatTab");
+    thermostatTab.setId("thermostatTab"); // id for ui tests
     thermostatTab.setText("Thermostats");
     VBox thermostatVbox = new VBox();
     refreshThermostatTab(thermostatVbox);
@@ -196,6 +198,7 @@ public class Client extends Application {
       }
     });
     ScrollPane thermostatScroll = new ScrollPane(thermostatVbox);
+    thermostatScroll.setId("thermostatScroll"); // id for ui tests
     thermostatScroll.setFitToHeight(true);
     thermostatScroll.setFitToWidth(true);
     thermostatTab.setContent(thermostatScroll);
@@ -203,6 +206,7 @@ public class Client extends Application {
 
     // Lightbulb Tab
     Tab lightbulbTab = new Tab();
+    lightbulbTab.setId("lightbulbTab"); // id for ui tests
     lightbulbTab.setText("Lightbulbs");
     VBox lightbulbVbox = new VBox();
     refreshLightbulbTab(lightbulbVbox);
@@ -214,6 +218,7 @@ public class Client extends Application {
       }
     });
     ScrollPane lightbulbScroll = new ScrollPane(lightbulbVbox);
+    lightbulbScroll.setId("lightbulbScroll"); // id for ui tests
     lightbulbScroll.setFitToHeight(true);
     lightbulbScroll.setFitToWidth(true);
     lightbulbTab.setContent(lightbulbScroll);
@@ -221,7 +226,7 @@ public class Client extends Application {
 
     // SmartPlug Tab
     Tab smartPlugTab = new Tab();
-    smartPlugTab.setText("Smart Plugs");
+    smartPlugTab.setText("Smart Plugs"); // id for ui tests
     VBox smartPlugVbox = new VBox();
     refreshSmartPlugTab(smartPlugVbox);
     smartPlugTab.setOnSelectionChanged(new EventHandler<Event>() {
@@ -232,6 +237,7 @@ public class Client extends Application {
       }
     });
     ScrollPane smartPlugScroll = new ScrollPane(smartPlugVbox);
+    smartPlugScroll.setId("smartPlugScroll"); // id for ui tests
     smartPlugScroll.setFitToHeight(true);
     smartPlugScroll.setFitToWidth(true);
     smartPlugTab.setContent(smartPlugScroll);

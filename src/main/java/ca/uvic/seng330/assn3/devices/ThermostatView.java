@@ -110,11 +110,11 @@ public class ThermostatView extends DeviceView {
     createAndConfigurePane();
 
     statusLabel = new Label();
-    statusLabel.setId("thermostatStatusLabel");
+    statusLabel.setId("thermostatStatusLabel"); // id for ui tests
     statusLabel.textProperty().bind(model.getStatusAsString());
 
     onOffB = new Button("Start");
-    onOffB.setId("thermostatOnOffB");
+    onOffB.setId("thermostatOnOffB"); // id for ui tests
     onOffB.setLayoutX(50);
     onOffB.setLayoutY(50);
     onOffB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
@@ -144,18 +144,18 @@ public class ThermostatView extends DeviceView {
     // The following is only set as visible when thermostat is on
     settingLabel = new Label("Set Thermostat:");
     celsiusLabel = new Label("0C");
-    celsiusLabel.setId("thermostatCelsiusLabel");
+    celsiusLabel.setId("thermostatCelsiusLabel"); // id for ui tests
     fahrenheitLabel = new Label("32F");
-    fahrenheitLabel.setId("thermostatFahrenheitLabel");
+    fahrenheitLabel.setId("thermostatFahrenheitLabel"); // id for ui tests
 
     temperatureField = new TextField();
     configTextFieldForInts(temperatureField);
-    temperatureField.setId("thermostatTemperatureField");
+    temperatureField.setId("thermostatTemperatureField"); // id for ui tests
     temperatureField.setMaxWidth(40);
     temperatureField.setText("");
 
     celsiusB = new Button("Celsius");
-    celsiusB.setId("thermostatCelsiusB");
+    celsiusB.setId("thermostatCelsiusB"); // id for ui tests
     celsiusB.setLayoutX(50);
     celsiusB.setLayoutY(50);
     celsiusB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
@@ -178,7 +178,7 @@ public class ThermostatView extends DeviceView {
     })); 
 
     fahrenheitB = new Button("Fahrenheit");
-    fahrenheitB.setId("thermostatFahrenheitB");
+    fahrenheitB.setId("thermostatFahrenheitB"); // id for ui tests
     fahrenheitB.setLayoutX(50);
     fahrenheitB.setLayoutY(50);
     fahrenheitB.setOnMouseClicked((new EventHandler<MouseEvent>() { 

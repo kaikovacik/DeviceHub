@@ -15,6 +15,7 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 
+
 public class UserView {
 
   private GridPane view;
@@ -30,16 +31,18 @@ public class UserView {
     createAndConfigurePane();
 
     Label titleLabel = new Label((user instanceof Admin)? "ADMIN:" : "USER:");
+    titleLabel.setId("userViewTitleLabel"); // id for ui tests
     Label nameLabel = new Label(user.getUsername());
+    nameLabel.setId("userViewNameLabel"); // id for ui tests
 
     view.addRow(0, titleLabel, nameLabel);
 
     if (!(user instanceof Admin)) {
       MenuButton linkedDeviceMenu = new MenuButton("Linked devices"); 
-
+      linkedDeviceMenu.setId("userViewLinkedDeviceMenu");
       for (DeviceView d : user.getDevices().values()) {           // when switch to tab
         MenuItem linkedMenuItem = new MenuItem(d.toString());
-
+        linkedMenuItem.setId("userViewLinkedMenuItem" + d.getModel().getIdentifier()); // id for ui tests
         linkedMenuItem.setOnAction((new EventHandler<ActionEvent>() { 
           public void handle(ActionEvent event) {
             user.removeDevice(d.getModel().getIdentifier());
@@ -50,16 +53,19 @@ public class UserView {
         linkedDeviceMenu.getItems().add(linkedMenuItem);
       }
 
-      MenuButton deviceMenu = new MenuButton("Devices");
+      MenuButton deviceMenu = new MenuButton("Devices"); 
+      deviceMenu.setId("userViewDeviceMenu"); // id for ui tests
       for (DeviceView d : organizer.getViews().values()) {  
         // If not already linked, add to linked devices UI
         if (!user.getDevices().containsValue(d)) {
           MenuItem menuItem = new MenuItem(d.toString());
+          menuItem.setId("userViewMenuItem" + d.getModel().getIdentifier()); // id for ui tests
           deviceMenu.getItems().add(menuItem);
-          menuItem.setOnAction((new EventHandler<ActionEvent>() {   //if clicked, add to linkedDeviceMenu, add to user list, remove from deviceMenu
+          menuItem.setOnAction((new EventHandler<ActionEvent>() {   // if clicked, add to linkedDeviceMenu, add to user list, remove from deviceMenu
             public void handle(ActionEvent event) {
 
               MenuItem linkedMenuItem = new MenuItem(d.toString());
+              linkedMenuItem.setId("userViewLinkedMenuItem"); // id for ui tests
               linkedMenuItem.setOnAction((new EventHandler<ActionEvent>() { 
                 public void handle(ActionEvent event) {
                   user.removeDevice(d.getModel().getIdentifier());
