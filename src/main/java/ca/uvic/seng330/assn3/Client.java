@@ -156,7 +156,10 @@ public class Client extends Application {
           }
         }
       });
-      userTab.setContent(userVbox);
+      ScrollPane userScroll = new ScrollPane(userVbox);
+      userScroll.setFitToHeight(true);
+      userScroll.setFitToWidth(true);
+      userTab.setContent(userScroll);
       tabPane.getTabs().add(userTab);
     }
     

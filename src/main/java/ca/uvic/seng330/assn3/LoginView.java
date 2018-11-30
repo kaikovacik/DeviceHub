@@ -36,9 +36,11 @@ public class LoginView {
   private void constructLoginLayout() {
     
     Label alertLabel = new Label(initialMessage);
+    alertLabel.setId("alertLabel");
     alertLabel.setStyle("-fx-font-style: italic");
     
     TextField usernameField = new TextField();
+    usernameField.setId("usernameField");
     usernameField.setOnMouseClicked((new EventHandler<MouseEvent>() {
       public void handle(MouseEvent event) {
         usernameField.setText("");
@@ -47,6 +49,7 @@ public class LoginView {
     }));   
     
     PasswordField passwordField = new PasswordField();
+    passwordField.setId("passwordField");
     passwordField.setOnMouseClicked((new EventHandler<MouseEvent>() {
       public void handle(MouseEvent event) {
         passwordField.setText("");
@@ -55,6 +58,7 @@ public class LoginView {
     }));
     
     Button loginB = new Button("Login");
+    loginB.setId("loginB");
     loginB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         try {
@@ -109,6 +113,7 @@ public class LoginView {
     // END TEMPORARY
     
     Button newUserB = new Button("New user");
+    newUserB.setId("newUserB");
     newUserB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         Client.addUserLayout();

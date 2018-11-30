@@ -40,3 +40,5 @@ src/main/PersistedData/dataLog.txt
 /src/main/PersistedData/dataLog.txt
 >>>>>>> parent of ba3f02d... try again to merge
 >>>>>>> parent of bc175ca... ...
+build/reports/tests/test/js/report.js
+build/reports/tests/test/index.html
