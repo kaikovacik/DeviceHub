@@ -40,8 +40,10 @@ public class ConfigureView {
     createAndConfigurePane();
     
     deviceMenu = new MenuButton("Devices"); 
+    deviceMenu.setId("deviceMenuB"); // id for ui tests
     for (DeviceView d : organizer.getViews().values()) {
       MenuItem menuItem = new MenuItem(d.toString());
+      menuItem.setId("menuItem" + d.getModel().getIdentifier()); // id for ui tests
       menuItem.setOnAction((new EventHandler<ActionEvent>() { 
         public void handle(ActionEvent event) {
           try {
@@ -57,7 +59,7 @@ public class ConfigureView {
     }
     
     addCameraB = new Button("Camera");
-    addCameraB.setId("addCameraB");
+    addCameraB.setId("addCameraB"); // id for tests
     addCameraB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         addCamera();
@@ -65,7 +67,7 @@ public class ConfigureView {
     }));
 
     addThermostatB = new Button("Thermostat");
-    addThermostatB.setId("addThermostatB");
+    addThermostatB.setId("addThermostatB"); // id for ui tests
     addThermostatB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         addThermostat();
@@ -73,7 +75,7 @@ public class ConfigureView {
     })); 
 
     addLightbulbB = new Button("Lightbulb");
-    addLightbulbB.setId("addLightbulbB");
+    addLightbulbB.setId("addLightbulbB"); // id for ui tests
     addLightbulbB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         addLightbulb();
@@ -81,7 +83,7 @@ public class ConfigureView {
     })); 
 
     addSmartPlugB = new Button("Smart Plug");
-    addSmartPlugB.setId("addSmartPlugB");
+    addSmartPlugB.setId("addSmartPlugB"); // id for ui tests
     addSmartPlugB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         addSmartPlug();
@@ -89,7 +91,7 @@ public class ConfigureView {
     }));
 
     shutdownB = new Button("Shutdown");
-    shutdownB.setId("shutdownB");
+    shutdownB.setId("shutdownB"); // id for ui tests
     shutdownB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         organizer.shutdown();
@@ -97,7 +99,7 @@ public class ConfigureView {
     }));
 
     statusCheckB = new Button("Check Device Status");
-    statusCheckB.setId("statusCheckB");
+    statusCheckB.setId("statusCheckB"); // id for ui tests
     statusCheckB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         Thread t = new Thread(() -> organizer.statusCheck());
@@ -113,6 +115,7 @@ public class ConfigureView {
   
   protected void addToDeviceMenu(DeviceView d) {
     MenuItem menuItem = new MenuItem(d.toString());
+    menuItem.setId("menuItem" + d.getModel().getIdentifier()); // id for ui tests
     menuItem.setOnAction((new EventHandler<ActionEvent>() { 
       public void handle(ActionEvent event) {
         try {

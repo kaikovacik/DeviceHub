@@ -36,10 +36,11 @@ public class SmartPlugView extends DeviceView {
     createAndConfigurePane();
     
     statusLabel = new Label("OFF");
-    statusLabel.setId("smartPlugStatusLabel");
+    statusLabel.setId("smartPlugStatusLabel"); // id for ui tests
     statusLabel.textProperty().bind(model.getStatusAsString());
     
     toggleB = new Button("Toggle");
+    toggleB.setId("smartPlugToggleB"); // id for ui tests
     toggleB.setLayoutX(50);
     toggleB.setLayoutY(50);
     toggleB.setOnMouseClicked((new EventHandler<MouseEvent>() { 

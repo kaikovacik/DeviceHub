@@ -41,12 +41,11 @@ public class AddUserView {
   private void constructLoginLayout() {
     
     Label alertLabel = new Label();
-    alertLabel.setId("addUserViewAlertLabel");
+    alertLabel.setId("addUserViewAlertLabel"); // id for ui tests
     alertLabel.setStyle("-fx-font-style: italic");
     
     TextField usernameField = new TextField();
-    usernameField.setId("addUserViewUsernameField");
-    
+    usernameField.setId("addUserViewUsernameField"); // id for ui tests
     usernameField.setOnMouseClicked((new EventHandler<MouseEvent>() {
       public void handle(MouseEvent event) {
         usernameField.setText("");
@@ -55,7 +54,7 @@ public class AddUserView {
     }));   
     
     PasswordField passwordField = new PasswordField();
-    passwordField.setId("addUserViewPasswordField");
+    passwordField.setId("addUserViewPasswordField"); // id for ui tests
     passwordField.setOnMouseClicked((new EventHandler<MouseEvent>() {
       public void handle(MouseEvent event) {
         passwordField.setText("");
@@ -64,7 +63,7 @@ public class AddUserView {
     }));
     
     PasswordField confirmPasswordField = new PasswordField();
-    confirmPasswordField.setId("addUserViewConfirmPasswordField");
+    confirmPasswordField.setId("addUserViewConfirmPasswordField"); // id for ui tests
     passwordField.setOnMouseClicked((new EventHandler<MouseEvent>() {
       public void handle(MouseEvent event) {
         passwordField.setText("");
@@ -73,7 +72,7 @@ public class AddUserView {
     }));
 
     Button cancelB = new Button("Cancel");
-    cancelB.setId("addUserViewCancelB");
+    cancelB.setId("addUserViewCancelB"); // id for ui tests
     cancelB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         Client.logout();
@@ -81,7 +80,7 @@ public class AddUserView {
     }));
     
     Button addUserB = new Button("Add user");
-    addUserB.setId("addUserViewAddUserB");
+    addUserB.setId("addUserViewAddUserB"); // id for ui tests
     addUserB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         if (passwordField.getText().equals(confirmPasswordField.getText()) && usernameField.getText().trim().length() > 0) {
