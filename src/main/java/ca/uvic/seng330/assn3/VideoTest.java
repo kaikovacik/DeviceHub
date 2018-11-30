@@ -11,9 +11,7 @@ public class VideoTest extends Application {
 
   @Override public void start(Stage stage) throws Exception {
     WebView webview = new WebView();
-    webview.getEngine().load(
-        "https://www.youtube.com/embed/vIeFt88Hm8s"
-        );
+    webview.getEngine().load("https://www.youtube.com/embed/vIeFt88Hm8s");
     webview.setPrefSize(640, 390);
 
     stage.setScene(new Scene(webview));

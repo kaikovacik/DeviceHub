@@ -1,5 +1,7 @@
 package ca.uvic.seng330.assn3.devices;
 
+import java.io.File;
+import java.net.MalformedURLException;
 import java.net.URL;
 
 import ca.uvic.seng330.assn3.Organizer;
@@ -18,6 +20,8 @@ import javafx.scene.layout.Priority;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.scene.web.WebView;
+import javafx.util.Duration;
 
 public class CameraView extends DeviceView{
 
@@ -33,6 +37,7 @@ public class CameraView extends DeviceView{
   private Button eraseB;
   private Button mediaControlB;
   private MediaView mediaView;
+  private WebView webView;
 
   public CameraView(Organizer organizer) {    
     super(organizer);
@@ -108,15 +113,53 @@ public class CameraView extends DeviceView{
       }
     }));   
     
+    webView = new WebView();
+    webView.getEngine().load("https://www.youtube.com/embed/vIeFt88Hm8s");
+    webView.setMinSize(300, 200);
+    webView.setMaxSize(300, 200);
+    webView.setVisible(true);
+    
+    
+    /*
+    final File file = new File("oow2010-2.flv");
+    String MEDIA_URL = file.toURI().toString();
+    final URL u;
+    try {
+      u = new URL("http://download.oracle.com/otndocs/products/javafx/oow2010-2.flv");
+      MEDIA_URL = u.toExternalForm();
+    } catch (MalformedURLException e) {
+      // TODO Auto-generated catch block
+      e.printStackTrace();
+    }
+     * 
+    //final String MEDIA_URL ="http://download.oracle.com/otndocs/products/javafx/oow2010-2.flv";
+    
     //Media media = new Media(getClass().getResource("video.mp4").toExternalForm());
-    Media media = new Media("https://www.youtube.com/embed/vIeFt88Hm8s");
+    //Media media = new Media("https://www.w3schools.com/html/mov_bbb.mp4");
     
-    MediaPlayer player = new MediaPlayer(media);
+    //Media media = new Media(getClass().getResource("/src/main/PersistedData/oow2010-2.flv").toExternalForm());
+    final Media media = new Media(MEDIA_URL);
+    
+
+    final MediaPlayer player = new MediaPlayer(media);
+   // mediaView = new MediaView(player);
+    //mediaView.setFitWidth(200);
+    //mediaView.setFitHeight(200);
+    //mediaView.setVisible(true);
+    
+    
+    //Media media = new Media(MEDIA_URL);
+    //MediaPlayer player = new MediaPlayer(media);
+    
     player.setAutoPlay(false);
-    
     mediaView = new MediaView(player);
     mediaView.setFitHeight(200.0);
     mediaView.setPreserveRatio(true);
+    mediaView.setFitWidth(200);
+ 
+    System.out.println("Buffered = " + player.bufferProgressTimeProperty().toString());
+    System.out.println("Rate " + player.getRate());
+    System.out.println("Status (playing?)" +player.getStatus());
     
     mediaControlB = new Button("Play");
     mediaControlB.setOnMouseClicked((new EventHandler<MouseEvent>() {
@@ -126,22 +169,27 @@ public class CameraView extends DeviceView{
           System.out.println("Playing");
           player.play();
           mediaControlB.setText("Pause");
+          System.out.println(player.getStatus());
           break;
         case "Pause":
           System.out.println("Pausing");
           player.pause();
           mediaControlB.setText("Play");
+          System.out.println(player.getStatus());
         }
       }
-    }));  
-
+    }));  */
+    
+    
     // Construct UI
     view.addRow(0, new Label("Camera Status:"), statusLabel, new Label("Device ID:"), new Label(""+(organizer.deviceCount)));
     view.addRow(1, onOffB);
     view.addRow(2, recordB, recordingLabel); 
     view.addRow(3, eraseB, currentMemoryLabel, memoryLabel);
-    view.addRow(4, mediaControlB);
-    view.add(mediaView, 0, 4, 3, 1);
+    //view.addRow(4, mediaControlB);
+    //view.add(webView, 0, 4, 3, 1);
+    view.add(webView, 1, 4);
+    //view.addRow(4, webView);
     
     hideData();
   }
@@ -152,9 +200,11 @@ public class CameraView extends DeviceView{
     memoryLabel.setVisible(true);
     currentMemoryLabel.setVisible(true);
     eraseB.setVisible(true);
+    /*
     mediaControlB.setVisible(true);
     mediaView.setVisible(true);
-    mediaView.setFitHeight(200.0);
+    mediaView.setFitHeight(200.0);*/
+    webView.setVisible(true);
   }
 
   private void hideData() {
@@ -163,9 +213,11 @@ public class CameraView extends DeviceView{
     memoryLabel.setVisible(false);
     currentMemoryLabel.setVisible(false);
     eraseB.setVisible(false);
+    /*
     mediaControlB.setVisible(false);
     mediaView.setVisible(false);
-    mediaView.setFitHeight(0.1);
+    mediaView.setFitHeight(0.1);*/
+    webView.setVisible(false);
   }
 
   private void createAndConfigurePane() {
@@ -177,7 +229,7 @@ public class CameraView extends DeviceView{
 
     ColumnConstraints rightCol = new ColumnConstraints();
     rightCol.setHgrow(Priority.SOMETIMES);
-
+    //view.setGridLinesVisible(true);
     view.getColumnConstraints().addAll(leftCol, rightCol);
     view.setAlignment(Pos.CENTER);
     view.setHgap(5);

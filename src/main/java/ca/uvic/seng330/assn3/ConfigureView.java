@@ -157,8 +157,6 @@ public class ConfigureView {
     //view.getColumnConstraints().add(new ColumnConstraints(100)); // column 0 is 100 wide
     //view.getColumnConstraints().add(new ColumnConstraints(200));
     
-    
-
     view.getColumnConstraints().addAll(leftCol, rightCol);
     view.setAlignment(Pos.TOP_LEFT);
     view.setHgap(5);
