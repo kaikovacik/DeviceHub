@@ -41,9 +41,12 @@ public class AddUserView {
   private void constructLoginLayout() {
     
     Label alertLabel = new Label();
+    alertLabel.setId("addUserViewAlertLabel");
     alertLabel.setStyle("-fx-font-style: italic");
     
     TextField usernameField = new TextField();
+    usernameField.setId("addUserViewUsernameField");
+    
     usernameField.setOnMouseClicked((new EventHandler<MouseEvent>() {
       public void handle(MouseEvent event) {
         usernameField.setText("");
@@ -52,6 +55,7 @@ public class AddUserView {
     }));   
     
     PasswordField passwordField = new PasswordField();
+    passwordField.setId("addUserViewPasswordField");
     passwordField.setOnMouseClicked((new EventHandler<MouseEvent>() {
       public void handle(MouseEvent event) {
         passwordField.setText("");
@@ -60,41 +64,16 @@ public class AddUserView {
     }));
     
     PasswordField confirmPasswordField = new PasswordField();
+    confirmPasswordField.setId("addUserViewConfirmPasswordField");
     passwordField.setOnMouseClicked((new EventHandler<MouseEvent>() {
       public void handle(MouseEvent event) {
         passwordField.setText("");
         alertLabel.setText("");
       }
     }));
-    
-    Button loginB = new Button("Login");
-    loginB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
-      public void handle(MouseEvent event) {
-        try {
-          Client.login(usernameField.getText(), passwordField.getText());
-        } catch (UnknownUserException e) {
-          alertLabel.setText("Unknown user!");
-        } catch (IncorrectPasswordException e) {
-          alertLabel.setText("Incorrect password!");
-        }
-      } 
-    }));
-    
-    // Temporary bypass logs in as "kai" with pass "iak"
-    Button bypassB = new Button("Bypass");
-    bypassB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
-      public void handle(MouseEvent event) {
-        try {
-          Client.login("kai", "iak");
-        } catch (UnknownUserException e) {
-          alertLabel.setText("Unknown user!");
-        } catch (IncorrectPasswordException e) {
-          alertLabel.setText("Incorrect password!");
-        }
-      } 
-    }));
-    
+
     Button cancelB = new Button("Cancel");
+    cancelB.setId("addUserViewCancelB");
     cancelB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
         Client.logout();
@@ -102,10 +81,10 @@ public class AddUserView {
     }));
     
     Button addUserB = new Button("Add user");
+    addUserB.setId("addUserViewAddUserB");
     addUserB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
       public void handle(MouseEvent event) {
-        
-        if (passwordField.getText().equals(confirmPasswordField.getText())) {
+        if (passwordField.getText().equals(confirmPasswordField.getText()) && usernameField.getText().trim().length() > 0) {
           User user = new User(usernameField.getText(), passwordField.getText());
           
           try {
@@ -115,6 +94,10 @@ public class AddUserView {
           }
           
           Client.logout(user + " added!");
+        } else if (usernameField.getText().trim().length() == 0) {
+          alertLabel.setText("Invalid username!");
+          passwordField.setText("");
+          confirmPasswordField.setText("");
         } else {
           alertLabel.setText("Passwords don't match!");
           passwordField.setText("");
