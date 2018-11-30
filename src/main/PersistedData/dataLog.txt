@@ -983,3 +983,10 @@
 {"device_id":0,"payload":"Camera (0) is full!","created_at":"Fri Nov 30 03:34:35 PST 2018","msg_id":"43daff8d-a555-47d2-b40a-7a441b65b7fd","status":"ERROR"}
 {"device_id":0,"payload":"Camera (0) turned off","created_at":"Fri Nov 30 03:34:35 PST 2018","msg_id":"06609d70-7495-4fd2-a859-2f9871388b9d","status":"OFF"}
 {"device_id":0,"payload":"Camera (0) turned on","created_at":"Fri Nov 30 03:34:35 PST 2018","msg_id":"c3230d63-77be-4fef-8f18-d275c16b82b7","status":"NORMAL"}
+{"device_id":1,"payload":"Camera (1) added","created_at":"Fri Nov 30 09:41:45 PST 2018","msg_id":"a57cf5d2-faa2-460c-a3c4-913d69079849","status":"OFF"}
+{"device_id":1,"payload":"Camera (1) turned on","created_at":"Fri Nov 30 09:41:47 PST 2018","msg_id":"ec1875c7-bedd-4462-9988-11e362175d0c","status":"NORMAL"}
+{"device_id":1,"payload":"Camera (1) turned off","created_at":"Fri Nov 30 09:41:50 PST 2018","msg_id":"f163a398-40c6-46cf-b500-22066fcf68d0","status":"OFF"}
+{"payload":"All devices shutdown.","created_at":"Fri Nov 30 09:41:50 PST 2018"}
+{"device_id":1,"payload":"Camera (1) removed","created_at":"Fri Nov 30 09:41:50 PST 2018","msg_id":"f7460ece-0fd2-4162-99c9-599fd2346dd5","status":"OFF"}
+{"payload":"All Devices Removed","created_at":"Fri Nov 30 09:41:50 PST 2018"}
+{"payload":"Client Closed","created_at":"Fri Nov 30 09:41:50 PST 2018"}
