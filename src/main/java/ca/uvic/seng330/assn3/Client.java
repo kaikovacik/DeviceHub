@@ -16,6 +16,7 @@ import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TabPane.TabClosingPolicy;
@@ -45,7 +46,7 @@ public class Client extends Application {
     Scene scene = createScene();
 
     // load stylesheet
-    //scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
+     scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
 
     primaryStage.setScene(scene);
     primaryStage.setAlwaysOnTop(true);
@@ -86,8 +87,8 @@ public class Client extends Application {
     BorderPane mainPane = new BorderPane();
     LoginView loginView = (initialMessage == null)? new LoginView(organizer) : new LoginView(initialMessage, organizer);
 
-    //mainPane.prefHeightProperty().bind(scene.heightProperty().divide(2));
-    //mainPane.prefWidthProperty().bind(scene.widthProperty().divide(2));
+    // mainPane.prefHeightProperty().bind(scene.heightProperty().divide(2));
+    // mainPane.prefWidthProperty().bind(scene.widthProperty().divide(2));
     mainPane.setCenter(loginView.asParent());
 
     root.getChildren().add(mainPane);
@@ -114,7 +115,7 @@ public class Client extends Application {
 
     currentUser = organizer.getUsers().get(username);
     
-    // Login info to console
+    // Print login info to console
     System.out.println(currentUser + 
       " logged in and has access to " + 
       ((currentUser instanceof Admin)? 
@@ -172,7 +173,10 @@ public class Client extends Application {
         }
       }
     });
-    cameraTab.setContent(cameraVbox);
+    ScrollPane cameraScroll = new ScrollPane(cameraVbox);
+    cameraScroll.setFitToHeight(true);
+    cameraScroll.setFitToWidth(true);
+    cameraTab.setContent(cameraScroll);
     tabPane.getTabs().add(cameraTab);
 
     // Thermostat Tab
@@ -188,7 +192,10 @@ public class Client extends Application {
         }
       }
     });
-    thermostatTab.setContent(thermostatVbox);
+    ScrollPane thermostatScroll = new ScrollPane(thermostatVbox);
+    thermostatScroll.setFitToHeight(true);
+    thermostatScroll.setFitToWidth(true);
+    thermostatTab.setContent(thermostatScroll);
     tabPane.getTabs().add(thermostatTab);
 
     // Lightbulb Tab
@@ -203,7 +210,10 @@ public class Client extends Application {
         }
       }
     });
-    lightbulbTab.setContent(lightbulbVbox);
+    ScrollPane lightbulbScroll = new ScrollPane(lightbulbVbox);
+    lightbulbScroll.setFitToHeight(true);
+    lightbulbScroll.setFitToWidth(true);
+    lightbulbTab.setContent(lightbulbScroll);
     tabPane.getTabs().add(lightbulbTab);
 
     // SmartPlug Tab
@@ -218,7 +228,10 @@ public class Client extends Application {
         }
       }
     });
-    smartPlugTab.setContent(smartPlugVbox);
+    ScrollPane smartPlugScroll = new ScrollPane(smartPlugVbox);
+    smartPlugScroll.setFitToHeight(true);
+    smartPlugScroll.setFitToWidth(true);
+    smartPlugTab.setContent(smartPlugScroll);
     tabPane.getTabs().add(smartPlugTab);
 
     // Logout Tab
@@ -232,7 +245,7 @@ public class Client extends Application {
     });
 
     // puts Cameras + other Dev in system
-     PopulateSystem();
+//     PopulateSystem();
 
     tabPane.getTabs().add(logoutTab);
     mainPane.setCenter(tabPane);
@@ -259,7 +272,6 @@ public class Client extends Application {
     configureView.addToDeviceMenu(new ThermostatView(organizer));
     configureView.addToDeviceMenu(new SmartPlugView(organizer));
     configureView.addToDeviceMenu(new LightbulbView(organizer));
-    
   }
 
   private static void closeClient() {

@@ -1,6 +1,10 @@
 package ca.uvic.seng330.assn3.devices;
 
+import java.net.URL;
+
 import ca.uvic.seng330.assn3.Organizer;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.DoubleProperty;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
@@ -11,6 +15,9 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 
 public class CameraView extends DeviceView{
 
@@ -24,6 +31,8 @@ public class CameraView extends DeviceView{
   private Button onOffB;
   private Button recordB;
   private Button eraseB;
+  private Button mediaControlB;
+  private MediaView mediaView;
 
   public CameraView(Organizer organizer) {    
     super(organizer);
@@ -97,14 +106,41 @@ public class CameraView extends DeviceView{
       public void handle(MouseEvent event) {
         model.resetMemory();
       }
-    }));    
+    }));   
+    
+    Media media = new Media(getClass().getResource("video.mp4").toExternalForm());
+    MediaPlayer player = new MediaPlayer(media);
+    player.setAutoPlay(false);
+    
+    mediaView = new MediaView(player);
+    mediaView.setFitHeight(200.0);
+    mediaView.setPreserveRatio(true);
+    
+    mediaControlB = new Button("Play");
+    mediaControlB.setOnMouseClicked((new EventHandler<MouseEvent>() {
+      public void handle(MouseEvent event) {
+        switch (mediaControlB.getText()) {
+        case "Play":
+          System.out.println("Playing");
+          player.play();
+          mediaControlB.setText("Pause");
+          break;
+        case "Pause":
+          System.out.println("Pausing");
+          player.pause();
+          mediaControlB.setText("Play");
+        }
+      }
+    }));  
 
     // Construct UI
     view.addRow(0, new Label("Camera Status:"), statusLabel, new Label("Device ID:"), new Label(""+(organizer.deviceCount)));
     view.addRow(1, onOffB);
     view.addRow(2, recordB, recordingLabel); 
     view.addRow(3, eraseB, currentMemoryLabel, memoryLabel);
-
+    view.addRow(4, mediaControlB);
+    view.add(mediaView, 0, 4, 3, 1);
+    
     hideData();
   }
 
@@ -114,6 +150,9 @@ public class CameraView extends DeviceView{
     memoryLabel.setVisible(true);
     currentMemoryLabel.setVisible(true);
     eraseB.setVisible(true);
+    mediaControlB.setVisible(true);
+    mediaView.setVisible(true);
+    mediaView.setFitHeight(200.0);
   }
 
   private void hideData() {
@@ -122,6 +161,9 @@ public class CameraView extends DeviceView{
     memoryLabel.setVisible(false);
     currentMemoryLabel.setVisible(false);
     eraseB.setVisible(false);
+    mediaControlB.setVisible(false);
+    mediaView.setVisible(false);
+    mediaView.setFitHeight(0.1);
   }
 
   private void createAndConfigurePane() {

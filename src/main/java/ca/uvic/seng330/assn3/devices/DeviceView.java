@@ -7,7 +7,7 @@ public abstract class DeviceView {
   private DeviceModel model;
   private Organizer organizer;
   
-  public DeviceView(Organizer organizer ) {
+  public DeviceView(Organizer organizer) {
     this.organizer = organizer;
   }
   

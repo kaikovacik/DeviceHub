@@ -15,7 +15,7 @@ import javafx.scene.layout.Priority;
 
 public class LightbulbView extends DeviceView{
  
-  private GridPane view ;
+  private GridPane view;
   private Label statusLabel;
   private Button toggleB;
   private LightbulbModel model;
