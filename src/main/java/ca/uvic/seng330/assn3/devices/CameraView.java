@@ -111,7 +111,9 @@ public class CameraView extends DeviceView{
       }
     }));   
     
-    Media media = new Media(getClass().getResource("video.mp4").toExternalForm());
+    //Media media = new Media(getClass().getResource("video.mp4").toExternalForm());
+    Media media = new Media("https://www.youtube.com/embed/vIeFt88Hm8s");
+    
     MediaPlayer player = new MediaPlayer(media);
     player.setAutoPlay(false);
     
