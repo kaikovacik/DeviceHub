@@ -26,6 +26,6 @@ public class SmartPlugModel extends DeviceModel {
   
   @Override
   public String toString() {
-    return "[Smart Plug: MODEL]"; 
+    return "Smart Plug (MODEL)"; 
   }
 }

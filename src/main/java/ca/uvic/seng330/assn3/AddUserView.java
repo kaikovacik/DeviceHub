@@ -39,6 +39,8 @@ public class AddUserView {
   }
   
   private void constructLoginLayout() {
+    Label addUserLabel = new Label("Add User");
+    addUserLabel.setId("addUserLabel");
     
     Label alertLabel = new Label();
     alertLabel.setId("addUserViewAlertLabel"); // id for ui tests
@@ -106,7 +108,7 @@ public class AddUserView {
     }));
     
     //view.setAlignment(Pos.CENTER);
-    view.addRow(0, new Label("Add User:"), alertLabel);
+    view.addRow(0, addUserLabel, alertLabel);
     view.addRow(1, new Label("Username:"), usernameField);
     view.addRow(2, new Label("Password:"), passwordField);
     view.addRow(3, new Label("Confirm Pass:"), confirmPasswordField);
@@ -115,26 +117,16 @@ public class AddUserView {
   
   private void createAndConfigurePane() {
     view = new GridPane();
-
-    ColumnConstraints leftCol = new ColumnConstraints();
-    leftCol.setHalignment(HPos.RIGHT);
-    leftCol.setHgrow(Priority.NEVER);
-
-    ColumnConstraints rightCol = new ColumnConstraints();
-    rightCol.setHgrow(Priority.SOMETIMES);
-    
-    view.getColumnConstraints().addAll(leftCol, rightCol);
     view.setAlignment(Pos.CENTER);
     view.setHgap(5);
     view.setVgap(10);
-    view.borderProperty();
     // black border
     view.setStyle(
         " -fx-padding: 10; " +
             " -fx-border-color: black; " +
             " -fx-border-radius: 5; " +
             " -fx-box-shadow: 10px; " +
-            " -fx-background-color: lightgrey; " +
+            " -fx-background-color: linear-gradient(skyblue, lightgrey); " +
             " -fx-background-radius: 5; "
         );
   }

@@ -13,6 +13,8 @@ import ca.uvic.seng330.assn3.devices.ThermostatView;
 import javafx.application.Application;
 import javafx.event.Event;
 import javafx.event.EventHandler;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
@@ -20,6 +22,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TabPane.TabClosingPolicy;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Priority;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
@@ -64,6 +67,7 @@ public class Client extends Application {
   public static Scene createScene() { 
     organizer = new Organizer();
 
+    // Register predefined users
     try {
       organizer.addUser(new Admin("kai", "iak"));
       organizer.addUser(new Admin("seth", "htes"));
@@ -87,12 +91,22 @@ public class Client extends Application {
   }
   public static void logout(String initialMessage) {
     root.getChildren().clear(); 
+    root.setStyle(
+        " -fx-padding: 10; " +
+            " -fx-border-color: black; " +
+            " -fx-border-radius: 5; " +
+            " -fx-box-shadow: 10px; " +
+            " -fx-background-color: lightgrey; " +
+            " -fx-background-radius: 5; "
+        );
+    root.setAutoSizeChildren(true);
 
-    BorderPane mainPane = new BorderPane();
+//    BorderPane mainPane = new BorderPane();
     LoginView loginView = (initialMessage == null)? new LoginView(organizer) : new LoginView(initialMessage, organizer);
-
-    // mainPane.prefHeightProperty().bind(scene.heightProperty().divide(2));
-    // mainPane.prefWidthProperty().bind(scene.widthProperty().divide(2));
+    
+    BorderPane mainPane = new BorderPane();
+    mainPane.prefHeightProperty().bind(scene.heightProperty());
+    mainPane.prefWidthProperty().bind(scene.widthProperty());
     mainPane.setCenter(loginView.asParent());
 
     root.getChildren().add(mainPane);
@@ -100,12 +114,12 @@ public class Client extends Application {
 
   public static void addUserLayout() {
     root.getChildren().clear(); 
-
-    BorderPane mainPane = new BorderPane();
+    
     AddUserView addUserView = new AddUserView(organizer);
-
-    mainPane.prefHeightProperty().bind(scene.heightProperty().divide(2));
-    //mainPane.prefWidthProperty().bind(scene.widthProperty().divide(2));
+    
+    BorderPane mainPane = new BorderPane();
+    mainPane.prefHeightProperty().bind(scene.heightProperty());
+    mainPane.prefWidthProperty().bind(scene.widthProperty());
     mainPane.setCenter(addUserView.asParent());
 
     root.getChildren().add(mainPane);
@@ -140,6 +154,7 @@ public class Client extends Application {
       // Configure Tab
       prevActivitiesView = new LogView(organizer);
       VBox configVbox = new VBox();
+      configVbox.setStyle("-fx-background-color: linear-gradient(skyblue, lightgrey);");
       Tab configTab = new Tab();
       configTab.setId("configTab"); // id for ui tests
       configTab.setText("Device Configuration");
@@ -271,7 +286,6 @@ public class Client extends Application {
     mainPane.prefWidthProperty().bind(scene.widthProperty());
 
     root.getChildren().add(mainPane);
-
   }
 
   private static void PopulateSystem() {

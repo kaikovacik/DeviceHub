@@ -155,6 +155,7 @@ public class ConfigureView {
 
   private void createAndConfigurePane() {
     view = new GridPane();
+    view.setStyle("-fx-background-color: linear-gradient(white, lightgrey);");
 
     ColumnConstraints leftCol = new ColumnConstraints(150);
     leftCol.setHalignment(HPos.RIGHT);

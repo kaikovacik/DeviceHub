@@ -22,6 +22,6 @@ public class LightbulbModel extends DeviceModel {
   
   @Override
   public String toString() {
-    return "[Lightbulb: MODEL]"; 
+    return "Lightbulb (MODEL)"; 
   }
 }

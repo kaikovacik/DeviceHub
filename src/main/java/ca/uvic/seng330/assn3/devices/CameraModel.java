@@ -96,6 +96,6 @@ public class CameraModel extends DeviceModel {
     
   @Override
   public String toString() {
-    return "[Camera: MODEL]"; 
+    return "Camera (MODEL)"; 
   }
 }

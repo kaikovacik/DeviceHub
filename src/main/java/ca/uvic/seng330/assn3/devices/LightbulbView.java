@@ -81,13 +81,12 @@ public class LightbulbView extends DeviceView{
     view.setHgap(5);
     view.setVgap(10);
     view.borderProperty();
-    // black border
     view.setStyle(
         " -fx-padding: 10; " +
         " -fx-border-color: black; " +
         " -fx-border-radius: 5; " +
         " -fx-box-shadow: 10px; " +
-        " -fx-background-color: lightgrey; " +
+        " -fx-background-color: linear-gradient(white, lightgrey); " +
         " -fx-background-radius: 5; "
         );
   }

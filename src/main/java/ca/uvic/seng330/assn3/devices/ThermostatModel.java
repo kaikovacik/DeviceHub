@@ -58,6 +58,6 @@ public class ThermostatModel extends DeviceModel {
   
   @Override
   public String toString() {
-    return "[Thermostat: MODEL]"; 
+    return "Thermostat (MODEL)"; 
   }
 }

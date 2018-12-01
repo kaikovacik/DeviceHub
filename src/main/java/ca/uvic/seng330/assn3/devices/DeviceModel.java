@@ -65,6 +65,6 @@ public abstract class DeviceModel {
   }
   
   public String toString() {
-    return "[Device: MODEL]"; 
+    return "Device (MODEL)"; 
   }
 }

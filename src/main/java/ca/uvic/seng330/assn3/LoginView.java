@@ -5,6 +5,7 @@ import javafx.geometry.HPos;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.Control;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -34,7 +35,9 @@ public class LoginView {
   }
   
   private void constructLoginLayout() {
-    
+    final Label loginLabel = new Label("Login");
+    loginLabel.setId("loginLabel");
+   
     Label alertLabel = new Label(initialMessage);
     alertLabel.setId("alertLabel"); // id for ui tests
     alertLabel.setStyle("-fx-font-style: italic");
@@ -121,38 +124,29 @@ public class LoginView {
     }));
     
     //view.setAlignment(Pos.CENTER);
-    view.addRow(0, new Label("Login"), alertLabel);
+    view.addRow(0, loginLabel, alertLabel);
     view.addRow(1, new Label("Username:"), usernameField);
     view.addRow(2, new Label("Password:"), passwordField);
     view.addRow(3, loginB, newUserB);
     
     // TEMPORARY
-    view.addRow(4, kaiBypassB, sethBypassB, guestBypassB);
+//    view.addRow(4, kaiBypassB, sethBypassB, guestBypassB);
     // END TEMPORARY
   }
   
   private void createAndConfigurePane() {
     view = new GridPane();
-
-    ColumnConstraints leftCol = new ColumnConstraints();
-    leftCol.setHalignment(HPos.RIGHT);
-    leftCol.setHgrow(Priority.NEVER);
-
-    ColumnConstraints rightCol = new ColumnConstraints();
-    rightCol.setHgrow(Priority.SOMETIMES);
-    
-    view.getColumnConstraints().addAll(leftCol, rightCol);
+    view.setId("loginView");
     view.setAlignment(Pos.CENTER);
     view.setHgap(5);
     view.setVgap(10);
-    view.borderProperty();
     // black border
     view.setStyle(
         " -fx-padding: 10; " +
             " -fx-border-color: black; " +
             " -fx-border-radius: 5; " +
             " -fx-box-shadow: 10px; " +
-            " -fx-background-color: lightgrey; " +
+            " -fx-background-color: linear-gradient(skyblue, lightgrey); " +
             " -fx-background-radius: 5; "
         );
   }

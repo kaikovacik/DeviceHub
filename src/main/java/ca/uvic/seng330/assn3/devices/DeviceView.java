@@ -24,6 +24,6 @@ public abstract class DeviceView {
   }
   
   public String toString() {
-    return "[" + model.getName() + ": " + model.getIdentifier() + "]"; 
+    return model.getName() + " (" + model.getIdentifier() + ")"; 
   }
 }
