@@ -2,17 +2,14 @@ package ca.uvic.seng330.assn3;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Date;
 
 import org.json.JSONObject;
 
 public class DataPersister {
 
   private FileWriter file;
-  private Date date;
   
   public DataPersister() {
-    this.date = new Date();
     try {
       this.file = new FileWriter("src/main/PersistedData/dataLog.txt", true);
       //file.write("Client booted on: " + date.toString() + "\r\n");

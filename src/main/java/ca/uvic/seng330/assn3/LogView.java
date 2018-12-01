@@ -5,40 +5,30 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.LinkedList;
 import java.util.List;
-
 import org.json.JSONObject;
-
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.geometry.HPos;
-import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
-import jdk.nashorn.internal.parser.JSONParser;
 
 public class LogView {
   private GridPane view ;
-  private Label statusLabel;
   private Organizer organizer;
-  private LinkedList<String> logList;
   private ListView<String> list;
   private ObservableList<String> items;
   private int x;
-  private int oldMaxDevID;
 
   public LogView(Organizer pOrganizer) {
     x = 0;
     this.organizer = pOrganizer;
     createAndConfigurePane();
-    logList = new LinkedList<>();
     list = new ListView<String>();
-    //list.setPrefWidth(50);
     list.setPrefHeight(150);
     items = FXCollections.observableArrayList ();
     list.setItems(items);

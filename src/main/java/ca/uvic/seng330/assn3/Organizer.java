@@ -107,6 +107,7 @@ public class Organizer{
       device.getModel().turnOn();
       //alert(device, (device.getClass().toString() + " (" + device.getModel.getIdentifier().toString() + ") is now operational"));
     }
+    logString("All devices turned on.");
   }
 
   public void shutdown() {

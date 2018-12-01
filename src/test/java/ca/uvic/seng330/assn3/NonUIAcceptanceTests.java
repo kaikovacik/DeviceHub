@@ -21,85 +21,12 @@ public class NonUIAcceptanceTests {
 
   private Organizer organizer;
   private Scene scene;
-  
+
   @Before
   public void initializeSystem() {
     organizer = new Organizer();
   }
 
-  @Test
-  public void testA_Users() {
-    // Place holder, to be added
-  }
-  
-  /*
-  @Test
-  public void testB_Hub() {
-    
-    CameraView cView = new CameraView(organizer);
-    ThermostatView tView = new ThermostatView(organizer);
-    LightbulbView lView = new LightbulbView(organizer);
-    SmartPlugView sPView1 = new SmartPlugView(organizer);
-    SmartPlugView sPView2 = new SmartPlugView(organizer);
-    SmartPlugView sPView3 = new SmartPlugView(organizer);
-    
-    
-    assertTrue("failure message", organizer.getViews().contains(sPView2));
-    assertTrue("failure message", sPView2.getModel().getIdentifier() == 5);
-    
-    assertEquals(organizer.numOfDevices(), 6);
-    
-    
-    try {
-      organizer.unregister(cView.getModel().getIdentifier());
-    } catch (HubRegistrationException e) {
-      e.printStackTrace();
-      fail();
-    }
-    assertEquals(organizer.numOfDevices(), 5);
-    
-    try {
-      organizer.unregister(lView.getModel().getIdentifier());
-      // unregister nonexistant device
-      organizer.unregister(cView.getModel().getIdentifier());
-      fail();
-    } catch (HubRegistrationException e) {
-      // TODO Auto-generated catch block
-    }
-    assertEquals(organizer.numOfDevices(), 4);
-    
-    // test status off initially
-    for( DeviceView d : organizer.getViews().values()) {
-      if(d.getModel().getStatus().equals(Status.OFF)) {
-        
-      }else {
-        fail();
-      }
-    }
-    
-    // test startup
-    organizer.startup();
-    for( DeviceView d : organizer.getViews().values()) {
-      if(d.getModel().getStatus().equals(Status.NORMAL)) {
-        
-      }else {
-        fail();
-      }
-    }
-    
-    // test shutdown
-    organizer.shutdown();
-    for( DeviceView d : organizer.getViews().values()) {
-      if(d.getModel().getStatus().equals(Status.OFF)) {
-        
-      }else {
-        fail();
-      }
-    }
-
-  }
-*/
- 
   @Test
   public void testC_Camera() {
     int space = 3;
@@ -143,7 +70,7 @@ public class NonUIAcceptanceTests {
     assertTrue("failure message",model.getStatus().equals(Status.OFF));
     model.turnOn();
     assertTrue("failure message",model.getStatus().equals(Status.NORMAL));
-    
+
   }
 
   @Test

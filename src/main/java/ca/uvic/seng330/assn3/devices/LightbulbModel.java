@@ -2,7 +2,6 @@ package ca.uvic.seng330.assn3.devices;
 
 import ca.uvic.seng330.assn3.Organizer;
 import ca.uvic.seng330.assn3.Status;
-import javafx.beans.property.SimpleStringProperty;
 
 public class LightbulbModel extends DeviceModel {
 

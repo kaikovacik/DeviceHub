@@ -15,7 +15,6 @@ import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -36,6 +35,8 @@ public class Client extends Application {
   private static Organizer organizer;
   private static User currentUser;
   private static ConfigureView configureView;
+  private static AlertsView alertsView;
+  private static LogView prevActivitiesView;
 
   public static void main(String[] args) {
     launch(args);
@@ -77,6 +78,8 @@ public class Client extends Application {
 
     return scene;
   }
+  
+  
   
   public static void logout() {
     logout(null);
@@ -134,7 +137,7 @@ public class Client extends Application {
     if (currentUser instanceof Admin) {
 
       // Configure Tab
-      LogView prevActivitiesView = new LogView(organizer);
+      prevActivitiesView = new LogView(organizer);
       VBox configVbox = new VBox();
       Tab configTab = new Tab();
       configTab.setId("configTab"); // id for ui tests
@@ -226,6 +229,7 @@ public class Client extends Application {
 
     // SmartPlug Tab
     Tab smartPlugTab = new Tab();
+    smartPlugTab.setId("smartPlugTab"); // id for ui tests
     smartPlugTab.setText("Smart Plugs"); // id for ui tests
     VBox smartPlugVbox = new VBox();
     refreshSmartPlugTab(smartPlugVbox);
@@ -259,7 +263,7 @@ public class Client extends Application {
     tabPane.getTabs().add(logoutTab);
     mainPane.setCenter(tabPane);
 
-    AlertsView alertsView = new AlertsView(organizer);
+    alertsView = new AlertsView(organizer);
     mainPane.setBottom(alertsView.asParent());
 
     mainPane.prefHeightProperty().bind(scene.heightProperty());
@@ -289,7 +293,6 @@ public class Client extends Application {
       try {
         organizer.unregister(d.getModel().getIdentifier());
       } catch (HubRegistrationException e) {
-        // TODO Auto-generated catch block
         e.printStackTrace();
       }
     }
@@ -343,4 +346,5 @@ public class Client extends Application {
       }
     }
   }
+  
 }

@@ -54,7 +54,7 @@ public class UserView {
       }
 
       MenuButton deviceMenu = new MenuButton("Devices"); 
-      deviceMenu.setId("userViewDeviceMenu"); // id for ui tests
+      deviceMenu.setId("userViewDeviceMenu");                             // id for ui tests
       for (DeviceView d : organizer.getViews().values()) {  
         // If not already linked, add to linked devices UI
         if (!user.getDevices().containsValue(d)) {

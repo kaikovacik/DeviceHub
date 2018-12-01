@@ -24,6 +24,7 @@ public class AlertsView {
  
     //recordingLabel.textProperty().bind(cameraController.isModelRecordingProperty().asString());
     alertText = new Label();
+    alertText.setId("alertText"); // id for ui tests
     alertText.textProperty().bind(organizer.getLastAllert());
     
     view.addRow(1, new Label("Allerts: "), alertText);

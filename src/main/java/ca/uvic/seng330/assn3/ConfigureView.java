@@ -15,21 +15,19 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuButton;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 
 public class ConfigureView {
-  private TextField removeField;
   private Button addCameraB;
   private Button addThermostatB;
   private Button addLightbulbB;
   private Button addSmartPlugB;
   private Button shutdownB;
   private Button statusCheckB;
-  private Button removeB;
+  private Button startB;
   private MenuButton deviceMenu;
   private GridPane view;
   private Organizer organizer;
@@ -97,6 +95,14 @@ public class ConfigureView {
         organizer.shutdown();
       } 
     }));
+    
+    startB = new Button("Start-up");
+    startB.setId("startB"); // id for ui tests
+    startB.setOnMouseClicked((new EventHandler<MouseEvent>() { 
+      public void handle(MouseEvent event) {
+        organizer.startup();
+      } 
+    }));
 
     statusCheckB = new Button("Check Device Status");
     statusCheckB.setId("statusCheckB"); // id for ui tests
@@ -110,7 +116,7 @@ public class ConfigureView {
     view.addRow(0, new Label("Remove existing device:"), deviceMenu);
     view.addRow(1, new Label("New device:"));
     view.addColumn(1, addCameraB, addThermostatB, addLightbulbB, addSmartPlugB);
-    view.addRow(8, new Label("System:"), shutdownB, statusCheckB );
+    view.addRow(8, new Label("System:"), startB, shutdownB, statusCheckB );
   }
   
   protected void addToDeviceMenu(DeviceView d) {

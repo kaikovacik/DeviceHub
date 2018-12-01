@@ -1,12 +1,6 @@
 package ca.uvic.seng330.assn3.devices;
 
-import java.io.File;
-import java.net.MalformedURLException;
-import java.net.URL;
-
 import ca.uvic.seng330.assn3.Organizer;
-import javafx.beans.binding.Bindings;
-import javafx.beans.property.DoubleProperty;
 import javafx.event.EventHandler;
 import javafx.geometry.HPos;
 import javafx.geometry.Pos;
@@ -17,11 +11,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import javafx.scene.media.MediaView;
 import javafx.scene.web.WebView;
-import javafx.util.Duration;
 
 public class CameraView extends DeviceView{
 
@@ -35,8 +25,6 @@ public class CameraView extends DeviceView{
   private Button onOffB;
   private Button recordB;
   private Button eraseB;
-  private Button mediaControlB;
-  private MediaView mediaView;
   private WebView webView;
 
   public CameraView(Organizer organizer) {    
@@ -121,7 +109,7 @@ public class CameraView extends DeviceView{
     webView.setMinSize(300, 200);
     webView.setMaxSize(300, 200);
     webView.setVisible(true);
-    
+    webView.setId("webPlayer");
     
     /*
     final File file = new File("oow2010-2.flv");
