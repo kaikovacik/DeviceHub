@@ -6,8 +6,7 @@ before_install:
 #- mv InstructorTestAssn2Part1.java $TRAVIS_BUILD_DIR/src/test/java/ca/uvic/seng330/assn2/part1
 #- curl -f -OL http://webhome.cs.uvic.ca/~nernst/InstructorTestAssn2Part2.java
 #- mv InstructorTestAssn2Part2.java $TRAVIS_BUILD_DIR/src/test/java/ca/uvic/seng330/assn2/part2
-- rm $TRAVIS_BUILD_DIR/src/test/java/ca/uvic/seng330/assn3/Template/ClickApplicationTest.java
-- rm $TRAVIS_BUILD_DIR/src/test/java/ca/uvic/seng330/assn3/Template/DesktopPaneTest.java
+
 - rm $TRAVIS_BUILD_DIR/src/test/java/ca/uvic/seng330/assn3/UIAcceptanceTests.java
 
 script:
