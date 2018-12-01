@@ -161,6 +161,8 @@ public class UIAcceptanceTests extends ApplicationTest {
     clickOn("#cameraRecordB");
 
     sleep(1000);
+    clickOn("#webPlayer");
+    sleep(100);
   }
   
 

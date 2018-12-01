@@ -46,8 +46,9 @@ public class Client extends Application {
   public void start(Stage primaryStage) {
     Scene scene = createScene();
 
-    // load stylesheet
-     //scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
+    // LOAD STYLE SHEET                                                                           // COMMENT THIS OUT IF NEEDED
+    scene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
+    // LOAD STYLE SHEET                                                                           // COMMENT THIS OUT IF NEEDED
 
     primaryStage.setScene(scene);
     primaryStage.setAlwaysOnTop(false);
@@ -62,7 +63,7 @@ public class Client extends Application {
   // scene object for unit tests
   public static Scene createScene() { 
     organizer = new Organizer();
-   
+
     try {
       organizer.addUser(new Admin("kai", "iak"));
       organizer.addUser(new Admin("seth", "htes"));
@@ -78,9 +79,9 @@ public class Client extends Application {
 
     return scene;
   }
-  
-  
-  
+
+
+
   public static void logout() {
     logout(null);
   }
@@ -96,10 +97,10 @@ public class Client extends Application {
 
     root.getChildren().add(mainPane);
   }
-  
+
   public static void addUserLayout() {
     root.getChildren().clear(); 
-    
+
     BorderPane mainPane = new BorderPane();
     AddUserView addUserView = new AddUserView(organizer);
 
@@ -117,21 +118,21 @@ public class Client extends Application {
     root.getChildren().clear();
 
     currentUser = organizer.getUsers().get(username);
-    
+
     // Print login info to console
     System.out.println(currentUser + 
-      " logged in and has access to " + 
-      ((currentUser instanceof Admin)? 
-        "ALL existing devices." 
-      : ((currentUser.getDevices().size() == 0)?
-          "NO devices"
-        : "the following devices:\n" + 
-          currentUser.getDevices().values())));
-      
+        " logged in and has access to " + 
+        ((currentUser instanceof Admin)? 
+            "ALL existing devices." 
+            : ((currentUser.getDevices().size() == 0)?
+                "NO devices"
+                : "the following devices:\n" + 
+                currentUser.getDevices().values())));
+
     BorderPane mainPane = new BorderPane();
     TabPane tabPane = new TabPane();
     tabPane.setTabClosingPolicy(TabClosingPolicy.UNAVAILABLE);
-       
+
     configureView = new ConfigureView(organizer); //instantiated outside of if because PopulateSystem needs to acces it.
     // Only show configure tab when user is an admin
     if (currentUser instanceof Admin) {
@@ -146,7 +147,7 @@ public class Client extends Application {
       configVbox.getChildren().add(prevActivitiesView.asParent() );
       configTab.setContent(configVbox);
       tabPane.getTabs().add(configTab);
-      
+
       // User Tab
       Tab userTab = new Tab("Users");
       userTab.setId("userTab"); // id for ui tests
@@ -166,7 +167,7 @@ public class Client extends Application {
       userTab.setContent(userScroll);
       tabPane.getTabs().add(userTab);
     }
-    
+
     // Cameras Tab
     Tab cameraTab = new Tab();
     cameraTab.setId("cameraTab"); // id for ui tests
@@ -258,7 +259,7 @@ public class Client extends Application {
     });
 
     // puts Cameras + other Dev in system
-//     PopulateSystem();
+    //     PopulateSystem();
 
     tabPane.getTabs().add(logoutTab);
     mainPane.setCenter(tabPane);
@@ -279,7 +280,7 @@ public class Client extends Application {
       configureView.addToDeviceMenu(new CameraView(organizer));
       i ++;
     }
-    
+
     configureView.addToDeviceMenu(new CameraView(organizer));
     configureView.addToDeviceMenu(new CameraView(organizer));
     configureView.addToDeviceMenu(new ThermostatView(organizer));
@@ -299,11 +300,11 @@ public class Client extends Application {
     organizer.logString("All Devices Removed");
     organizer.logString("Client Closed");
   }
-  
+
   public static Organizer getOrganizer() {
     return organizer;
   }
-  
+
   private static void refreshUserTab(VBox vbox) {
     vbox.getChildren().clear();
     for (User u : organizer.getUsers().values()) {
@@ -346,5 +347,5 @@ public class Client extends Application {
       }
     }
   }
-  
+
 }
