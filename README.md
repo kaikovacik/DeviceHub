@@ -9,3 +9,6 @@ Standard Users:
 
 Note that data is not persistent and any user added, 
 will be deleted upon restarting of the program.
+
+Use gradle run to run program.
+Use gradle test to run automated test.
